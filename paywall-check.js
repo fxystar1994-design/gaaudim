@@ -26,6 +26,9 @@ for (var i = 0; i < PAID_PATTERNS.length; i++) {
 if (!isPaid) return;
 if (localStorage.getItem('gd_unlocked') === 'true') return;
 
+// 留言奖励特例：SZ05可以通过留言免费解锁
+if (filename.indexOf('SZ05') !== -1 && localStorage.getItem('gd_reward_sz05') === '1') return;
+
 var overlay = document.createElement('div');
 overlay.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(250,250,248,0.98);z-index:99999;display:flex;align-items:center;justify-content:center;padding:24px';
 overlay.innerHTML = '<div style="max-width:420px;text-align:center;font-family:-apple-system,sans-serif">'

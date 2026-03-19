@@ -259,10 +259,19 @@ a{text-decoration:none;color:inherit}
 
 <div class="comment-section" id="wall">
   <h2>💬 留言墙</h2>
-  <p class="section-sub">留言即解锁「文书面试必杀技」（价值 ¥3000+ 中介文书费）🎁 已帮助 200+ 人拿到港校offer</p>
+  <p class="section-sub">说说你的学粤语经历——你的留言会帮到下一个来香港的人</p>
   <div class="seed-comments" id="seed-comments"></div>
   <p style="text-align:center;margin:20px 0 24px;font-size:13px;color:var(--muted)">— 以上为精选留言 · 以下为实时留言区 —</p>
   <div id="twikoo-comment"></div>
+  <!-- 留言奖励：只解锁SZ05一集 -->
+  <div id="reward-area" style="text-align:center;margin-top:20px;padding:16px;background:var(--gold-soft);border:1px solid rgba(200,152,46,0.2);border-radius:10px">
+    <p style="font-size:13px;color:var(--body);margin-bottom:10px">留言后点击下方按钮，免费领取价值 ¥3000+ 的文书课</p>
+    <button id="reward-btn" onclick="claimReward()" style="background:var(--gold);color:#fff;border:none;padding:12px 28px;border-radius:10px;font-family:inherit;font-size:14px;font-weight:700;cursor:pointer">🎁 我已留言，领取「文书面试必杀技」</button>
+  </div>
+  <div id="reward-result" style="display:none;text-align:center;margin-top:20px;padding:16px;background:var(--accent-soft);border:1px solid rgba(26,122,92,0.2);border-radius:10px">
+    <p style="font-size:14px;font-weight:700;color:var(--accent);margin-bottom:8px">✅ 奖励已领取！</p>
+    <a href="MayJie_SZ05.html" style="display:inline-block;background:var(--accent);color:#fff;padding:10px 24px;border-radius:8px;font-size:14px;font-weight:700">进入「文书面试必杀技」→</a>
+  </div>
 </div>
 
 <hr class="divider">
@@ -456,9 +465,7 @@ function toggleSL(i){var k='gd_sl_'+i;if(localStorage.getItem(k)){localStorage.r
 function initTwikoo(){if(typeof twikoo!=='undefined'){twikoo.init({envId:'https://gaaudim-comments.vercel.app',el:'#twikoo-comment',lang:'zh-CN'});
 // 持续检测直到邮箱输入框出现并自动填入
 var _fillAttempts=0;var _fillTimer=setInterval(function(){_fillAttempts++;var els=document.querySelectorAll('.tk-meta-input .el-input:nth-child(2) input');if(els.length>0){els.forEach(function(el){if(!el.value){var nativeSet=Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype,'value').set;nativeSet.call(el,'nore'+'ply'+'@'+'gaau'+'dim.com');el.dispatchEvent(new Event('input',{bubbles:true}))}});clearInterval(_fillTimer)}if(_fillAttempts>30)clearInterval(_fillTimer)},1000);
-// 留言奖励：检测评论数量增加
-setTimeout(function(){var tk=document.getElementById('twikoo-comment');if(tk){var b=document.createElement('div');b.id='reward-banner';b.style.cssText='display:none;background:var(--gold-soft);border:1px solid rgba(200,152,46,0.3);border-radius:10px;padding:14px 16px;margin-top:16px;text-align:center';b.innerHTML='🎁 <strong>留言奖励已解锁！</strong> <a href="MayJie_SZ05.html" style="color:var(--gold);font-weight:700">点击进入：文书面试必杀技（限时免费）→</a>';tk.parentNode.insertBefore(b,tk.nextSibling);
-var initCount=-1;setInterval(function(){var comments=tk.querySelectorAll('.tk-comment');var curCount=comments.length;if(initCount===-1){initCount=curCount}else if(curCount>initCount&&!localStorage.getItem('gd_reward_shown')){localStorage.setItem('gd_reward_shown','1');b.style.display='block';showToast('🎁 感谢留言！已解锁「文书面试必杀技」');b.scrollIntoView({behavior:"smooth",block:"center"});initCount=curCount}},2000)}},5000)}else{document.getElementById('twikoo-comment').innerHTML='<p style="text-align:center;color:var(--muted);padding:40px 0">留言系统加载中...刷新页面重试</p>'}}
+}else{document.getElementById('twikoo-comment').innerHTML='<p style="text-align:center;color:var(--muted);padding:40px 0">留言系统加载中...刷新页面重试</p>'}}
 
 var currentPaywallTarget='';
 function showPaywall(t){if(localStorage.getItem('gd_unlocked')==='true'){showToast('已解锁全站内容！');return}currentPaywallTarget=t;document.getElementById('modal-desc').textContent='「'+t+'」属于完整版内容。解锁后永久查看全站所有指南。';goStep(1);document.getElementById('paywall-modal').classList.add('active');document.body.style.overflow='hidden';if(typeof gtag==='function')gtag('event','paywall_view',{content:t})}
@@ -474,6 +481,9 @@ document.getElementById('paywall-modal').addEventListener('click',function(e){if
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closePaywall()});
 function showToast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2500)}
 renderSeeds();checkUnlockStatus();initTwikoo();
+// 留言奖励
+function claimReward(){localStorage.setItem('gd_reward_sz05','1');document.getElementById('reward-area').style.display='none';document.getElementById('reward-result').style.display='block';showToast('🎁 已解锁「文书面试必杀技」！')}
+if(localStorage.getItem('gd_reward_sz05')){document.getElementById('reward-area').style.display='none';document.getElementById('reward-result').style.display='block'}
 var _e='gaaudim2026'+'@'+'gmail.com';
 var fe=document.getElementById('footer-email');if(fe){fe.innerHTML='<a href="mai'+'lto:'+_e+'" style="color:var(--gold)">'+_e+'</a>'}
 var me=document.getElementById('modal-email');if(me){me.innerHTML='<a href="mai'+'lto:'+_e+'" style="color:var(--gold);font-weight:600">联系我们</a>'}
