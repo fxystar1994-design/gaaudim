@@ -186,6 +186,60 @@ a{text-decoration:none;color:inherit}
 .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--ink);color:#fff;padding:12px 24px;border-radius:10px;font-size:14px;font-weight:500;z-index:2000;opacity:0;transition:all .3s;pointer-events:none}
 .toast.show{transform:translateX(-50%) translateY(0);opacity:1}
 @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+/* ========== MOBILE RESPONSIVE (768px以下) ========== */
+.nav-burger{display:none;width:40px;height:40px;background:none;border:none;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0}
+.nav-burger span{display:block;width:20px;height:2px;background:var(--ink);border-radius:2px;transition:all .3s}
+.nav-burger.open span:nth-child(1){transform:rotate(45deg) translate(2.5px,2.5px)}
+.nav-burger.open span:nth-child(2){opacity:0}
+.nav-burger.open span:nth-child(3){transform:rotate(-45deg) translate(2.5px,-2.5px)}
+.mobile-menu{display:none;position:fixed;top:52px;left:0;right:0;bottom:0;background:rgba(250,250,248,.98);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);z-index:99;padding:24px;flex-direction:column;gap:4px}
+.mobile-menu.show{display:flex}
+.mobile-menu a{font-size:17px;font-weight:700;color:var(--ink);padding:14px 0;border-bottom:1px solid var(--border);transition:color .2s}
+.mobile-menu a:last-child{border-bottom:none}
+.mobile-menu a:active{color:var(--gold)}
+
+@media(max-width:768px){
+  html{-webkit-tap-highlight-color:transparent}
+  body{touch-action:manipulation}
+  .nav-links{display:none}
+  .nav-burger{display:flex}
+  .nav{padding:0 16px}
+  .hero{padding:48px 20px 32px}
+  .hero h1{font-size:clamp(22px,6vw,34px)}
+  .hero-sub{font-size:15px;margin-bottom:22px}
+  .hero-cta{font-size:15px;padding:13px 30px}
+  .dual-section{padding:0 16px 36px;gap:14px}
+  .daily-card,.mini-trans{min-height:auto;padding:22px 18px}
+  .path-section{padding:0 16px 36px}
+  .section-header h2{font-size:20px}
+  .path-steps{grid-template-columns:1fr 1fr;gap:10px}
+  .path-card{padding:20px 16px}
+  .path-card.featured::before{font-size:10px;padding:2px 10px}
+  .trust{padding:36px 16px}
+  .trust h2{font-size:20px;margin-bottom:20px}
+  .comment-section{padding:36px 16px}
+  .comment-section h2{font-size:20px}
+  .what{padding:36px 16px}
+  .what h2{font-size:20px}
+  .courses{padding:36px 16px}
+  .courses h2{font-size:20px}
+  .course-list{grid-template-columns:1fr}
+  .course-link{padding:12px 14px;min-height:44px;font-size:15px}
+  .footer{padding:24px 16px}
+  .divider{margin-left:16px;margin-right:16px}
+  .modal-box{padding:28px 20px;margin:16px}
+  .modal-title{font-size:20px}
+  .modal-price{font-size:30px}
+}
+@media(max-width:480px){
+  .hero{padding:36px 16px 28px}
+  .hero h1{font-size:22px}
+  .hero-sub{font-size:14px}
+  .path-steps{grid-template-columns:1fr}
+  .path-card.featured::before{top:-9px;font-size:10px}
+  .daily-word{font-size:20px}
+}
 </style>
 </head>
 <body>
@@ -197,7 +251,14 @@ a{text-decoration:none;color:inherit}
     <a href="#wall">留言墙</a>
     <a href="#all">全部课程</a>
   </div>
+  <button class="nav-burger" id="burger" aria-label="菜单" onclick="toggleMenu()"><span></span><span></span><span></span></button>
 </nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#path" onclick="closeMenu()">🗺️ 学习路线</a>
+  <a href="#wall" onclick="closeMenu()">💬 留言墙</a>
+  <a href="#all" onclick="closeMenu()">📋 全部课程</a>
+  <a href="translator.html" onclick="closeMenu()">🔄 粤普翻译</a>
+</div>
 
 <div class="hero">
   <h1>别再用错方法学粤语了<br><em>有普通话底子，3周开口说</em></h1>
@@ -208,8 +269,7 @@ a{text-decoration:none;color:inherit}
 
 <div class="path-section" id="path">
   <div class="section-header">
-    <h2>🗺️ 零基础？跟着这条路走</h2>
-    <p>4步搞掂粤语入门，每步都有明确目标</p>
+    <h2>🗺️ 推荐学习路线</h2>
   </div>
   <div class="path-steps">
     <a class="path-card featured" href="MayJie_EP01_ChaChaan.html">
@@ -241,7 +301,6 @@ a{text-decoration:none;color:inherit}
       <span class="path-btn b4">去实战</span>
     </a>
   </div>
-  <a class="path-mega-cta" href="MayJie_EP01_ChaChaan.html">🚀 我是零基础，直接从茶餐厅开始<span class="sub">30分钟后你就能用粤语点餐了</span></a>
 </div>
 
 <hr class="divider">
@@ -445,6 +504,8 @@ a{text-decoration:none;color:inherit}
 <div class="toast" id="toast"></div>
 <script src="https://cdn.jsdelivr.net/npm/twikoo@1.7.3/dist/twikoo.all.min.js"></script>
 <script>
+function toggleMenu(){var b=document.getElementById('burger'),m=document.getElementById('mobileMenu');b.classList.toggle('open');m.classList.toggle('show');document.body.style.overflow=m.classList.contains('show')?'hidden':''}
+function closeMenu(){document.getElementById('burger').classList.remove('open');document.getElementById('mobileMenu').classList.remove('show');document.body.style.overflow=''}
 var SEEDS=[
 {n:"一个港漂仔",t:"在香港三年了，以前只会讲普通话。跟着茶餐厅那集学完当天就去试了，真的能用！服务员阿姐还夸我粤语讲得好。",d:"3天前",likes:19},
 {n:"Sophie",t:"高频词VW01-VW03背完之后日常对话直接能听懂大半了。粤拼速成也是真的好——原来我已经会60%了。",d:"5天前",likes:32},
