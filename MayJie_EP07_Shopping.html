@@ -1,0 +1,1589 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GQBZMQQEQ9"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-GQBZMQQEQ9");</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>购物砍价 · EP07 · 街头粤语 | 搞掂 gaaudim.com</title>
+<meta name="keywords" content="搞掂,gaaudim,粤语,香港,高才通,港漂,留学,粤拼,香港生活指南">
+<meta name="description" content="购物砍价 · EP07 | 场景化粤语教学 | 搞掂 gaaudim.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&family=Noto+Sans+SC:wght@400;500;700;900&family=ZCOOL+KuaiLe&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:    #1C1C2E;
+  --cream:  #FEFAF3;
+  --red:    #E84545;
+  --gold:   #F5A623;
+  --teal:   #00B4D8;
+  --purple: #7B2FBE;
+  --green:  #2DC653;
+  --pink:   #FF6B9D;
+  --card:   #FFFFFF;
+  --border: #E8E0D0;
+  --soft:   #F7F3EB;
+  --shadow: 0 4px 24px rgba(28,28,46,0.10);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+
+body {
+  background: var(--cream);
+  font-family:'Noto Sans SC',sans-serif;
+  color: var(--ink);
+  line-height: 1.7;
+}
+
+/* ===== STICKY NAV ===== */
+.top-bar {
+  position: sticky; top:0; z-index:100;
+  background: var(--ink);
+  padding: 0 24px;
+  display: flex; align-items:center; justify-content:space-between;
+  height: 52px;
+  border-bottom: 3px solid var(--gold);
+}
+.top-bar .logo {
+  font-family:'ZCOOL KuaiLe',cursive;
+  color: var(--gold); font-size:18px; letter-spacing:1px;
+}
+.top-bar .ep-tag {
+  background: var(--red); color:white;
+  font-size:12px; font-weight:700;
+  padding:4px 12px; border-radius:20px;
+}
+.nav-dots {
+  display:flex; gap:6px;
+}
+.nav-dot {
+  width:8px;height:8px; border-radius:50%;
+  background:rgba(255,255,255,0.2); cursor:pointer;
+  transition:background 0.2s;
+}
+.nav-dot.active{background:var(--gold);}
+
+/* ===== TEACHER INTRO BANNER ===== */
+.teacher-banner {
+  background: linear-gradient(135deg, #1C1C2E 0%, #2D2B55 50%, #1C1C2E 100%);
+  padding: 32px 24px 24px;
+  position: relative; overflow:hidden;
+}
+.teacher-banner::before {
+  content:'';position:absolute;top:0;right:0;
+  width:300px;height:100%;
+  background: radial-gradient(ellipse at right, rgba(245,166,35,0.15), transparent 70%);
+}
+
+.teacher-card {
+  max-width: 880px; margin:0 auto;
+  display: flex; gap:28px; align-items:center;
+  position:relative; z-index:1;
+  flex-wrap:wrap;
+}
+
+/* ===== TEACHER AVATAR (CSS ILLUSTRATION) ===== */
+.avatar-wrap {
+  flex-shrink:0;
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+}
+.avatar {
+  width:110px;height:110px;
+  position:relative;
+}
+/* Head */
+.av-head {
+  width:80px;height:80px;
+  background:#F4C2A0;
+  border-radius:50%;
+  position:absolute; top:0; left:15px;
+  border:3px solid var(--ink);
+  overflow:hidden;
+}
+/* Hair */
+.av-head::before {
+  content:'';position:absolute;top:0;left:0;right:0;
+  height:38px;
+  background:#2C1A0E;
+  border-radius:50% 50% 0 0;
+}
+/* Bangs */
+.av-head::after {
+  content:'';position:absolute;top:28px;left:-4px;right:-4px;
+  height:14px;
+  background:#2C1A0E;
+  border-radius:0 0 40% 40%;
+}
+/* Eyes */
+.av-eye-l,.av-eye-r {
+  position:absolute;width:10px;height:10px;
+  background:#2C1A0E; border-radius:50%;
+  top:42px;
+}
+.av-eye-l{left:20px;} .av-eye-r{right:20px;}
+/* Smile */
+.av-mouth {
+  position:absolute;bottom:14px;left:50%;transform:translateX(-50%);
+  width:22px;height:10px;
+  border:0 solid transparent;
+  border-bottom:3px solid #C0392B;
+  border-radius:0 0 12px 12px;
+}
+/* Glasses */
+.av-glasses {
+  position:absolute;top:38px;left:12px;right:12px;height:14px;
+  border-top:2.5px solid #D4AC0D;
+}
+.av-glasses::before,.av-glasses::after {
+  content:'';position:absolute;
+  width:20px;height:18px;
+  border:2.5px solid #D4AC0D;
+  border-radius:4px;top:-3px;
+}
+.av-glasses::before{left:0;}
+.av-glasses::after{right:0;}
+/* Body */
+.av-body {
+  width:86px;height:36px;
+  background:#E84545;
+  border-radius:8px 8px 0 0;
+  position:absolute;bottom:0;left:12px;
+  border:3px solid var(--ink);
+}
+.av-body::before {
+  content:'👩‍🏫';position:absolute;
+  font-size:18px;top:5px;left:50%;transform:translateX(-50%);
+}
+/* Name badge */
+.av-badge {
+  background: var(--gold);
+  color: var(--ink);
+  font-family:'ZCOOL KuaiLe',cursive;
+  font-size:14px; font-weight:700;
+  padding:4px 14px; border-radius:20px;
+  border:2px solid var(--ink);
+  white-space:nowrap;
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+/* Teacher intro text */
+.teacher-intro { flex:1; min-width:240px; }
+.teacher-intro h2 {
+  font-family:'ZCOOL KuaiLe',cursive;
+  color: var(--gold); font-size:28px;
+  margin-bottom:6px;
+}
+.teacher-intro .tagline {
+  color:#aaa; font-size:14px; margin-bottom:12px;
+  font-style:italic;
+}
+.teacher-speech {
+  background: rgba(255,255,255,0.07);
+  border-left: 4px solid var(--gold);
+  border-radius:0 8px 8px 0;
+  padding:12px 16px;
+  color:#ddd; font-size:15px; line-height:1.8;
+}
+.teacher-speech strong { color: var(--gold); }
+.teacher-tags {
+  display:flex; flex-wrap:wrap; gap:8px; margin-top:12px;
+}
+.t-tag {
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.15);
+  color:#bbb; font-size:12px;
+  padding:4px 10px; border-radius:12px;
+}
+
+/* ===== EPISODE INTRO ===== */
+.ep-intro {
+  max-width:880px; margin:32px auto; padding:0 24px;
+}
+.ep-title-block {
+  display:flex; align-items:flex-start; gap:20px; flex-wrap:wrap;
+}
+.ep-num {
+  background:var(--red); color:white;
+  font-family:'ZCOOL KuaiLe',cursive; font-size:13px;
+  padding:4px 14px; border-radius:4px;
+  white-space:nowrap; margin-top:4px;
+}
+.ep-title {
+  font-family:'ZCOOL KuaiLe',cursive;
+  font-size:clamp(26px,5vw,40px); color:var(--ink);
+  line-height:1.2;
+}
+.ep-desc {
+  color:#666; font-size:15px; margin-top:10px; max-width:600px;
+}
+
+/* ===== SECTION WRAPPER ===== */
+.section { max-width:880px; margin:0 auto; padding:0 24px 40px; }
+
+/* ===== SECTION HEADER ===== */
+.sec-head {
+  display:flex; align-items:center; gap:12px;
+  margin-bottom:20px; padding-bottom:12px;
+  border-bottom:2px solid var(--border);
+}
+.sec-icon {
+  width:40px;height:40px;
+  background:var(--ink); color:var(--gold);
+  border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px; flex-shrink:0;
+}
+.sec-head h3 {
+  font-family:'ZCOOL KuaiLe',cursive;
+  font-size:22px; color:var(--ink);
+}
+.sec-head .sec-sub { color:#888; font-size:13px; margin-top:2px; }
+
+/* ===== MAY SAY (teacher commentary bubble) ===== */
+.may-say {
+  display:flex; gap:14px; align-items:flex-start;
+  background:var(--soft); border-radius:12px;
+  padding:16px; margin:20px 0;
+  border:1.5px solid var(--border);
+}
+.may-say .mini-av {
+  width:44px;height:44px;
+  background:#F4C2A0; border-radius:50%;
+  border:2.5px solid var(--ink);
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px; flex-shrink:0;
+}
+.may-say-body { flex:1; }
+.may-say-name {
+  font-size:12px; font-weight:700; color:var(--red);
+  letter-spacing:1px; margin-bottom:4px;
+}
+.may-say-text { font-size:14px; color:#444; line-height:1.7; }
+.may-say-text strong { color:var(--ink); }
+
+/* ===== VIDEO BOX ===== */
+.video-box {
+  background:#000; border-radius:12px;
+  overflow:hidden; position:relative;
+  border:3px solid var(--ink);
+  box-shadow: var(--shadow);
+  margin-bottom:12px;
+}
+.video-box iframe {
+  width:100%;aspect-ratio:16/9;
+  display:block; border:0;
+}
+.video-label {
+  background:var(--ink); color:var(--gold);
+  font-family:'ZCOOL KuaiLe',cursive; font-size:13px;
+  padding:8px 16px; display:flex; align-items:center; gap:8px;
+}
+.video-timestamp-bar {
+  display:flex; gap:8px; flex-wrap:wrap; margin-top:12px;
+}
+.ts-btn {
+  background:var(--card); border:1.5px solid var(--border);
+  color:var(--teal); font-size:13px; font-weight:600;
+  padding:6px 12px; border-radius:6px;
+  cursor:pointer; transition:all 0.15s;
+  display:flex; align-items:center; gap:5px;
+}
+.ts-btn:hover { background:var(--teal); color:white; border-color:var(--teal); }
+
+/* ===== TRANSCRIPT LINE CARDS ===== */
+.transcript-wrap { display:flex; flex-direction:column; gap:0; }
+
+.t-line {
+  border:1.5px solid var(--border);
+  border-radius:12px; overflow:hidden;
+  margin-bottom:16px;
+  background:var(--card);
+  box-shadow:0 2px 8px rgba(0,0,0,0.05);
+  transition:box-shadow 0.2s;
+}
+.t-line:hover { box-shadow:0 4px 20px rgba(0,0,0,0.10); }
+
+/* Line header */
+.t-line-head {
+  display:flex; align-items:center; gap:14px;
+  padding:16px 20px;
+  cursor:pointer;
+  background:var(--soft);
+  border-bottom:1.5px solid var(--border);
+  flex-wrap:wrap;
+}
+.t-line-head:hover { background:#F0EBE0; }
+
+.speaker-avatar {
+  width:40px;height:40px; border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px; flex-shrink:0;
+  border:2px solid var(--border);
+  background:white;
+}
+.speaker-name {
+  font-size:11px; font-weight:700; color:#888;
+  letter-spacing:1px; text-transform:uppercase;
+}
+.t-line-main { flex:1; }
+.t-cantonese {
+  font-family:'Noto Serif SC',serif;
+  font-size:20px; font-weight:700; color:var(--ink);
+  line-height:1.4;
+}
+.t-jyutping {
+  font-size:13px; color:var(--teal); font-weight:600;
+  margin-top:2px; font-family:'Caveat',cursive; font-size:15px;
+}
+.t-meaning {
+  font-size:13px; color:#888;
+  margin-top:2px;
+}
+.expand-btn {
+  background:var(--ink); color:var(--gold);
+  border:none; border-radius:6px;
+  padding:6px 12px; font-size:12px; font-weight:700;
+  cursor:pointer; white-space:nowrap;
+  font-family:'Noto Sans SC',sans-serif;
+  transition:all 0.15s; letter-spacing:0.5px;
+}
+.expand-btn:hover { background:var(--gold); color:var(--ink); }
+
+/* Line detail */
+.t-line-detail {
+  display:none; padding:20px;
+  border-top:1.5px solid var(--border);
+}
+.t-line-detail.open { display:block; }
+
+/* Word breakdown */
+.word-row {
+  display:flex; flex-wrap:wrap; gap:10px;
+  margin-bottom:20px;
+}
+.word-chip {
+  background:var(--soft);
+  border:1.5px solid var(--border);
+  border-radius:10px; padding:10px 14px;
+  text-align:center; min-width:80px;
+  cursor:pointer; transition:all 0.15s;
+  position:relative;
+}
+.word-chip:hover { border-color:var(--teal); background:#E8F7FC; }
+.word-chip.highlight {
+  border-color:var(--gold); background:#FFF8E7;
+}
+.wc-char {
+  font-family:'Noto Serif SC',serif;
+  font-size:22px; font-weight:700; color:var(--ink);
+  display:block;
+}
+.wc-jp { color:var(--teal); font-size:12px; font-weight:600; display:block; }
+.wc-en { color:#888; font-size:11px; display:block; margin-top:2px; }
+.wc-badge {
+  position:absolute; top:-8px; right:-8px;
+  background:var(--red); color:white;
+  font-size:10px; font-weight:700;
+  padding:2px 6px; border-radius:10px;
+  white-space:nowrap;
+}
+
+/* Notes section */
+.notes-grid {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:12px; margin-bottom:16px;
+}
+@media(max-width:600px){.notes-grid{grid-template-columns:1fr;}}
+
+.note-card {
+  border-radius:8px; padding:14px;
+  border-left:4px solid;
+}
+.note-card.grammar { background:#F0F8FF; border-color:var(--teal); }
+.note-card.culture { background:#FFF8E7; border-color:var(--gold); }
+.note-card.compare { background:#FFF0F5; border-color:var(--pink); }
+.note-card.danger  { background:#FFF5F5; border-color:var(--red); }
+
+.note-label {
+  font-size:11px; font-weight:700; letter-spacing:1px;
+  text-transform:uppercase; margin-bottom:6px;
+  display:flex; align-items:center; gap:5px;
+}
+.note-card.grammar .note-label { color:var(--teal); }
+.note-card.culture .note-label { color:#B7950B; }
+.note-card.compare .note-label { color:var(--pink); }
+.note-card.danger  .note-label { color:var(--red); }
+.note-text { font-size:13px; line-height:1.7; color:#444; }
+.note-text strong { color:var(--ink); }
+.note-text .ct {
+  font-family:'Noto Serif SC',serif;
+  font-weight:700; color:var(--ink);
+}
+.note-text .jp { color:var(--teal); font-size:12px; }
+
+/* Example sentences */
+.examples-title {
+  font-size:13px; font-weight:700; color:var(--ink);
+  margin-bottom:10px; display:flex;align-items:center;gap:6px;
+}
+.ex-list { display:flex;flex-direction:column;gap:8px; }
+.ex-item {
+  background:var(--soft); border-radius:8px;
+  padding:12px 14px;
+  border:1px solid var(--border);
+}
+.ex-ct {
+  font-family:'Noto Serif SC',serif;
+  font-size:17px; font-weight:700; color:var(--ink);
+}
+.ex-jp { color:var(--teal); font-size:12px; font-weight:600; margin:2px 0; }
+.ex-zh { color:#777; font-size:13px; }
+.ex-tag {
+  display:inline-block;
+  background:var(--ink); color:var(--gold);
+  font-size:10px; font-weight:700;
+  padding:2px 7px; border-radius:4px;
+  margin-bottom:6px; letter-spacing:0.5px;
+}
+
+/* ===== CULTURE SPOTLIGHT ===== */
+.culture-box {
+  background: linear-gradient(135deg, #1C1C2E, #2D2B55);
+  border-radius:12px; padding:24px;
+  margin:24px 0; color:white;
+  border:2px solid var(--gold);
+}
+.culture-box h4 {
+  font-family:'ZCOOL KuaiLe',cursive;
+  color:var(--gold); font-size:20px; margin-bottom:16px;
+  display:flex;align-items:center;gap:8px;
+}
+.culture-items { display:flex;flex-direction:column;gap:12px; }
+.culture-item {
+  background:rgba(255,255,255,0.06);
+  border-radius:8px; padding:14px;
+  border-left:3px solid var(--teal);
+  display:flex;gap:12px;align-items:flex-start;
+}
+.culture-item .ci-icon { font-size:24px; flex-shrink:0; }
+.ci-title { font-weight:700; margin-bottom:3px; font-size:14px; }
+.ci-text { color:#bbb; font-size:13px; line-height:1.6; }
+.ci-ct {
+  font-family:'Noto Serif SC',serif;
+  color:var(--gold); font-weight:700;
+}
+
+/* ===== QUIZ ===== */
+.quiz-wrap {
+  background:var(--ink); border-radius:12px;
+  padding:24px; margin:24px 0;
+}
+.quiz-head {
+  display:flex;align-items:center;gap:12px;
+  margin-bottom:20px;
+}
+.quiz-head h3 {
+  font-family:'ZCOOL KuaiLe',cursive;
+  color:var(--gold); font-size:22px;
+}
+.quiz-score-board {
+  background:rgba(255,255,255,0.08); border-radius:8px;
+  padding:8px 14px; color:var(--gold); font-size:14px;
+  font-weight:700; margin-left:auto;
+}
+
+.q-item {
+  background:rgba(255,255,255,0.06); border-radius:10px;
+  padding:18px; margin-bottom:14px;
+}
+.q-num {
+  font-size:11px; font-weight:700; color:var(--teal);
+  letter-spacing:1px; margin-bottom:8px;
+}
+.q-text {
+  color:white; font-size:15px; margin-bottom:12px;
+  font-family:'Noto Serif SC',serif;
+}
+.q-options { display:flex;flex-wrap:wrap;gap:8px; }
+.q-opt {
+  background:rgba(255,255,255,0.08);
+  border:1.5px solid rgba(255,255,255,0.15);
+  color:#ddd; padding:8px 16px;
+  border-radius:8px; cursor:pointer;
+  font-size:14px; transition:all 0.15s;
+  font-family:'Noto Serif SC',serif;
+}
+.q-opt:hover:not([disabled]) { background:rgba(0,180,216,0.2); border-color:var(--teal); }
+.q-opt.correct { background:rgba(45,198,83,0.25); border-color:var(--green); color:#7DFFA6; }
+.q-opt.wrong   { background:rgba(232,69,69,0.25); border-color:var(--red); color:#FFB3B3; }
+.q-feedback {
+  margin-top:10px;font-size:13px;padding:8px 12px;
+  border-radius:6px;display:none;
+}
+.q-feedback.ok  { display:block;background:rgba(45,198,83,0.15);color:var(--green); }
+.q-feedback.bad { display:block;background:rgba(232,69,69,0.15);color:#ff8888; }
+
+/* ===== HOMEWORK ===== */
+.hw-grid { display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px; }
+@media(max-width:560px){.hw-grid{grid-template-columns:1fr;}}
+.hw-card {
+  background:var(--card); border-radius:10px;
+  border:1.5px solid var(--border); padding:16px;
+  display:flex;gap:12px;align-items:flex-start;
+}
+.hw-icon { font-size:28px;flex-shrink:0;margin-top:2px; }
+.hw-label {
+  font-size:11px;font-weight:700;
+  color:var(--teal);letter-spacing:1px;margin-bottom:4px;
+}
+.hw-text { font-size:14px;color:#555;line-height:1.6; }
+.hw-text strong { color:var(--ink); }
+
+/* ===== NEXT EP ===== */
+.next-ep-card {
+  background:var(--ink); border-radius:12px;
+  padding:24px; margin:24px 0;
+  border:2px solid var(--gold);
+  display:flex;gap:20px;align-items:center;
+  flex-wrap:wrap;
+}
+.next-ep-icon { font-size:48px; flex-shrink:0; }
+.next-ep-text h4 {
+  font-family:'ZCOOL KuaiLe',cursive;
+  color:var(--gold);font-size:20px;margin-bottom:6px;
+}
+.next-ep-text p { color:#aaa;font-size:14px;line-height:1.6; }
+
+/* ===== FLOATING TEACHER TIP ===== */
+.float-tip {
+  position:fixed; bottom:24px; right:24px;
+  z-index:200; display:flex;flex-direction:column;align-items:flex-end;gap:8px;
+}
+.float-bubble {
+  background:white; border:2px solid var(--ink);
+  border-radius:16px 16px 4px 16px;
+  padding:12px 16px; max-width:240px;
+  font-size:13px; line-height:1.5;
+  box-shadow:0 8px 24px rgba(0,0,0,0.15);
+  display:none;
+}
+.float-bubble.show { display:block; }
+.float-btn {
+  width:52px;height:52px; border-radius:50%;
+  background:var(--gold); border:3px solid var(--ink);
+  font-size:24px; cursor:pointer;
+  box-shadow:0 4px 16px rgba(0,0,0,0.2);
+  display:flex;align-items:center;justify-content:center;
+  transition:transform 0.2s;
+}
+.float-btn:hover { transform:scale(1.1); }
+
+/* ===== DIVIDER ===== */
+.divider {
+  border:none; border-top:2px dashed var(--border);
+  margin:32px 0;
+}
+
+/* ===== MAY姐私房故事 ===== */
+.story-section {
+  background: linear-gradient(160deg, #FFFBF0 0%, #FFF5E6 100%);
+  border: 2px solid #F0D9B0; border-radius: 16px;
+  overflow: hidden; margin-bottom: 32px;
+  box-shadow: 0 4px 24px rgba(180,120,40,0.08);
+}
+.story-header {
+  background: linear-gradient(90deg, #2C1A0E, #4A2F1A);
+  padding: 20px 28px; display: flex; align-items: center; gap: 16px;
+}
+.story-header-text h3 { font-family:'ZCOOL KuaiLe',cursive; color: var(--gold); font-size: 22px; margin-bottom: 4px; }
+.story-header-text p { color: #bbb; font-size: 13px; }
+.story-av-large {
+  width: 60px; height: 60px; border-radius: 50%;
+  background: #F4C2A0; border: 3px solid var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 30px; flex-shrink: 0;
+}
+.story-body { padding: 24px 28px; }
+.story-pull-quote {
+  font-family:'Caveat', cursive; font-size: 22px; color: #7B4A1E;
+  line-height: 1.6; border-left: 4px solid var(--gold);
+  padding: 12px 20px; background: rgba(245,166,35,0.08);
+  border-radius: 0 8px 8px 0; margin: 20px 0;
+}
+.story-timeline { margin: 24px 0; display: flex; flex-direction: column; }
+.st-item { display: flex; gap: 0; position: relative; }
+.st-left { display: flex; flex-direction: column; align-items: center; width: 48px; flex-shrink: 0; }
+.st-dot { width: 16px; height: 16px; border-radius: 50%; background: var(--gold); border: 3px solid #2C1A0E; flex-shrink: 0; z-index: 1; margin-top: 4px; }
+.st-line { width: 2px; flex: 1; background: linear-gradient(#F5A623, #ddd); margin-top: 4px; }
+.st-item:last-child .st-line { display: none; }
+.st-content { flex: 1; padding: 0 0 28px 12px; }
+.st-year { font-size: 11px; font-weight: 700; color: var(--gold); letter-spacing: 1px; margin-bottom: 4px; }
+.st-title { font-family:'ZCOOL KuaiLe',cursive; font-size: 18px; color: #2C1A0E; margin-bottom: 6px; }
+.st-text { font-size: 14px; color: #555; line-height: 1.8; }
+.st-text strong { color: #2C1A0E; }
+.st-ct { font-family:'Noto Serif SC',serif; font-weight: 700; color: var(--ink); }
+.st-jp { color: var(--teal); font-size: 12px; }
+.st-highlight { background: #FFF8E7; border: 1px solid #F0D9B0; border-radius: 6px; padding: 8px 12px; font-size: 13px; color: #7B4A1E; margin-top: 8px; display: inline-block; }
+
+
+/* ===== INTERACTIVE HOMEWORK ===== */
+.hw-interactive { background:var(--card); border-radius:12px; border:1.5px solid var(--border); padding:20px; margin-bottom:16px; }
+.hw-int-title { font-family:'ZCOOL KuaiLe',cursive; font-size:17px; color:var(--ink); margin-bottom:12px; display:flex;align-items:center;gap:8px; }
+.hw-fill-row { display:flex; flex-wrap:wrap; gap:6px; align-items:center; margin:10px 0; font-size:15px; color:#444; }
+.hw-blank { display:inline-block; min-width:80px; border-bottom:2px dashed var(--teal); padding:2px 8px; color:transparent; cursor:pointer; text-align:center; transition:all .2s; background:rgba(0,180,216,0.05); border-radius:4px; user-select:none; }
+.hw-blank:hover { background:rgba(0,180,216,0.1); }
+.hw-blank.show { color:var(--teal); font-weight:700; }
+.hw-scenario-box { background:var(--soft); border:1.5px solid var(--border); border-radius:10px; padding:16px; margin:12px 0; }
+.hw-reveal { background:var(--ink); color:var(--gold); border:none; padding:8px 20px; border-radius:8px; font-weight:700; cursor:pointer; font-size:13px; font-family:'Noto Sans SC',sans-serif; margin-top:10px; }
+.hw-reveal:hover { background:var(--gold); color:var(--ink); }
+.hw-answer-box { display:none; margin-top:12px; padding:16px; background:#F0FFF4; border:1.5px solid #A8D5B5; border-radius:10px; }
+.hw-answer-box.show { display:block; }
+.hw-match-q { font-size:14px; line-height:2.2; color:#444; }
+
+</style>
+<style>
+/* === GD NAV === */
+.gd-nav{position:sticky;top:0;z-index:9999;background:rgba(28,28,46,.98);backdrop-filter:blur(14px);height:48px;display:flex;align-items:center;padding:0 14px;border-bottom:2px solid #F5A623;box-shadow:0 2px 20px rgba(245,166,35,.1);font-family:'Noto Sans SC',sans-serif;gap:8px;}
+.gd-nav-left{display:flex;align-items:center;gap:12px;flex-shrink:0;}
+.gd-nav-brand{font-family:'ZCOOL KuaiLe',cursive;color:#F5A623;font-size:15px;text-decoration:none;white-space:nowrap;}
+.gd-nav-brand span{font-family:'ZCOOL KuaiLe',cursive;font-size:13px;color:rgba(245,166,35,.6);margin-left:6px;font-weight:400;}
+
+@media(min-width:640px){}
+.gd-nav-links{flex:1;display:flex;justify-content:flex-end;gap:2px;overflow:visible;}
+.gd-dd{position:relative;display:inline-block;}
+.gd-nav-slogan{color:rgba(255,255,255,.65);font-size:12px;white-space:nowrap;display:none;}
+@media(min-width:640px){.gd-nav-slogan{display:block;}}
+.gd-dd-btn{color:rgba(255,255,255,.55);font-size:11px;padding:6px 10px;border-radius:12px;white-space:nowrap;cursor:pointer;transition:all .2s;background:none;border:none;font-family:inherit;}
+.gd-dd-btn:hover,.gd-dd-btn.on{background:rgba(245,166,35,.12);color:#F5A623;}
+.gd-dd-list{display:none;position:absolute;top:100%;right:0;background:#1C1C2E;border:1px solid rgba(245,166,35,.25);border-radius:10px;min-width:200px;max-height:70vh;overflow-y:auto;overflow-x:visible;z-index:10000;box-shadow:0 8px 32px rgba(0,0,0,.5);padding:6px 0;margin-top:4px;}
+.gd-dd:hover .gd-dd-list{display:block;}
+.gd-dd-list a{display:block;padding:7px 14px;color:rgba(255,255,255,.7);font-size:11px;text-decoration:none;white-space:nowrap;transition:all .15s;}
+.gd-dd-list a:hover{background:rgba(245,166,35,.1);color:#F5A623;}
+.gd-dd-list a.cur{color:#F5A623;font-weight:700;background:rgba(245,166,35,.08);}
+@media(max-width:600px){.gd-dd-btn{font-size:10px;padding:5px 6px;}.gd-dd-list{min-width:160px;right:-20px;}}
+/* === BOTTOM BAR === */
+.gd-bot{position:fixed;bottom:0;left:0;right:0;z-index:9998;background:rgba(28,28,46,.97);backdrop-filter:blur(12px);border-top:2px solid #F5A623;padding:6px 10px;display:flex;align-items:center;gap:6px;font-family:'Noto Sans SC',sans-serif;}
+.gd-bot-arr{color:rgba(255,255,255,.5);font-size:14px;cursor:pointer;padding:4px 6px;border:none;background:none;text-decoration:none;transition:color .2s;flex-shrink:0;}
+.gd-bot-arr:hover{color:#F5A623;}
+.gd-bot-scroll{flex:1;display:flex;gap:4px;overflow-x:auto;padding:4px 0;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+.gd-bot-scroll::-webkit-scrollbar{display:none;}
+.gd-bot-ep{color:rgba(255,255,255,.4);font-size:10px;padding:4px 10px;border-radius:10px;white-space:nowrap;text-decoration:none;transition:all .2s;flex-shrink:0;border:1px solid transparent;}
+.gd-bot-ep:hover{color:rgba(255,255,255,.7);background:rgba(255,255,255,.05);}
+.gd-bot-ep.on{color:#F5A623;background:rgba(245,166,35,.12);border-color:rgba(245,166,35,.3);font-weight:700;}
+/* === INJECTED FOOTER === */
+.gd-copy-btn{display:block;margin:24px auto 12px;padding:10px 24px;background:#F5A623;color:#1C1C2E;border:none;border-radius:24px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s;}
+.gd-copy-btn:hover{transform:scale(1.04);box-shadow:0 4px 16px rgba(245,166,35,.4);}
+.gd-contact{text-align:center;padding:14px 16px;font-size:12px;color:#000;}
+.gd-contact a{color:#000;text-decoration:underline;text-underline-offset:3px;}
+.gd-legal-index{text-align:center;padding:4px 16px 16px;font-size:9px;color:#999;}
+.gd-next{display:block;background:linear-gradient(135deg,#1C1C2E,#2d2b55);border-radius:14px;padding:20px 24px;margin:30px auto;max-width:600px;text-decoration:none;border:1px solid rgba(245,166,35,.2);transition:all .3s;}
+.gd-next:hover{border-color:rgba(245,166,35,.5);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.15);}
+.gd-next h4{color:#F5A623;font-family:'ZCOOL KuaiLe',cursive;font-size:16px;margin-bottom:4px;}
+.gd-next p{color:rgba(255,255,255,.5);font-size:12px;}
+/* anti-copy */
+body{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}
+input,textarea{-webkit-user-select:text;-moz-user-select:text;-ms-user-select:text;user-select:text;}
+.gd-spacer{height:60px;}
+</style>
+</head>
+<body>
+<nav class="gd-nav">
+<div class="gd-nav-left">
+<a href="index.html" class="gd-nav-brand">搞掂 <span>gaaudim.com</span></a>
+<span class="gd-nav-slogan">一个网站帮你搞掂粤语·签证·租房·求职·留学</span>
+
+</div>
+<div class="gd-nav-links">
+<div class="gd-dd">
+<button class="gd-dd-btn on">街头粤语</button>
+<div class="gd-dd-list">
+<a href="MayJie_EP01_ChaChaan.html">EP01 茶餐厅生存战</a>
+<a href="MayJie_EP02_MTR.html">EP02 地铁大冒险</a>
+<a href="MayJie_EP03_ConvStore.html">EP03 便利店粤语</a>
+<a href="MayJie_EP04_Taxi_Doctor.html">EP04 的士+睇医生</a>
+<a href="MayJie_EP05_Takeout.html">EP05 外卖点餐</a>
+<a href="MayJie_EP06_Self_Intro.html">EP06 自我介绍</a>
+<a href="MayJie_EP07_Shopping.html" class="cur">EP07 购物砍价</a>
+<a href="MayJie_EP08_Entertainment.html">EP08 娱乐消遣</a>
+<a href="MayJie_EP09_Renting.html">EP09 租房攻略</a>
+<a href="MayJie_EP10_JobInterview.html">EP10 求职面试</a>
+<a href="MayJie_EP11_Hiking.html">EP11 行山郊游</a>
+<a href="MayJie_EP12_Festivals.html">EP12 节日祝福</a>
+<a href="MayJie_EP13_Complaints.html">EP13 投诉维权</a>
+<a href="MayJie_EP14_Dating.html">EP14 恋爱社交</a>
+<a href="MayJie_EP15_Drinking.html">EP15 饮酒社交</a>
+<a href="MayJie_EP16_Beauty.html">EP16 美容美发</a>
+<a href="MayJie_EP17_PhoneCall.html">EP17 打电话</a>
+<a href="MayJie_EP18_Neighbors__1_.html">EP18 邻居社交</a>
+<a href="MayJie_EP19_DimSum.html">EP19 饮茶点心</a>
+<a href="MayJie_EP20_Supermarket.html">EP20 超市买菜</a>
+<a href="MayJie_EP21_Numbers.html">EP21 数字时间钱</a>
+<a href="MayJie_EP22.html">EP22 离岛渡轮</a>
+<a href="MayJie_EP23.html">EP23 运动健身</a>
+<a href="MayJie_EP24.html">EP24 银行邮局</a>
+<a href="MayJie_EP25.html">EP25 潮语实战</a>
+<a href="MayJie_EP26.html">EP26 亲子家庭</a>
+<a href="MayJie_EP27.html">EP27 唱K实战</a>
+<a href="MayJie_EP28.html">EP28 家务日常</a>
+<a href="MayJie_EP29.html">EP29 凉茶养生</a>
+<a href="MayJie_EP30.html">EP30 大结局</a>
+</div></div>
+<div class="gd-dd">
+<button class="gd-dd-btn">粤拼速成</button>
+<div class="gd-dd-list">
+<a href="MayJie_JP01.html">JP01 你已经会粤拼了</a>
+<a href="MayJie_JP02.html">JP02 声母：只差这6个</a>
+<a href="MayJie_JP03.html">JP03 韵母(上)</a>
+<a href="MayJie_JP04.html">JP04 韵母(下)+入声</a>
+<a href="MayJie_JP05.html">JP05 九声六调(上)</a>
+<a href="MayJie_JP06.html">JP06 九声六调(下)</a>
+<a href="MayJie_JP07.html">JP07 变调大陷阱</a>
+<a href="MayJie_JP08.html">JP08 声调最小对</a>
+<a href="MayJie_JP09.html">JP09 综合实战</a>
+<a href="MayJie_JP10.html">JP10 毕业+学习路线</a>
+<a href="MayJie_JP_Extra_LazyTones__1_.html">JP-X 懒音特辑</a>
+</div></div>
+<div class="gd-dd">
+<button class="gd-dd-btn">词汇箱</button>
+<div class="gd-dd-list">
+<a href="MayJie_VW01.html">VW01 生存25词</a>
+<a href="MayJie_VW02.html">VW02 动作25词</a>
+<a href="MayJie_VW03.html">VW03 日常动作25词</a>
+<a href="MayJie_VW04.html">VW04 形容词25词</a>
+<a href="MayJie_VW05.html">VW05 疑问+时间25词</a>
+<a href="MayJie_VW06.html">VW06 社交礼貌25词</a>
+<a href="MayJie_VW07.html">VW07 职场返工25词</a>
+<a href="MayJie_VW08.html">VW08 饮食美食25词</a>
+<a href="MayJie_VW09.html">VW09 交通出行25词</a>
+<a href="MayJie_VW10.html">VW10 购物讲价25词</a>
+<a href="MayJie_VW11.html">VW11 身体健康25词</a>
+<a href="MayJie_VW12.html">VW12 情绪心理25词</a>
+<a href="MayJie_VW13.html">VW13 数量程度25词</a>
+<a href="MayJie_VW14.html">VW14 居家日常25词</a>
+<a href="MayJie_VW15.html">VW15 天气环境25词</a>
+<a href="MayJie_VW16.html">VW16 科技网络25词</a>
+<a href="MayJie_VW17.html">VW17 语气词专题25词</a>
+<a href="MayJie_VW18.html">VW18 俗语歇后语25词</a>
+<a href="MayJie_VW19.html">VW19 潮语网络语(上)</a>
+<a href="MayJie_VW20.html">VW20 潮语网络语(下)</a>
+</div></div>
+<div class="gd-dd">
+<button class="gd-dd-btn">粤语歌</button>
+<div class="gd-dd-list">
+<a href="MayJie_HKSongs_EP01_V3.html">HK01 唱K速成</a>
+<a href="MayJie_HKSongs_EP02.html">HK02 歌词解码</a>
+<a href="MayJie_HKSongs_EP03_V3.html">HK03 林夕vs黄伟文</a>
+<a href="MayJie_HKSongs_EP04_V2.html">HK04 林夕的粤语宇宙</a>
+<a href="MayJie_HKSongs_EP05_V2.html">HK05 MIRROR与新天王</a>
+<a href="MayJie_HKSongs_EP06_V2.html">HK06 粤语情歌进化史</a>
+<a href="MayJie_HKSongs_EP07_V2.html">HK07 Beyond与摇滚</a>
+<a href="MayJie_HKSongs_EP08_V2.html">HK08 KTV实战歌单</a>
+<a href="MayJie_HKSongs_EP09_V2.html">HK09 2025年度盘点</a>
+<a href="MayJie_HKSongs_EP10_V3.html">HK10 50首文化地图</a>
+<a href="MayJie_HKSongs_Extra_V2.html">HK-X 粤语歌的世界坐标</a>
+</div></div>
+<div class="gd-dd">
+<button class="gd-dd-btn">港漂留学</button>
+<div class="gd-dd-list">
+<a href="MayJie_SZ01.html">SZ01 先找到你自己</a>
+<a href="MayJie_SZ02.html">SZ02 K-12择校攻略</a>
+<a href="MayJie_SZ03.html">SZ03 八大选校真相</a>
+<a href="MayJie_SZ04.html">SZ04 硕士申请时间线</a>
+<a href="MayJie_SZ05.html">SZ05 文书面试必杀技</a>
+<a href="MayJie_SZ06.html">SZ06 费用·奖学金·签证</a>
+<a href="MayJie_SZ07.html">SZ07 落地生存指南</a>
+<a href="MayJie_SZ08.html">SZ08 起薪·就业·行业</a>
+<a href="MayJie_SZ09.html">SZ09 Campus Life指南</a>
+<a href="MayJie_SZ10.html">SZ10 毕业后全景图</a>
+<a href="MayJie_SZ_Extra_TaoCi.html">SZ-X PhD套磁奖学金</a>
+</div></div>
+</div></nav>
+
+
+
+<!-- TEACHER BANNER -->
+<div class="teacher-banner" id="teacher">
+  <div class="teacher-card">
+    <div class="avatar-wrap">
+      <div class="avatar">
+        <div class="av-head">
+          <div class="av-eye-l"></div><div class="av-eye-r"></div>
+          <div class="av-glasses"></div><div class="av-mouth"></div>
+        </div>
+        <div class="av-body"></div>
+      </div>
+      <div class="av-badge">陈May姐 👩‍🏫</div>
+    </div>
+    <div class="teacher-intro">
+      <h2>我系陈May姐，叫我May姐就得喇 😄</h2>
+      <p class="tagline">土生土长九龙人 · 教粤语廿年 · 茶餐厅是我的第二课室</p>
+      <div class="teacher-speech">
+        哈喽同学们！我系陈美伶，大家叫我 <strong>May姐</strong> 就好啦。
+        我喺香港九龙土生土长，教粤语廿几年，教过学生来自<strong>全球三十几个国家</strong>。
+        我信一样嘢——学语言，<strong>唔系背书</strong>，系要食落去、听落去、用落去。
+        所以我每集都会带你睇真实场景、分析真实对话。<strong>跟住May姐，包你学到！</strong> 💪
+      </div>
+      <div class="teacher-tags">
+        <span class="t-tag">🏙 九龙土著</span><span class="t-tag">☕ 茶餐厅专家</span>
+        <span class="t-tag">📺 TVB重度用户</span><span class="t-tag">🎤 发音纠正魔鬼</span>
+        <span class="t-tag">🍜 云吞面爱好者</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EP INTRO -->
+<div class="ep-intro">
+  <div class="ep-title-block">
+    <div class="ep-num">📺 第07集</div>
+    <div>
+      <div class="ep-title">🏬 今集主题：逛街讲价</div>
+      <div class="ep-desc">今集May姐教你喺街市、女人街、商场买嘢嘅粤语——试衫、讲价、退换货！学完这集，你可以做到香港扫街达人！</div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- DIALOGUE -->
+<div class="section" id="video-section">
+  <div class="sec-head">
+    <div class="sec-icon">🏬</div>
+    <div><h3>今集情景：逛街讲价</h3><div class="sec-sub">跟住May姐，一句一句来分析 · 下面有完整逐句解读</div></div>
+  </div>
+
+  <div class="may-say">
+    <div class="mini-av">👩</div>
+    <div class="may-say-body">
+      <div class="may-say-name">MAY姐说</div>
+      <div class="may-say-text">同学们，今日我哋去行街买嘢！香港購物天堂唔系得名牌，<strong>街市</strong>、<strong>女人街</strong>、<strong>深水埗</strong>先係最有烟火气嘅地方。学识呢几句，你可以喺旺角买到平靓正嘅好嘢！记住：讲价係一种艺术，唔好怕醜！</div>
+    </div>
+  </div>
+
+  <div id="tts-badge" style="background:#888;color:white;font-size:12px;padding:6px 14px;border-radius:6px;margin-bottom:12px;display:inline-block;">🔄 正在检测粤语语音包…</div>
+
+  <div style="background:#0f0f1a;border-radius:12px;overflow:hidden;border:3px solid var(--ink);box-shadow:var(--shadow);margin-bottom:12px;">
+    <div style="background:#111;padding:10px 16px;display:flex;align-items:center;gap:10px;border-bottom:2px solid #222;">
+      <span style="font-size:18px;">🎬</span>
+      <span style="font-family:'ZCOOL KuaiLe',cursive;color:#F5A623;font-size:15px;">逛街讲价情景对话</span>
+      <span style="margin-left:auto;color:#666;font-size:12px;">点击 🔊 听发音 · 点击词卡学单词</span>
+    </div>
+    <div style="padding:20px 20px 24px;background:linear-gradient(180deg,#1a1a2e,#12121f);">
+
+      <div style="display:flex;gap:12px;align-items:flex-start;margin-bottom:20px;">
+        <div style="background:linear-gradient(135deg,#2DC653,#333);width:38px;height:38px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;color:#fff;font-weight:700;">May</div>
+        <div style="flex:1;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:3px;">
+            <span style="font-family:'Noto Serif SC',serif;font-size:18px;font-weight:700;color:#fff;">老板，呢件衫几钱呀？</span>
+            <button onclick="speak('老板，呢件衫几钱呀？', this)" style="background:rgba(245,166,35,0.2);border:1.5px solid rgba(245,166,35,0.4);color:#F5A623;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button>
+          </div>
+          <div style="color:#00B4D8;font-size:12px;">lou5 baan2, ni1 gin6 saam1 gei2 cin4 aa3?</div>
+          <div style="color:#888;font-size:13px;margin-top:2px;">老板，这件衣服多少钱？</div>
+          <div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:6px;"><button onclick="speak('呢件', this)" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:6px;padding:4px 10px;cursor:pointer;color:#fff;font-size:12px;">呢件 <span style="color:#00B4D8">ni1gin6</span> 这件 🔊</button>
+<button onclick="speak('衫', this)" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:6px;padding:4px 10px;cursor:pointer;color:#fff;font-size:12px;">衫 <span style="color:#00B4D8">saam1</span> 衣服 🔊</button>
+</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:12px;align-items:flex-start;margin-bottom:20px;">
+        <div style="background:linear-gradient(135deg,#FF6B9D,#333);width:38px;height:38px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;color:#fff;font-weight:700;">档主</div>
+        <div style="flex:1;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:3px;">
+            <span style="font-family:'Noto Serif SC',serif;font-size:18px;font-weight:700;color:#fff;">呢件二百蚊，靓料嚟㗎，你试下啦。</span>
+            <button onclick="speak('呢件二百蚊，靓料嚟㗎，你试下啦。', this)" style="background:rgba(245,166,35,0.2);border:1.5px solid rgba(245,166,35,0.4);color:#F5A623;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button>
+          </div>
+          <div style="color:#00B4D8;font-size:12px;">ni1 gin6 ji6 baak3 man1, leng3 liu2 lai4 gaa3, nei5 si3 haa5 laa1.</div>
+          <div style="color:#888;font-size:13px;margin-top:2px;">这件两百块，好面料来的，你试试吧。</div>
+          <div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:6px;"><button onclick="speak('靚料', this)" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:6px;padding:4px 10px;cursor:pointer;color:#fff;font-size:12px;">靚料 <span style="color:#00B4D8">leng3liu2</span> 好面料 🔊</button>
+<button onclick="speak('试下', this)" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:6px;padding:4px 10px;cursor:pointer;color:#fff;font-size:12px;">试下 <span style="color:#00B4D8">si3haa5</span> 试一下 🔊</button>
+</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:12px;align-items:flex-start;margin-bottom:20px;">
+        <div style="background:linear-gradient(135deg,#2DC653,#333);width:38px;height:38px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;color:#fff;font-weight:700;">May</div>
+        <div style="flex:1;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:3px;">
+            <span style="font-family:'Noto Serif SC',serif;font-size:18px;font-weight:700;color:#fff;">有冇细码㗎？我着M号。</span>
+            <button onclick="speak('有冇细码㗎？我着M号。', this)" style="background:rgba(245,166,35,0.2);border:1.5px solid rgba(245,166,35,0.4);color:#F5A623;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button>
+          </div>
+          <div style="color:#00B4D8;font-size:12px;">jau5 mou5 sai3 maa5 gaa3? ngo5 zoek3 em1 hou6.</div>
+          <div style="color:#888;font-size:13px;margin-top:2px;">有没有小号？我穿M号。</div>
+          <div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:6px;"><button onclick="speak('细码', this)" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:6px;padding:4px 10px;cursor:pointer;color:#fff;font-size:12px;">细码 <span style="color:#00B4D8">sai3maa5</span> 小号 🔊</button>
+<button onclick="speak('着', this)" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:6px;padding:4px 10px;cursor:pointer;color:#fff;font-size:12px;">着 <span style="color:#00B4D8">zoek3</span> 穿 🔊</button>
+</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:12px;align-items:flex-start;margin-bottom:20px;">
+        <div style="background:linear-gradient(135deg,#FF6B9D,#333);width:38px;height:38px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;color:#fff;font-weight:700;">档主</div>
+        <div style="flex:1;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:3px;">
+            <span style="font-family:'Noto Serif SC',serif;font-size:18px;font-weight:700;color:#fff;">有呀！试身室喺入面，你入去试下。</span>
+            <button onclick="speak('有呀！试身室喺入面，你入去试下。', this)" style="background:rgba(245,166,35,0.2);border:1.5px solid rgba(245,166,35,0.4);color:#F5A623;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button>
+          </div>
+          <div style="color:#00B4D8;font-size:12px;">jau5 aa3! si3 san1 sat1 hai2 jap6 min6, nei5 jap6 heoi3 si3 haa5.</div>
+          <div style="color:#888;font-size:13px;margin-top:2px;">有的！试衣间在里面，你进去试一下。</div>
+          <div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:6px;"><button onclick="speak('试身室', this)" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:6px;padding:4px 10px;cursor:pointer;color:#fff;font-size:12px;">试身室 <span style="color:#00B4D8">si3san1sat1</span> 试衣间 🔊</button>
+<button onclick="speak('入面', this)" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:6px;padding:4px 10px;cursor:pointer;color:#fff;font-size:12px;">入面 <span style="color:#00B4D8">jap6min6</span> 里面 🔊</button>
+</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:12px;align-items:flex-start;margin-bottom:20px;">
+        <div style="background:linear-gradient(135deg,#2DC653,#333);width:38px;height:38px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;color:#fff;font-weight:700;">May</div>
+        <div style="flex:1;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:3px;">
+            <span style="font-family:'Noto Serif SC',serif;font-size:18px;font-weight:700;color:#fff;">老板，可唔可以平啲呀？一百五得唔得？</span>
+            <button onclick="speak('老板，可唔可以平啲呀？一百五得唔得？', this)" style="background:rgba(245,166,35,0.2);border:1.5px solid rgba(245,166,35,0.4);color:#F5A623;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button>
+          </div>
+          <div style="color:#00B4D8;font-size:12px;">lou5 baan2, ho2 m4 ho2 ji5 peng4 di1 aa3? jat1 baak3 ng5 dak1 m4 dak1?</div>
+          <div style="color:#888;font-size:13px;margin-top:2px;">老板，能不能便宜点？一百五行不行？</div>
+          <div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:6px;"><button onclick="speak('平啲', this)" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:6px;padding:4px 10px;cursor:pointer;color:#fff;font-size:12px;">平啲 <span style="color:#00B4D8">peng4di1</span> 便宜点 🔊</button>
+<button onclick="speak('得唔得', this)" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:6px;padding:4px 10px;cursor:pointer;color:#fff;font-size:12px;">得唔得 <span style="color:#00B4D8">dak1m4dak1</span> 行不行 🔊</button>
+</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:12px;align-items:flex-start;margin-bottom:20px;">
+        <div style="background:linear-gradient(135deg,#FF6B9D,#333);width:38px;height:38px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;color:#fff;font-weight:700;">档主</div>
+        <div style="flex:1;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:3px;">
+            <span style="font-family:'Noto Serif SC',serif;font-size:18px;font-weight:700;color:#fff;">一百五太平喇！最少一百八啦，街坊价嚟㗎！</span>
+            <button onclick="speak('一百五太平喇！最少一百八啦，街坊价嚟㗎！', this)" style="background:rgba(245,166,35,0.2);border:1.5px solid rgba(245,166,35,0.4);color:#F5A623;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button>
+          </div>
+          <div style="color:#00B4D8;font-size:12px;">jat1 baak3 ng5 taai3 peng4 laa3! zeoi3 siu2 jat1 baak3 baat3 laa1, gaai1 fong1 gaa3 lai4 gaa3!</div>
+          <div style="color:#888;font-size:13px;margin-top:2px;">一百五太便宜了！最少一百八，邻居价来的！</div>
+          <div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:6px;"><button onclick="speak('街坊价', this)" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:6px;padding:4px 10px;cursor:pointer;color:#fff;font-size:12px;">街坊价 <span style="color:#00B4D8">gaai1fong1gaa3</span> 老熟人价 🔊</button>
+<button onclick="speak('最少', this)" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:6px;padding:4px 10px;cursor:pointer;color:#fff;font-size:12px;">最少 <span style="color:#00B4D8">zeoi3siu2</span> 最少 🔊</button>
+</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="may-say" style="margin-top:20px;">
+    <div class="mini-av">👩</div>
+    <div class="may-say-body">
+      <div class="may-say-name">MAY姐说</div>
+      <div class="may-say-text">
+        睇完一次？好！下面，<strong>May姐逐句帮你拆</strong>！每一句都有生词拆解、语法重点、文化注解同埋举一反三例句。
+        点击「展开分析」就可以深入学习每一句啦！
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- TRANSCRIPT ANALYSIS -->
+<div class="section" id="transcript">
+  <div class="sec-head">
+    <div class="sec-icon">🔬</div>
+    <div><h3>逐句台词分析</h3><div class="sec-sub">点击右侧「展开分析」查看词汇拆解 · 文化注解 · 例句</div></div>
+  </div>
+  <div class="transcript-wrap">
+
+    <div class="t-line" id="line1">
+      <div class="t-line-head" onclick="toggleLine('line1')">
+        <div class="speaker-avatar">👩</div>
+        <div class="t-line-main">
+          <div class="speaker-name">May姐 · 顾客</div>
+          <div class="t-cantonese">老板，呢件衫几钱呀？</div>
+          <div class="t-jyutping">lou5 baan2, ni1 gin6 saam1 gei2 cin4 aa3?</div>
+          <div class="t-meaning">「老板，这件衣服多少钱？」</div>
+        </div>
+        <button class="expand-btn">展开分析 ▾</button>
+      </div>
+      <div class="t-line-detail" id="line1-detail">
+        <div class="word-row"><div class="word-chip highlight"><span class="wc-char">老板</span><span class="wc-jp">lou5 baan2</span><span class="wc-en">老板/店主</span><span class="wc-badge">口语称呼</span></div>
+<div class="word-chip"><span class="wc-char">呢件</span><span class="wc-jp">ni1 gin6</span><span class="wc-en">这件</span></div>
+<div class="word-chip highlight"><span class="wc-char">衫</span><span class="wc-jp">saam1</span><span class="wc-en">衣服</span><span class="wc-badge">粤语专属</span></div>
+<div class="word-chip"><span class="wc-char">几钱</span><span class="wc-jp">gei2 cin4</span><span class="wc-en">多少钱</span></div>
+</div>
+        <div class="notes-grid"><div class="note-card grammar"><div class="note-label">📌 衫 = 衣服</div><div class="note-text">粤语「<strong>衫</strong>」saam1 是衣服的统称。买衫=买衣服，着衫=穿衣服，除衫=脱衣服。普通话学习者记住：衫≠衬衫，它比「衬衫」范围大得多！</div></div>
+<div class="note-card compare"><div class="note-label">🔄 量词差异</div><div class="note-text">粤语衣服量词用「件」gin6：一件衫、呢件裙。裤子也用件：呢件裤。但普通话用「条」裤子、「件」衣服——注意差别！</div></div>
+<div class="note-card culture"><div class="note-label">🏙 文化注解</div><div class="note-text">香港街市和排档称老板「老板」或「老板娘」；商场专柜称「小姐」或「先生」。在女人街和深水埗，叫声「老板」再问价是基本礼仪。</div></div>
+</div>
+        <div class="examples-title">✏️ 举一反三</div>
+        <div class="ex-list"><div class="ex-item"><div class="ex-tag">逛街版</div><div class="ex-ct">老板，呢条裙几钱？</div><div class="ex-jp">lou5 baan2, ni1 tiu4 kwan4 gei2 cin4?</div><div class="ex-zh">老板，这条裙子多少钱？</div></div>
+<div class="ex-item"><div class="ex-tag">商场版</div><div class="ex-ct">小姐，呢对鞋有冇折扣呀？</div><div class="ex-jp">siu2 ze2, ni1 deoi3 haai4 jau5 mou5 zit3 kau3 aa3?</div><div class="ex-zh">小姐，这双鞋有没有折扣？</div></div>
+</div>
+        <div class="may-say" style="margin-top:16px;"><div class="mini-av">👩</div><div class="may-say-body"><div class="may-say-name">MAY姐补充</div><div class="may-say-text">「衫」这个字同学们千万唔好读成普通话的shān！粤语读saam1，第一声高平调。记住：粤语里「衫」就等于英语的clothes，是最广义的衣服。</div></div></div>
+      </div>
+    </div>
+    <div class="t-line" id="line2">
+      <div class="t-line-head" onclick="toggleLine('line2')">
+        <div class="speaker-avatar">🧑‍💼</div>
+        <div class="t-line-main">
+          <div class="speaker-name">档主 · 老板</div>
+          <div class="t-cantonese">呢件二百蚊，靓料嚟㗎，你试下啦。</div>
+          <div class="t-jyutping">ni1 gin6 ji6 baak3 man1, leng3 liu2 lai4 gaa3, nei5 si3 haa5 laa1.</div>
+          <div class="t-meaning">「这件两百块，好面料来的，你试试吧。」</div>
+        </div>
+        <button class="expand-btn">展开分析 ▾</button>
+      </div>
+      <div class="t-line-detail" id="line2-detail">
+        <div class="word-row"><div class="word-chip highlight"><span class="wc-char">蚊</span><span class="wc-jp">man1</span><span class="wc-en">块/港币</span><span class="wc-badge">超高频</span></div>
+<div class="word-chip highlight"><span class="wc-char">靓</span><span class="wc-jp">leng3</span><span class="wc-en">好/漂亮</span><span class="wc-badge">万能形容词</span></div>
+<div class="word-chip"><span class="wc-char">料</span><span class="wc-jp">liu2</span><span class="wc-en">面料/材质</span></div>
+<div class="word-chip"><span class="wc-char">试下</span><span class="wc-jp">si3 haa5</span><span class="wc-en">试一下</span></div>
+</div>
+        <div class="notes-grid"><div class="note-card grammar"><div class="note-label">📌 靓 = 万能赞美词</div><div class="note-text"><strong>靓</strong> leng3 是粤语最万能的正面形容词！靓女=美女，靓仔=帅哥，靓衫=好看的衣服，靓料=好面料。甚至可以说「呢碗面好靓」=这碗面看起来很诱人。</div></div>
+<div class="note-card grammar"><div class="note-label">📌 V+下 = 动词轻量化</div><div class="note-text">「下」haa5 放动词后表示"一下"：试下=试一下，睇下=看一下，听下=听一下，谂下=想一下。比普通话的"一下"更地道。</div></div>
+<div class="note-card danger"><div class="note-label">⚠️ 避坑提示</div><div class="note-text">「蚊」man1 = 港币块的口语说法。书面用「元」或「HKD」，口语永远用「蚊」。所以"五十蚊"=50港币。唔好同蚊（蚊子）搞混——虽然写法一样！</div></div>
+</div>
+        <div class="examples-title">✏️ 举一反三</div>
+        <div class="ex-list"><div class="ex-item"><div class="ex-tag">夸人版</div><div class="ex-ct">你今日着得好靓呀！</div><div class="ex-jp">nei5 gam1 jat6 zoek3 dak1 hou2 leng3 aa3!</div><div class="ex-zh">你今天穿得好漂亮！</div></div>
+<div class="ex-item"><div class="ex-tag">问价版</div><div class="ex-ct">呢个银包几蚊呀？</div><div class="ex-jp">ni1 go3 ngan4 baau1 gei2 man1 aa3?</div><div class="ex-zh">这个钱包多少钱？</div></div>
+</div>
+        
+      </div>
+    </div>
+    <div class="t-line" id="line3">
+      <div class="t-line-head" onclick="toggleLine('line3')">
+        <div class="speaker-avatar">👩</div>
+        <div class="t-line-main">
+          <div class="speaker-name">May姐 · 顾客</div>
+          <div class="t-cantonese">有冇细码㗎？我着M号。</div>
+          <div class="t-jyutping">jau5 mou5 sai3 maa5 gaa3? ngo5 zoek3 em1 hou6.</div>
+          <div class="t-meaning">「有没有小号？我穿M号。」</div>
+        </div>
+        <button class="expand-btn">展开分析 ▾</button>
+      </div>
+      <div class="t-line-detail" id="line3-detail">
+        <div class="word-row"><div class="word-chip highlight"><span class="wc-char">有冇</span><span class="wc-jp">jau5 mou5</span><span class="wc-en">有没有</span><span class="wc-badge">超高频句式</span></div>
+<div class="word-chip"><span class="wc-char">细码</span><span class="wc-jp">sai3 maa5</span><span class="wc-en">小号</span></div>
+<div class="word-chip highlight"><span class="wc-char">着</span><span class="wc-jp">zoek3</span><span class="wc-en">穿</span><span class="wc-badge">粤语专属</span></div>
+</div>
+        <div class="notes-grid"><div class="note-card grammar"><div class="note-label">📌 有冇 = 有没有</div><div class="note-text">粤语「有冇」jau5 mou5 是最常用的疑问句式之一，直接替代普通话的"有没有"。万能模板：有冇+名词？有冇细码？有冇打折？有冇其他颜色？</div></div>
+<div class="note-card compare"><div class="note-label">🔄 尺码说法</div><div class="note-text">香港买衫：加大码=大码、中码=中码、细码=小码、加细码=XS。读英文字母时：S读 es1、M读 em1、L读 el1、XL读 ek si1 el1。</div></div>
+<div class="note-card culture"><div class="note-label">🏙 文化注解</div><div class="note-text">香港人买衫习惯试完才买。街市排档通常有简易试身室（一块布帘挡住）；商场就正规很多。排档可以讲价，商场通常只有打折季才有优惠。</div></div>
+</div>
+        <div class="examples-title">✏️ 举一反三</div>
+        <div class="ex-list"><div class="ex-item"><div class="ex-tag">颜色版</div><div class="ex-ct">有冇其他颜色呀？</div><div class="ex-jp">jau5 mou5 kei4 taa1 ngaan4 sik1 aa3?</div><div class="ex-zh">有没有其他颜色？</div></div>
+<div class="ex-item"><div class="ex-tag">百搭版</div><div class="ex-ct">有冇平啲嘅款呀？</div><div class="ex-jp">jau5 mou5 peng4 di1 ge3 fun2 aa3?</div><div class="ex-zh">有没有便宜点的款式？</div></div>
+</div>
+        <div class="may-say" style="margin-top:16px;"><div class="mini-av">👩</div><div class="may-say-body"><div class="may-say-name">MAY姐补充</div><div class="may-say-text">「着」zoek3 是粤语「穿」的专用字，同学们注意——普通话里「着」读zháo/zhe，但粤语里完全不同！着衫=穿衣服，着鞋=穿鞋，着裤=穿裤子。另外「除」ceoi4 = 脱：除衫=脱衣服。</div></div></div>
+      </div>
+    </div>
+    <div class="t-line" id="line4">
+      <div class="t-line-head" onclick="toggleLine('line4')">
+        <div class="speaker-avatar">👩</div>
+        <div class="t-line-main">
+          <div class="speaker-name">May姐 · 顾客</div>
+          <div class="t-cantonese">老板，可唔可以平啲呀？一百五得唔得？</div>
+          <div class="t-jyutping">lou5 baan2, ho2 m4 ho2 ji5 peng4 di1 aa3? jat1 baak3 ng5 dak1 m4 dak1?</div>
+          <div class="t-meaning">「老板，能不能便宜点？一百五行不行？」</div>
+        </div>
+        <button class="expand-btn">展开分析 ▾</button>
+      </div>
+      <div class="t-line-detail" id="line4-detail">
+        <div class="word-row"><div class="word-chip highlight"><span class="wc-char">可唔可以</span><span class="wc-jp">ho2 m4 ho2 ji5</span><span class="wc-en">能不能</span><span class="wc-badge">礼貌句式</span></div>
+<div class="word-chip highlight"><span class="wc-char">平</span><span class="wc-jp">peng4</span><span class="wc-en">便宜</span><span class="wc-badge">粤语专属</span></div>
+<div class="word-chip"><span class="wc-char">啲</span><span class="wc-jp">di1</span><span class="wc-en">一些/一点</span></div>
+<div class="word-chip"><span class="wc-char">得唔得</span><span class="wc-jp">dak1 m4 dak1</span><span class="wc-en">行不行</span></div>
+</div>
+        <div class="notes-grid"><div class="note-card grammar"><div class="note-label">📌 平 vs 贵</div><div class="note-text">粤语「<strong>平</strong>」peng4 = 便宜（不是「平」的普通话意思！）。<strong>贵</strong> gwai3 = 贵。好平=很便宜，好贵=很贵。「平靓正」peng4 leng3 zeng3 = 便宜又好看又正点——这是香港购物最高评价！</div></div>
+<div class="note-card grammar"><div class="note-label">📌 正反疑问句：A唔A</div><div class="note-text">粤语疑问句常用「A唔A」格式：得唔得？好唔好？去唔去？食唔食？这跟普通话的"A不A"一模一样，只是「不」变成了「唔」m4。</div></div>
+<div class="note-card danger"><div class="note-label">⚠️ 讲价禁忌</div><div class="note-text">在香港，商场专柜、连锁店、大型百货<strong>不能讲价</strong>。只有街市、排档、旺角女人街、深水埗可以讲。讲价一般砍三成左右，太狠会被嫌弃。</div></div>
+</div>
+        <div class="examples-title">✏️ 举一反三</div>
+        <div class="ex-list"><div class="ex-item"><div class="ex-tag">进阶版</div><div class="ex-ct">买两件平啲得唔得呀？</div><div class="ex-jp">maai5 loeng5 gin6 peng4 di1 dak1 m4 dak1 aa3?</div><div class="ex-zh">买两件便宜点行不行？</div></div>
+<div class="ex-item"><div class="ex-tag">委婉版</div><div class="ex-ct">老板，算平啲啦，我成日嚟帮衬㗎。</div><div class="ex-jp">lou5 baan2, syun3 peng4 di1 laa1, ngo5 seng4 jat6 lai4 bong1 can3 gaa3.</div><div class="ex-zh">老板，算便宜点吧，我经常来光顾的。</div></div>
+</div>
+        <div class="may-say" style="margin-top:16px;"><div class="mini-av">👩</div><div class="may-say-body"><div class="may-say-name">MAY姐补充</div><div class="may-say-text">「帮衬」bong1 can3 = 光顾/惠顾。这是非常地道的粤语商业用语。老板说「多谢帮衬」= 谢谢光顾。你说「我成日嚟帮衬」= 我经常来光顾——这句话讲价时超好用，老板听了心花怒放！😄</div></div></div>
+      </div>
+    </div>
+    <div class="t-line" id="line5">
+      <div class="t-line-head" onclick="toggleLine('line5')">
+        <div class="speaker-avatar">🧑‍💼</div>
+        <div class="t-line-main">
+          <div class="speaker-name">档主 · 老板</div>
+          <div class="t-cantonese">一百五太平喇！最少一百八啦，街坊价嚟㗎！</div>
+          <div class="t-jyutping">jat1 baak3 ng5 taai3 peng4 laa3! zeoi3 siu2 jat1 baak3 baat3 laa1, gaai1 fong1 gaa3 lai4 gaa3!</div>
+          <div class="t-meaning">「一百五太便宜了！最少一百八，邻居价来的！」</div>
+        </div>
+        <button class="expand-btn">展开分析 ▾</button>
+      </div>
+      <div class="t-line-detail" id="line5-detail">
+        <div class="word-row"><div class="word-chip"><span class="wc-char">太</span><span class="wc-jp">taai3</span><span class="wc-en">太/过于</span></div>
+<div class="word-chip highlight"><span class="wc-char">街坊</span><span class="wc-jp">gaai1 fong1</span><span class="wc-en">街坊/邻居</span><span class="wc-badge">文化词</span></div>
+<div class="word-chip"><span class="wc-char">嚟㗎</span><span class="wc-jp">lai4 gaa3</span><span class="wc-en">来的（强调）</span></div>
+</div>
+        <div class="notes-grid"><div class="note-card grammar"><div class="note-label">📌 嚟㗎 = 来的</div><div class="note-text">「嚟㗎」lai4 gaa3 放句末表示强调来源或属性：街坊价嚟㗎=是邻居价来的；靓嘢嚟㗎=是好东西来的。这是粤语强调句的常见结构。</div></div>
+<div class="note-card culture"><div class="note-label">🏙 街坊文化</div><div class="note-text"><strong>街坊</strong>gaai1 fong1 = 邻居/街坊。香港人讲究「街坊情」，熟客老板之间会有一种不成文的优惠关系。老板说「街坊价」就是暗示已经给你最低价了——虽然未必是真的😂</div></div>
+<div class="note-card compare"><div class="note-label">🔄 粤普对比</div><div class="note-text">普通话「便宜」→ 粤语「平」peng4。普通话「贵」→ 粤语「贵」gwai3。普通话「打折」→ 粤语「打折」daa2 zit3 或「特价」dak6 gaa3。</div></div>
+</div>
+        <div class="examples-title">✏️ 举一反三</div>
+        <div class="ex-list"><div class="ex-item"><div class="ex-tag">实战版</div><div class="ex-ct">算啦算啦，一百七，成交！</div><div class="ex-jp">syun3 laa1 syun3 laa1, jat1 baak3 cat1, sing4 gaau1!</div><div class="ex-zh">算了算了，一百七，成交！</div></div>
+<div class="ex-item"><div class="ex-tag">走人版</div><div class="ex-ct">太贵喇，我去第二度睇下先。</div><div class="ex-jp">taai3 gwai3 laa3, ngo5 heoi3 dai6 ji6 dou6 tai2 haa5 sin1.</div><div class="ex-zh">太贵了，我去别的地方看看先。</div></div>
+</div>
+        <div class="may-say" style="margin-top:16px;"><div class="mini-av">👩</div><div class="may-say-body"><div class="may-say-name">MAY姐补充</div><div class="may-say-text">讲价小技巧：如果老板不肯减价，你就做出要走的样子说「算啦，我去第二度睇下」——八成情况下老板会叫住你说「好啦好啦，XX蚊啦」。这个叫做「走人战术」，屡试不爽！但记得要有礼貌，大家开心最重要。</div></div></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- WORD CARDS -->
+<div class="section" id="wordcards">
+  <div class="sec-head">
+    <div class="sec-icon">📇</div>
+    <div><h3>核心词卡 · 第07集</h3><div class="sec-sub">点击词卡听发音</div></div>
+  </div>
+  <div class="word-row" style="justify-content:center;">
+<div class="word-chip" onclick="speak('衫', null)" style="cursor:pointer;"><span class="wc-char">衫</span><span class="wc-jp">saam1</span><span class="wc-en">衣服</span></div>
+<div class="word-chip" onclick="speak('裙', null)" style="cursor:pointer;"><span class="wc-char">裙</span><span class="wc-jp">kwan4</span><span class="wc-en">裙子</span></div>
+<div class="word-chip" onclick="speak('裤', null)" style="cursor:pointer;"><span class="wc-char">裤</span><span class="wc-jp">fu3</span><span class="wc-en">裤子</span></div>
+<div class="word-chip" onclick="speak('鞋', null)" style="cursor:pointer;"><span class="wc-char">鞋</span><span class="wc-jp">haai4</span><span class="wc-en">鞋</span></div>
+<div class="word-chip" onclick="speak('着', null)" style="cursor:pointer;"><span class="wc-char">着</span><span class="wc-jp">zoek3</span><span class="wc-en">穿</span></div>
+<div class="word-chip" onclick="speak('除', null)" style="cursor:pointer;"><span class="wc-char">除</span><span class="wc-jp">ceoi4</span><span class="wc-en">脱</span></div>
+<div class="word-chip" onclick="speak('平', null)" style="cursor:pointer;"><span class="wc-char">平</span><span class="wc-jp">peng4</span><span class="wc-en">便宜</span></div>
+<div class="word-chip" onclick="speak('贵', null)" style="cursor:pointer;"><span class="wc-char">贵</span><span class="wc-jp">gwai3</span><span class="wc-en">贵</span></div>
+<div class="word-chip" onclick="speak('靓', null)" style="cursor:pointer;"><span class="wc-char">靓</span><span class="wc-jp">leng3</span><span class="wc-en">漂亮/好</span></div>
+<div class="word-chip" onclick="speak('细码', null)" style="cursor:pointer;"><span class="wc-char">细码</span><span class="wc-jp">sai3 maa5</span><span class="wc-en">小号</span></div>
+<div class="word-chip" onclick="speak('大码', null)" style="cursor:pointer;"><span class="wc-char">大码</span><span class="wc-jp">daai6 maa5</span><span class="wc-en">大号</span></div>
+<div class="word-chip" onclick="speak('试身室', null)" style="cursor:pointer;"><span class="wc-char">试身室</span><span class="wc-jp">si3 san1 sat1</span><span class="wc-en">试衣间</span></div>
+<div class="word-chip" onclick="speak('打折', null)" style="cursor:pointer;"><span class="wc-char">打折</span><span class="wc-jp">daa2 zit3</span><span class="wc-en">打折</span></div>
+<div class="word-chip" onclick="speak('帮衬', null)" style="cursor:pointer;"><span class="wc-char">帮衬</span><span class="wc-jp">bong1 can3</span><span class="wc-en">光顾</span></div>
+<div class="word-chip" onclick="speak('街坊', null)" style="cursor:pointer;"><span class="wc-char">街坊</span><span class="wc-jp">gaai1 fong1</span><span class="wc-en">街坊/邻居</span></div>
+<div class="word-chip" onclick="speak('银包', null)" style="cursor:pointer;"><span class="wc-char">银包</span><span class="wc-jp">ngan4 baau1</span><span class="wc-en">钱包</span></div>
+<div class="word-chip" onclick="speak('找钱', null)" style="cursor:pointer;"><span class="wc-char">找钱</span><span class="wc-jp">zaau2 cin4</span><span class="wc-en">找零</span></div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- CULTURE -->
+<div class="section" id="culture">
+  <div class="culture-box">
+    <h4>🏛 文化课堂 · 香港购物地图</h4>
+    <p style="color:#aaa;font-size:13px;margin-bottom:16px;">从女人街到海港城，读懂香港的买买买文化</p>
+    <div class="culture-items">
+<div class="culture-item"><div class="ci-icon">🛍</div><div><div class="ci-title">女人街（旺角通菜街）</div><div class="ci-text">全长约1公里，超过100个排档，卖衣服、饰品、纪念品。名叫「女人街」因为早年主要卖女装和廉价饰品。现在男女装都有，价格便宜但品质参差，记得讲价！营业时间大约中午12点到晚上11点。</div><div style="margin-top:8px;font-size:12px;color:var(--gold);">💡 May姐贴士：女人街讲价一般砍三成。如果你买多件，大声说「买两件，平啲啦」效果更好。</div></div></div>
+<div class="culture-item"><div class="ci-icon">🏙</div><div><div class="ci-title">深水埗——平价天堂</div><div class="ci-text">深水埗是香港最草根的购物区，电子产品、布料、手工材料应有尽有。鸭寮街是电子产品一条街，基隆街是布料批发市场。近年深水埗变成文青打卡热点，旧楼里开了很多独立咖啡店和设计小店。</div><div style="margin-top:8px;font-size:12px;color:var(--gold);">💡 May姐贴士：鸭寮街买电子产品一定要问清楚保养期同退换政策，唔好贪平买到假货。</div></div></div>
+<div class="culture-item"><div class="ci-icon">🏪</div><div><div class="ci-title">海港城与IFC</div><div class="ci-text">海港城（Harbour City）在尖沙咀，是全港最大购物商场，700多间店铺。IFC在中环，是高端商场。这两个地方不能讲价，但圣诞、新年、夏季大减价时折扣非常猛。</div><div style="margin-top:8px;font-size:12px;color:var(--gold);">💡 May姐贴士：每年7月和12月是香港两大打折季，品牌最高可以半价。想扫名牌就等这两个月！</div></div></div>
+<div class="culture-item"><div class="ci-icon">🏮</div><div><div class="ci-title">街市文化</div><div class="ci-text">「街市」gaai1 si5 = 菜市场。香港每个社区都有街市，卖菜、肉、鱼、水果。街市阿姐通常很健谈，但节奏快，你要迅速说要什么。街市的粤语是最原汁原味的——语速快、用词精准、没有废话。</div><div style="margin-top:8px;font-size:12px;color:var(--gold);">💡 May姐贴士：去街市买菜最佳时间是早上7-9点，最新鲜。收市前（下午5-6点）可以捡到「执平嘢」——大减价尾货。</div></div></div>
+<div class="culture-item"><div class="ci-icon">💳</div><div><div class="ci-title">支付方式</div><div class="ci-text">香港大部分商户接受八达通、信用卡、Apple Pay/Google Pay。街市和排档通常只收现金或转数快（FPS）。扫QR码支付在近年越来越普及，但排档老板最爱还是现金——因为「现兜兜」jin6 dau1 dau1最实际。</div><div style="margin-top:8px;font-size:12px;color:var(--gold);">💡 May姐贴士：如果你喺排档用现金，记得自备零钱。老板找钱通常唔会好开心——带够散纸 saan2 zi2（零钱）是美德。</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- FILM QUOTES -->
+<div class="section" id="film-quotes">
+  <div class="sec-head">
+    <div class="sec-icon">🎬</div>
+    <div><h3>影视真实粤语 · 10个经典场景</h3><div class="sec-sub">港片港剧里的粤语才是最原汁原味的教科书</div></div>
+  </div>
+  <div class="may-say">
+    <div class="mini-av">👩</div>
+    <div class="may-say-body">
+      <div class="may-say-name">MAY姐说</div>
+      <div class="may-say-text">课本上的粤语永远太「干净」。下面这些经典影视场景，帮你感受<strong>真实世界里粤语的节奏和味道</strong>。重点感受语气和用法就好！</div>
+    </div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:12px;margin-top:16px;">
+    <div style="background:linear-gradient(135deg,#1a1a2e,#16213e);border-radius:14px;padding:20px;border-left:4px solid var(--gold);margin-bottom:12px;">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <span style="background:var(--gold);color:white;font-size:11px;font-weight:700;padding:3px 10px;border-radius:8px;">🎬 旺角卡门（1988）</span>
+        <span style="color:#888;font-size:12px;">王家卫</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="font-family:'Noto Serif SC',serif;font-size:17px;font-weight:700;color:#fff;flex:1;">华仔在旺角街头买嘢，跟档主讲：<span style="color:var(--gold);font-weight:700;border-bottom:1px dashed var(--gold);">算平啲啦</span> syun3 peng4 di1 laa1</div>
+        <button onclick="speak('算平啲啦', this)" style="background:rgba(245,166,35,0.2);border:1.5px solid rgba(245,166,35,0.4);color:#F5A623;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button>
+      </div>
+      <div style="color:#00B4D8;font-size:12px;margin-top:6px;">💡 「算」= 算了/就。「算平啲」是最自然的讲价开场白，比"能不能便宜点"更地道。</div>
+    </div>
+    <div style="background:linear-gradient(135deg,#1a1a2e,#16213e);border-radius:14px;padding:20px;border-left:4px solid var(--red);margin-bottom:12px;">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <span style="background:var(--red);color:white;font-size:11px;font-weight:700;padding:3px 10px;border-radius:8px;">📺 TVB《溏心风暴之家好月圆》</span>
+        <span style="color:#888;font-size:12px;">家庭剧</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="font-family:'Noto Serif SC',serif;font-size:17px;font-weight:700;color:#fff;flex:1;">大姐去街市买菜，大声说：<span style="color:var(--gold);font-weight:700;border-bottom:1px dashed var(--gold);">执平嘢</span> zap1 peng4 je5</div>
+        <button onclick="speak('执平嘢', this)" style="background:rgba(245,166,35,0.2);border:1.5px solid rgba(245,166,35,0.4);color:#F5A623;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button>
+      </div>
+      <div style="color:#00B4D8;font-size:12px;margin-top:6px;">💡 「执平嘢」=捡便宜货/淘到便宜东西。「执到宝」zap1 dou2 bou2 = 捡到宝！</div>
+    </div>
+    <div style="background:linear-gradient(135deg,#1a1a2e,#16213e);border-radius:14px;padding:20px;border-left:4px solid var(--teal);margin-bottom:12px;">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <span style="background:var(--teal);color:white;font-size:11px;font-weight:700;padding:3px 10px;border-radius:8px;">🎬 功夫（2004）</span>
+        <span style="color:#888;font-size:12px;">周星驰</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="font-family:'Noto Serif SC',serif;font-size:17px;font-weight:700;color:#fff;flex:1;">包租婆在猪笼城寨菜市场大喊：<span style="color:var(--gold);font-weight:700;border-bottom:1px dashed var(--gold);">你呃我呀</span> nei5 ngak1 ngo5 aa4</div>
+        <button onclick="speak('你呃我呀', this)" style="background:rgba(245,166,35,0.2);border:1.5px solid rgba(245,166,35,0.4);color:#F5A623;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button>
+      </div>
+      <div style="color:#00B4D8;font-size:12px;margin-top:6px;">💡 「呃」ngak1 = 骗。「呃人」=骗人。买嘢时觉得被坑可以说「你呃我呀」，但注意语气——笑住讲和黑面讲效果完全不同！</div>
+    </div>
+    <div style="background:linear-gradient(135deg,#1a1a2e,#16213e);border-radius:14px;padding:20px;border-left:4px solid var(--purple);margin-bottom:12px;">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <span style="background:var(--purple);color:white;font-size:11px;font-weight:700;padding:3px 10px;border-radius:8px;">📺 TVB《鉴证实录》</span>
+        <span style="color:#888;font-size:12px;">职场剧</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="font-family:'Noto Serif SC',serif;font-size:17px;font-weight:700;color:#fff;flex:1;">同事去行街，试完衫说：<span style="color:var(--gold);font-weight:700;border-bottom:1px dashed var(--gold);">好夹</span> hou2 gaap3（好配/好搭）</div>
+        <button onclick="speak('好夹', this)" style="background:rgba(245,166,35,0.2);border:1.5px solid rgba(245,166,35,0.4);color:#F5A623;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button>
+      </div>
+      <div style="color:#00B4D8;font-size:12px;margin-top:6px;">💡 「夹」=配合/搭配。呢件衫好夹你=这件衣服很配你。人际关系也用：我哋好夹=我们很合得来。</div>
+    </div>
+    <div style="background:linear-gradient(135deg,#1a1a2e,#16213e);border-radius:14px;padding:20px;border-left:4px solid var(--green);margin-bottom:12px;">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <span style="background:var(--green);color:white;font-size:11px;font-weight:700;padding:3px 10px;border-radius:8px;">🎬 72家租客（2010）</span>
+        <span style="color:#888;font-size:12px;">群星喜剧</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="font-family:'Noto Serif SC',serif;font-size:17px;font-weight:700;color:#fff;flex:1;">深水埗街市场景，有人喊：<span style="color:var(--gold);font-weight:700;border-bottom:1px dashed var(--gold);">大减价</span> daai6 gaam2 gaa3</div>
+        <button onclick="speak('大减价', this)" style="background:rgba(245,166,35,0.2);border:1.5px solid rgba(245,166,35,0.4);color:#F5A623;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button>
+      </div>
+      <div style="color:#00B4D8;font-size:12px;margin-top:6px;">💡 「大减价」就是大降价/大促销。香港人也常说「割价」got3 gaa3 = 割肉价/跳楼价。</div>
+    </div>
+    <div style="background:linear-gradient(135deg,#1a1a2e,#16213e);border-radius:14px;padding:20px;border-left:4px solid var(--gold);margin-bottom:12px;">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <span style="background:var(--gold);color:white;font-size:11px;font-weight:700;padding:3px 10px;border-radius:8px;">📺 TVB《巾帼枭雄之谍血长天》</span>
+        <span style="color:#888;font-size:12px;">商战剧</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="font-family:'Noto Serif SC',serif;font-size:17px;font-weight:700;color:#fff;flex:1;">角色在商场说：<span style="color:var(--gold);font-weight:700;border-bottom:1px dashed var(--gold);">抵买</span> dai2 maai5</div>
+        <button onclick="speak('抵买', this)" style="background:rgba(245,166,35,0.2);border:1.5px solid rgba(245,166,35,0.4);color:#F5A623;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button>
+      </div>
+      <div style="color:#00B4D8;font-size:12px;margin-top:6px;">💡 「抵」dai2 = 值得/划算。「抵买」=值得买。「好抵」=很划算。反义词：「唔抵」=不值得/不划算。</div>
+    </div>
+    <div style="background:linear-gradient(135deg,#1a1a2e,#16213e);border-radius:14px;padding:20px;border-left:4px solid var(--red);margin-bottom:12px;">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <span style="background:var(--red);color:white;font-size:11px;font-weight:700;padding:3px 10px;border-radius:8px;">🎬 PTU（2003）</span>
+        <span style="color:#888;font-size:12px;">杜琪峰</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="font-family:'Noto Serif SC',serif;font-size:17px;font-weight:700;color:#fff;flex:1;">夜市场景，有人说：<span style="color:var(--gold);font-weight:700;border-bottom:1px dashed var(--gold);">畀钱</span> bei2 cin4（付钱）</div>
+        <button onclick="speak('畀钱', this)" style="background:rgba(245,166,35,0.2);border:1.5px solid rgba(245,166,35,0.4);color:#F5A623;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button>
+      </div>
+      <div style="color:#00B4D8;font-size:12px;margin-top:6px;">💡 「畀」bei2 = 给。「畀钱」=付钱/给钱。「畀我睇下」=给我看看。「畀」是粤语的"给"，超高频！</div>
+    </div>
+    <div style="background:linear-gradient(135deg,#1a1a2e,#16213e);border-radius:14px;padding:20px;border-left:4px solid var(--teal);margin-bottom:12px;">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <span style="background:var(--teal);color:white;font-size:11px;font-weight:700;padding:3px 10px;border-radius:8px;">📺 TVB《美女厨房》</span>
+        <span style="color:#888;font-size:12px;">综艺</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="font-family:'Noto Serif SC',serif;font-size:17px;font-weight:700;color:#fff;flex:1;">去街市买食材，鱼贩说：<span style="color:var(--gold);font-weight:700;border-bottom:1px dashed var(--gold);">新鲜㗎</span> san1 sin1 gaa3</div>
+        <button onclick="speak('新鲜㗎', this)" style="background:rgba(245,166,35,0.2);border:1.5px solid rgba(245,166,35,0.4);color:#F5A623;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button>
+      </div>
+      <div style="color:#00B4D8;font-size:12px;margin-top:6px;">💡 街市卖菜/鱼的老板最爱说「新鲜」。「今朝刚返嘅」gam1 ziu1 gong1 faan1 ge3 = 今天早上刚进货的。</div>
+    </div>
+    <div style="background:linear-gradient(135deg,#1a1a2e,#16213e);border-radius:14px;padding:20px;border-left:4px solid var(--purple);margin-bottom:12px;">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <span style="background:var(--purple);color:white;font-size:11px;font-weight:700;padding:3px 10px;border-radius:8px;">🎬 春娇救志明（2017）</span>
+        <span style="color:#888;font-size:12px;">彭浩翔</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="font-family:'Noto Serif SC',serif;font-size:17px;font-weight:700;color:#fff;flex:1;">女主角买手袋说：<span style="color:var(--gold);font-weight:700;border-bottom:1px dashed var(--gold);">好心动</span> hou2 sam1 dung6</div>
+        <button onclick="speak('好心动', this)" style="background:rgba(245,166,35,0.2);border:1.5px solid rgba(245,166,35,0.4);color:#F5A623;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button>
+      </div>
+      <div style="color:#00B4D8;font-size:12px;margin-top:6px;">💡 「心动」= 心动/很想要。购物时最危险的一句话就是「好心动」——说出口就注定要掏钱！</div>
+    </div>
+    <div style="background:linear-gradient(135deg,#1a1a2e,#16213e);border-radius:14px;padding:20px;border-left:4px solid var(--green);margin-bottom:12px;">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <span style="background:var(--green);color:white;font-size:11px;font-weight:700;padding:3px 10px;border-radius:8px;">📺 TVB《爱·回家之开心速递》</span>
+        <span style="color:#888;font-size:12px;">家庭日常</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="font-family:'Noto Serif SC',serif;font-size:17px;font-weight:700;color:#fff;flex:1;">妈妈去街市大叫：<span style="color:var(--gold);font-weight:700;border-bottom:1px dashed var(--gold);">畀多啲啦</span> bei2 do1 di1 laa1</div>
+        <button onclick="speak('畀多啲啦', this)" style="background:rgba(245,166,35,0.2);border:1.5px solid rgba(245,166,35,0.4);color:#F5A623;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button>
+      </div>
+      <div style="color:#00B4D8;font-size:12px;margin-top:6px;">💡 「畀多啲」=给多一点。街市买菜最实用的一句！买一斤菜，阿姐会象征性多放几棵——这就是街市人情味。</div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- QUIZ -->
+<div class="section" id="quiz-section">
+  <div class="quiz-wrap">
+    <div class="quiz-head">
+      <div style="font-size:28px;">📝</div>
+      <h3>小测验 · 5道题</h3>
+      <div class="quiz-score-board" id="score-board">得分：0/5</div>
+    </div>
+
+    <div class="q-item">
+      <div class="q-num">QUESTION 1/5</div>
+      <div class="q-text">粤语「平」peng4 是什么意思？</div>
+      <div class="q-options" id="q1"><div class="q-opt" onclick="ans(this,false,'q1','fb1','粤语「平」=便宜，跟普通话的「平」意思完全不同！')">A. 平坦</div>
+<div class="q-opt" onclick="ans(this,true,'q1','fb1','粤语「平」=便宜，跟普通话的「平」意思完全不同！')">B. 便宜</div>
+<div class="q-opt" onclick="ans(this,false,'q1','fb1','粤语「平」=便宜，跟普通话的「平」意思完全不同！')">C. 一般</div>
+<div class="q-opt" onclick="ans(this,false,'q1','fb1','粤语「平」=便宜，跟普通话的「平」意思完全不同！')">D. 公平</div>
+</div>
+      <div class="q-feedback" id="fb1"></div>
+    </div>
+    <div class="q-item">
+      <div class="q-num">QUESTION 2/5</div>
+      <div class="q-text">「有冇细码」是什么意思？</div>
+      <div class="q-options" id="q2"><div class="q-opt" onclick="ans(this,false,'q2','fb2','细码=小号，细sai3=小，码maa5=尺码。')">A. 有没有零钱</div>
+<div class="q-opt" onclick="ans(this,false,'q2','fb2','细码=小号，细sai3=小，码maa5=尺码。')">B. 有没有打折</div>
+<div class="q-opt" onclick="ans(this,true,'q2','fb2','细码=小号，细sai3=小，码maa5=尺码。')">C. 有没有小号</div>
+<div class="q-opt" onclick="ans(this,false,'q2','fb2','细码=小号，细sai3=小，码maa5=尺码。')">D. 有没有更多</div>
+</div>
+      <div class="q-feedback" id="fb2"></div>
+    </div>
+    <div class="q-item">
+      <div class="q-num">QUESTION 3/5</div>
+      <div class="q-text">在哪些地方可以讲价？</div>
+      <div class="q-options" id="q3"><div class="q-opt" onclick="ans(this,false,'q3','fb3','只有街市、排档、女人街等个体经营的地方可以讲价。商场连锁店不能讲价。')">A. 海港城商场</div>
+<div class="q-opt" onclick="ans(this,true,'q3','fb3','只有街市、排档、女人街等个体经营的地方可以讲价。商场连锁店不能讲价。')">B. 女人街排档</div>
+<div class="q-opt" onclick="ans(this,false,'q3','fb3','只有街市、排档、女人街等个体经营的地方可以讲价。商场连锁店不能讲价。')">C. 7-Eleven便利店</div>
+<div class="q-opt" onclick="ans(this,false,'q3','fb3','只有街市、排档、女人街等个体经营的地方可以讲价。商场连锁店不能讲价。')">D. 麦当劳</div>
+</div>
+      <div class="q-feedback" id="fb3"></div>
+    </div>
+    <div class="q-item">
+      <div class="q-num">QUESTION 4/5</div>
+      <div class="q-text">「帮衬」bong1 can3 是什么意思？</div>
+      <div class="q-options" id="q4"><div class="q-opt" onclick="ans(this,false,'q4','fb4','帮衬=光顾。「多谢帮衬」是做完买卖后老板最常说的话。')">A. 帮忙</div>
+<div class="q-opt" onclick="ans(this,true,'q4','fb4','帮衬=光顾。「多谢帮衬」是做完买卖后老板最常说的话。')">B. 光顾/惠顾</div>
+<div class="q-opt" onclick="ans(this,false,'q4','fb4','帮衬=光顾。「多谢帮衬」是做完买卖后老板最常说的话。')">C. 帮人搬东西</div>
+<div class="q-opt" onclick="ans(this,false,'q4','fb4','帮衬=光顾。「多谢帮衬」是做完买卖后老板最常说的话。')">D. 衬衫</div>
+</div>
+      <div class="q-feedback" id="fb4"></div>
+    </div>
+    <div class="q-item">
+      <div class="q-num">QUESTION 5/5</div>
+      <div class="q-text">「平靓正」是什么意思？</div>
+      <div class="q-options" id="q5"><div class="q-opt" onclick="ans(this,false,'q5','fb5','平靓正=便宜+漂亮+正点，是香港人对好东西最高的评价！')">A. 平淡无奇</div>
+<div class="q-opt" onclick="ans(this,false,'q5','fb5','平靓正=便宜+漂亮+正点，是香港人对好东西最高的评价！')">B. 又平又正式</div>
+<div class="q-opt" onclick="ans(this,true,'q5','fb5','平靓正=便宜+漂亮+正点，是香港人对好东西最高的评价！')">C. 便宜好看又好</div>
+<div class="q-opt" onclick="ans(this,false,'q5','fb5','平靓正=便宜+漂亮+正点，是香港人对好东西最高的评价！')">D. 平时很正常</div>
+</div>
+      <div class="q-feedback" id="fb5"></div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- STORY -->
+<div class="section" id="story-section">
+  <div class="story-section">
+    <div class="story-header">
+      <div class="story-av-large">👩</div>
+      <div class="story-header-text">
+        <h3>「我喺深水埗执到宝」</h3>
+        <p>陈美伶 · 九龙土著 · 深水埗淘宝三十年</p>
+      </div>
+    </div>
+    <div class="story-body">
+      <div class="story-pull-quote">「香港人讲嘢最中意讲「抵」——几蚊买到好嘢，呢种满足感，千金不换。」</div>
+      <div class="story-timeline">
+
+        <div class="st-item">
+          <div class="st-left"><div class="st-dot"></div><div class="st-line"></div></div>
+          <div class="st-content">
+            <div class="st-year">大约1985年 · May姐十一岁</div>
+            <div class="st-title">👗 人生第一次自己买衫</div>
+            <div class="st-text">我细个住旺角，阿妈每个月都带我去深水埗买布造衫。嗰阵香港人好多自己车衫（缝纫），唔似而家乜都买现成。我记得阿妈同布档阿姐倾咗半个钟价，最后两匹布只俾咗五十蚊。我当时心谂：<strong>原来买嘢同人沟通咁有趣！</strong>呢个就係我对语言产生兴趣嘅起点。</div>
+          </div>
+        </div>
+        <div class="st-item">
+          <div class="st-left"><div class="st-dot"></div><div class="st-line"></div></div>
+          <div class="st-content">
+            <div class="st-year">大学时代 · May姐二十岁</div>
+            <div class="st-title">🎒 帮外国同学行街做翻译</div>
+            <div class="st-text">我喺大学读翻译，有个法国同学Sophie想去女人街买手信。佢完全唔识讲粤语，指住个银包用英文问how much。档主听唔明，直接叫咗个天价。我用粤语帮佢讲咗两句，即刻平咗四成！Sophie嗰日认定我係佢嘅购物保镖。<strong>从此我发现：识讲粤语，真係可以帮人悭钱悭时间。</strong></div>
+          </div>
+        </div>
+        <div class="st-item">
+          <div class="st-left"><div class="st-dot"></div><div class="st-line"></div></div>
+          <div class="st-content">
+            <div class="st-year">初为人师 · May姐三十岁</div>
+            <div class="st-title">🛍 把学生带去街市上课</div>
+            <div class="st-text">教粤语之后，我发明咗一个教学法——带学生去北河街街市「实战购物」。有个韩国学生第一次自己用粤语买到一斤虾，阿姐仲多送佢几只话「靓仔，畀多你几只啦」。佢开心到成晚都讲呢件事。<strong>从此「街市教学法」变成我嘅招牌课程。</strong>至今已经带过超过200个学生去街市毕业。</div>
+          </div>
+        </div>
+        <div class="st-item">
+          <div class="st-left"><div class="st-dot"></div></div>
+          <div class="st-content">
+            <div class="st-year">现在 · May姐的感悟</div>
+            <div class="st-title">💛 每一次讲价都是一次沟通</div>
+            <div class="st-text">我成日同学生讲：<strong>讲价唔系要占人便宜，系学习跟人沟通。</strong>你要读懂对方嘅表情、语气、底线，然后用你嘅粤语去建立关系。最好嘅结果唔系你买到几平，而系你同老板倾完之后，大家都笑住收工。呢个就係我理解嘅「街坊情」——语言创造连结。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- HOMEWORK -->
+<div class="section" id="homework-section">
+  <div class="sec-head">
+    <div class="sec-icon">✏️</div>
+    <div><h3>自测练习</h3><div class="sec-sub">全部可以自己对答案，不需要任何人批改</div></div>
+  </div>
+
+    <div class="hw-interactive">
+      <div class="hw-int-title">📝 练习一 · 填词造句（点击空格看答案）</div>
+      <p style="font-size:13px;color:#888;margin-bottom:4px;">1. 老板，这件衣服能便宜点吗？</p><div class="hw-fill-row"><span class="hw-blank" onclick="this.classList.toggle('show')">老板，</span><span class="hw-blank" onclick="this.classList.toggle('show')">呢件衫</span><span class="hw-blank" onclick="this.classList.toggle('show')">可唔可以</span><span class="hw-blank" onclick="this.classList.toggle('show')">平啲呀？</span></div>
+      <p style="font-size:13px;color:#888;margin-bottom:4px;">2. 有没有小号？我穿M号。</p><div class="hw-fill-row"><span class="hw-blank" onclick="this.classList.toggle('show')">有冇</span><span class="hw-blank" onclick="this.classList.toggle('show')">细码㗎？</span><span class="hw-blank" onclick="this.classList.toggle('show')">我着M号。</span></div>
+      <p style="font-size:13px;color:#888;margin-bottom:4px;">3. 很划算！谢谢光顾。</p><div class="hw-fill-row"><span class="hw-blank" onclick="this.classList.toggle('show')">好抵呀！</span><span class="hw-blank" onclick="this.classList.toggle('show')">多谢帮衬。</span></div>
+    </div>
+    <div class="hw-interactive">
+      <div class="hw-int-title">🎭 练习二 · 模拟场景（心里完成后点击看参考）</div>
+      <div class="hw-scenario-box"><p style="color:var(--teal);font-weight:600;">场景：</p><p style="font-size:14px;color:#444;">你在女人街看中一件T恤，标价150蚊。你要：①问有没有其他颜色 ②试衫 ③讲价到100蚊 ④付款</p></div>
+      <button class="hw-reveal" onclick="this.nextElementSibling.classList.toggle('show');this.style.display='none';">点击看参考答案</button>
+      <div class="hw-answer-box"><p style="font-size:14px;line-height:2;color:#444;">你：老板，呢件T恤有冇其他颜色呀？(jau5 mou5 kei4 taa1 ngaan4 sik1 aa3?)<br>档主：有呀，有白色同蓝色。<br>你：我想试下蓝色嗰件，有冇细码？<br>档主：有，试身室喺嗰度。<br>你（试完）：OK！老板，可唔可以平啲呀？一百蚊得唔得？<br>档主：一百蚊太平喇！一百二啦！<br>你：好啦好啦，一百二，成交！唔該。<br>档主：好，多谢帮衬！</p></div>
+    </div>
+    <div class="hw-interactive">
+      <div class="hw-int-title">🔗 练习三 · 连线配对</div>
+      <div class="hw-match-q"><p>① 平 · A. ？</p><p>② 靓 · B. ？</p><p>③ 着 · C. ？</p><p>④ 帮衬 · D. ？</p><p>⑤ 除 · E. ？</p></div>
+      <button class="hw-reveal" onclick="this.nextElementSibling.classList.toggle('show');this.style.display='none';">点击看答案</button>
+      <div class="hw-answer-box"><p style="color:var(--green);font-weight:600;">✅ ①=便宜 ｜ ②=漂亮/好 ｜ ③=穿 ｜ ④=光顾 ｜ ⑤=脱</p></div>
+    </div>
+    <div class="hw-interactive">
+      <div class="hw-int-title">🎬 练习四 · 影视听力挑战（选做）</div>
+      <p style="font-size:14px;color:#555;">在YouTube/B站搜索「香港女人街 vlog」或「深水埗行街」，看一段3-5分钟片段，数一数能听到本集学过的多少个粤语词。🎯 目标：听出5个词算通关，8个以上说明你学得很扎实！</p>
+    </div>
+
+</div>
+
+<!-- NEXT EP -->
+<div class="section">
+  
+
+<!-- FLOATING TIP -->
+<div class="float-tip">
+  <div class="float-bubble" id="float-msg">
+    💡 学粤语小贴士：去街市买嘢是最好的粤语实战练习！价格不重要，开口讲才重要。
+  </div>
+  <div class="float-btn" onclick="toggleFloatTip()">👩</div>
+</div>
+
+<script>
+// Toggle analysis
+function toggleLine(id) {
+  const detail = document.getElementById(id + '-detail');
+  const btn = document.getElementById(id).querySelector('.expand-btn');
+  if (detail.classList.contains('open')) {
+    detail.classList.remove('open');
+    detail.style.display = 'none';
+    btn.textContent = '展开分析 ▾';
+  } else {
+    detail.classList.add('open');
+    detail.style.display = 'block';
+    btn.textContent = '收起分析 ▴';
+    btn.style.background = 'var(--gold)';
+    btn.style.color = 'var(--ink)';
+  }
+}
+
+// Quiz
+let quizScore = 0;
+function ans(btn, result, qId, fbId, msg) {
+  const parent = document.getElementById(qId);
+  const opts = parent.querySelectorAll('.q-opt');
+  opts.forEach(o => { o.disabled = true; o.style.pointerEvents = 'none'; });
+  const fb = document.getElementById(fbId);
+  if (result) {
+    btn.classList.add('correct');
+    fb.className = 'q-feedback ok';
+    fb.textContent = '✅ 啱晒！' + msg;
+    quizScore++;
+  } else {
+    btn.classList.add('wrong');
+    fb.className = 'q-feedback bad';
+    fb.textContent = '❌ 唔啱喎！' + msg;
+  }
+  document.getElementById('score-board').textContent = '得分：' + quizScore + '/5';
+}
+
+// Float tip
+function toggleFloatTip() {
+  const msg = document.getElementById('float-msg');
+  msg.classList.toggle('show');
+}
+
+// TTS
+(function() {
+  let ttsVoice = null;
+  let ttsReady = false;
+  function loadVoice() {
+    const voices = speechSynthesis.getVoices();
+    ttsVoice = voices.find(v => v.lang === 'zh-HK') || voices.find(v => v.lang === 'zh-TW') || voices.find(v => v.lang.startsWith('zh'));
+    ttsReady = true;
+    updateBadge();
+  }
+  function updateBadge() {
+    const b = document.getElementById('tts-badge');
+    if (!b) return;
+    if (ttsVoice) {
+      b.textContent = '🔊 粤语发音已就绪（' + ttsVoice.lang + '）';
+      b.style.background = '#2DC653';
+    } else {
+      b.textContent = '⚠️ 未检测到粤语语音包，请尝试 Chrome/Edge';
+      b.style.background = '#E84545';
+    }
+  }
+  window.speak = function(text, btn) {
+    if (!ttsReady) loadVoice();
+    speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = ttsVoice ? ttsVoice.lang : 'zh-HK';
+    if (ttsVoice) u.voice = ttsVoice;
+    u.rate = 0.85; u.pitch = 1.05;
+    if (btn) {
+      const orig = btn.innerHTML;
+      btn.innerHTML = '⏸';
+      u.onend = () => { btn.innerHTML = orig; };
+      u.onerror = () => { btn.innerHTML = orig; };
+    }
+    speechSynthesis.speak(u);
+  };
+  if (speechSynthesis.getVoices().length > 0) loadVoice();
+  speechSynthesis.onvoiceschanged = loadVoice;
+  window.addEventListener('load', loadVoice);
+})();
+</script>
+<a href="MayJie_EP08_Entertainment.html" class="gd-next"><h4>下一集 → EP08 娱乐消遣</h4><p>点击继续学习</p></a>
+<button class="gd-copy-btn" onclick="navigator.clipboard.writeText(location.href).then(function(){alert('链接已复制，快分享给朋友吧')}).catch(function(){prompt('复制链接：',location.href)})">📋 复制链接分享给朋友</button>
+<div class="gd-contact">课程合作 · 广告商务 · 投资咨询 · 学员反馈 — <a href="mailto:gaaudim2026&#64;gmail.com">gaaudim2026&#64;gmail.com</a></div>
+<div class="gd-spacer"></div>
+<div class="gd-bot">
+<a href="MayJie_EP06_Self_Intro.html" class="gd-bot-arr">◀</a>
+<div class="gd-bot-scroll" id="gdbs">
+<a href="MayJie_EP01_ChaChaan.html" class="gd-bot-ep">EP01</a>
+<a href="MayJie_EP02_MTR.html" class="gd-bot-ep">EP02</a>
+<a href="MayJie_EP03_ConvStore.html" class="gd-bot-ep">EP03</a>
+<a href="MayJie_EP04_Taxi_Doctor.html" class="gd-bot-ep">EP04</a>
+<a href="MayJie_EP05_Takeout.html" class="gd-bot-ep">EP05</a>
+<a href="MayJie_EP06_Self_Intro.html" class="gd-bot-ep">EP06</a>
+<a href="MayJie_EP07_Shopping.html" class="gd-bot-ep on">EP07</a>
+<a href="MayJie_EP08_Entertainment.html" class="gd-bot-ep">EP08</a>
+<a href="MayJie_EP09_Renting.html" class="gd-bot-ep">EP09</a>
+<a href="MayJie_EP10_JobInterview.html" class="gd-bot-ep">EP10</a>
+<a href="MayJie_EP11_Hiking.html" class="gd-bot-ep">EP11</a>
+<a href="MayJie_EP12_Festivals.html" class="gd-bot-ep">EP12</a>
+<a href="MayJie_EP13_Complaints.html" class="gd-bot-ep">EP13</a>
+<a href="MayJie_EP14_Dating.html" class="gd-bot-ep">EP14</a>
+<a href="MayJie_EP15_Drinking.html" class="gd-bot-ep">EP15</a>
+<a href="MayJie_EP16_Beauty.html" class="gd-bot-ep">EP16</a>
+<a href="MayJie_EP17_PhoneCall.html" class="gd-bot-ep">EP17</a>
+<a href="MayJie_EP18_Neighbors__1_.html" class="gd-bot-ep">EP18</a>
+<a href="MayJie_EP19_DimSum.html" class="gd-bot-ep">EP19</a>
+<a href="MayJie_EP20_Supermarket.html" class="gd-bot-ep">EP20</a>
+<a href="MayJie_EP21_Numbers.html" class="gd-bot-ep">EP21</a>
+<a href="MayJie_EP22.html" class="gd-bot-ep">EP22</a>
+<a href="MayJie_EP23.html" class="gd-bot-ep">EP23</a>
+<a href="MayJie_EP24.html" class="gd-bot-ep">EP24</a>
+<a href="MayJie_EP25.html" class="gd-bot-ep">EP25</a>
+<a href="MayJie_EP26.html" class="gd-bot-ep">EP26</a>
+<a href="MayJie_EP27.html" class="gd-bot-ep">EP27</a>
+<a href="MayJie_EP28.html" class="gd-bot-ep">EP28</a>
+<a href="MayJie_EP29.html" class="gd-bot-ep">EP29</a>
+<a href="MayJie_EP30.html" class="gd-bot-ep">EP30</a>
+</div>
+<a href="MayJie_EP08_Entertainment.html" class="gd-bot-arr">▶</a>
+</div>
+<script>document.addEventListener("DOMContentLoaded",function(){var c=document.querySelector(".gd-bot-ep.on");if(c)c.scrollIntoView({inline:"center",block:"nearest"});})</script>
+<script>document.addEventListener("contextmenu",function(e){e.preventDefault()});document.addEventListener("copy",function(e){if(e.target.tagName!=="INPUT"&&e.target.tagName!=="TEXTAREA")e.preventDefault()});document.addEventListener("selectstart",function(e){if(e.target.tagName!=="INPUT"&&e.target.tagName!=="TEXTAREA")e.preventDefault()});</script>
+<script>(function(){var os=window.speak;if(os){window.speak=function(t,b){if(speechSynthesis.speaking){speechSynthesis.cancel();if(b)b.innerHTML=b.dataset.o||'🔊';return;}os(t,b);};}else{var v=null;function lv(){var vs=speechSynthesis.getVoices();v=vs.find(function(x){return x.lang==='zh-HK'})||vs.find(function(x){return x.lang==='zh-TW'})||vs.find(function(x){return x.lang.startsWith('zh')});}if(speechSynthesis.getVoices().length>0)lv();speechSynthesis.onvoiceschanged=lv;window.speak=function(t,b){if(speechSynthesis.speaking){speechSynthesis.cancel();if(b)b.innerHTML=b.dataset.o||'🔊';return;}if(!v)lv();var u=new SpeechSynthesisUtterance(t);u.lang=v?v.lang:'zh-HK';if(v)u.voice=v;u.rate=0.85;u.pitch=1.05;if(b){b.dataset.o=b.dataset.o||b.innerHTML;var oi=b.innerHTML;b.innerHTML='⏸';u.onend=function(){b.innerHTML=oi};u.onerror=function(){b.innerHTML=oi};}speechSynthesis.speak(u);};}})();</script>
+<script src="paywall-check.js"></script>
+</body>
+</html>
