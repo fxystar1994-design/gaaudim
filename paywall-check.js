@@ -1,23 +1,22 @@
 // paywall-check.js
 (function(){
-// 只有匹配到这些关键词的页面才上锁，其他全部放行
 var PAID_PATTERNS = [
   'EP06','EP07','EP08','EP09','EP10','EP11','EP12','EP13','EP14','EP15',
   'EP16','EP17','EP18','EP19','EP20','EP21','EP22','EP23','EP24','EP25',
   'EP26','EP27','EP28','EP29','EP30',
   'JP03','JP04','JP05','JP06','JP07','JP08','JP09','JP10',
-  'JP_Extra',
+  'JP_EXTRA',
   'VW04','VW05','VW06','VW07','VW08','VW09','VW10',
   'VW11','VW12','VW13','VW14','VW15','VW16','VW17','VW18','VW19','VW20',
   'SZ04','SZ05','SZ06','SZ07','SZ08','SZ09','SZ10',
-  'SZ_Extra',
-  'HKSongs_EP03','HKSongs_EP04','HKSongs_EP05','HKSongs_EP06',
-  'HKSongs_EP07','HKSongs_EP08','HKSongs_EP09','HKSongs_EP10','HKSongs_EP11',
-  'HKSongs_Extra'
+  'SZ_EXTRA',
+  'HKSONGS_EP03','HKSONGS_EP04','HKSONGS_EP05','HKSONGS_EP06',
+  'HKSONGS_EP07','HKSONGS_EP08','HKSONGS_EP09','HKSONGS_EP10','HKSONGS_EP11',
+  'HKSONGS_EXTRA'
 ];
 
 var path = window.location.pathname;
-var filename = path.substring(path.lastIndexOf('/') + 1) || 'index.html';
+var filename = path.substring(path.lastIndexOf('/') + 1).toUpperCase() || 'INDEX.HTML';
 
 var isPaid = false;
 for (var i = 0; i < PAID_PATTERNS.length; i++) {
