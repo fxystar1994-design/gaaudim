@@ -1,27 +1,28 @@
-// paywall-check.js v3.1 — 2026-03-21
+// paywall-check.js v3.2 — 2026-03-21
+// 修复：Netlify Pretty URLs会把文件名转小写，需要toUpperCase后再匹配
 // 逻辑：只有文件名包含以下付费关键词才上锁，其余全部放行
 // 特殊规则：SZ05如果已领取奖励（gd_reward_sz05），也放行
 (function(){
 
-// ===== 付费页面关键词（只有匹配才锁，不匹配一律放行）=====
+// ===== 付费页面关键词（大写，用于匹配）=====
 var PAID = [
   'EP06','EP07','EP08','EP09',
   'EP10','EP11','EP12','EP13','EP14','EP15',
   'EP16','EP17','EP18','EP19','EP20',
   'EP21','EP22','EP23','EP24','EP25',
   'EP26','EP27','EP28','EP29','EP30',
-  'JP03','JP04','JP05','JP06','JP07','JP08','JP09','JP10','JP_Extra',
+  'JP03','JP04','JP05','JP06','JP07','JP08','JP09','JP10','JP_EXTRA',
   'VW04','VW05','VW06','VW07','VW08','VW09','VW10',
   'VW11','VW12','VW13','VW14','VW15','VW16','VW17','VW18','VW19','VW20',
-  'SZ04','SZ05','SZ06','SZ07','SZ08','SZ09','SZ10','SZ_Extra',
-  'HKSongs_EP03','HKSongs_EP04','HKSongs_EP05',
-  'HKSongs_EP06','HKSongs_EP07','HKSongs_EP08',
-  'HKSongs_EP09','HKSongs_EP10','HKSongs_EP11','HKSongs_Extra'
+  'SZ04','SZ05','SZ06','SZ07','SZ08','SZ09','SZ10','SZ_EXTRA',
+  'HKSONGS_EP03','HKSONGS_EP04','HKSONGS_EP05',
+  'HKSONGS_EP06','HKSONGS_EP07','HKSONGS_EP08',
+  'HKSONGS_EP09','HKSONGS_EP10','HKSONGS_EP11','HKSONGS_EXTRA'
 ];
 
-// 获取当前文件名
+// 获取当前文件名，转大写（Netlify会把URL转小写）
 var path = window.location.pathname;
-var filename = path.substring(path.lastIndexOf('/') + 1);
+var filename = path.substring(path.lastIndexOf('/') + 1).toUpperCase();
 // 兜底：如果取不到文件名，直接放行
 if (!filename || filename === '' || filename === '/') return;
 
@@ -87,7 +88,6 @@ window.pwUnlock = function() {
   var code = document.getElementById('pw-code').value.trim().toUpperCase();
   var msg = document.getElementById('pw-msg');
   if (!code) { msg.style.color = '#C0392B'; msg.textContent = '请输入解锁码'; return; }
-  // 验证解锁码（后续接入Worker后改为API验证）
   var valid = [
     String.fromCharCode(71,68,55,88,57,75,69,50,77,70)
   ];
