@@ -1,0 +1,11 @@
+# ===========================================
+# 搞掂 GaauDim — robots.txt
+# ===========================================
+User-agent: *
+Allow: /
+
+# 阻止爬虫抓取工具页和脚本
+Disallow: /add_version.py
+Disallow: /inject_paywall.py
+
+Sitemap: https://gaaudim.com/sitemap.xml

@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GQBZMQQEQ9"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-GQBZMQQEQ9");</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>声母：只差这6个 · JP02 · 粤拼速成 | 搞掂 gaaudim.com</title>
+<meta name="keywords" content="搞掂,gaaudim,粤语,香港,高才通,港漂,留学,粤拼,香港生活指南">
+<meta name="description" content="声母：只差这6个 · JP02 | 系统化粤拼教学 | 搞掂 gaaudim.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&family=Noto+Sans+SC:wght@400;500;700;900&family=ZCOOL+KuaiLe&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --ink:    #1C1C2E;
+  --cream:  #FEFAF3;
+  --red:    #E84545;
+  --gold:   #F5A623;
+  --teal:   #00B4D8;
+  --purple: #7B2FBE;
+  --green:  #2DC653;
+  --pink:   #FF6B9D;
+  --card:   #FFFFFF;
+  --border: #E8E0D0;
+  --soft:   #F7F3EB;
+  --shadow: 0 4px 24px rgba(28,28,46,0.10);
+  --lab-bg: #0A0E1A;
+  --lab-grid: rgba(0,180,216,0.06);
+  --lab-glow: rgba(0,180,216,0.3);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body {
+  background: var(--cream);
+  font-family:'Noto Sans SC',sans-serif;
+  color: var(--ink);
+  line-height: 1.7;
+}
+
+/* ===== STICKY NAV ===== */
+.top-bar {
+  position: sticky; top:0; z-index:100;
+  background: var(--ink);
+  padding: 0 24px;
+  display: flex; align-items:center; justify-content:space-between;
+  height: 52px;
+  border-bottom: 3px solid var(--teal);
+}
+.top-bar .logo {
+  font-family:'ZCOOL KuaiLe',cursive;
+  color: var(--teal); font-size:17px; letter-spacing:1px;
+}
+.top-bar .ep-tag {
+  background: var(--red); color:white;
+  font-size:12px; font-weight:700;
+  padding:4px 12px; border-radius:20px;
+}
+.top-bar .series-tag {
+  background: var(--teal); color:white;
+  font-size:11px; font-weight:700;
+  padding:3px 10px; border-radius:12px;
+  margin-left:8px;
+}
+
+/* ===== TEACHER BANNER ===== */
+.teacher-banner {
+  background: linear-gradient(135deg, #0A0E1A 0%, #1A1A3E 50%, #0A0E1A 100%);
+  padding: 32px 24px 24px;
+  position: relative; overflow:hidden;
+}
+.teacher-banner::before {
+  content:'';position:absolute;top:0;right:0;
+  width:300px;height:100%;
+  background: radial-gradient(ellipse at right, rgba(0,180,216,0.15), transparent 70%);
+}
+.teacher-banner::after {
+  content:'';position:absolute;bottom:0;left:0;right:0;
+  height:2px;
+  background: linear-gradient(90deg, transparent, var(--teal), transparent);
+}
+.teacher-card {
+  max-width: 880px; margin:0 auto;
+  display: flex; gap:28px; align-items:center;
+  position:relative; z-index:1; flex-wrap:wrap;
+}
+
+/* Avatar */
+.avatar-wrap { flex-shrink:0; display:flex;flex-direction:column;align-items:center;gap:6px; }
+.avatar { width:110px;height:110px; position:relative; }
+.av-head {
+  width:80px;height:80px; background:#F4C2A0; border-radius:50%;
+  position:absolute; top:0; left:15px; border:3px solid var(--ink); overflow:hidden;
+}
+.av-head::before { content:'';position:absolute;top:0;left:0;right:0;height:38px;background:#2C1A0E;border-radius:50% 50% 0 0; }
+.av-head::after { content:'';position:absolute;top:28px;left:-4px;right:-4px;height:14px;background:#2C1A0E;border-radius:0 0 40% 40%; }
+.av-eye-l,.av-eye-r { position:absolute;width:10px;height:10px;background:#2C1A0E;border-radius:50%;top:42px; }
+.av-eye-l{left:20px;} .av-eye-r{right:20px;}
+.av-mouth { position:absolute;bottom:14px;left:50%;transform:translateX(-50%);width:22px;height:10px;border:0 solid transparent;border-bottom:3px solid #C0392B;border-radius:0 0 12px 12px; }
+.av-glasses { position:absolute;top:38px;left:12px;right:12px;height:14px;border-top:2.5px solid #D4AC0D; }
+.av-glasses::before,.av-glasses::after { content:'';position:absolute;width:20px;height:18px;border:2.5px solid #D4AC0D;border-radius:4px;top:-3px; }
+.av-glasses::before{left:0;} .av-glasses::after{right:0;}
+.av-body { width:86px;height:36px;background:var(--teal);border-radius:8px 8px 0 0;position:absolute;bottom:0;left:12px;border:3px solid var(--ink); }
+.av-body::before { content:'🔬';position:absolute;font-size:18px;top:5px;left:50%;transform:translateX(-50%); }
+.av-badge {
+  background: var(--teal); color: white;
+  font-family:'ZCOOL KuaiLe',cursive;
+  font-size:13px; font-weight:700;
+  padding:4px 14px; border-radius:20px;
+  border:2px solid var(--ink);
+  white-space:nowrap; box-shadow: 2px 2px 0 var(--ink);
+}
+
+.teacher-intro { flex:1; min-width:240px; }
+.teacher-intro h2 {
+  font-family:'ZCOOL KuaiLe',cursive;
+  color: var(--teal); font-size:26px; margin-bottom:6px;
+}
+.teacher-intro .tagline { color:#aaa; font-size:14px; margin-bottom:12px; font-style:italic; }
+.teacher-speech {
+  background: rgba(255,255,255,0.05);
+  border-left: 4px solid var(--teal);
+  border-radius:0 8px 8px 0;
+  padding:12px 16px; color:#ddd; font-size:15px; line-height:1.8;
+}
+.teacher-speech strong { color: var(--teal); }
+.teacher-tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+.t-tag {
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.15);
+  color:#bbb; font-size:12px; padding:4px 10px; border-radius:12px;
+}
+
+/* ===== EPISODE INTRO ===== */
+.ep-intro { max-width:880px; margin:32px auto; padding:0 24px; }
+.ep-title-block { display:flex; align-items:flex-start; gap:20px; flex-wrap:wrap; }
+.ep-num {
+  background:var(--teal); color:white;
+  font-family:'ZCOOL KuaiLe',cursive; font-size:13px;
+  padding:4px 14px; border-radius:4px; white-space:nowrap; margin-top:4px;
+}
+.ep-title {
+  font-family:'ZCOOL KuaiLe',cursive;
+  font-size:clamp(26px,5vw,40px); color:var(--ink); line-height:1.2;
+}
+.ep-desc { color:#666; font-size:15px; margin-top:10px; max-width:600px; }
+
+/* ===== SECTION WRAPPER ===== */
+.section { max-width:880px; margin:0 auto; padding:0 24px 40px; }
+
+/* ===== SECTION HEADER ===== */
+.sec-head {
+  display:flex; align-items:center; gap:12px;
+  margin-bottom:20px; padding-bottom:12px;
+  border-bottom:2px solid var(--border);
+}
+.sec-icon {
+  width:40px;height:40px;
+  background:var(--ink); color:var(--teal);
+  border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px; flex-shrink:0;
+}
+.sec-head h3 { font-family:'ZCOOL KuaiLe',cursive; font-size:22px; color:var(--ink); }
+.sec-head .sec-sub { color:#888; font-size:13px; margin-top:2px; }
+
+/* ===== MAY SAY ===== */
+.may-say {
+  display:flex; gap:14px; align-items:flex-start;
+  background:var(--soft); border-radius:12px;
+  padding:16px; margin:20px 0; border:1.5px solid var(--border);
+}
+.may-say .mini-av {
+  width:44px;height:44px; background:#F4C2A0; border-radius:50%;
+  border:2.5px solid var(--ink);
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px; flex-shrink:0;
+}
+.may-say-body { flex:1; }
+.may-say-name { font-size:12px; font-weight:700; color:var(--red); letter-spacing:1px; margin-bottom:4px; }
+.may-say-text { font-size:14px; color:#444; line-height:1.7; }
+.may-say-text strong { color:var(--ink); }
+
+/* ===== DIVIDER ===== */
+.divider { border:none; border-top:2px dashed var(--border); margin:32px 0; }
+
+/* ╔═══════════════════════════════════════════════════╗
+   ║  发音急诊室专属样式                                  ║
+   ╚═══════════════════════════════════════════════════╝ */
+
+/* ----- LAB WORKBENCH (发音工作台) ----- */
+.lab-bench {
+  background: var(--lab-bg);
+  border-radius:16px;
+  border:2px solid rgba(0,180,216,0.3);
+  overflow:hidden;
+  margin:24px 0;
+  box-shadow: 0 0 40px rgba(0,180,216,0.08);
+}
+.lab-header {
+  background: linear-gradient(90deg, #0D1117, #161B28);
+  padding:14px 20px;
+  display:flex; align-items:center; gap:10px;
+  border-bottom:1px solid rgba(0,180,216,0.2);
+}
+.lab-header-icon { font-size:20px; }
+.lab-header-title {
+  font-family:'ZCOOL KuaiLe',cursive;
+  color:var(--teal); font-size:16px;
+}
+.lab-header-sub { color:#555; font-size:12px; margin-left:auto; }
+.lab-body {
+  padding:24px;
+  background:
+    linear-gradient(var(--lab-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--lab-grid) 1px, transparent 1px),
+    var(--lab-bg);
+  background-size: 40px 40px, 40px 40px;
+}
+
+/* ----- PHONEME PANEL (音素面板) ----- */
+.phoneme-grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  gap:10px; margin:16px 0;
+}
+.phoneme-card {
+  background: rgba(255,255,255,0.04);
+  border:1.5px solid rgba(255,255,255,0.1);
+  border-radius:10px; padding:12px 8px;
+  text-align:center; cursor:pointer;
+  transition:all 0.2s;
+  position:relative;
+}
+.phoneme-card:hover {
+  border-color:var(--teal);
+  background:rgba(0,180,216,0.08);
+  transform:translateY(-2px);
+  box-shadow:0 4px 16px rgba(0,180,216,0.15);
+}
+.phoneme-card.highlight {
+  border-color:var(--gold);
+  background:rgba(245,166,35,0.1);
+}
+.phoneme-card.new-badge::after {
+  content:'NEW';
+  position:absolute; top:-6px; right:-6px;
+  background:var(--red); color:white;
+  font-size:9px; font-weight:800;
+  padding:2px 6px; border-radius:8px;
+}
+.phoneme-card.same-badge::after {
+  content:'=普';
+  position:absolute; top:-6px; right:-6px;
+  background:var(--green); color:white;
+  font-size:9px; font-weight:800;
+  padding:2px 6px; border-radius:8px;
+}
+.ph-symbol {
+  font-size:26px; font-weight:800; color:white;
+  font-family:'Noto Serif SC',serif;
+  display:block; margin-bottom:4px;
+}
+.ph-jyutping {
+  font-size:13px; color:var(--teal); font-weight:700;
+  display:block;
+}
+.ph-desc {
+  font-size:11px; color:#777; display:block; margin-top:3px;
+}
+.ph-example {
+  font-size:11px; color:var(--gold); display:block; margin-top:4px;
+  font-style:italic;
+}
+
+/* ----- TONE LADDER (声调阶梯) ----- */
+.tone-ladder {
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:12px;
+  padding:24px;
+  margin:16px 0;
+  position:relative;
+}
+.tone-ladder-title {
+  color:var(--teal); font-size:14px; font-weight:700;
+  margin-bottom:16px;
+  font-family:'ZCOOL KuaiLe',cursive;
+}
+.tone-row {
+  display:flex; align-items:center; gap:12px;
+  padding:10px 0;
+  border-bottom:1px solid rgba(255,255,255,0.05);
+}
+.tone-row:last-child { border-bottom:none; }
+.tone-num {
+  width:36px; height:36px;
+  border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:16px; font-weight:800; color:white;
+  flex-shrink:0;
+}
+.tone-num.t1 { background:#E84545; }
+.tone-num.t2 { background:#F5A623; }
+.tone-num.t3 { background:#00B4D8; }
+.tone-num.t4 { background:#7B2FBE; }
+.tone-num.t5 { background:#2DC653; }
+.tone-num.t6 { background:#FF6B9D; }
+.tone-num.t7 { background:#E84545; border:2px dashed white; }
+.tone-num.t8 { background:#00B4D8; border:2px dashed white; }
+.tone-num.t9 { background:#FF6B9D; border:2px dashed white; }
+.tone-pitch {
+  color:#999; font-size:12px; width:40px; text-align:center; flex-shrink:0;
+}
+.tone-bar-wrap { flex:1; height:32px; position:relative; }
+.tone-bar {
+  position:absolute; height:4px; border-radius:2px;
+  top:50%; transform:translateY(-50%);
+}
+.tone-bar.level { width:80%; left:10%; }
+.tone-bar.rising { width:60%; left:20%; transform:translateY(-50%) rotate(-8deg); }
+.tone-bar.falling { width:60%; left:20%; transform:translateY(-50%) rotate(8deg); }
+.tone-word {
+  font-family:'Noto Serif SC',serif;
+  font-size:18px; font-weight:700; color:white;
+  width:40px; text-align:center; flex-shrink:0;
+}
+.tone-jyutping {
+  font-size:12px; color:var(--teal); width:60px; flex-shrink:0;
+}
+.tone-meaning {
+  font-size:12px; color:#888; flex:1;
+}
+.tone-play-btn {
+  background:rgba(0,180,216,0.15);
+  border:1.5px solid rgba(0,180,216,0.3);
+  color:var(--teal); width:32px; height:32px;
+  border-radius:50%; cursor:pointer;
+  font-size:14px; flex-shrink:0;
+  transition:all 0.15s;
+}
+.tone-play-btn:hover { background:var(--teal); color:white; }
+
+/* ----- COMPARISON DRILL (对比练习) ----- */
+.compare-drill {
+  display:grid; grid-template-columns:1fr auto 1fr;
+  gap:12px; align-items:center;
+  margin:16px 0;
+}
+@media(max-width:560px) { .compare-drill { grid-template-columns:1fr; } }
+.compare-side {
+  background:rgba(255,255,255,0.04);
+  border:1.5px solid rgba(255,255,255,0.1);
+  border-radius:10px; padding:16px;
+  text-align:center;
+  cursor:pointer; transition:all 0.2s;
+}
+.compare-side:hover {
+  border-color:var(--teal);
+  background:rgba(0,180,216,0.06);
+}
+.compare-side.mandarin { border-left:3px solid var(--pink); }
+.compare-side.cantonese { border-left:3px solid var(--teal); }
+.compare-vs {
+  font-size:20px; font-weight:900; color:#555;
+  text-align:center;
+}
+.cs-label {
+  font-size:10px; font-weight:700; letter-spacing:2px;
+  margin-bottom:8px; display:block;
+}
+.compare-side.mandarin .cs-label { color:var(--pink); }
+.compare-side.cantonese .cs-label { color:var(--teal); }
+.cs-char {
+  font-family:'Noto Serif SC',serif;
+  font-size:28px; font-weight:800; color:white;
+  display:block; margin:6px 0;
+}
+.cs-pinyin {
+  font-size:14px; font-weight:600; display:block; margin:4px 0;
+}
+.compare-side.mandarin .cs-pinyin { color:var(--pink); }
+.compare-side.cantonese .cs-pinyin { color:var(--teal); }
+.cs-tip { font-size:11px; color:#888; display:block; margin-top:6px; }
+
+/* ----- MOUTH DIAGRAM (口型图示) ----- */
+.mouth-diagram {
+  display:flex; gap:20px; align-items:center;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:12px; padding:20px;
+  margin:12px 0; flex-wrap:wrap;
+}
+.mouth-icon {
+  font-size:64px; flex-shrink:0;
+  filter:drop-shadow(0 0 12px rgba(0,180,216,0.3));
+}
+.mouth-desc { flex:1; min-width:200px; }
+.mouth-desc h4 { color:white; font-size:16px; margin-bottom:6px; }
+.mouth-desc p { color:#aaa; font-size:13px; line-height:1.7; }
+.mouth-desc .trick {
+  background:rgba(245,166,35,0.1);
+  border:1px solid rgba(245,166,35,0.3);
+  border-radius:8px; padding:8px 12px;
+  margin-top:8px; color:var(--gold);
+  font-size:12px; font-weight:600;
+}
+
+/* ----- DRILL EXERCISE (训练题) ----- */
+.drill-box {
+  background:var(--lab-bg);
+  border:2px solid rgba(0,180,216,0.2);
+  border-radius:12px; overflow:hidden;
+  margin:20px 0;
+}
+.drill-header {
+  background:linear-gradient(90deg, #0D1117, #161B28);
+  padding:12px 18px; display:flex; align-items:center; gap:10px;
+  border-bottom:1px solid rgba(0,180,216,0.15);
+}
+.drill-header-icon { font-size:18px; }
+.drill-header-title { color:var(--teal); font-size:15px; font-weight:700; font-family:'ZCOOL KuaiLe',cursive; }
+.drill-body { padding:20px; }
+.drill-item {
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:10px; padding:16px;
+  margin-bottom:12px;
+}
+.drill-q-num { font-size:11px; font-weight:700; color:var(--teal); letter-spacing:1px; margin-bottom:6px; }
+.drill-q-text { color:white; font-size:15px; margin-bottom:12px; }
+.drill-q-text .big-char {
+  font-family:'Noto Serif SC',serif;
+  font-size:28px; font-weight:800; display:inline-block;
+  margin:0 4px; color:var(--gold);
+}
+.drill-options { display:flex; flex-wrap:wrap; gap:8px; }
+.drill-opt {
+  background:rgba(255,255,255,0.06);
+  border:1.5px solid rgba(255,255,255,0.12);
+  color:#ddd; padding:8px 16px;
+  border-radius:8px; cursor:pointer;
+  font-size:14px; transition:all 0.15s;
+}
+.drill-opt:hover:not([disabled]) { background:rgba(0,180,216,0.15); border-color:var(--teal); }
+.drill-opt.correct { background:rgba(45,198,83,0.2); border-color:var(--green); color:#7DFFA6; pointer-events:none; }
+.drill-opt.wrong { background:rgba(232,69,69,0.2); border-color:var(--red); color:#FFB3B3; pointer-events:none; }
+.drill-feedback { margin-top:10px;font-size:13px;padding:8px 12px;border-radius:6px;display:none; }
+.drill-feedback.ok { display:block;background:rgba(45,198,83,0.12);color:var(--green); }
+.drill-feedback.bad { display:block;background:rgba(232,69,69,0.12);color:#ff8888; }
+
+/* ----- MNEMONIC CARD (记忆口诀卡) ----- */
+.mnemonic-card {
+  background:linear-gradient(135deg, rgba(245,166,35,0.08), rgba(123,47,190,0.08));
+  border:2px solid rgba(245,166,35,0.3);
+  border-radius:14px; padding:20px;
+  margin:16px 0; text-align:center;
+}
+.mnemonic-icon { font-size:36px; margin-bottom:8px; }
+.mnemonic-text {
+  font-family:'ZCOOL KuaiLe',cursive;
+  font-size:22px; color:var(--ink);
+  line-height:1.6; margin-bottom:8px;
+}
+.mnemonic-sub { font-size:13px; color:#888; }
+
+/* ----- KNOWLEDGE CARD (知识点卡) ----- */
+.know-card {
+  background:var(--card); border-radius:12px;
+  border:1.5px solid var(--border); padding:20px;
+  margin:16px 0;
+}
+.know-card.tip { border-left:4px solid var(--green); background:#F0FFF4; }
+.know-card.warn { border-left:4px solid var(--red); background:#FFF5F5; }
+.know-card.info { border-left:4px solid var(--teal); background:#F0F8FF; }
+.know-card.gold { border-left:4px solid var(--gold); background:#FFF8E7; }
+.know-label {
+  font-size:11px; font-weight:700; letter-spacing:1px;
+  margin-bottom:8px; display:flex; align-items:center; gap:5px;
+}
+.know-card.tip .know-label { color:var(--green); }
+.know-card.warn .know-label { color:var(--red); }
+.know-card.info .know-label { color:var(--teal); }
+.know-card.gold .know-label { color:#B7950B; }
+.know-text { font-size:14px; line-height:1.8; color:#444; }
+.know-text strong { color:var(--ink); }
+.know-text .ct { font-family:'Noto Serif SC',serif; font-weight:700; color:var(--ink); }
+.know-text .jp { color:var(--teal); font-size:12px; }
+.know-text .pk { color:var(--pink); font-size:12px; }
+
+/* ----- PROGRESS TRACKER ----- */
+.progress-track {
+  display:flex; gap:4px; margin:16px 0;
+  padding:12px 16px;
+  background:var(--soft);
+  border-radius:10px; border:1px solid var(--border);
+  flex-wrap:wrap;
+}
+.progress-dot {
+  width:24px; height:24px; border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px; font-weight:700; color:white;
+  background:#ccc; flex-shrink:0;
+}
+.progress-dot.done { background:var(--green); }
+.progress-dot.current { background:var(--teal); animation:pulse 1.5s infinite; }
+.progress-dot.locked { background:#ddd; color:#aaa; }
+@keyframes pulse { 0%,100%{box-shadow:0 0 0 0 rgba(0,180,216,0.4);} 50%{box-shadow:0 0 0 8px rgba(0,180,216,0);} }
+
+/* ----- CULTURE BOX (same as scene lessons) ----- */
+.culture-box {
+  background: linear-gradient(135deg, #1C1C2E, #2D2B55);
+  border-radius:12px; padding:24px;
+  margin:24px 0; color:white;
+  border:2px solid var(--teal);
+}
+.culture-box h4 {
+  font-family:'ZCOOL KuaiLe',cursive;
+  color:var(--teal); font-size:20px; margin-bottom:16px;
+  display:flex;align-items:center;gap:8px;
+}
+.culture-items { display:flex;flex-direction:column;gap:12px; }
+.culture-item {
+  background:rgba(255,255,255,0.06);
+  border-radius:8px; padding:14px;
+  border-left:3px solid var(--teal);
+  display:flex;gap:12px;align-items:flex-start;
+}
+.culture-item .ci-icon { font-size:24px; flex-shrink:0; }
+.ci-title { font-weight:700; margin-bottom:3px; font-size:14px; }
+.ci-text { color:#bbb; font-size:13px; line-height:1.6; }
+.ci-ct { font-family:'Noto Serif SC',serif; color:var(--gold); font-weight:700; }
+
+/* ----- QUIZ (same as scene) ----- */
+.quiz-wrap { background:var(--ink); border-radius:12px; padding:24px; margin:24px 0; }
+.quiz-head { display:flex;align-items:center;gap:12px; margin-bottom:20px; }
+.quiz-head h3 { font-family:'ZCOOL KuaiLe',cursive; color:var(--teal); font-size:22px; }
+.quiz-score-board {
+  background:rgba(255,255,255,0.08); border-radius:8px;
+  padding:8px 14px; color:var(--teal); font-size:14px;
+  font-weight:700; margin-left:auto;
+}
+.q-item { background:rgba(255,255,255,0.06); border-radius:10px; padding:18px; margin-bottom:14px; }
+.q-num { font-size:11px; font-weight:700; color:var(--teal); letter-spacing:1px; margin-bottom:8px; }
+.q-text { color:white; font-size:15px; margin-bottom:12px; font-family:'Noto Serif SC',serif; }
+.q-options { display:flex;flex-wrap:wrap;gap:8px; }
+.q-opt {
+  background:rgba(255,255,255,0.08);
+  border:1.5px solid rgba(255,255,255,0.15);
+  color:#ddd; padding:8px 16px;
+  border-radius:8px; cursor:pointer;
+  font-size:14px; transition:all 0.15s;
+}
+.q-opt:hover:not([disabled]) { background:rgba(0,180,216,0.2); border-color:var(--teal); }
+.q-opt.correct { background:rgba(45,198,83,0.25); border-color:var(--green); color:#7DFFA6; }
+.q-opt.wrong { background:rgba(232,69,69,0.25); border-color:var(--red); color:#FFB3B3; }
+.q-feedback { margin-top:10px;font-size:13px;padding:8px 12px;border-radius:6px;display:none; }
+.q-feedback.ok { display:block;background:rgba(45,198,83,0.15);color:var(--green); }
+.q-feedback.bad { display:block;background:rgba(232,69,69,0.15);color:#ff8888; }
+
+/* ----- STORY (same as scene) ----- */
+.story-section {
+  background: linear-gradient(160deg, #FFFBF0 0%, #FFF5E6 100%);
+  border: 2px solid #F0D9B0; border-radius: 16px;
+  overflow: hidden; margin-bottom: 32px;
+  box-shadow: 0 4px 24px rgba(180,120,40,0.08);
+}
+.story-header {
+  background: linear-gradient(90deg, #2C1A0E, #4A2F1A);
+  padding: 20px 28px; display: flex; align-items: center; gap: 16px;
+}
+.story-header-text h3 { font-family:'ZCOOL KuaiLe',cursive; color: var(--gold); font-size: 22px; margin-bottom: 4px; }
+.story-header-text p { color: #bbb; font-size: 13px; }
+.story-av-large {
+  width: 60px; height: 60px; border-radius: 50%;
+  background: #F4C2A0; border: 3px solid var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 30px; flex-shrink: 0;
+}
+.story-body { padding: 24px 28px; }
+.story-pull-quote {
+  font-family:'Caveat', cursive; font-size: 22px; color: #7B4A1E;
+  line-height: 1.6; border-left: 4px solid var(--gold);
+  padding: 12px 20px; background: rgba(245,166,35,0.08);
+  border-radius: 0 8px 8px 0; margin: 20px 0;
+}
+.story-timeline { margin: 24px 0; display: flex; flex-direction: column; }
+.st-item { display: flex; gap: 0; position: relative; }
+.st-left { display: flex; flex-direction: column; align-items: center; width: 48px; flex-shrink: 0; }
+.st-dot { width: 16px; height: 16px; border-radius: 50%; background: var(--teal); border: 3px solid #2C1A0E; flex-shrink: 0; z-index: 1; margin-top: 4px; }
+.st-line { width: 2px; flex: 1; background: linear-gradient(var(--teal), #ddd); margin-top: 4px; }
+.st-item:last-child .st-line { display: none; }
+.st-content { flex: 1; padding: 0 0 28px 12px; }
+.st-year { font-size: 11px; font-weight: 700; color: var(--teal); letter-spacing: 1px; margin-bottom: 4px; }
+.st-title { font-family:'ZCOOL KuaiLe',cursive; font-size: 18px; color: #2C1A0E; margin-bottom: 6px; }
+.st-text { font-size: 14px; color: #555; line-height: 1.8; }
+.st-text strong { color: #2C1A0E; }
+
+/* ----- HOMEWORK (same as scene) ----- */
+.hw-interactive { background:var(--card); border-radius:12px; border:1.5px solid var(--border); padding:20px; margin-bottom:16px; }
+.hw-int-title { font-family:'ZCOOL KuaiLe',cursive; font-size:17px; color:var(--ink); margin-bottom:12px; display:flex;align-items:center;gap:8px; }
+.hw-fill-row { display:flex; flex-wrap:wrap; gap:6px; align-items:center; margin:10px 0; font-size:15px; color:#444; }
+.hw-blank { display:inline-block; min-width:80px; border-bottom:2px dashed var(--teal); padding:2px 8px; color:transparent; cursor:pointer; text-align:center; transition:all .2s; background:rgba(0,180,216,0.05); border-radius:4px; user-select:none; }
+.hw-blank:hover { background:rgba(0,180,216,0.1); }
+.hw-blank.show { color:var(--teal); font-weight:700; }
+.hw-scenario-box { background:var(--soft); border:1.5px solid var(--border); border-radius:10px; padding:16px; margin:12px 0; }
+.hw-reveal { background:var(--ink); color:var(--teal); border:none; padding:8px 20px; border-radius:8px; font-weight:700; cursor:pointer; font-size:13px; font-family:'Noto Sans SC',sans-serif; margin-top:10px; }
+.hw-reveal:hover { background:var(--teal); color:white; }
+.hw-answer-box { display:none; margin-top:12px; padding:16px; background:#F0FFF4; border:1.5px solid #A8D5B5; border-radius:10px; }
+.hw-answer-box.show { display:block; }
+
+/* ----- NEXT EP ===== */
+.next-ep-card {
+  background:var(--ink); border-radius:12px;
+  padding:24px; margin:24px 0;
+  border:2px solid var(--teal);
+  display:flex;gap:20px;align-items:center;flex-wrap:wrap;
+}
+.next-ep-icon { font-size:48px; flex-shrink:0; }
+.next-ep-text h4 { font-family:'ZCOOL KuaiLe',cursive; color:var(--teal);font-size:20px;margin-bottom:6px; }
+.next-ep-text p { color:#aaa;font-size:14px;line-height:1.6; }
+
+/* ----- FLOAT TIP ----- */
+.float-tip { position:fixed; bottom:24px; right:24px; z-index:200; display:flex;flex-direction:column;align-items:flex-end;gap:8px; }
+.float-bubble {
+  background:white; border:2px solid var(--ink);
+  border-radius:16px 16px 4px 16px;
+  padding:12px 16px; max-width:240px;
+  font-size:13px; line-height:1.5;
+  box-shadow:0 8px 24px rgba(0,0,0,0.15); display:none;
+}
+.float-bubble.show { display:block; }
+.float-btn {
+  width:52px;height:52px; border-radius:50%;
+  background:var(--teal); border:3px solid var(--ink);
+  font-size:24px; cursor:pointer;
+  box-shadow:0 4px 16px rgba(0,0,0,0.2);
+  display:flex;align-items:center;justify-content:center;
+  transition:transform 0.2s;
+}
+.float-btn:hover { transform:scale(1.1); }
+
+/* ----- TABLE STYLES ----- */
+.jp-table {
+  width:100%; border-collapse:collapse;
+  margin:16px 0; font-size:13px;
+}
+.jp-table th {
+  background:rgba(0,180,216,0.1);
+  color:var(--teal); font-weight:700;
+  padding:10px 12px; text-align:left;
+  border-bottom:2px solid rgba(0,180,216,0.2);
+  font-size:12px; letter-spacing:0.5px;
+}
+.jp-table td {
+  padding:10px 12px;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  color:#ccc;
+}
+.jp-table tr:hover td { background:rgba(0,180,216,0.04); }
+.jp-table .char { font-family:'Noto Serif SC',serif; font-size:18px; font-weight:700; color:white; }
+.jp-table .jyut { color:var(--teal); font-weight:600; }
+.jp-table .pth { color:var(--pink); }
+.jp-table .note { color:#888; font-size:12px; }
+
+/* ----- INTERACTIVE TONE GAME ----- */
+.tone-game {
+  background:var(--lab-bg); border-radius:12px;
+  border:2px solid rgba(0,180,216,0.2);
+  padding:20px; margin:16px 0;
+}
+.tone-game-title {
+  color:var(--teal); font-family:'ZCOOL KuaiLe',cursive;
+  font-size:16px; margin-bottom:12px;
+}
+.tone-game-char {
+  font-family:'Noto Serif SC',serif;
+  font-size:48px; font-weight:800; color:white;
+  text-align:center; display:block; margin:16px 0;
+}
+.tone-game-options { display:flex; gap:8px; justify-content:center; flex-wrap:wrap; }
+.tone-game-opt {
+  background:rgba(255,255,255,0.06);
+  border:1.5px solid rgba(255,255,255,0.12);
+  color:#ddd; padding:10px 20px;
+  border-radius:10px; cursor:pointer;
+  font-size:15px; font-weight:700;
+  transition:all 0.2s; min-width:80px; text-align:center;
+}
+.tone-game-opt:hover { border-color:var(--teal); background:rgba(0,180,216,0.1); }
+.tone-game-opt.correct { background:rgba(45,198,83,0.2); border-color:var(--green); color:#7DFFA6; }
+.tone-game-opt.wrong { background:rgba(232,69,69,0.2); border-color:var(--red); color:#FFB3B3; }
+
+/* ----- WORD CHIP (for vocab) ----- */
+.word-row { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:20px; }
+.word-chip {
+  background:var(--soft); border:1.5px solid var(--border);
+  border-radius:10px; padding:10px 14px;
+  text-align:center; min-width:80px;
+  cursor:pointer; transition:all 0.15s;
+}
+.word-chip:hover { border-color:var(--teal); background:#E8F7FC; }
+.wc-char { font-family:'Noto Serif SC',serif; font-size:22px; font-weight:700; color:var(--ink); display:block; }
+.wc-jp { color:var(--teal); font-size:12px; font-weight:600; display:block; }
+.wc-en { color:#888; font-size:11px; display:block; margin-top:2px; }
+
+/* ----- SUMMARY TABLE (light) ----- */
+.summary-table {
+  width:100%; border-collapse:collapse;
+  margin:16px 0; font-size:13px;
+  background:var(--card); border:1.5px solid var(--border);
+  border-radius:10px; overflow:hidden;
+}
+.summary-table th {
+  background:var(--ink); color:var(--teal);
+  padding:10px 12px; text-align:left; font-size:12px;
+}
+.summary-table td {
+  padding:10px 12px; border-bottom:1px solid var(--border);
+}
+.summary-table .char { font-family:'Noto Serif SC',serif; font-size:17px; font-weight:700; }
+.summary-table .jyut { color:var(--teal); font-weight:600; }
+
+/* ----- RESPONSIVE ----- */
+@media(max-width:600px) {
+  .teacher-card { gap:16px; }
+  .lab-body { padding:16px; }
+  .phoneme-grid { grid-template-columns: repeat(auto-fill, minmax(75px, 1fr)); gap:8px; }
+  .tone-row { flex-wrap:wrap; gap:8px; }
+  .compare-drill { grid-template-columns:1fr; }
+  .compare-vs { display:none; }
+}
+
+</style>
+<style>
+/* === GD NAV === */
+.gd-nav{position:sticky;top:0;z-index:9999;background:rgba(28,28,46,.98);backdrop-filter:blur(14px);height:48px;display:flex;align-items:center;padding:0 14px;border-bottom:2px solid #F5A623;box-shadow:0 2px 20px rgba(245,166,35,.1);font-family:'Noto Sans SC',sans-serif;gap:8px;}
+.gd-nav-left{display:flex;align-items:center;gap:12px;flex-shrink:0;}
+.gd-nav-brand{font-family:'ZCOOL KuaiLe',cursive;color:#F5A623;font-size:15px;text-decoration:none;white-space:nowrap;}
+.gd-nav-brand span{font-family:'ZCOOL KuaiLe',cursive;font-size:13px;color:rgba(245,166,35,.6);margin-left:6px;font-weight:400;}
+
+@media(min-width:640px){}
+.gd-nav-links{flex:1;display:flex;justify-content:flex-end;gap:2px;overflow:visible;}
+.gd-dd{position:relative;display:inline-block;}
+.gd-nav-slogan{color:rgba(255,255,255,.65);font-size:12px;white-space:nowrap;display:none;}
+@media(min-width:640px){.gd-nav-slogan{display:block;}}
+.gd-dd-btn{color:rgba(255,255,255,.55);font-size:11px;padding:6px 10px;border-radius:12px;white-space:nowrap;cursor:pointer;transition:all .2s;background:none;border:none;font-family:inherit;}
+.gd-dd-btn:hover,.gd-dd-btn.on{background:rgba(245,166,35,.12);color:#F5A623;}
+.gd-dd-list{display:none;position:absolute;top:100%;right:0;background:#1C1C2E;border:1px solid rgba(245,166,35,.25);border-radius:10px;min-width:200px;max-height:70vh;overflow-y:auto;overflow-x:visible;z-index:10000;box-shadow:0 8px 32px rgba(0,0,0,.5);padding:6px 0;margin-top:4px;}
+.gd-dd:hover .gd-dd-list{display:block;}
+.gd-dd-list a{display:block;padding:7px 14px;color:rgba(255,255,255,.7);font-size:11px;text-decoration:none;white-space:nowrap;transition:all .15s;}
+.gd-dd-list a:hover{background:rgba(245,166,35,.1);color:#F5A623;}
+.gd-dd-list a.cur{color:#F5A623;font-weight:700;background:rgba(245,166,35,.08);}
+@media(max-width:600px){.gd-dd-btn{font-size:10px;padding:5px 6px;}.gd-dd-list{min-width:160px;right:-20px;}}
+/* === BOTTOM BAR === */
+.gd-bot{position:fixed;bottom:0;left:0;right:0;z-index:9998;background:rgba(28,28,46,.97);backdrop-filter:blur(12px);border-top:2px solid #F5A623;padding:6px 10px;display:flex;align-items:center;gap:6px;font-family:'Noto Sans SC',sans-serif;}
+.gd-bot-arr{color:rgba(255,255,255,.5);font-size:14px;cursor:pointer;padding:4px 6px;border:none;background:none;text-decoration:none;transition:color .2s;flex-shrink:0;}
+.gd-bot-arr:hover{color:#F5A623;}
+.gd-bot-scroll{flex:1;display:flex;gap:4px;overflow-x:auto;padding:4px 0;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+.gd-bot-scroll::-webkit-scrollbar{display:none;}
+.gd-bot-ep{color:rgba(255,255,255,.4);font-size:10px;padding:4px 10px;border-radius:10px;white-space:nowrap;text-decoration:none;transition:all .2s;flex-shrink:0;border:1px solid transparent;}
+.gd-bot-ep:hover{color:rgba(255,255,255,.7);background:rgba(255,255,255,.05);}
+.gd-bot-ep.on{color:#F5A623;background:rgba(245,166,35,.12);border-color:rgba(245,166,35,.3);font-weight:700;}
+/* === INJECTED FOOTER === */
+.gd-copy-btn{display:block;margin:24px auto 12px;padding:10px 24px;background:#F5A623;color:#1C1C2E;border:none;border-radius:24px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s;}
+.gd-copy-btn:hover{transform:scale(1.04);box-shadow:0 4px 16px rgba(245,166,35,.4);}
+.gd-contact{text-align:center;padding:14px 16px;font-size:12px;color:#000;}
+.gd-contact a{color:#000;text-decoration:underline;text-underline-offset:3px;}
+.gd-legal-index{text-align:center;padding:4px 16px 16px;font-size:9px;color:#999;}
+.gd-next{display:block;background:linear-gradient(135deg,#1C1C2E,#2d2b55);border-radius:14px;padding:20px 24px;margin:30px auto;max-width:600px;text-decoration:none;border:1px solid rgba(245,166,35,.2);transition:all .3s;}
+.gd-next:hover{border-color:rgba(245,166,35,.5);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.15);}
+.gd-next h4{color:#F5A623;font-family:'ZCOOL KuaiLe',cursive;font-size:16px;margin-bottom:4px;}
+.gd-next p{color:rgba(255,255,255,.5);font-size:12px;}
+/* anti-copy */
+body{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}
+input,textarea{-webkit-user-select:text;-moz-user-select:text;-ms-user-select:text;user-select:text;}
+.gd-spacer{height:60px;}
+</style>
+</head>
+<body>
+<nav class="gd-nav">
+<div class="gd-nav-left">
+<a href="index.html" class="gd-nav-brand">搞掂 <span>gaaudim.com</span></a>
+<span class="gd-nav-slogan">一个网站帮你搞掂粤语·签证·租房·求职·留学</span>
+
+</div>
+<div class="gd-nav-links">
+<div class="gd-dd">
+<button class="gd-dd-btn">街头粤语</button>
+<div class="gd-dd-list">
+<a href="MayJie_EP01_ChaChaan.html">EP01 茶餐厅生存战</a>
+<a href="MayJie_EP02_MTR.html">EP02 地铁大冒险</a>
+<a href="MayJie_EP03_ConvStore.html">EP03 便利店粤语</a>
+<a href="MayJie_EP04_Taxi_Doctor.html">EP04 的士+睇医生</a>
+<a href="MayJie_EP05_Takeout.html">EP05 外卖点餐</a>
+<a href="MayJie_EP06_Self_Intro.html">EP06 自我介绍</a>
+<a href="MayJie_EP07_Shopping.html">EP07 购物砍价</a>
+<a href="MayJie_EP08_Entertainment.html">EP08 娱乐消遣</a>
+<a href="MayJie_EP09_Renting.html">EP09 租房攻略</a>
+<a href="MayJie_EP10_JobInterview.html">EP10 求职面试</a>
+<a href="MayJie_EP11_Hiking.html">EP11 行山郊游</a>
+<a href="MayJie_EP12_Festivals.html">EP12 节日祝福</a>
+<a href="MayJie_EP13_Complaints.html">EP13 投诉维权</a>
+<a href="MayJie_EP14_Dating.html">EP14 恋爱社交</a>
+<a href="MayJie_EP15_Drinking.html">EP15 饮酒社交</a>
+<a href="MayJie_EP16_Beauty.html">EP16 美容美发</a>
+<a href="MayJie_EP17_PhoneCall.html">EP17 打电话</a>
+<a href="MayJie_EP18_Neighbors__1_.html">EP18 邻居社交</a>
+<a href="MayJie_EP19_DimSum.html">EP19 饮茶点心</a>
+<a href="MayJie_EP20_Supermarket.html">EP20 超市买菜</a>
+<a href="MayJie_EP21_Numbers.html">EP21 数字时间钱</a>
+<a href="MayJie_EP22.html">EP22 离岛渡轮</a>
+<a href="MayJie_EP23.html">EP23 运动健身</a>
+<a href="MayJie_EP24.html">EP24 银行邮局</a>
+<a href="MayJie_EP25.html">EP25 潮语实战</a>
+<a href="MayJie_EP26.html">EP26 亲子家庭</a>
+<a href="MayJie_EP27.html">EP27 唱K实战</a>
+<a href="MayJie_EP28.html">EP28 家务日常</a>
+<a href="MayJie_EP29.html">EP29 凉茶养生</a>
+<a href="MayJie_EP30.html">EP30 大结局</a>
+</div></div>
+<div class="gd-dd">
+<button class="gd-dd-btn on">粤拼速成</button>
+<div class="gd-dd-list">
+<a href="MayJie_JP01.html">JP01 你已经会粤拼了</a>
+<a href="MayJie_JP02.html" class="cur">JP02 声母：只差这6个</a>
+<a href="MayJie_JP03.html">JP03 韵母(上)</a>
+<a href="MayJie_JP04.html">JP04 韵母(下)+入声</a>
+<a href="MayJie_JP05.html">JP05 九声六调(上)</a>
+<a href="MayJie_JP06.html">JP06 九声六调(下)</a>
+<a href="MayJie_JP07.html">JP07 变调大陷阱</a>
+<a href="MayJie_JP08.html">JP08 声调最小对</a>
+<a href="MayJie_JP09.html">JP09 综合实战</a>
+<a href="MayJie_JP10.html">JP10 毕业+学习路线</a>
+<a href="MayJie_JP_Extra_LazyTones__1_.html">JP-X 懒音特辑</a>
+</div></div>
+<div class="gd-dd">
+<button class="gd-dd-btn">词汇箱</button>
+<div class="gd-dd-list">
+<a href="MayJie_VW01.html">VW01 生存25词</a>
+<a href="MayJie_VW02.html">VW02 动作25词</a>
+<a href="MayJie_VW03.html">VW03 日常动作25词</a>
+<a href="MayJie_VW04.html">VW04 形容词25词</a>
+<a href="MayJie_VW05.html">VW05 疑问+时间25词</a>
+<a href="MayJie_VW06.html">VW06 社交礼貌25词</a>
+<a href="MayJie_VW07.html">VW07 职场返工25词</a>
+<a href="MayJie_VW08.html">VW08 饮食美食25词</a>
+<a href="MayJie_VW09.html">VW09 交通出行25词</a>
+<a href="MayJie_VW10.html">VW10 购物讲价25词</a>
+<a href="MayJie_VW11.html">VW11 身体健康25词</a>
+<a href="MayJie_VW12.html">VW12 情绪心理25词</a>
+<a href="MayJie_VW13.html">VW13 数量程度25词</a>
+<a href="MayJie_VW14.html">VW14 居家日常25词</a>
+<a href="MayJie_VW15.html">VW15 天气环境25词</a>
+<a href="MayJie_VW16.html">VW16 科技网络25词</a>
+<a href="MayJie_VW17.html">VW17 语气词专题25词</a>
+<a href="MayJie_VW18.html">VW18 俗语歇后语25词</a>
+<a href="MayJie_VW19.html">VW19 潮语网络语(上)</a>
+<a href="MayJie_VW20.html">VW20 潮语网络语(下)</a>
+</div></div>
+<div class="gd-dd">
+<button class="gd-dd-btn">粤语歌</button>
+<div class="gd-dd-list">
+<a href="MayJie_HKSongs_EP01_V3.html">HK01 唱K速成</a>
+<a href="MayJie_HKSongs_EP02.html">HK02 歌词解码</a>
+<a href="MayJie_HKSongs_EP03_V3.html">HK03 林夕vs黄伟文</a>
+<a href="MayJie_HKSongs_EP04_V2.html">HK04 林夕的粤语宇宙</a>
+<a href="MayJie_HKSongs_EP05_V2.html">HK05 MIRROR与新天王</a>
+<a href="MayJie_HKSongs_EP06_V2.html">HK06 粤语情歌进化史</a>
+<a href="MayJie_HKSongs_EP07_V2.html">HK07 Beyond与摇滚</a>
+<a href="MayJie_HKSongs_EP08_V2.html">HK08 KTV实战歌单</a>
+<a href="MayJie_HKSongs_EP09_V2.html">HK09 2025年度盘点</a>
+<a href="MayJie_HKSongs_EP10_V3.html">HK10 50首文化地图</a>
+<a href="MayJie_HKSongs_Extra_V2.html">HK-X 粤语歌的世界坐标</a>
+</div></div>
+<div class="gd-dd">
+<button class="gd-dd-btn">港漂留学</button>
+<div class="gd-dd-list">
+<a href="MayJie_SZ01.html">SZ01 先找到你自己</a>
+<a href="MayJie_SZ02.html">SZ02 K-12择校攻略</a>
+<a href="MayJie_SZ03.html">SZ03 八大选校真相</a>
+<a href="MayJie_SZ04.html">SZ04 硕士申请时间线</a>
+<a href="MayJie_SZ05.html">SZ05 文书面试必杀技</a>
+<a href="MayJie_SZ06.html">SZ06 费用·奖学金·签证</a>
+<a href="MayJie_SZ07.html">SZ07 落地生存指南</a>
+<a href="MayJie_SZ08.html">SZ08 起薪·就业·行业</a>
+<a href="MayJie_SZ09.html">SZ09 Campus Life指南</a>
+<a href="MayJie_SZ10.html">SZ10 毕业后全景图</a>
+<a href="MayJie_SZ_Extra_TaoCi.html">SZ-X PhD套磁奖学金</a>
+</div></div>
+</div></nav>
+
+
+  
+
+<div class="teacher-banner" id="teacher">
+  <div class="teacher-card">
+    <div class="avatar-wrap">
+      <div class="avatar">
+        <div class="av-head">
+          <div class="av-eye-l"></div><div class="av-eye-r"></div>
+          <div class="av-glasses"></div><div class="av-mouth"></div>
+        </div>
+        <div class="av-body"></div>
+      </div>
+      <div class="av-badge">Dr. May姐 🔬</div>
+    </div>
+    <div class="teacher-intro">
+      <h2>发音急诊室——May姐坐诊中 🩺</h2>
+      <p class="tagline">发音急诊室 · 声母手术 · 一刀切6个</p>
+      <div class="teacher-speech">上一集我哋数过，粤拼19个声母里面有13个同普通话一样。今日我哋就集中火力，<strong>攻克剩低嘅6个</strong>。唔多唔少，刚刚好6个——每个我都会教你口型、给你对比例子、教你记忆口诀。一堂课搞掂声母关！</div>
+      <div class="teacher-tags"><span class="t-tag">🔬 声母专项</span><span class="t-tag">👄 口型教学</span><span class="t-tag">🆚 普粤对比</span><span class="t-tag">🧩 记忆口诀</span><span class="t-tag">🎯 一集搞掂</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="ep-intro">
+  <div class="ep-title-block">
+    <div class="ep-num">🔬 JP02</div>
+    <div>
+      <div class="ep-title">🔤 声母篇：和普通话只差这6个</div>
+      <div class="ep-desc">gw / kw / ng / z / c / s ——May姐用最直观嘅方式，教你逐个发准。配合口型图示、普粤对比、记忆口诀，一集搞掂全部声母！</div>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="s1">
+<div class="sec-head">
+  <div class="sec-icon">👄</div>
+  <div><h3>第一组：gw- 和 kw-</h3><div class="sec-sub">圆唇送气对——嘴巴撅起来！</div></div>
+</div>
+
+<div class="may-say">
+  <div class="mini-av">👩</div>
+  <div class="may-say-body">
+    <div class="may-say-name">MAY姐说</div>
+    <div class="may-say-text">呢两个声母係粤语最有特色嘅声母。佢哋就係 g 和 k 加上一个<strong>圆唇动作</strong>（嘴巴要撅成O形）。普通话冇呢个组合，但其实你讲英文嘅时候一直都有用到——think about the 'gw' in '<strong>Guam</strong>' or 'kw' in '<strong>queen</strong>'.</div>
+  </div>
+</div>
+
+<div class="lab-bench">
+  <div class="lab-header">
+    <div class="lab-header-icon">🔬</div>
+    <div class="lab-header-title">gw- / kw- 发音工作台</div>
+    <div class="lab-header-sub">点击听发音 · 对比感受差异</div>
+  </div>
+  <div class="lab-body">
+    
+<div style="display:flex;gap:20px;flex-wrap:wrap;margin-bottom:20px;">
+<div class="mouth-diagram" style="flex:1;min-width:280px;">
+  <div class="mouth-icon">😮</div>
+  <div class="mouth-desc">
+    <h4>gw- [kʷ] 发音方法</h4>
+    <p>① 先摆好发 <strong>g</strong> 嘅口型<br>② 同时<strong>嘴唇撅成O形</strong>（圆唇）<br>③ 两个动作同时做出来</p>
+    <div class="trick">💡 口诀：<strong>「g + 嘟嘴 = gw」</strong><br>想象你讲「哥」但同时在吹口哨</div>
+  </div>
+</div>
+<div class="mouth-diagram" style="flex:1;min-width:280px;">
+  <div class="mouth-icon">😯</div>
+  <div class="mouth-desc">
+    <h4>kw- [kʷʰ] 发音方法</h4>
+    <p>① 先摆好发 <strong>k</strong> 嘅口型<br>② 同时<strong>嘴唇撅成O形</strong>（圆唇）<br>③ 送气！（手放嘴前感受气流）</p>
+    <div class="trick">💡 口诀：<strong>「k + 嘟嘴 + 送气 = kw」</strong><br>想象你讲「夸」但嘴更圆</div>
+  </div>
+</div>
+</div>
+
+<p style="color:var(--teal);font-size:14px;font-weight:700;margin:16px 0 10px;">常见 gw- 词汇：</p>
+<div class="phoneme-grid">
+  <div class="phoneme-card" onclick="speak('瓜', this)"><span class="ph-symbol">瓜</span><span class="ph-jyutping">gwaa1</span><span class="ph-desc">瓜果</span></div>
+  <div class="phoneme-card" onclick="speak('國', this)"><span class="ph-symbol">國</span><span class="ph-jyutping">gwok3</span><span class="ph-desc">国家</span></div>
+  <div class="phoneme-card" onclick="speak('光', this)"><span class="ph-symbol">光</span><span class="ph-jyutping">gwong1</span><span class="ph-desc">光线</span></div>
+  <div class="phoneme-card" onclick="speak('廣', this)"><span class="ph-symbol">廣</span><span class="ph-jyutping">gwong2</span><span class="ph-desc">广东</span></div>
+  <div class="phoneme-card" onclick="speak('過', this)"><span class="ph-symbol">過</span><span class="ph-jyutping">gwo3</span><span class="ph-desc">经过</span></div>
+  <div class="phoneme-card" onclick="speak('骨', this)"><span class="ph-symbol">骨</span><span class="ph-jyutping">gwat1</span><span class="ph-desc">骨头</span></div>
+</div>
+
+<p style="color:var(--gold);font-size:14px;font-weight:700;margin:16px 0 10px;">常见 kw- 词汇：</p>
+<div class="phoneme-grid">
+  <div class="phoneme-card highlight" onclick="speak('夸', this)"><span class="ph-symbol">夸</span><span class="ph-jyutping">kwaa1</span><span class="ph-desc">夸奖</span></div>
+  <div class="phoneme-card highlight" onclick="speak('闊', this)"><span class="ph-symbol">闊</span><span class="ph-jyutping">kwut3</span><span class="ph-desc">宽阔</span></div>
+  <div class="phoneme-card highlight" onclick="speak('框', this)"><span class="ph-symbol">框</span><span class="ph-jyutping">kwong1</span><span class="ph-desc">框架</span></div>
+  <div class="phoneme-card highlight" onclick="speak('狂', this)"><span class="ph-symbol">狂</span><span class="ph-jyutping">kwong4</span><span class="ph-desc">疯狂</span></div>
+  <div class="phoneme-card highlight" onclick="speak('跨', this)"><span class="ph-symbol">跨</span><span class="ph-jyutping">kwaa3</span><span class="ph-desc">跨越</span></div>
+</div>
+
+  </div>
+</div>
+
+<div class="know-card warn">
+  <div class="know-label">⚠️ 常见错误</div>
+  <div class="know-text">
+普通话学习者最容易把 <span class="ct">gw-</span> 读成 <span class="ct">gu-</span>——<br>
+例如「國」读成「gu-ok」而非「gw-ok」。区别在于：<strong>gw-嘅圆唇和声母是同时的</strong>，不是先g后u。<br>
+<strong>测试方法：</strong>录音自己说「瓜」，然后对比TTS。如果听起来像「gu-a」（两拍），就是错的；应该是「gwa」（一拍，唇从圆开始）。
+</div>
+</div>
+</div><div class="section" id="s2">
+<div class="sec-head">
+  <div class="sec-icon">👃</div>
+  <div><h3>第二组：ng-</h3><div class="sec-sub">鼻音开头——你的鼻子要参与！</div></div>
+</div>
+
+<div class="may-say">
+  <div class="mini-av">👩</div>
+  <div class="may-say-body">
+    <div class="may-say-name">MAY姐说</div>
+    <div class="may-say-text">呢个声母好特别——普通话里面，ng只能做韵尾（像「灯 dēng」嘅-ng）。但粤语里面，<strong>ng可以做声母，放喺字嘅开头</strong>！好多同学第一次听到都惊到——「吓？用鼻子开始讲字？」对！就係咁。</div>
+  </div>
+</div>
+
+<div class="lab-bench">
+  <div class="lab-header">
+    <div class="lab-header-icon">🔬</div>
+    <div class="lab-header-title">ng- 发音工作台</div>
+    <div class="lab-header-sub">鼻音声母——普通话冇嘅独特体验</div>
+  </div>
+  <div class="lab-body">
+    
+<div class="mouth-diagram">
+  <div class="mouth-icon">👃</div>
+  <div class="mouth-desc">
+    <h4>ng- [ŋ] 发音方法</h4>
+    <p>① 先发一个 <strong>ng</strong> 鼻音——就是你讲「英(yīng)」最后嗰个 -ng 的感觉<br>
+    ② 但唔好收住！把呢个 ng 音<strong>放到字嘅开头</strong>，然后接上韵母<br>
+    ③ 关键：发音时<strong>气流从鼻子出来</strong>，唔係嘴巴</p>
+    <div class="trick">💡 口诀：<strong>「鼻哼一声再开口」</strong><br>先用鼻子哼一下（像含着嘢讲嘢），然后自然打开嘴巴接韵母</div>
+  </div>
+</div>
+
+<p style="color:var(--teal);font-size:14px;font-weight:700;margin:16px 0 10px;">常见 ng- 词汇（点击听发音）：</p>
+<div class="phoneme-grid">
+  <div class="phoneme-card" onclick="speak('牙', this)"><span class="ph-symbol">牙</span><span class="ph-jyutping">ngaa4</span><span class="ph-desc">牙齿</span></div>
+  <div class="phoneme-card" onclick="speak('我', this)"><span class="ph-symbol">我</span><span class="ph-jyutping">ngo5</span><span class="ph-desc">我</span></div>
+  <div class="phoneme-card" onclick="speak('眼', this)"><span class="ph-symbol">眼</span><span class="ph-jyutping">ngaan5</span><span class="ph-desc">眼睛</span></div>
+  <div class="phoneme-card" onclick="speak('硬', this)"><span class="ph-symbol">硬</span><span class="ph-jyutping">ngaang6</span><span class="ph-desc">硬</span></div>
+  <div class="phoneme-card" onclick="speak('岸', this)"><span class="ph-symbol">岸</span><span class="ph-jyutping">ngon6</span><span class="ph-desc">岸边</span></div>
+  <div class="phoneme-card" onclick="speak('鹅', this)"><span class="ph-symbol">鵝</span><span class="ph-jyutping">ngo4</span><span class="ph-desc">鹅</span></div>
+  <div class="phoneme-card" onclick="speak('外', this)"><span class="ph-symbol">外</span><span class="ph-jyutping">ngoi6</span><span class="ph-desc">外面</span></div>
+  <div class="phoneme-card" onclick="speak('咬', this)"><span class="ph-symbol">咬</span><span class="ph-jyutping">ngaau5</span><span class="ph-desc">咬</span></div>
+</div>
+
+<div style="margin-top:16px;padding:16px;background:rgba(232,69,69,0.08);border:1px solid rgba(232,69,69,0.2);border-radius:10px;">
+  <p style="color:#ff8888;font-size:13px;font-weight:700;margin-bottom:6px;">⚠️ 懒音警告</p>
+  <p style="color:#ccc;font-size:13px;">好多年轻港人已经省略咗ng-声母——将「我 ngo5」读成「o5」、「牛 ngau4」读成「au4」。呢种叫<strong>「懒音」</strong>。<br>作为学习者，<strong>建议学标准发音</strong>——学识了可以选择懒，学唔识就只能永远「懒」😅。</p>
+</div>
+
+  </div>
+</div>
+</div><div class="section" id="s3">
+<div class="sec-head">
+  <div class="sec-icon">👅</div>
+  <div><h3>第三组：z / c / s</h3><div class="sec-sub">和普通话z/c/s很像——但舌头位置不同！</div></div>
+</div>
+
+<div class="may-say">
+  <div class="mini-av">👩</div>
+  <div class="may-say-body">
+    <div class="may-say-name">MAY姐说</div>
+    <div class="may-say-text">呢三个声母你会觉得好熟悉——因为普通话也有 z/c/s。但粤语嘅 z/c/s 同普通话有一个关键差别：<strong>粤语冇翘舌音</strong>！普通话嘅 zh/ch/sh 在粤语里面全部变成 z/c/s。而且粤语嘅 z/c/s 发音位置更前，舌尖抵住下齿背。</div>
+  </div>
+</div>
+
+<div class="lab-bench">
+  <div class="lab-header">
+    <div class="lab-header-icon">🔬</div>
+    <div class="lab-header-title">z / c / s 对比工作台</div>
+    <div class="lab-header-sub">粤语的z/c/s比普通话更「前」</div>
+  </div>
+  <div class="lab-body">
+    
+<div class="mouth-diagram">
+  <div class="mouth-icon">👅</div>
+  <div class="mouth-desc">
+    <h4>关键区别：舌头位置</h4>
+    <p>普通话 z/c/s：<strong>舌尖抵上齿背</strong>（平舌音）<br>
+    普通话 zh/ch/sh：<strong>舌尖卷起抵硬腭</strong>（翘舌音）<br>
+    粤语 z/c/s：<strong>舌尖抵下齿背</strong>，比普通话的平舌音更前！<br><br>
+    简单讲：粤语只有平舌，而且比普通话嘅平舌更「前」更「尖」。</p>
+    <div class="trick">💡 口诀：<strong>「粤语冇翘舌——zh/ch/sh统统变z/c/s」</strong><br>所以「知/织/之」全部用z-开头，「吃/赤/尺」全部用c-开头</div>
+  </div>
+</div>
+
+<p style="color:var(--teal);font-size:14px;font-weight:700;margin:16px 0 8px;">普通话翘舌 → 粤语平舌对照：</p>
+<table class="jp-table">
+<thead><tr><th>普通话</th><th>拼音</th><th>粤语</th><th>粤拼</th><th>注意</th><th>听</th></tr></thead>
+<tbody>
+<tr><td class="char">知</td><td class="pth">zhī</td><td class="char">知</td><td class="jyut">zi1</td><td class="note">zh→z</td><td><button onclick="speak('知', this)" style="background:rgba(0,180,216,0.15);border:1.5px solid rgba(0,180,216,0.3);color:var(--teal);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button></td></tr>
+<tr><td class="char">吃</td><td class="pth">chī</td><td class="char">食</td><td class="jyut">sik6</td><td class="note">ch→s</td><td><button onclick="speak('食', this)" style="background:rgba(0,180,216,0.15);border:1.5px solid rgba(0,180,216,0.3);color:var(--teal);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button></td></tr>
+<tr><td class="char">是</td><td class="pth">shì</td><td class="char">係</td><td class="jyut">hai6</td><td class="note">sh→h</td><td><button onclick="speak('係', this)" style="background:rgba(0,180,216,0.15);border:1.5px solid rgba(0,180,216,0.3);color:var(--teal);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button></td></tr>
+<tr><td class="char">中</td><td class="pth">zhōng</td><td class="char">中</td><td class="jyut">zung1</td><td class="note">zh→z</td><td><button onclick="speak('中', this)" style="background:rgba(0,180,216,0.15);border:1.5px solid rgba(0,180,216,0.3);color:var(--teal);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button></td></tr>
+<tr><td class="char">茶</td><td class="pth">chá</td><td class="char">茶</td><td class="jyut">caa4</td><td class="note">ch→c</td><td><button onclick="speak('茶', this)" style="background:rgba(0,180,216,0.15);border:1.5px solid rgba(0,180,216,0.3);color:var(--teal);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button></td></tr>
+<tr><td class="char">三</td><td class="pth">sān</td><td class="char">三</td><td class="jyut">saam1</td><td class="note">s→s（一样）</td><td><button onclick="speak('三', this)" style="background:rgba(0,180,216,0.15);border:1.5px solid rgba(0,180,216,0.3);color:var(--teal);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button></td></tr>
+</tbody>
+</table>
+
+  </div>
+</div>
+
+<div class="know-card tip">
+  <div class="know-label">✅ 好消息</div>
+  <div class="know-text">
+如果你係北方人，分不清zh/ch/sh和z/c/s——恭喜你，<strong>学粤语反而更容易！</strong><br>
+因为粤语根本冇翘舌音，全部用z/c/s就得。<br>
+如果你係南方人，本来普通话就不太分翘舌平舌——那你嘅粤语发音反而更自然。
+</div>
+</div>
+</div><div class="section" id="s4">
+<div class="sec-head">
+  <div class="sec-icon">🔇</div>
+  <div><h3>补充：零声母</h3><div class="sec-sub">有些字没有声母——直接从韵母开始</div></div>
+</div>
+
+<div class="may-say">
+  <div class="mini-av">👩</div>
+  <div class="may-say-body">
+    <div class="may-say-name">MAY姐说</div>
+    <div class="may-say-text">粤拼有个概念叫「零声母」——就係有啲字<strong>冇声母</strong>，直接从韵母开始读。普通话都有呢个现象（比如「爱 ài」前面冇声母），粤语都一样。唔使特别学，但要知道佢嘅存在。</div>
+  </div>
+</div>
+
+<div class="know-card info">
+  <div class="know-label">📋 常见零声母字</div>
+  <div class="know-text">
+<span class="ct">爱</span> <span class="jp">oi3</span> · <span class="ct">暗</span> <span class="jp">am3</span> · <span class="ct">矮</span> <span class="jp">ai2</span> · <span class="ct">安</span> <span class="jp">on1</span> · <span class="ct">亚</span> <span class="jp">aa3</span><br><br>
+这些字嘅粤拼直接写韵母+声调数字，前面冇任何声母字母。<br>
+<strong>注意：</strong>有啲字普通话有声母但粤语冇——比如「<span class="ct">衣</span>」普通话写 yī（有声母y），粤拼写 <span class="jp">ji1</span>（有声母j）。两者唔完全对应。
+</div>
+</div>
+</div><div class="section" id="s5">
+<div class="sec-head">
+  <div class="sec-icon">📊</div>
+  <div><h3>声母全家福</h3><div class="sec-sub">19个声母一览——你全部认识了！</div></div>
+</div>
+
+<div class="may-say">
+  <div class="mini-av">👩</div>
+  <div class="may-say-body">
+    <div class="may-say-name">MAY姐说</div>
+    <div class="may-say-text">恭喜你！经过今日一课，你已经认识晒粤拼19个声母喇。我帮你整理成一张全家福——以后可以随时翻返来查。</div>
+  </div>
+</div>
+
+<div class="lab-bench">
+  <div class="lab-header">
+    <div class="lab-header-icon">🔬</div>
+    <div class="lab-header-title">粤拼声母全家福</div>
+    <div class="lab-header-sub">绿=同普通话 · 金=粤语特有/调整</div>
+  </div>
+  <div class="lab-body">
+    
+<table class="jp-table">
+<thead><tr><th>声母</th><th>国际音标</th><th>例字</th><th>粤拼</th><th>对普通话关系</th><th>听</th></tr></thead>
+<tbody>
+<tr><td class="jyut" style="color:var(--green);">b</td><td>[p]</td><td class="char">巴</td><td class="jyut">baa1</td><td style="color:var(--green);">= 拼音b</td><td><button onclick="speak('巴', this)" style="background:rgba(0,180,216,0.15);border:1.5px solid rgba(0,180,216,0.3);color:var(--teal);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button></td></tr>
+<tr><td class="jyut" style="color:var(--green);">p</td><td>[pʰ]</td><td class="char">趴</td><td class="jyut">paa1</td><td style="color:var(--green);">= 拼音p</td><td><button onclick="speak('趴', this)" style="background:rgba(0,180,216,0.15);border:1.5px solid rgba(0,180,216,0.3);color:var(--teal);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button></td></tr>
+<tr><td class="jyut" style="color:var(--green);">m</td><td>[m]</td><td class="char">妈</td><td class="jyut">maa1</td><td style="color:var(--green);">= 拼音m</td><td><button onclick="speak('妈', this)" style="background:rgba(0,180,216,0.15);border:1.5px solid rgba(0,180,216,0.3);color:var(--teal);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button></td></tr>
+<tr><td class="jyut" style="color:var(--green);">f</td><td>[f]</td><td class="char">花</td><td class="jyut">faa1</td><td style="color:var(--green);">= 拼音f</td><td><button onclick="speak('花', this)" style="background:rgba(0,180,216,0.15);border:1.5px solid rgba(0,180,216,0.3);color:var(--teal);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button></td></tr>
+<tr><td class="jyut" style="color:var(--green);">d</td><td>[t]</td><td class="char">打</td><td class="jyut">daa2</td><td style="color:var(--green);">= 拼音d</td><td><button onclick="speak('打', this)" style="background:rgba(0,180,216,0.15);border:1.5px solid rgba(0,180,216,0.3);color:var(--teal);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button></td></tr>
+<tr><td class="jyut" style="color:var(--green);">t</td><td>[tʰ]</td><td class="char">他</td><td class="jyut">taa1</td><td style="color:var(--green);">= 拼音t</td><td><button onclick="speak('他', this)" style="background:rgba(0,180,216,0.15);border:1.5px solid rgba(0,180,216,0.3);color:var(--teal);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button></td></tr>
+<tr><td class="jyut" style="color:var(--green);">n</td><td>[n]</td><td class="char">那</td><td class="jyut">naa5</td><td style="color:var(--green);">= 拼音n</td><td><button onclick="speak('那', this)" style="background:rgba(0,180,216,0.15);border:1.5px solid rgba(0,180,216,0.3);color:var(--teal);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button></td></tr>
+<tr><td class="jyut" style="color:var(--green);">l</td><td>[l]</td><td class="char">啦</td><td class="jyut">laa1</td><td style="color:var(--green);">= 拼音l</td><td><button onclick="speak('啦', this)" style="background:rgba(0,180,216,0.15);border:1.5px solid rgba(0,180,216,0.3);color:var(--teal);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button></td></tr>
+<tr><td class="jyut" style="color:var(--green);">g</td><td>[k]</td><td class="char">家</td><td class="jyut">gaa1</td><td style="color:var(--green);">= 拼音g</td><td><button onclick="speak('家', this)" style="background:rgba(0,180,216,0.15);border:1.5px solid rgba(0,180,216,0.3);color:var(--teal);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button></td></tr>
+<tr><td class="jyut" style="color:var(--green);">k</td><td>[kʰ]</td><td class="char">卡</td><td class="jyut">kaa1</td><td style="color:var(--green);">= 拼音k</td><td><button onclick="speak('卡', this)" style="background:rgba(0,180,216,0.15);border:1.5px solid rgba(0,180,216,0.3);color:var(--teal);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button></td></tr>
+<tr><td class="jyut" style="color:var(--gold);">ng</td><td>[ŋ]</td><td class="char">牙</td><td class="jyut">ngaa4</td><td style="color:var(--gold);">粤语特有声母</td><td><button onclick="speak('牙', this)" style="background:rgba(0,180,216,0.15);border:1.5px solid rgba(0,180,216,0.3);color:var(--teal);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button></td></tr>
+<tr><td class="jyut" style="color:var(--green);">h</td><td>[h]</td><td class="char">哈</td><td class="jyut">haa1</td><td style="color:var(--green);">= 拼音h</td><td><button onclick="speak('哈', this)" style="background:rgba(0,180,216,0.15);border:1.5px solid rgba(0,180,216,0.3);color:var(--teal);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button></td></tr>
+<tr><td class="jyut" style="color:var(--gold);">gw</td><td>[kʷ]</td><td class="char">瓜</td><td class="jyut">gwaa1</td><td style="color:var(--gold);">g+圆唇</td><td><button onclick="speak('瓜', this)" style="background:rgba(0,180,216,0.15);border:1.5px solid rgba(0,180,216,0.3);color:var(--teal);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button></td></tr>
+<tr><td class="jyut" style="color:var(--gold);">kw</td><td>[kʷʰ]</td><td class="char">夸</td><td class="jyut">kwaa1</td><td style="color:var(--gold);">k+圆唇+送气</td><td><button onclick="speak('夸', this)" style="background:rgba(0,180,216,0.15);border:1.5px solid rgba(0,180,216,0.3);color:var(--teal);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button></td></tr>
+<tr><td class="jyut" style="color:var(--green);">w</td><td>[w]</td><td class="char">哇</td><td class="jyut">waa1</td><td style="color:var(--green);">= 拼音w</td><td><button onclick="speak('哇', this)" style="background:rgba(0,180,216,0.15);border:1.5px solid rgba(0,180,216,0.3);color:var(--teal);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button></td></tr>
+<tr><td class="jyut" style="color:var(--gold);">z</td><td>[ts]</td><td class="char">渣</td><td class="jyut">zaa1</td><td style="color:var(--gold);">≈拼音z，更前</td><td><button onclick="speak('渣', this)" style="background:rgba(0,180,216,0.15);border:1.5px solid rgba(0,180,216,0.3);color:var(--teal);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button></td></tr>
+<tr><td class="jyut" style="color:var(--gold);">c</td><td>[tsʰ]</td><td class="char">叉</td><td class="jyut">caa1</td><td style="color:var(--gold);">≈拼音c，更前</td><td><button onclick="speak('叉', this)" style="background:rgba(0,180,216,0.15);border:1.5px solid rgba(0,180,216,0.3);color:var(--teal);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button></td></tr>
+<tr><td class="jyut" style="color:var(--gold);">s</td><td>[s]</td><td class="char">沙</td><td class="jyut">saa1</td><td style="color:var(--gold);">≈拼音s，更前</td><td><button onclick="speak('沙', this)" style="background:rgba(0,180,216,0.15);border:1.5px solid rgba(0,180,216,0.3);color:var(--teal);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button></td></tr>
+<tr><td class="jyut" style="color:var(--green);">j</td><td>[j]</td><td class="char">也</td><td class="jyut">jaa5</td><td style="color:var(--green);">= 拼音y</td><td><button onclick="speak('也', this)" style="background:rgba(0,180,216,0.15);border:1.5px solid rgba(0,180,216,0.3);color:var(--teal);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button></td></tr>
+</tbody>
+</table>
+
+  </div>
+</div>
+
+<div class="mnemonic-card">
+  <div class="mnemonic-icon">🏆</div>
+  <div class="mnemonic-text">声母关 PASS！<br>13个老朋友 + 6个新朋友 = 19个全搞掂</div>
+  <div class="mnemonic-sub">下一关：韵母篇——粤语多出来的那些音</div>
+</div>
+</div><div class="section" id="quiz-section">
+<div class="quiz-wrap">
+  <div class="quiz-head">
+    <span style="font-size:28px;">🧪</span>
+    <h3>发音急诊测验</h3>
+    <div class="quiz-score-board" id="score-board">得分：0/5</div>
+  </div>
+  
+    <div class="q-item">
+      <div class="q-num">QUESTION 1/5</div>
+      <div class="q-text">gw-和kw-的发音关键是什么？</div>
+      <div class="q-options" id="q1"><div class="q-opt" onclick="ans(this,false,'q1','fb1','gw/kw的关键是圆唇——g/k+嘴唇撅成O形。')">A. 舌头卷起来</div><div class="q-opt" onclick="ans(this,true,'q1','fb1','gw/kw的关键是圆唇——g/k+嘴唇撅成O形。')">B. 嘴唇撅成O形（圆唇）</div><div class="q-opt" onclick="ans(this,false,'q1','fb1','gw/kw的关键是圆唇——g/k+嘴唇撅成O形。')">C. 用鼻子发音</div><div class="q-opt" onclick="ans(this,false,'q1','fb1','gw/kw的关键是圆唇——g/k+嘴唇撅成O形。')">D. 送气</div></div>
+      <div class="q-feedback" id="fb1"></div>
+    </div>
+    <div class="q-item">
+      <div class="q-num">QUESTION 2/5</div>
+      <div class="q-text">ng-声母的气流从哪里出来？</div>
+      <div class="q-options" id="q2"><div class="q-opt" onclick="ans(this,false,'q2','fb2','ng是鼻音声母，气流从鼻腔出来。')">A. 嘴巴</div><div class="q-opt" onclick="ans(this,true,'q2','fb2','ng是鼻音声母，气流从鼻腔出来。')">B. 鼻子</div><div class="q-opt" onclick="ans(this,false,'q2','fb2','ng是鼻音声母，气流从鼻腔出来。')">C. 喉咙</div><div class="q-opt" onclick="ans(this,false,'q2','fb2','ng是鼻音声母，气流从鼻腔出来。')">D. 舌头</div></div>
+      <div class="q-feedback" id="fb2"></div>
+    </div>
+    <div class="q-item">
+      <div class="q-num">QUESTION 3/5</div>
+      <div class="q-text">粤语有没有翘舌音（zh/ch/sh）？</div>
+      <div class="q-options" id="q3"><div class="q-opt" onclick="ans(this,false,'q3','fb3','粤语完全冇翘舌音，普通话的zh/ch/sh在粤语全部变成z/c/s。')">A. 有</div><div class="q-opt" onclick="ans(this,true,'q3','fb3','粤语完全冇翘舌音，普通话的zh/ch/sh在粤语全部变成z/c/s。')">B. 冇！全部用z/c/s</div><div class="q-opt" onclick="ans(this,false,'q3','fb3','粤语完全冇翘舌音，普通话的zh/ch/sh在粤语全部变成z/c/s。')">C. 只有zh</div><div class="q-opt" onclick="ans(this,false,'q3','fb3','粤语完全冇翘舌音，普通话的zh/ch/sh在粤语全部变成z/c/s。')">D. 只在特定字有</div></div>
+      <div class="q-feedback" id="fb3"></div>
+    </div>
+    <div class="q-item">
+      <div class="q-num">QUESTION 4/5</div>
+      <div class="q-text">「國」的粤拼是gwok3，如果把gw读成gu会怎样？</div>
+      <div class="q-options" id="q4"><div class="q-opt" onclick="ans(this,false,'q4','fb4','gw是同时圆唇+发g，读成gu会变成两拍，不自然。')">A. 完全一样</div><div class="q-opt" onclick="ans(this,true,'q4','fb4','gw是同时圆唇+发g，读成gu会变成两拍，不自然。')">B. 会变成两拍（gu-ok），不自然</div><div class="q-opt" onclick="ans(this,false,'q4','fb4','gw是同时圆唇+发g，读成gu会变成两拍，不自然。')">C. 声调会变</div><div class="q-opt" onclick="ans(this,false,'q4','fb4','gw是同时圆唇+发g，读成gu会变成两拍，不自然。')">D. 没区别</div></div>
+      <div class="q-feedback" id="fb4"></div>
+    </div>
+    <div class="q-item">
+      <div class="q-num">QUESTION 5/5</div>
+      <div class="q-text">以下哪个不是粤拼声母？</div>
+      <div class="q-options" id="q5"><div class="q-opt" onclick="ans(this,false,'q5','fb5','粤拼冇zh——粤语冇翘舌音！')">A. ng</div><div class="q-opt" onclick="ans(this,false,'q5','fb5','粤拼冇zh——粤语冇翘舌音！')">B. gw</div><div class="q-opt" onclick="ans(this,true,'q5','fb5','粤拼冇zh——粤语冇翘舌音！')">C. zh</div><div class="q-opt" onclick="ans(this,false,'q5','fb5','粤拼冇zh——粤语冇翘舌音！')">D. kw</div></div>
+      <div class="q-feedback" id="fb5"></div>
+    </div>
+</div>
+</div>
+<div class="section" id="story-section">
+  <div class="story-section">
+    <div class="story-header">
+      <div class="story-av-large">👩</div>
+      <div class="story-header-text">
+        <h3>「Tom同ng-声母的爱恨纠缠」</h3>
+        <p>陈美伶 · 发音急诊室主治医生</p>
+      </div>
+    </div>
+    <div class="story-body">
+      <div class="story-pull-quote">「Tom学粤语最大嘅挑战唔係声调，係ng-声母。一个英国人要学用鼻子开始讲字——佢话呢个感觉就好似『感冒嗰阵鼻塞讲嘢』。但有一日佢突然明白咗，因为我同佢讲：Tom，你唱歌嗰阵嗰个 'hmm' 嘅感觉就係 ng 啊！佢即刻得咗。」</div>
+      <div class="story-timeline">
+        
+        <div class="st-item">
+          <div class="st-left"><div class="st-dot"></div><div class="st-line"></div></div>
+          <div class="st-content">
+            <div class="st-year">2002年9月 · Tom第一堂课</div>
+            <div class="st-title">🇬🇧 英国人VS鼻音声母</div>
+            <div class="st-text">Tom第一次听我讲「我 ngo5」嘅时候，以为我在清鼻涕😂。佢试咗几十次都发唔出ng-开头嘅音，因为英文虽然有ng嘅发音（like 'sing'），但从来唔会放喺字嘅开头。佢好沮丧，话：<strong>「May, my nose simply doesn't work that way.」</strong>我话：你嘅鼻功能完全正常，只係你嘅大脑唔习惯呢个指令。</div>
+          </div>
+        </div>
+        <div class="st-item">
+          <div class="st-left"><div class="st-dot"></div><div class="st-line"></div></div>
+          <div class="st-content">
+            <div class="st-year">2002年10月 · 突破的一刻</div>
+            <div class="st-title">💡 哼歌法的发明</div>
+            <div class="st-text">有一日上课Tom在哼歌等我（佢成日哼Beatles），我突然灵机一动：<strong>「Tom！你啱啱哼嗰个'hmm'——嗰个就係ng嘅起手式！」</strong>佢试咗一下——先哼一声mmm，然后打开嘴巴接aa……'ngaa!'佢自己都吓到：「I said it?! I actually said it!?」嗰日佢连续讲咗「我 ngo5」二十几次，好似小朋友学识新玩具咁开心。</div>
+          </div>
+        </div>
+        <div class="st-item">
+          <div class="st-left"><div class="st-dot"></div><div class="st-line"></div></div>
+          <div class="st-content">
+            <div class="st-year">后来 · 「嗯嗯先生」的外号</div>
+            <div class="st-title">😂 矫枉过正的阶段</div>
+            <div class="st-text">Tom学识ng-之后，有一排矫枉过正——乜嘢字都加ng声母。「爱」本来係oi3（零声母），佢讲成ngoi3。「安」本来係on1，佢讲成ngon1（呢个啱啱好正确）。我花咗两个星期帮佢区分边啲字有ng-、边啲冇。佢嘅香港同事嗰阵帮佢起咗个花名叫<strong>「嗯嗯先生」</strong>——因为佢每个字都「嗯」一下先开口😄。</div>
+          </div>
+        </div>
+        <div class="st-item">
+          <div class="st-left"><div class="st-dot"></div><div class="st-line"></div></div>
+          <div class="st-content">
+            <div class="st-year">May姐的教学心得</div>
+            <div class="st-title">🎓 对母语者来说最难教的音</div>
+            <div class="st-text">作为粤语母语者，ng-係我最难教嘅音。因为我自己发呢个音太自然了，<strong>从来冇意识到自己係「用鼻子开始」的</strong>。直到要教Tom嗰一刻，我先至真正分析咗自己嘅发音过程。呢个经历教识我一件事：<strong>教语言嘅第一步唔係「识讲」，係「知道自己点讲」。</strong>好多母语者讲得好但教唔到人——因为佢哋从来冇解构过自己嘅发音。粤拼帮我做到咗呢一点。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="homework-section">
+  
+<div class="sec-head">
+  <div class="sec-icon">✏️</div>
+  <div><h3>自测练习</h3><div class="sec-sub">全部可以自己对答案，不需要任何人批改</div></div>
+</div>
+
+  
+    <div class="hw-interactive">
+      <div class="hw-int-title">👄 练习一 · gw-/kw-嘟嘴训练</div>
+      <p style="font-size:14px;color:#555;">对着镜子做以下练习（真的要用镜子！）：<br>
+① 发「g-a」（嘎）→ 嘴巴自然张开<br>
+② 发「gw-a」（瓜）→ 注意嘴唇要先撅成O形<br>
+③ 交替说「嘎——瓜——嘎——瓜」，感受嘴唇嘅区别<br>
+④ 同样方法练 k-a / kw-a<br>
+🎯 目标：能明显看到嘴唇动作嘅不同。</p>
+    </div>
+    <div class="hw-interactive">
+      <div class="hw-int-title">👃 练习二 · ng-鼻音开机训练</div>
+      <p style="font-size:14px;color:#555;">① 先哼一声「嗯～」（像点头同意的感觉）<br>
+② 保持鼻音，嘴巴慢慢打开，变成「嗯～啊」<br>
+③ 加快速度：嗯啊 → ngaa<br>
+④ 用同样方法练习：ngo5(我) · ngaan5(眼) · ngau4(牛)<br>
+🎯 把手指放鼻梁上，如果感受到震动就对了！</p>
+    </div>
+    <div class="hw-interactive">
+      <div class="hw-int-title">👅 练习三 · 翘舌→平舌切换</div>
+      <p style="font-size:14px;color:#555;">大声朗读以下普通话-粤语对照：<br>
+「知道 zhī dào」→ 粤语「知道 <strong>zi1 dou3</strong>」（舌头放平！）<br>
+「吃饭 chī fàn」→ 粤语「食饭 <strong>sik6 faan6</strong>」（不翘舌！）<br>
+「上班 shàng bān」→ 粤语「返工 <strong>faan1 gung1</strong>」<br>
+🎯 感受舌头从卷→平的切换。</p>
+    </div>
+    <div class="hw-interactive">
+      <div class="hw-int-title">🎬 练习四 · 听力辨音（选做）</div>
+      <p style="font-size:14px;color:#555;">在YouTube搜索「粤拼声母教学」或「jyutping initials」，找一个视频跟读。重点听 gw/kw/ng/z/c/s 六个声母嘅真人发音，和TTS对比。<br>🎯 能分辨出gw和g嘅区别就算通关！</p>
+    </div>
+</div>
+
+<div class="section">
+  
+
+<div class="float-tip">
+  <div class="float-bubble" id="float-msg">💡 声母关已过！6个新声母，记住口诀就搞掂💪</div>
+  <div class="float-btn" onclick="toggleFloatTip()">🔬</div>
+</div>
+
+<script>
+// ===== TTS =====
+(function() {
+  let ttsVoice = null, ttsReady = false;
+  function loadVoice() {
+    const voices = speechSynthesis.getVoices();
+    ttsVoice = voices.find(v => v.lang === 'zh-HK') || voices.find(v => v.lang === 'zh-TW') || voices.find(v => v.lang.startsWith('zh'));
+    ttsReady = true;
+    const b = document.getElementById('tts-badge');
+    if(b) {
+      if(ttsVoice) { b.textContent='🔊 粤语发音已就绪（'+ttsVoice.lang+'）'; b.style.background='#2DC653'; }
+      else { b.textContent='⚠️ 未检测到粤语语音包'; b.style.background='#E84545'; }
+    }
+  }
+  window.speak = function(text, btn) {
+    if(!ttsReady) loadVoice();
+    speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = ttsVoice ? ttsVoice.lang : 'zh-HK';
+    if(ttsVoice) u.voice = ttsVoice;
+    u.rate = 0.82; u.pitch = 1.05;
+    if(btn) {
+      const orig = btn.innerHTML;
+      btn.innerHTML = '⏸';
+      u.onend = () => { btn.innerHTML = orig; };
+      u.onerror = () => { btn.innerHTML = orig; };
+    }
+    speechSynthesis.speak(u);
+  };
+  if(speechSynthesis.getVoices().length > 0) loadVoice();
+  speechSynthesis.onvoiceschanged = loadVoice;
+  window.addEventListener('load', loadVoice);
+})();
+
+// ===== QUIZ =====
+let quizScore = 0;
+function ans(btn, result, qId, fbId, msg) {
+  const parent = document.getElementById(qId);
+  parent.querySelectorAll('.q-opt').forEach(o => { o.disabled=true; o.style.pointerEvents='none'; });
+  const fb = document.getElementById(fbId);
+  if(result) { btn.classList.add('correct'); fb.className='q-feedback ok'; fb.textContent='✅ 啱晒！'+msg; quizScore++; }
+  else { btn.classList.add('wrong'); fb.className='q-feedback bad'; fb.textContent='❌ 唔啱喎！'+msg; }
+  document.getElementById('score-board').textContent = '得分：'+quizScore+'/5';
+}
+
+// ===== DRILL (for lab exercises) =====
+let drillScore = 0, drillTotal = 0;
+function drillAns(btn, result, qId, fbId, msg) {
+  drillTotal++;
+  const parent = document.getElementById(qId);
+  parent.querySelectorAll('.drill-opt').forEach(o => { o.style.pointerEvents='none'; });
+  const fb = document.getElementById(fbId);
+  if(result) { btn.classList.add('correct'); fb.className='drill-feedback ok'; fb.textContent='✅ '+msg; drillScore++; }
+  else { btn.classList.add('wrong'); fb.className='drill-feedback bad'; fb.textContent='❌ '+msg; }
+  const sb = document.getElementById('drill-score');
+  if(sb) sb.textContent = drillScore+'/'+drillTotal;
+}
+
+// ===== FLOAT TIP =====
+function toggleFloatTip() { document.getElementById('float-msg').classList.toggle('show'); }
+</script>
+
+<a href="MayJie_JP03.html" class="gd-next"><h4>下一集 → JP03 韵母(上)</h4><p>点击继续学习</p></a>
+<button class="gd-copy-btn" onclick="navigator.clipboard.writeText(location.href).then(function(){alert('链接已复制，快分享给朋友吧')}).catch(function(){prompt('复制链接：',location.href)})">📋 复制链接分享给朋友</button>
+<div class="gd-contact">课程合作 · 广告商务 · 投资咨询 · 学员反馈 — <a href="mailto:gaaudim2026&#64;gmail.com">gaaudim2026&#64;gmail.com</a></div>
+<div class="gd-spacer"></div>
+<div class="gd-bot">
+<a href="MayJie_JP01.html" class="gd-bot-arr">◀</a>
+<div class="gd-bot-scroll" id="gdbs">
+<a href="MayJie_JP01.html" class="gd-bot-ep">JP01</a>
+<a href="MayJie_JP02.html" class="gd-bot-ep on">JP02</a>
+<a href="MayJie_JP03.html" class="gd-bot-ep">JP03</a>
+<a href="MayJie_JP04.html" class="gd-bot-ep">JP04</a>
+<a href="MayJie_JP05.html" class="gd-bot-ep">JP05</a>
+<a href="MayJie_JP06.html" class="gd-bot-ep">JP06</a>
+<a href="MayJie_JP07.html" class="gd-bot-ep">JP07</a>
+<a href="MayJie_JP08.html" class="gd-bot-ep">JP08</a>
+<a href="MayJie_JP09.html" class="gd-bot-ep">JP09</a>
+<a href="MayJie_JP10.html" class="gd-bot-ep">JP10</a>
+<a href="MayJie_JP_Extra_LazyTones__1_.html" class="gd-bot-ep">JP-X</a>
+</div>
+<a href="MayJie_JP03.html" class="gd-bot-arr">▶</a>
+</div>
+<script>document.addEventListener("DOMContentLoaded",function(){var c=document.querySelector(".gd-bot-ep.on");if(c)c.scrollIntoView({inline:"center",block:"nearest"});})</script>
+<script>document.addEventListener("contextmenu",function(e){e.preventDefault()});document.addEventListener("copy",function(e){if(e.target.tagName!=="INPUT"&&e.target.tagName!=="TEXTAREA")e.preventDefault()});document.addEventListener("selectstart",function(e){if(e.target.tagName!=="INPUT"&&e.target.tagName!=="TEXTAREA")e.preventDefault()});</script>
+<script>(function(){var os=window.speak;if(os){window.speak=function(t,b){if(speechSynthesis.speaking){speechSynthesis.cancel();if(b)b.innerHTML=b.dataset.o||'🔊';return;}os(t,b);};}else{var v=null;function lv(){var vs=speechSynthesis.getVoices();v=vs.find(function(x){return x.lang==='zh-HK'})||vs.find(function(x){return x.lang==='zh-TW'})||vs.find(function(x){return x.lang.startsWith('zh')});}if(speechSynthesis.getVoices().length>0)lv();speechSynthesis.onvoiceschanged=lv;window.speak=function(t,b){if(speechSynthesis.speaking){speechSynthesis.cancel();if(b)b.innerHTML=b.dataset.o||'🔊';return;}if(!v)lv();var u=new SpeechSynthesisUtterance(t);u.lang=v?v.lang:'zh-HK';if(v)u.voice=v;u.rate=0.85;u.pitch=1.05;if(b){b.dataset.o=b.dataset.o||b.innerHTML;var oi=b.innerHTML;b.innerHTML='⏸';u.onend=function(){b.innerHTML=oi};u.onerror=function(){b.innerHTML=oi};}speechSynthesis.speak(u);};}})();</script>
+<script src="paywall-check.js?v=3.2"></script>
+</body>
+</html>

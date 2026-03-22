@@ -1,0 +1,1558 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GQBZMQQEQ9"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-GQBZMQQEQ9");</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>娱乐消遣 · EP08 · 街头粤语 | 搞掂 gaaudim.com</title>
+<meta name="keywords" content="搞掂,gaaudim,粤语,香港,高才通,港漂,留学,粤拼,香港生活指南">
+<meta name="description" content="娱乐消遣 · EP08 | 场景化粤语教学 | 搞掂 gaaudim.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&family=Noto+Sans+SC:wght@400;500;700;900&family=ZCOOL+KuaiLe&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:    #1C1C2E;
+  --cream:  #FEFAF3;
+  --red:    #E84545;
+  --gold:   #F5A623;
+  --teal:   #00B4D8;
+  --purple: #7B2FBE;
+  --green:  #2DC653;
+  --pink:   #FF6B9D;
+  --card:   #FFFFFF;
+  --border: #E8E0D0;
+  --soft:   #F7F3EB;
+  --shadow: 0 4px 24px rgba(28,28,46,0.10);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+
+body {
+  background: var(--cream);
+  font-family:'Noto Sans SC',sans-serif;
+  color: var(--ink);
+  line-height: 1.7;
+}
+
+/* ===== STICKY NAV ===== */
+.top-bar {
+  position: sticky; top:0; z-index:100;
+  background: var(--ink);
+  padding: 0 24px;
+  display: flex; align-items:center; justify-content:space-between;
+  height: 52px;
+  border-bottom: 3px solid var(--gold);
+}
+.top-bar .logo {
+  font-family:'ZCOOL KuaiLe',cursive;
+  color: var(--gold); font-size:18px; letter-spacing:1px;
+}
+.top-bar .ep-tag {
+  background: var(--red); color:white;
+  font-size:12px; font-weight:700;
+  padding:4px 12px; border-radius:20px;
+}
+.nav-dots {
+  display:flex; gap:6px;
+}
+.nav-dot {
+  width:8px;height:8px; border-radius:50%;
+  background:rgba(255,255,255,0.2); cursor:pointer;
+  transition:background 0.2s;
+}
+.nav-dot.active{background:var(--gold);}
+
+/* ===== TEACHER INTRO BANNER ===== */
+.teacher-banner {
+  background: linear-gradient(135deg, #1C1C2E 0%, #2D2B55 50%, #1C1C2E 100%);
+  padding: 32px 24px 24px;
+  position: relative; overflow:hidden;
+}
+.teacher-banner::before {
+  content:'';position:absolute;top:0;right:0;
+  width:300px;height:100%;
+  background: radial-gradient(ellipse at right, rgba(245,166,35,0.15), transparent 70%);
+}
+
+.teacher-card {
+  max-width: 880px; margin:0 auto;
+  display: flex; gap:28px; align-items:center;
+  position:relative; z-index:1;
+  flex-wrap:wrap;
+}
+
+/* ===== TEACHER AVATAR (CSS ILLUSTRATION) ===== */
+.avatar-wrap {
+  flex-shrink:0;
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+}
+.avatar {
+  width:110px;height:110px;
+  position:relative;
+}
+/* Head */
+.av-head {
+  width:80px;height:80px;
+  background:#F4C2A0;
+  border-radius:50%;
+  position:absolute; top:0; left:15px;
+  border:3px solid var(--ink);
+  overflow:hidden;
+}
+/* Hair */
+.av-head::before {
+  content:'';position:absolute;top:0;left:0;right:0;
+  height:38px;
+  background:#2C1A0E;
+  border-radius:50% 50% 0 0;
+}
+/* Bangs */
+.av-head::after {
+  content:'';position:absolute;top:28px;left:-4px;right:-4px;
+  height:14px;
+  background:#2C1A0E;
+  border-radius:0 0 40% 40%;
+}
+/* Eyes */
+.av-eye-l,.av-eye-r {
+  position:absolute;width:10px;height:10px;
+  background:#2C1A0E; border-radius:50%;
+  top:42px;
+}
+.av-eye-l{left:20px;} .av-eye-r{right:20px;}
+/* Smile */
+.av-mouth {
+  position:absolute;bottom:14px;left:50%;transform:translateX(-50%);
+  width:22px;height:10px;
+  border:0 solid transparent;
+  border-bottom:3px solid #C0392B;
+  border-radius:0 0 12px 12px;
+}
+/* Glasses */
+.av-glasses {
+  position:absolute;top:38px;left:12px;right:12px;height:14px;
+  border-top:2.5px solid #D4AC0D;
+}
+.av-glasses::before,.av-glasses::after {
+  content:'';position:absolute;
+  width:20px;height:18px;
+  border:2.5px solid #D4AC0D;
+  border-radius:4px;top:-3px;
+}
+.av-glasses::before{left:0;}
+.av-glasses::after{right:0;}
+/* Body */
+.av-body {
+  width:86px;height:36px;
+  background:#E84545;
+  border-radius:8px 8px 0 0;
+  position:absolute;bottom:0;left:12px;
+  border:3px solid var(--ink);
+}
+.av-body::before {
+  content:'👩‍🏫';position:absolute;
+  font-size:18px;top:5px;left:50%;transform:translateX(-50%);
+}
+/* Name badge */
+.av-badge {
+  background: var(--gold);
+  color: var(--ink);
+  font-family:'ZCOOL KuaiLe',cursive;
+  font-size:14px; font-weight:700;
+  padding:4px 14px; border-radius:20px;
+  border:2px solid var(--ink);
+  white-space:nowrap;
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+/* Teacher intro text */
+.teacher-intro { flex:1; min-width:240px; }
+.teacher-intro h2 {
+  font-family:'ZCOOL KuaiLe',cursive;
+  color: var(--gold); font-size:28px;
+  margin-bottom:6px;
+}
+.teacher-intro .tagline {
+  color:#aaa; font-size:14px; margin-bottom:12px;
+  font-style:italic;
+}
+.teacher-speech {
+  background: rgba(255,255,255,0.07);
+  border-left: 4px solid var(--gold);
+  border-radius:0 8px 8px 0;
+  padding:12px 16px;
+  color:#ddd; font-size:15px; line-height:1.8;
+}
+.teacher-speech strong { color: var(--gold); }
+.teacher-tags {
+  display:flex; flex-wrap:wrap; gap:8px; margin-top:12px;
+}
+.t-tag {
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.15);
+  color:#bbb; font-size:12px;
+  padding:4px 10px; border-radius:12px;
+}
+
+/* ===== EPISODE INTRO ===== */
+.ep-intro {
+  max-width:880px; margin:32px auto; padding:0 24px;
+}
+.ep-title-block {
+  display:flex; align-items:flex-start; gap:20px; flex-wrap:wrap;
+}
+.ep-num {
+  background:var(--red); color:white;
+  font-family:'ZCOOL KuaiLe',cursive; font-size:13px;
+  padding:4px 14px; border-radius:4px;
+  white-space:nowrap; margin-top:4px;
+}
+.ep-title {
+  font-family:'ZCOOL KuaiLe',cursive;
+  font-size:clamp(26px,5vw,40px); color:var(--ink);
+  line-height:1.2;
+}
+.ep-desc {
+  color:#666; font-size:15px; margin-top:10px; max-width:600px;
+}
+
+/* ===== SECTION WRAPPER ===== */
+.section { max-width:880px; margin:0 auto; padding:0 24px 40px; }
+
+/* ===== SECTION HEADER ===== */
+.sec-head {
+  display:flex; align-items:center; gap:12px;
+  margin-bottom:20px; padding-bottom:12px;
+  border-bottom:2px solid var(--border);
+}
+.sec-icon {
+  width:40px;height:40px;
+  background:var(--ink); color:var(--gold);
+  border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px; flex-shrink:0;
+}
+.sec-head h3 {
+  font-family:'ZCOOL KuaiLe',cursive;
+  font-size:22px; color:var(--ink);
+}
+.sec-head .sec-sub { color:#888; font-size:13px; margin-top:2px; }
+
+/* ===== MAY SAY (teacher commentary bubble) ===== */
+.may-say {
+  display:flex; gap:14px; align-items:flex-start;
+  background:var(--soft); border-radius:12px;
+  padding:16px; margin:20px 0;
+  border:1.5px solid var(--border);
+}
+.may-say .mini-av {
+  width:44px;height:44px;
+  background:#F4C2A0; border-radius:50%;
+  border:2.5px solid var(--ink);
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px; flex-shrink:0;
+}
+.may-say-body { flex:1; }
+.may-say-name {
+  font-size:12px; font-weight:700; color:var(--red);
+  letter-spacing:1px; margin-bottom:4px;
+}
+.may-say-text { font-size:14px; color:#444; line-height:1.7; }
+.may-say-text strong { color:var(--ink); }
+
+/* ===== VIDEO BOX ===== */
+.video-box {
+  background:#000; border-radius:12px;
+  overflow:hidden; position:relative;
+  border:3px solid var(--ink);
+  box-shadow: var(--shadow);
+  margin-bottom:12px;
+}
+.video-box iframe {
+  width:100%;aspect-ratio:16/9;
+  display:block; border:0;
+}
+.video-label {
+  background:var(--ink); color:var(--gold);
+  font-family:'ZCOOL KuaiLe',cursive; font-size:13px;
+  padding:8px 16px; display:flex; align-items:center; gap:8px;
+}
+.video-timestamp-bar {
+  display:flex; gap:8px; flex-wrap:wrap; margin-top:12px;
+}
+.ts-btn {
+  background:var(--card); border:1.5px solid var(--border);
+  color:var(--teal); font-size:13px; font-weight:600;
+  padding:6px 12px; border-radius:6px;
+  cursor:pointer; transition:all 0.15s;
+  display:flex; align-items:center; gap:5px;
+}
+.ts-btn:hover { background:var(--teal); color:white; border-color:var(--teal); }
+
+/* ===== TRANSCRIPT LINE CARDS ===== */
+.transcript-wrap { display:flex; flex-direction:column; gap:0; }
+
+.t-line {
+  border:1.5px solid var(--border);
+  border-radius:12px; overflow:hidden;
+  margin-bottom:16px;
+  background:var(--card);
+  box-shadow:0 2px 8px rgba(0,0,0,0.05);
+  transition:box-shadow 0.2s;
+}
+.t-line:hover { box-shadow:0 4px 20px rgba(0,0,0,0.10); }
+
+/* Line header */
+.t-line-head {
+  display:flex; align-items:center; gap:14px;
+  padding:16px 20px;
+  cursor:pointer;
+  background:var(--soft);
+  border-bottom:1.5px solid var(--border);
+  flex-wrap:wrap;
+}
+.t-line-head:hover { background:#F0EBE0; }
+
+.speaker-avatar {
+  width:40px;height:40px; border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px; flex-shrink:0;
+  border:2px solid var(--border);
+  background:white;
+}
+.speaker-name {
+  font-size:11px; font-weight:700; color:#888;
+  letter-spacing:1px; text-transform:uppercase;
+}
+.t-line-main { flex:1; }
+.t-cantonese {
+  font-family:'Noto Serif SC',serif;
+  font-size:20px; font-weight:700; color:var(--ink);
+  line-height:1.4;
+}
+.t-jyutping {
+  font-size:13px; color:var(--teal); font-weight:600;
+  margin-top:2px; font-family:'Caveat',cursive; font-size:15px;
+}
+.t-meaning {
+  font-size:13px; color:#888;
+  margin-top:2px;
+}
+.expand-btn {
+  background:var(--ink); color:var(--gold);
+  border:none; border-radius:6px;
+  padding:6px 12px; font-size:12px; font-weight:700;
+  cursor:pointer; white-space:nowrap;
+  font-family:'Noto Sans SC',sans-serif;
+  transition:all 0.15s; letter-spacing:0.5px;
+}
+.expand-btn:hover { background:var(--gold); color:var(--ink); }
+
+/* Line detail */
+.t-line-detail {
+  display:none; padding:20px;
+  border-top:1.5px solid var(--border);
+}
+.t-line-detail.open { display:block; }
+
+/* Word breakdown */
+.word-row {
+  display:flex; flex-wrap:wrap; gap:10px;
+  margin-bottom:20px;
+}
+.word-chip {
+  background:var(--soft);
+  border:1.5px solid var(--border);
+  border-radius:10px; padding:10px 14px;
+  text-align:center; min-width:80px;
+  cursor:pointer; transition:all 0.15s;
+  position:relative;
+}
+.word-chip:hover { border-color:var(--teal); background:#E8F7FC; }
+.word-chip.highlight {
+  border-color:var(--gold); background:#FFF8E7;
+}
+.wc-char {
+  font-family:'Noto Serif SC',serif;
+  font-size:22px; font-weight:700; color:var(--ink);
+  display:block;
+}
+.wc-jp { color:var(--teal); font-size:12px; font-weight:600; display:block; }
+.wc-en { color:#888; font-size:11px; display:block; margin-top:2px; }
+.wc-badge {
+  position:absolute; top:-8px; right:-8px;
+  background:var(--red); color:white;
+  font-size:10px; font-weight:700;
+  padding:2px 6px; border-radius:10px;
+  white-space:nowrap;
+}
+
+/* Notes section */
+.notes-grid {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:12px; margin-bottom:16px;
+}
+@media(max-width:600px){.notes-grid{grid-template-columns:1fr;}}
+
+.note-card {
+  border-radius:8px; padding:14px;
+  border-left:4px solid;
+}
+.note-card.grammar { background:#F0F8FF; border-color:var(--teal); }
+.note-card.culture { background:#FFF8E7; border-color:var(--gold); }
+.note-card.compare { background:#FFF0F5; border-color:var(--pink); }
+.note-card.danger  { background:#FFF5F5; border-color:var(--red); }
+
+.note-label {
+  font-size:11px; font-weight:700; letter-spacing:1px;
+  text-transform:uppercase; margin-bottom:6px;
+  display:flex; align-items:center; gap:5px;
+}
+.note-card.grammar .note-label { color:var(--teal); }
+.note-card.culture .note-label { color:#B7950B; }
+.note-card.compare .note-label { color:var(--pink); }
+.note-card.danger  .note-label { color:var(--red); }
+.note-text { font-size:13px; line-height:1.7; color:#444; }
+.note-text strong { color:var(--ink); }
+.note-text .ct {
+  font-family:'Noto Serif SC',serif;
+  font-weight:700; color:var(--ink);
+}
+.note-text .jp { color:var(--teal); font-size:12px; }
+
+/* Example sentences */
+.examples-title {
+  font-size:13px; font-weight:700; color:var(--ink);
+  margin-bottom:10px; display:flex;align-items:center;gap:6px;
+}
+.ex-list { display:flex;flex-direction:column;gap:8px; }
+.ex-item {
+  background:var(--soft); border-radius:8px;
+  padding:12px 14px;
+  border:1px solid var(--border);
+}
+.ex-ct {
+  font-family:'Noto Serif SC',serif;
+  font-size:17px; font-weight:700; color:var(--ink);
+}
+.ex-jp { color:var(--teal); font-size:12px; font-weight:600; margin:2px 0; }
+.ex-zh { color:#777; font-size:13px; }
+.ex-tag {
+  display:inline-block;
+  background:var(--ink); color:var(--gold);
+  font-size:10px; font-weight:700;
+  padding:2px 7px; border-radius:4px;
+  margin-bottom:6px; letter-spacing:0.5px;
+}
+
+/* ===== CULTURE SPOTLIGHT ===== */
+.culture-box {
+  background: linear-gradient(135deg, #1C1C2E, #2D2B55);
+  border-radius:12px; padding:24px;
+  margin:24px 0; color:white;
+  border:2px solid var(--gold);
+}
+.culture-box h4 {
+  font-family:'ZCOOL KuaiLe',cursive;
+  color:var(--gold); font-size:20px; margin-bottom:16px;
+  display:flex;align-items:center;gap:8px;
+}
+.culture-items { display:flex;flex-direction:column;gap:12px; }
+.culture-item {
+  background:rgba(255,255,255,0.06);
+  border-radius:8px; padding:14px;
+  border-left:3px solid var(--teal);
+  display:flex;gap:12px;align-items:flex-start;
+}
+.culture-item .ci-icon { font-size:24px; flex-shrink:0; }
+.ci-title { font-weight:700; margin-bottom:3px; font-size:14px; }
+.ci-text { color:#bbb; font-size:13px; line-height:1.6; }
+.ci-ct {
+  font-family:'Noto Serif SC',serif;
+  color:var(--gold); font-weight:700;
+}
+
+/* ===== QUIZ ===== */
+.quiz-wrap {
+  background:var(--ink); border-radius:12px;
+  padding:24px; margin:24px 0;
+}
+.quiz-head {
+  display:flex;align-items:center;gap:12px;
+  margin-bottom:20px;
+}
+.quiz-head h3 {
+  font-family:'ZCOOL KuaiLe',cursive;
+  color:var(--gold); font-size:22px;
+}
+.quiz-score-board {
+  background:rgba(255,255,255,0.08); border-radius:8px;
+  padding:8px 14px; color:var(--gold); font-size:14px;
+  font-weight:700; margin-left:auto;
+}
+
+.q-item {
+  background:rgba(255,255,255,0.06); border-radius:10px;
+  padding:18px; margin-bottom:14px;
+}
+.q-num {
+  font-size:11px; font-weight:700; color:var(--teal);
+  letter-spacing:1px; margin-bottom:8px;
+}
+.q-text {
+  color:white; font-size:15px; margin-bottom:12px;
+  font-family:'Noto Serif SC',serif;
+}
+.q-options { display:flex;flex-wrap:wrap;gap:8px; }
+.q-opt {
+  background:rgba(255,255,255,0.08);
+  border:1.5px solid rgba(255,255,255,0.15);
+  color:#ddd; padding:8px 16px;
+  border-radius:8px; cursor:pointer;
+  font-size:14px; transition:all 0.15s;
+  font-family:'Noto Serif SC',serif;
+}
+.q-opt:hover:not([disabled]) { background:rgba(0,180,216,0.2); border-color:var(--teal); }
+.q-opt.correct { background:rgba(45,198,83,0.25); border-color:var(--green); color:#7DFFA6; }
+.q-opt.wrong   { background:rgba(232,69,69,0.25); border-color:var(--red); color:#FFB3B3; }
+.q-feedback {
+  margin-top:10px;font-size:13px;padding:8px 12px;
+  border-radius:6px;display:none;
+}
+.q-feedback.ok  { display:block;background:rgba(45,198,83,0.15);color:var(--green); }
+.q-feedback.bad { display:block;background:rgba(232,69,69,0.15);color:#ff8888; }
+
+/* ===== HOMEWORK ===== */
+.hw-grid { display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px; }
+@media(max-width:560px){.hw-grid{grid-template-columns:1fr;}}
+.hw-card {
+  background:var(--card); border-radius:10px;
+  border:1.5px solid var(--border); padding:16px;
+  display:flex;gap:12px;align-items:flex-start;
+}
+.hw-icon { font-size:28px;flex-shrink:0;margin-top:2px; }
+.hw-label {
+  font-size:11px;font-weight:700;
+  color:var(--teal);letter-spacing:1px;margin-bottom:4px;
+}
+.hw-text { font-size:14px;color:#555;line-height:1.6; }
+.hw-text strong { color:var(--ink); }
+
+/* ===== NEXT EP ===== */
+.next-ep-card {
+  background:var(--ink); border-radius:12px;
+  padding:24px; margin:24px 0;
+  border:2px solid var(--gold);
+  display:flex;gap:20px;align-items:center;
+  flex-wrap:wrap;
+}
+.next-ep-icon { font-size:48px; flex-shrink:0; }
+.next-ep-text h4 {
+  font-family:'ZCOOL KuaiLe',cursive;
+  color:var(--gold);font-size:20px;margin-bottom:6px;
+}
+.next-ep-text p { color:#aaa;font-size:14px;line-height:1.6; }
+
+/* ===== FLOATING TEACHER TIP ===== */
+.float-tip {
+  position:fixed; bottom:24px; right:24px;
+  z-index:200; display:flex;flex-direction:column;align-items:flex-end;gap:8px;
+}
+.float-bubble {
+  background:white; border:2px solid var(--ink);
+  border-radius:16px 16px 4px 16px;
+  padding:12px 16px; max-width:240px;
+  font-size:13px; line-height:1.5;
+  box-shadow:0 8px 24px rgba(0,0,0,0.15);
+  display:none;
+}
+.float-bubble.show { display:block; }
+.float-btn {
+  width:52px;height:52px; border-radius:50%;
+  background:var(--gold); border:3px solid var(--ink);
+  font-size:24px; cursor:pointer;
+  box-shadow:0 4px 16px rgba(0,0,0,0.2);
+  display:flex;align-items:center;justify-content:center;
+  transition:transform 0.2s;
+}
+.float-btn:hover { transform:scale(1.1); }
+
+/* ===== DIVIDER ===== */
+.divider {
+  border:none; border-top:2px dashed var(--border);
+  margin:32px 0;
+}
+
+/* ===== MAY姐私房故事 ===== */
+.story-section {
+  background: linear-gradient(160deg, #FFFBF0 0%, #FFF5E6 100%);
+  border: 2px solid #F0D9B0; border-radius: 16px;
+  overflow: hidden; margin-bottom: 32px;
+  box-shadow: 0 4px 24px rgba(180,120,40,0.08);
+}
+.story-header {
+  background: linear-gradient(90deg, #2C1A0E, #4A2F1A);
+  padding: 20px 28px; display: flex; align-items: center; gap: 16px;
+}
+.story-header-text h3 { font-family:'ZCOOL KuaiLe',cursive; color: var(--gold); font-size: 22px; margin-bottom: 4px; }
+.story-header-text p { color: #bbb; font-size: 13px; }
+.story-av-large {
+  width: 60px; height: 60px; border-radius: 50%;
+  background: #F4C2A0; border: 3px solid var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 30px; flex-shrink: 0;
+}
+.story-body { padding: 24px 28px; }
+.story-pull-quote {
+  font-family:'Caveat', cursive; font-size: 22px; color: #7B4A1E;
+  line-height: 1.6; border-left: 4px solid var(--gold);
+  padding: 12px 20px; background: rgba(245,166,35,0.08);
+  border-radius: 0 8px 8px 0; margin: 20px 0;
+}
+.story-timeline { margin: 24px 0; display: flex; flex-direction: column; }
+.st-item { display: flex; gap: 0; position: relative; }
+.st-left { display: flex; flex-direction: column; align-items: center; width: 48px; flex-shrink: 0; }
+.st-dot { width: 16px; height: 16px; border-radius: 50%; background: var(--gold); border: 3px solid #2C1A0E; flex-shrink: 0; z-index: 1; margin-top: 4px; }
+.st-line { width: 2px; flex: 1; background: linear-gradient(#F5A623, #ddd); margin-top: 4px; }
+.st-item:last-child .st-line { display: none; }
+.st-content { flex: 1; padding: 0 0 28px 12px; }
+.st-year { font-size: 11px; font-weight: 700; color: var(--gold); letter-spacing: 1px; margin-bottom: 4px; }
+.st-title { font-family:'ZCOOL KuaiLe',cursive; font-size: 18px; color: #2C1A0E; margin-bottom: 6px; }
+.st-text { font-size: 14px; color: #555; line-height: 1.8; }
+.st-text strong { color: #2C1A0E; }
+.st-ct { font-family:'Noto Serif SC',serif; font-weight: 700; color: var(--ink); }
+.st-jp { color: var(--teal); font-size: 12px; }
+.st-highlight { background: #FFF8E7; border: 1px solid #F0D9B0; border-radius: 6px; padding: 8px 12px; font-size: 13px; color: #7B4A1E; margin-top: 8px; display: inline-block; }
+
+
+/* ===== INTERACTIVE HOMEWORK ===== */
+.hw-interactive { background:var(--card); border-radius:12px; border:1.5px solid var(--border); padding:20px; margin-bottom:16px; }
+.hw-int-title { font-family:'ZCOOL KuaiLe',cursive; font-size:17px; color:var(--ink); margin-bottom:12px; display:flex;align-items:center;gap:8px; }
+.hw-fill-row { display:flex; flex-wrap:wrap; gap:6px; align-items:center; margin:10px 0; font-size:15px; color:#444; }
+.hw-blank { display:inline-block; min-width:80px; border-bottom:2px dashed var(--teal); padding:2px 8px; color:transparent; cursor:pointer; text-align:center; transition:all .2s; background:rgba(0,180,216,0.05); border-radius:4px; user-select:none; }
+.hw-blank:hover { background:rgba(0,180,216,0.1); }
+.hw-blank.show { color:var(--teal); font-weight:700; }
+.hw-scenario-box { background:var(--soft); border:1.5px solid var(--border); border-radius:10px; padding:16px; margin:12px 0; }
+.hw-reveal { background:var(--ink); color:var(--gold); border:none; padding:8px 20px; border-radius:8px; font-weight:700; cursor:pointer; font-size:13px; font-family:'Noto Sans SC',sans-serif; margin-top:10px; }
+.hw-reveal:hover { background:var(--gold); color:var(--ink); }
+.hw-answer-box { display:none; margin-top:12px; padding:16px; background:#F0FFF4; border:1.5px solid #A8D5B5; border-radius:10px; }
+.hw-answer-box.show { display:block; }
+.hw-match-q { font-size:14px; line-height:2.2; color:#444; }
+
+</style>
+<style>
+/* === GD NAV === */
+.gd-nav{position:sticky;top:0;z-index:9999;background:rgba(28,28,46,.98);backdrop-filter:blur(14px);height:48px;display:flex;align-items:center;padding:0 14px;border-bottom:2px solid #F5A623;box-shadow:0 2px 20px rgba(245,166,35,.1);font-family:'Noto Sans SC',sans-serif;gap:8px;}
+.gd-nav-left{display:flex;align-items:center;gap:12px;flex-shrink:0;}
+.gd-nav-brand{font-family:'ZCOOL KuaiLe',cursive;color:#F5A623;font-size:15px;text-decoration:none;white-space:nowrap;}
+.gd-nav-brand span{font-family:'ZCOOL KuaiLe',cursive;font-size:13px;color:rgba(245,166,35,.6);margin-left:6px;font-weight:400;}
+
+@media(min-width:640px){}
+.gd-nav-links{flex:1;display:flex;justify-content:flex-end;gap:2px;overflow:visible;}
+.gd-dd{position:relative;display:inline-block;}
+.gd-nav-slogan{color:rgba(255,255,255,.65);font-size:12px;white-space:nowrap;display:none;}
+@media(min-width:640px){.gd-nav-slogan{display:block;}}
+.gd-dd-btn{color:rgba(255,255,255,.55);font-size:11px;padding:6px 10px;border-radius:12px;white-space:nowrap;cursor:pointer;transition:all .2s;background:none;border:none;font-family:inherit;}
+.gd-dd-btn:hover,.gd-dd-btn.on{background:rgba(245,166,35,.12);color:#F5A623;}
+.gd-dd-list{display:none;position:absolute;top:100%;right:0;background:#1C1C2E;border:1px solid rgba(245,166,35,.25);border-radius:10px;min-width:200px;max-height:70vh;overflow-y:auto;overflow-x:visible;z-index:10000;box-shadow:0 8px 32px rgba(0,0,0,.5);padding:6px 0;margin-top:4px;}
+.gd-dd:hover .gd-dd-list{display:block;}
+.gd-dd-list a{display:block;padding:7px 14px;color:rgba(255,255,255,.7);font-size:11px;text-decoration:none;white-space:nowrap;transition:all .15s;}
+.gd-dd-list a:hover{background:rgba(245,166,35,.1);color:#F5A623;}
+.gd-dd-list a.cur{color:#F5A623;font-weight:700;background:rgba(245,166,35,.08);}
+@media(max-width:600px){.gd-dd-btn{font-size:10px;padding:5px 6px;}.gd-dd-list{min-width:160px;right:-20px;}}
+/* === BOTTOM BAR === */
+.gd-bot{position:fixed;bottom:0;left:0;right:0;z-index:9998;background:rgba(28,28,46,.97);backdrop-filter:blur(12px);border-top:2px solid #F5A623;padding:6px 10px;display:flex;align-items:center;gap:6px;font-family:'Noto Sans SC',sans-serif;}
+.gd-bot-arr{color:rgba(255,255,255,.5);font-size:14px;cursor:pointer;padding:4px 6px;border:none;background:none;text-decoration:none;transition:color .2s;flex-shrink:0;}
+.gd-bot-arr:hover{color:#F5A623;}
+.gd-bot-scroll{flex:1;display:flex;gap:4px;overflow-x:auto;padding:4px 0;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+.gd-bot-scroll::-webkit-scrollbar{display:none;}
+.gd-bot-ep{color:rgba(255,255,255,.4);font-size:10px;padding:4px 10px;border-radius:10px;white-space:nowrap;text-decoration:none;transition:all .2s;flex-shrink:0;border:1px solid transparent;}
+.gd-bot-ep:hover{color:rgba(255,255,255,.7);background:rgba(255,255,255,.05);}
+.gd-bot-ep.on{color:#F5A623;background:rgba(245,166,35,.12);border-color:rgba(245,166,35,.3);font-weight:700;}
+/* === INJECTED FOOTER === */
+.gd-copy-btn{display:block;margin:24px auto 12px;padding:10px 24px;background:#F5A623;color:#1C1C2E;border:none;border-radius:24px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s;}
+.gd-copy-btn:hover{transform:scale(1.04);box-shadow:0 4px 16px rgba(245,166,35,.4);}
+.gd-contact{text-align:center;padding:14px 16px;font-size:12px;color:#000;}
+.gd-contact a{color:#000;text-decoration:underline;text-underline-offset:3px;}
+.gd-legal-index{text-align:center;padding:4px 16px 16px;font-size:9px;color:#999;}
+.gd-next{display:block;background:linear-gradient(135deg,#1C1C2E,#2d2b55);border-radius:14px;padding:20px 24px;margin:30px auto;max-width:600px;text-decoration:none;border:1px solid rgba(245,166,35,.2);transition:all .3s;}
+.gd-next:hover{border-color:rgba(245,166,35,.5);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.15);}
+.gd-next h4{color:#F5A623;font-family:'ZCOOL KuaiLe',cursive;font-size:16px;margin-bottom:4px;}
+.gd-next p{color:rgba(255,255,255,.5);font-size:12px;}
+/* anti-copy */
+body{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}
+input,textarea{-webkit-user-select:text;-moz-user-select:text;-ms-user-select:text;user-select:text;}
+.gd-spacer{height:60px;}
+</style>
+</head>
+<body>
+<nav class="gd-nav">
+<div class="gd-nav-left">
+<a href="index.html" class="gd-nav-brand">搞掂 <span>gaaudim.com</span></a>
+<span class="gd-nav-slogan">一个网站帮你搞掂粤语·签证·租房·求职·留学</span>
+
+</div>
+<div class="gd-nav-links">
+<div class="gd-dd">
+<button class="gd-dd-btn on">街头粤语</button>
+<div class="gd-dd-list">
+<a href="MayJie_EP01_ChaChaan.html">EP01 茶餐厅生存战</a>
+<a href="MayJie_EP02_MTR.html">EP02 地铁大冒险</a>
+<a href="MayJie_EP03_ConvStore.html">EP03 便利店粤语</a>
+<a href="MayJie_EP04_Taxi_Doctor.html">EP04 的士+睇医生</a>
+<a href="MayJie_EP05_Takeout.html">EP05 外卖点餐</a>
+<a href="MayJie_EP06_Self_Intro.html">EP06 自我介绍</a>
+<a href="MayJie_EP07_Shopping.html">EP07 购物砍价</a>
+<a href="MayJie_EP08_Entertainment.html" class="cur">EP08 娱乐消遣</a>
+<a href="MayJie_EP09_Renting.html">EP09 租房攻略</a>
+<a href="MayJie_EP10_JobInterview.html">EP10 求职面试</a>
+<a href="MayJie_EP11_Hiking.html">EP11 行山郊游</a>
+<a href="MayJie_EP12_Festivals.html">EP12 节日祝福</a>
+<a href="MayJie_EP13_Complaints.html">EP13 投诉维权</a>
+<a href="MayJie_EP14_Dating.html">EP14 恋爱社交</a>
+<a href="MayJie_EP15_Drinking.html">EP15 饮酒社交</a>
+<a href="MayJie_EP16_Beauty.html">EP16 美容美发</a>
+<a href="MayJie_EP17_PhoneCall.html">EP17 打电话</a>
+<a href="MayJie_EP18_Neighbors__1_.html">EP18 邻居社交</a>
+<a href="MayJie_EP19_DimSum.html">EP19 饮茶点心</a>
+<a href="MayJie_EP20_Supermarket.html">EP20 超市买菜</a>
+<a href="MayJie_EP21_Numbers.html">EP21 数字时间钱</a>
+<a href="MayJie_EP22.html">EP22 离岛渡轮</a>
+<a href="MayJie_EP23.html">EP23 运动健身</a>
+<a href="MayJie_EP24.html">EP24 银行邮局</a>
+<a href="MayJie_EP25.html">EP25 潮语实战</a>
+<a href="MayJie_EP26.html">EP26 亲子家庭</a>
+<a href="MayJie_EP27.html">EP27 唱K实战</a>
+<a href="MayJie_EP28.html">EP28 家务日常</a>
+<a href="MayJie_EP29.html">EP29 凉茶养生</a>
+<a href="MayJie_EP30.html">EP30 大结局</a>
+</div></div>
+<div class="gd-dd">
+<button class="gd-dd-btn">粤拼速成</button>
+<div class="gd-dd-list">
+<a href="MayJie_JP01.html">JP01 你已经会粤拼了</a>
+<a href="MayJie_JP02.html">JP02 声母：只差这6个</a>
+<a href="MayJie_JP03.html">JP03 韵母(上)</a>
+<a href="MayJie_JP04.html">JP04 韵母(下)+入声</a>
+<a href="MayJie_JP05.html">JP05 九声六调(上)</a>
+<a href="MayJie_JP06.html">JP06 九声六调(下)</a>
+<a href="MayJie_JP07.html">JP07 变调大陷阱</a>
+<a href="MayJie_JP08.html">JP08 声调最小对</a>
+<a href="MayJie_JP09.html">JP09 综合实战</a>
+<a href="MayJie_JP10.html">JP10 毕业+学习路线</a>
+<a href="MayJie_JP_Extra_LazyTones__1_.html">JP-X 懒音特辑</a>
+</div></div>
+<div class="gd-dd">
+<button class="gd-dd-btn">词汇箱</button>
+<div class="gd-dd-list">
+<a href="MayJie_VW01.html">VW01 生存25词</a>
+<a href="MayJie_VW02.html">VW02 动作25词</a>
+<a href="MayJie_VW03.html">VW03 日常动作25词</a>
+<a href="MayJie_VW04.html">VW04 形容词25词</a>
+<a href="MayJie_VW05.html">VW05 疑问+时间25词</a>
+<a href="MayJie_VW06.html">VW06 社交礼貌25词</a>
+<a href="MayJie_VW07.html">VW07 职场返工25词</a>
+<a href="MayJie_VW08.html">VW08 饮食美食25词</a>
+<a href="MayJie_VW09.html">VW09 交通出行25词</a>
+<a href="MayJie_VW10.html">VW10 购物讲价25词</a>
+<a href="MayJie_VW11.html">VW11 身体健康25词</a>
+<a href="MayJie_VW12.html">VW12 情绪心理25词</a>
+<a href="MayJie_VW13.html">VW13 数量程度25词</a>
+<a href="MayJie_VW14.html">VW14 居家日常25词</a>
+<a href="MayJie_VW15.html">VW15 天气环境25词</a>
+<a href="MayJie_VW16.html">VW16 科技网络25词</a>
+<a href="MayJie_VW17.html">VW17 语气词专题25词</a>
+<a href="MayJie_VW18.html">VW18 俗语歇后语25词</a>
+<a href="MayJie_VW19.html">VW19 潮语网络语(上)</a>
+<a href="MayJie_VW20.html">VW20 潮语网络语(下)</a>
+</div></div>
+<div class="gd-dd">
+<button class="gd-dd-btn">粤语歌</button>
+<div class="gd-dd-list">
+<a href="MayJie_HKSongs_EP01_V3.html">HK01 唱K速成</a>
+<a href="MayJie_HKSongs_EP02.html">HK02 歌词解码</a>
+<a href="MayJie_HKSongs_EP03_V3.html">HK03 林夕vs黄伟文</a>
+<a href="MayJie_HKSongs_EP04_V2.html">HK04 林夕的粤语宇宙</a>
+<a href="MayJie_HKSongs_EP05_V2.html">HK05 MIRROR与新天王</a>
+<a href="MayJie_HKSongs_EP06_V2.html">HK06 粤语情歌进化史</a>
+<a href="MayJie_HKSongs_EP07_V2.html">HK07 Beyond与摇滚</a>
+<a href="MayJie_HKSongs_EP08_V2.html">HK08 KTV实战歌单</a>
+<a href="MayJie_HKSongs_EP09_V2.html">HK09 2025年度盘点</a>
+<a href="MayJie_HKSongs_EP10_V3.html">HK10 50首文化地图</a>
+<a href="MayJie_HKSongs_Extra_V2.html">HK-X 粤语歌的世界坐标</a>
+</div></div>
+<div class="gd-dd">
+<button class="gd-dd-btn">港漂留学</button>
+<div class="gd-dd-list">
+<a href="MayJie_SZ01.html">SZ01 先找到你自己</a>
+<a href="MayJie_SZ02.html">SZ02 K-12择校攻略</a>
+<a href="MayJie_SZ03.html">SZ03 八大选校真相</a>
+<a href="MayJie_SZ04.html">SZ04 硕士申请时间线</a>
+<a href="MayJie_SZ05.html">SZ05 文书面试必杀技</a>
+<a href="MayJie_SZ06.html">SZ06 费用·奖学金·签证</a>
+<a href="MayJie_SZ07.html">SZ07 落地生存指南</a>
+<a href="MayJie_SZ08.html">SZ08 起薪·就业·行业</a>
+<a href="MayJie_SZ09.html">SZ09 Campus Life指南</a>
+<a href="MayJie_SZ10.html">SZ10 毕业后全景图</a>
+<a href="MayJie_SZ_Extra_TaoCi.html">SZ-X PhD套磁奖学金</a>
+</div></div>
+</div></nav>
+
+
+
+<!-- TEACHER BANNER -->
+<div class="teacher-banner" id="teacher">
+  <div class="teacher-card">
+    <div class="avatar-wrap">
+      <div class="avatar">
+        <div class="av-head">
+          <div class="av-eye-l"></div><div class="av-eye-r"></div>
+          <div class="av-glasses"></div><div class="av-mouth"></div>
+        </div>
+        <div class="av-body"></div>
+      </div>
+      <div class="av-badge">陈May姐 👩‍🏫</div>
+    </div>
+    <div class="teacher-intro">
+      <h2>我系陈May姐，叫我May姐就得喇 😄</h2>
+      <p class="tagline">土生土长九龙人 · 教粤语廿年 · 茶餐厅是我的第二课室</p>
+      <div class="teacher-speech">
+        哈喽同学们！我系陈美伶，大家叫我 <strong>May姐</strong> 就好啦。
+        我喺香港九龙土生土长，教粤语廿几年，教过学生来自<strong>全球三十几个国家</strong>。
+        我信一样嘢——学语言，<strong>唔系背书</strong>，系要食落去、听落去、用落去。
+        所以我每集都会带你睇真实场景、分析真实对话。<strong>跟住May姐，包你学到！</strong> 💪
+      </div>
+      <div class="teacher-tags">
+        <span class="t-tag">🏙 九龙土著</span><span class="t-tag">☕ 茶餐厅专家</span>
+        <span class="t-tag">📺 TVB重度用户</span><span class="t-tag">🎤 发音纠正魔鬼</span>
+        <span class="t-tag">🍜 云吞面爱好者</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EP INTRO -->
+<div class="ep-intro">
+  <div class="ep-title-block">
+    <div class="ep-num">📺 第08集</div>
+    <div>
+      <div class="ep-title">🎭 今集主题：睇戏消遣</div>
+      <div class="ep-desc">今集May姐教你用粤语买飞睇戏、唱K、约朋友出去玩——学完这集，你嘅周末社交完全唔使再靠英文！</div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- DIALOGUE -->
+<div class="section" id="video-section">
+  <div class="sec-head">
+    <div class="sec-icon">🎭</div>
+    <div><h3>今集情景：睇戏消遣</h3><div class="sec-sub">跟住May姐，一句一句来分析 · 下面有完整逐句解读</div></div>
+  </div>
+
+  <div class="may-say">
+    <div class="mini-av">👩</div>
+    <div class="may-say-body">
+      <div class="may-say-name">MAY姐说</div>
+      <div class="may-say-text">同学们，学粤语唔止为咗生存，仲要为咗<strong>享受生活</strong>！今日我哋讲「消遣」——睇戏（看电影）、唱K、打波（打球）、行山（爬山）。香港人最钟意问「得闲做乜呀」，你答得出就融入了一半！</div>
+    </div>
+  </div>
+
+  <div id="tts-badge" style="background:#888;color:white;font-size:12px;padding:6px 14px;border-radius:6px;margin-bottom:12px;display:inline-block;">🔄 正在检测粤语语音包…</div>
+
+  <div style="background:#0f0f1a;border-radius:12px;overflow:hidden;border:3px solid var(--ink);box-shadow:var(--shadow);margin-bottom:12px;">
+    <div style="background:#111;padding:10px 16px;display:flex;align-items:center;gap:10px;border-bottom:2px solid #222;">
+      <span style="font-size:18px;">🎬</span>
+      <span style="font-family:'ZCOOL KuaiLe',cursive;color:#F5A623;font-size:15px;">睇戏消遣情景对话</span>
+      <span style="margin-left:auto;color:#666;font-size:12px;">点击 🔊 听发音 · 点击词卡学单词</span>
+    </div>
+    <div style="padding:20px 20px 24px;background:linear-gradient(180deg,#1a1a2e,#12121f);">
+
+      <div style="display:flex;gap:12px;align-items:flex-start;margin-bottom:20px;">
+        <div style="background:linear-gradient(135deg,#2DC653,#333);width:38px;height:38px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;color:#fff;font-weight:700;">May</div>
+        <div style="flex:1;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:3px;">
+            <span style="font-family:'Noto Serif SC',serif;font-size:18px;font-weight:700;color:#fff;">喂，你今晚得闲冇呀？不如去睇戏啦！</span>
+            <button onclick="speak('喂，你今晚得闲冇呀？不如去睇戏啦！', this)" style="background:rgba(245,166,35,0.2);border:1.5px solid rgba(245,166,35,0.4);color:#F5A623;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button>
+          </div>
+          <div style="color:#00B4D8;font-size:12px;">wai2, nei5 gam1 maan5 dak1 haan4 mou5 aa3? bat1 jyu4 heoi3 tai2 hei3 laa1!</div>
+          <div style="color:#888;font-size:13px;margin-top:2px;">喂，你今晚有空吗？不如去看电影吧！</div>
+          <div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:6px;"><button onclick="speak('得闲', this)" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:6px;padding:4px 10px;cursor:pointer;color:#fff;font-size:12px;">得闲 <span style="color:#00B4D8">dak1haan4</span> 有空 🔊</button>
+<button onclick="speak('睇戏', this)" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:6px;padding:4px 10px;cursor:pointer;color:#fff;font-size:12px;">睇戏 <span style="color:#00B4D8">tai2hei3</span> 看电影 🔊</button>
+</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:12px;align-items:flex-start;margin-bottom:20px;">
+        <div style="background:linear-gradient(135deg,#FF6B9D,#333);width:38px;height:38px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;color:#fff;font-weight:700;">朋友</div>
+        <div style="flex:1;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:3px;">
+            <span style="font-family:'Noto Serif SC',serif;font-size:18px;font-weight:700;color:#fff;">好呀！睇乜戏呀？几点开场？</span>
+            <button onclick="speak('好呀！睇乜戏呀？几点开场？', this)" style="background:rgba(245,166,35,0.2);border:1.5px solid rgba(245,166,35,0.4);color:#F5A623;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button>
+          </div>
+          <div style="color:#00B4D8;font-size:12px;">hou2 aa3! tai2 mat1 hei3 aa3? gei2 dim2 hoi1 coeng4?</div>
+          <div style="color:#888;font-size:13px;margin-top:2px;">好呀！看什么电影？几点开场？</div>
+          <div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:6px;"><button onclick="speak('乜戏', this)" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:6px;padding:4px 10px;cursor:pointer;color:#fff;font-size:12px;">乜戏 <span style="color:#00B4D8">mat1hei3</span> 什么电影 🔊</button>
+<button onclick="speak('开场', this)" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:6px;padding:4px 10px;cursor:pointer;color:#fff;font-size:12px;">开场 <span style="color:#00B4D8">hoi1coeng4</span> 开场 🔊</button>
+</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:12px;align-items:flex-start;margin-bottom:20px;">
+        <div style="background:linear-gradient(135deg,#2DC653,#333);width:38px;height:38px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;color:#fff;font-weight:700;">May</div>
+        <div style="flex:1;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:3px;">
+            <span style="font-family:'Noto Serif SC',serif;font-size:18px;font-weight:700;color:#fff;">新嗰套Marvel好似唔错喎，八点半嗰场，我买飞啦？</span>
+            <button onclick="speak('新嗰套Marvel好似唔错喎，八点半嗰场，我买飞啦？', this)" style="background:rgba(245,166,35,0.2);border:1.5px solid rgba(245,166,35,0.4);color:#F5A623;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button>
+          </div>
+          <div style="color:#00B4D8;font-size:12px;">san1 go2 tou3 Marvel hou2 ci5 m4 co3 wo3, baat3 dim2 bun3 go2 coeng4, ngo5 maai5 fei1 laa1?</div>
+          <div style="color:#888;font-size:13px;margin-top:2px;">新那部Marvel好像不错哦，八点半那场，我买票吧？</div>
+          <div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:6px;"><button onclick="speak('套', this)" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:6px;padding:4px 10px;cursor:pointer;color:#fff;font-size:12px;">套 <span style="color:#00B4D8">tou3</span> 部（电影量词） 🔊</button>
+<button onclick="speak('飞', this)" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:6px;padding:4px 10px;cursor:pointer;color:#fff;font-size:12px;">飞 <span style="color:#00B4D8">fei1</span> 票 🔊</button>
+</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:12px;align-items:flex-start;margin-bottom:20px;">
+        <div style="background:linear-gradient(135deg,#FF6B9D,#333);width:38px;height:38px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;color:#fff;font-weight:700;">朋友</div>
+        <div style="flex:1;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:3px;">
+            <span style="font-family:'Noto Serif SC',serif;font-size:18px;font-weight:700;color:#fff;">好！买完飞约喺戏院门口等，唔好迟到呀！</span>
+            <button onclick="speak('好！买完飞约喺戏院门口等，唔好迟到呀！', this)" style="background:rgba(245,166,35,0.2);border:1.5px solid rgba(245,166,35,0.4);color:#F5A623;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button>
+          </div>
+          <div style="color:#00B4D8;font-size:12px;">hou2! maai5 jyun4 fei1 joek3 hai2 hei3 jyun2 mun4 hau2 dang2, m4 hou2 ci4 dou3 aa3!</div>
+          <div style="color:#888;font-size:13px;margin-top:2px;">好！买完票约在电影院门口等，不要迟到哦！</div>
+          <div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:6px;"><button onclick="speak('戏院', this)" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:6px;padding:4px 10px;cursor:pointer;color:#fff;font-size:12px;">戏院 <span style="color:#00B4D8">hei3jyun2</span> 电影院 🔊</button>
+<button onclick="speak('迟到', this)" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:6px;padding:4px 10px;cursor:pointer;color:#fff;font-size:12px;">迟到 <span style="color:#00B4D8">ci4dou3</span> 迟到 🔊</button>
+</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:12px;align-items:flex-start;margin-bottom:20px;">
+        <div style="background:linear-gradient(135deg,#2DC653,#333);width:38px;height:38px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;color:#fff;font-weight:700;">May</div>
+        <div style="flex:1;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:3px;">
+            <span style="font-family:'Noto Serif SC',serif;font-size:18px;font-weight:700;color:#fff;">睇完戏不如去唱K？定系去食宵夜？</span>
+            <button onclick="speak('睇完戏不如去唱K？定系去食宵夜？', this)" style="background:rgba(245,166,35,0.2);border:1.5px solid rgba(245,166,35,0.4);color:#F5A623;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button>
+          </div>
+          <div style="color:#00B4D8;font-size:12px;">tai2 jyun4 hei3 bat1 jyu4 heoi3 coeng3 kei1? ding6 hai6 heoi3 sik6 siu1 je5?</div>
+          <div style="color:#888;font-size:13px;margin-top:2px;">看完电影不如去唱K？还是去吃宵夜？</div>
+          <div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:6px;"><button onclick="speak('唱K', this)" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:6px;padding:4px 10px;cursor:pointer;color:#fff;font-size:12px;">唱K <span style="color:#00B4D8">coeng3kei1</span> 唱卡拉OK 🔊</button>
+<button onclick="speak('宵夜', this)" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:6px;padding:4px 10px;cursor:pointer;color:#fff;font-size:12px;">宵夜 <span style="color:#00B4D8">siu1je5</span> 宵夜 🔊</button>
+</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:12px;align-items:flex-start;margin-bottom:20px;">
+        <div style="background:linear-gradient(135deg,#FF6B9D,#333);width:38px;height:38px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;color:#fff;font-weight:700;">朋友</div>
+        <div style="flex:1;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:3px;">
+            <span style="font-family:'Noto Serif SC',serif;font-size:18px;font-weight:700;color:#fff;">两样都做！先唱K再去食嘢，今晚要尽兴！</span>
+            <button onclick="speak('两样都做！先唱K再去食嘢，今晚要尽兴！', this)" style="background:rgba(245,166,35,0.2);border:1.5px solid rgba(245,166,35,0.4);color:#F5A623;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button>
+          </div>
+          <div style="color:#00B4D8;font-size:12px;">loeng5 joeng6 dou1 zou6! sin1 coeng3 kei1 zoi3 heoi3 sik6 je5, gam1 maan5 jiu3 zeon6 hing3!</div>
+          <div style="color:#888;font-size:13px;margin-top:2px;">两样都做！先唱K再去吃东西，今晚要尽兴！</div>
+          <div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:6px;"><button onclick="speak('尽兴', this)" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:6px;padding:4px 10px;cursor:pointer;color:#fff;font-size:12px;">尽兴 <span style="color:#00B4D8">zeon6hing3</span> 尽兴 🔊</button>
+<button onclick="speak('食嘢', this)" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:6px;padding:4px 10px;cursor:pointer;color:#fff;font-size:12px;">食嘢 <span style="color:#00B4D8">sik6je5</span> 吃东西 🔊</button>
+</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="may-say" style="margin-top:20px;">
+    <div class="mini-av">👩</div>
+    <div class="may-say-body">
+      <div class="may-say-name">MAY姐说</div>
+      <div class="may-say-text">
+        睇完一次？好！下面，<strong>May姐逐句帮你拆</strong>！每一句都有生词拆解、语法重点、文化注解同埋举一反三例句。
+        点击「展开分析」就可以深入学习每一句啦！
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- TRANSCRIPT ANALYSIS -->
+<div class="section" id="transcript">
+  <div class="sec-head">
+    <div class="sec-icon">🔬</div>
+    <div><h3>逐句台词分析</h3><div class="sec-sub">点击右侧「展开分析」查看词汇拆解 · 文化注解 · 例句</div></div>
+  </div>
+  <div class="transcript-wrap">
+
+    <div class="t-line" id="line1">
+      <div class="t-line-head" onclick="toggleLine('line1')">
+        <div class="speaker-avatar">👩</div>
+        <div class="t-line-main">
+          <div class="speaker-name">May姐</div>
+          <div class="t-cantonese">喂，你今晚得闲冇呀？不如去睇戏啦！</div>
+          <div class="t-jyutping">wai2, nei5 gam1 maan5 dak1 haan4 mou5 aa3? bat1 jyu4 heoi3 tai2 hei3 laa1!</div>
+          <div class="t-meaning">「喂，你今晚有空吗？不如去看电影吧！」</div>
+        </div>
+        <button class="expand-btn">展开分析 ▾</button>
+      </div>
+      <div class="t-line-detail" id="line1-detail">
+        <div class="word-row"><div class="word-chip highlight"><span class="wc-char">得闲</span><span class="wc-jp">dak1 haan4</span><span class="wc-en">有空</span><span class="wc-badge">超高频</span></div>
+<div class="word-chip highlight"><span class="wc-char">睇</span><span class="wc-jp">tai2</span><span class="wc-en">看</span><span class="wc-badge">万能动词</span></div>
+<div class="word-chip"><span class="wc-char">戏</span><span class="wc-jp">hei3</span><span class="wc-en">电影/戏</span></div>
+<div class="word-chip"><span class="wc-char">不如</span><span class="wc-jp">bat1 jyu4</span><span class="wc-en">不如/建议</span></div>
+</div>
+        <div class="notes-grid"><div class="note-card grammar"><div class="note-label">📌 得闲 = 有空</div><div class="note-text"><strong>得闲</strong> dak1 haan4 = 有空/有时间。「你几时得闲？」= 你什么时候有空？反义：<strong>唔得闲</strong> = 没空。这是约人最常用的开场白！</div></div>
+<div class="note-card grammar"><div class="note-label">📌 睇 = 看（万能版）</div><div class="note-text">粤语的「<strong>睇</strong>」tai2 = 看，用法比普通话的"看"更广：睇戏=看电影，睇书=看书，睇医生=看医生，睇下=看看。</div></div>
+<div class="note-card compare"><div class="note-label">🔄 不如 vs 定系</div><div class="note-text">「不如」bat1 jyu4 = 提建议（不如去吧）。「定系」ding6 hai6 = 还是（A定系B？）。两个配合用就是完美的约人公式：不如去XX，定系去YY？</div></div>
+</div>
+        <div class="examples-title">✏️ 举一反三</div>
+        <div class="ex-list"><div class="ex-item"><div class="ex-tag">约人版</div><div class="ex-ct">你听日得唔得闲呀？不如去行山啦！</div><div class="ex-jp">nei5 ting1 jat6 dak1 m4 dak1 haan4 aa3? bat1 jyu4 heoi3 haang4 saan1 laa1!</div><div class="ex-zh">你明天有没有空？不如去爬山吧！</div></div>
+<div class="ex-item"><div class="ex-tag">拒绝版</div><div class="ex-ct">唔好意思，我今日唔得闲，下次啦！</div><div class="ex-jp">m4 hou2 ji3 si1, ngo5 gam1 jat6 m4 dak1 haan4, haa6 ci3 laa1!</div><div class="ex-zh">不好意思，我今天没空，下次吧！</div></div>
+</div>
+        <div class="may-say" style="margin-top:16px;"><div class="mini-av">👩</div><div class="may-say-body"><div class="may-say-name">MAY姐补充</div><div class="may-say-text">「睇戏」tai2 hei3 在香港专指看电影，不是看话剧或舞台剧。看舞台剧会说「睇show」tai2 show 或「睇演出」。另外，「戏」也可以指电视剧：追紧边套戏？= 在追什么剧？</div></div></div>
+      </div>
+    </div>
+    <div class="t-line" id="line2">
+      <div class="t-line-head" onclick="toggleLine('line2')">
+        <div class="speaker-avatar">👫</div>
+        <div class="t-line-main">
+          <div class="speaker-name">朋友</div>
+          <div class="t-cantonese">好呀！睇乜戏呀？几点开场？</div>
+          <div class="t-jyutping">hou2 aa3! tai2 mat1 hei3 aa3? gei2 dim2 hoi1 coeng4?</div>
+          <div class="t-meaning">「好呀！看什么电影？几点开场？」</div>
+        </div>
+        <button class="expand-btn">展开分析 ▾</button>
+      </div>
+      <div class="t-line-detail" id="line2-detail">
+        <div class="word-row"><div class="word-chip highlight"><span class="wc-char">几点</span><span class="wc-jp">gei2 dim2</span><span class="wc-en">几点</span><span class="wc-badge">时间问法</span></div>
+<div class="word-chip"><span class="wc-char">开场</span><span class="wc-jp">hoi1 coeng4</span><span class="wc-en">开场</span></div>
+</div>
+        <div class="notes-grid"><div class="note-card grammar"><div class="note-label">📌 几点 = 几点钟</div><div class="note-text">粤语问时间：<strong>几点？</strong>gei2 dim2 = 几点？「而家几点？」= 现在几点？回答用：X点Y个字。例如：八点半 = baat3 dim2 bun3。一个字=5分钟：三点三个字=3:15。</div></div>
+<div class="note-card culture"><div class="note-label">🏙 文化注解</div><div class="note-text">香港人约会说时间常用「X点几」表示大约：七点几=7点多。如果要准时，会说「七点正」cat1 dim2 zeng3 = 整七点。</div></div>
+</div>
+        <div class="examples-title">✏️ 举一反三</div>
+        <div class="ex-list"><div class="ex-item"><div class="ex-tag">问时间</div><div class="ex-ct">而家几点呀？</div><div class="ex-jp">ji4 gaa1 gei2 dim2 aa3?</div><div class="ex-zh">现在几点？</div></div>
+<div class="ex-item"><div class="ex-tag">约时间</div><div class="ex-ct">不如约七点半啦？</div><div class="ex-jp">bat1 jyu4 joek3 cat1 dim2 bun3 laa1?</div><div class="ex-zh">不如约七点半吧？</div></div>
+</div>
+        
+      </div>
+    </div>
+    <div class="t-line" id="line3">
+      <div class="t-line-head" onclick="toggleLine('line3')">
+        <div class="speaker-avatar">👩</div>
+        <div class="t-line-main">
+          <div class="speaker-name">May姐</div>
+          <div class="t-cantonese">新嗰套Marvel好似唔错喎，八点半嗰场，我买飞啦？</div>
+          <div class="t-jyutping">san1 go2 tou3 Marvel hou2 ci5 m4 co3 wo3, baat3 dim2 bun3 go2 coeng4, ngo5 maai5 fei1 laa1?</div>
+          <div class="t-meaning">「新那部Marvel好像不错哦，八点半那场，我买票吧？」</div>
+        </div>
+        <button class="expand-btn">展开分析 ▾</button>
+      </div>
+      <div class="t-line-detail" id="line3-detail">
+        <div class="word-row"><div class="word-chip highlight"><span class="wc-char">套</span><span class="wc-jp">tou3</span><span class="wc-en">部（电影量词）</span><span class="wc-badge">量词</span></div>
+<div class="word-chip highlight"><span class="wc-char">飞</span><span class="wc-jp">fei1</span><span class="wc-en">票</span><span class="wc-badge">口语高频</span></div>
+<div class="word-chip"><span class="wc-char">好似</span><span class="wc-jp">hou2 ci5</span><span class="wc-en">好像</span></div>
+<div class="word-chip"><span class="wc-char">喎</span><span class="wc-jp">wo3</span><span class="wc-en">语气词（轻微惊讶）</span></div>
+</div>
+        <div class="notes-grid"><div class="note-card grammar"><div class="note-label">📌 飞 = 票</div><div class="note-text"><strong>飞</strong> fei1 是粤语里「票」的口语说法，来自英文 fare。买飞=买票，退飞=退票，冇飞=没票了。适用于电影票、演唱会票、车票等所有票。</div></div>
+<div class="note-card grammar"><div class="note-label">📌 喎 = 语气新发现</div><div class="note-text">「喎」wo3 放句末表示说话者分享新信息或轻微惊讶：好似唔错喎=好像不错哦；佢嚟咗喎=他来了哦。语气比「呀」多了一丝发现感。</div></div>
+<div class="note-card danger"><div class="note-label">⚠️ 量词注意</div><div class="note-text">电影量词粤语用「套」tou3：一套戏=一部电影。电视剧也用「套」：呢套剧好好睇=这部剧很好看。不用普通话的「部」。</div></div>
+</div>
+        <div class="examples-title">✏️ 举一反三</div>
+        <div class="ex-list"><div class="ex-item"><div class="ex-tag">推荐版</div><div class="ex-ct">呢套戏好好睇，你一定要睇！</div><div class="ex-jp">ni1 tou3 hei3 hou2 hou2 tai2, nei5 jat1 ding6 jiu3 tai2!</div><div class="ex-zh">这部电影很好看，你一定要看！</div></div>
+<div class="ex-item"><div class="ex-tag">买票版</div><div class="ex-ct">我上网买咗飞喇，唔使排队。</div><div class="ex-jp">ngo5 soeng5 mong5 maai5 zo2 fei1 laa3, m4 sai2 paai4 deoi1.</div><div class="ex-zh">我网上买了票了，不用排队。</div></div>
+</div>
+        <div class="may-say" style="margin-top:16px;"><div class="mini-av">👩</div><div class="may-say-body"><div class="may-say-name">MAY姐补充</div><div class="may-say-text">「喎」wo3 是一个很有个性的语气词。普通话没有对应的！它表达的是「我发现了一个信息，分享给你」的感觉。例如：落雨喎=下雨了哦（刚发现）；呢间餐厅唔错喎=这家餐厅不错哦（新体验）。用好「喎」，你的粤语立刻有了灵魂！</div></div></div>
+      </div>
+    </div>
+    <div class="t-line" id="line4">
+      <div class="t-line-head" onclick="toggleLine('line4')">
+        <div class="speaker-avatar">👩</div>
+        <div class="t-line-main">
+          <div class="speaker-name">May姐</div>
+          <div class="t-cantonese">睇完戏不如去唱K？定系去食宵夜？</div>
+          <div class="t-jyutping">tai2 jyun4 hei3 bat1 jyu4 heoi3 coeng3 kei1? ding6 hai6 heoi3 sik6 siu1 je5?</div>
+          <div class="t-meaning">「看完电影不如去唱K？还是去吃宵夜？」</div>
+        </div>
+        <button class="expand-btn">展开分析 ▾</button>
+      </div>
+      <div class="t-line-detail" id="line4-detail">
+        <div class="word-row"><div class="word-chip highlight"><span class="wc-char">唱K</span><span class="wc-jp">coeng3 kei1</span><span class="wc-en">唱卡拉OK</span><span class="wc-badge">潮语</span></div>
+<div class="word-chip highlight"><span class="wc-char">定系</span><span class="wc-jp">ding6 hai6</span><span class="wc-en">还是</span><span class="wc-badge">选择句式</span></div>
+<div class="word-chip"><span class="wc-char">宵夜</span><span class="wc-jp">siu1 je5</span><span class="wc-en">宵夜/夜宵</span></div>
+</div>
+        <div class="notes-grid"><div class="note-card grammar"><div class="note-label">📌 定系 = 还是</div><div class="note-text">「<strong>定系</strong>」ding6 hai6 = 还是。二选一必备：食饭定系食面？= 吃饭还是吃面？去定系唔去？= 去还是不去？</div></div>
+<div class="note-card culture"><div class="note-label">🏙 唱K文化</div><div class="note-text">香港人超爱唱K！K=Karaoke。旺角和尖沙咀有大量KTV，如Neway、RedMR等。通常按房间计费，包时段可以无限唱。香港人唱K必点：《海阔天空》《千千阙歌》《富士山下》。</div></div>
+<div class="note-card grammar"><div class="note-label">📌 食宵夜</div><div class="note-text">「宵夜」siu1 je5 = 夜宵。香港宵夜文化发达，很多餐厅营业到凌晨2-3点。大牌档、粥面店、打冷是最常见的宵夜选择。</div></div>
+</div>
+        <div class="examples-title">✏️ 举一反三</div>
+        <div class="ex-list"><div class="ex-item"><div class="ex-tag">选择版</div><div class="ex-ct">你钟意睇恐怖片定系爱情片？</div><div class="ex-jp">nei5 zung1 ji3 tai2 hung2 bou3 pin2 ding6 hai6 oi3 cing4 pin2?</div><div class="ex-zh">你喜欢看恐怖片还是爱情片？</div></div>
+<div class="ex-item"><div class="ex-tag">约宵夜</div><div class="ex-ct">收工后去食宵夜呀，今晚食打冷！</div><div class="ex-jp">sau1 gung1 hau6 heoi3 sik6 siu1 je5 aa3, gam1 maan5 sik6 daa2 laang1!</div><div class="ex-zh">下班后去吃宵夜呀，今晚吃潮州冷盘！</div></div>
+</div>
+        <div class="may-say" style="margin-top:16px;"><div class="mini-av">👩</div><div class="may-say-body"><div class="may-say-name">MAY姐补充</div><div class="may-say-text">「打冷」daa2 laang1 是潮州菜的宵夜版，通常摆一堆冷盘任你挑，像「卤水鹅」「粉肠」「蚝仔」。香港人食完宵夜，一定会话：<strong>好满足呀！</strong>hou2 mun5 zuk1 aa3！这就是香港夜生活的精髓。</div></div></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- WORD CARDS -->
+<div class="section" id="wordcards">
+  <div class="sec-head">
+    <div class="sec-icon">📇</div>
+    <div><h3>核心词卡 · 第08集</h3><div class="sec-sub">点击词卡听发音</div></div>
+  </div>
+  <div class="word-row" style="justify-content:center;">
+<div class="word-chip" onclick="speak('得闲', null)" style="cursor:pointer;"><span class="wc-char">得闲</span><span class="wc-jp">dak1 haan4</span><span class="wc-en">有空</span></div>
+<div class="word-chip" onclick="speak('睇', null)" style="cursor:pointer;"><span class="wc-char">睇</span><span class="wc-jp">tai2</span><span class="wc-en">看</span></div>
+<div class="word-chip" onclick="speak('飞', null)" style="cursor:pointer;"><span class="wc-char">飞</span><span class="wc-jp">fei1</span><span class="wc-en">票</span></div>
+<div class="word-chip" onclick="speak('套', null)" style="cursor:pointer;"><span class="wc-char">套</span><span class="wc-jp">tou3</span><span class="wc-en">部（量词）</span></div>
+<div class="word-chip" onclick="speak('戏院', null)" style="cursor:pointer;"><span class="wc-char">戏院</span><span class="wc-jp">hei3 jyun2</span><span class="wc-en">电影院</span></div>
+<div class="word-chip" onclick="speak('唱K', null)" style="cursor:pointer;"><span class="wc-char">唱K</span><span class="wc-jp">coeng3 kei1</span><span class="wc-en">唱卡拉OK</span></div>
+<div class="word-chip" onclick="speak('定系', null)" style="cursor:pointer;"><span class="wc-char">定系</span><span class="wc-jp">ding6 hai6</span><span class="wc-en">还是</span></div>
+<div class="word-chip" onclick="speak('宵夜', null)" style="cursor:pointer;"><span class="wc-char">宵夜</span><span class="wc-jp">siu1 je5</span><span class="wc-en">宵夜</span></div>
+<div class="word-chip" onclick="speak('行山', null)" style="cursor:pointer;"><span class="wc-char">行山</span><span class="wc-jp">haang4 saan1</span><span class="wc-en">爬山</span></div>
+<div class="word-chip" onclick="speak('打波', null)" style="cursor:pointer;"><span class="wc-char">打波</span><span class="wc-jp">daa2 bo1</span><span class="wc-en">打球</span></div>
+<div class="word-chip" onclick="speak('好似', null)" style="cursor:pointer;"><span class="wc-char">好似</span><span class="wc-jp">hou2 ci5</span><span class="wc-en">好像</span></div>
+<div class="word-chip" onclick="speak('喎', null)" style="cursor:pointer;"><span class="wc-char">喎</span><span class="wc-jp">wo3</span><span class="wc-en">语气词</span></div>
+<div class="word-chip" onclick="speak('尽兴', null)" style="cursor:pointer;"><span class="wc-char">尽兴</span><span class="wc-jp">zeon6 hing3</span><span class="wc-en">尽兴</span></div>
+<div class="word-chip" onclick="speak('钟意', null)" style="cursor:pointer;"><span class="wc-char">钟意</span><span class="wc-jp">zung1 ji3</span><span class="wc-en">喜欢</span></div>
+<div class="word-chip" onclick="speak('闷', null)" style="cursor:pointer;"><span class="wc-char">闷</span><span class="wc-jp">mun6</span><span class="wc-en">无聊</span></div>
+<div class="word-chip" onclick="speak('过瘾', null)" style="cursor:pointer;"><span class="wc-char">过瘾</span><span class="wc-jp">gwo3 jan5</span><span class="wc-en">过瘾/爽</span></div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- CULTURE -->
+<div class="section" id="culture">
+  <div class="culture-box">
+    <h4>🏛 文化课堂 · 香港消遣文化</h4>
+    <p style="color:#aaa;font-size:13px;margin-bottom:16px;">港人的weekend点过？电影、唱K、行山、打边炉——了解香港人的生活方式</p>
+    <div class="culture-items">
+<div class="culture-item"><div class="ci-icon">🎬</div><div><div class="ci-title">香港电影文化</div><div class="ci-text">香港曾经是「东方好莱坞」，巅峰时期年产超过200部电影。虽然近年产量下降，但港片精神仍在。每年有香港国际电影节（HKIFF），是亚洲最重要的电影节之一。香港人睇戏习惯买爆米花配汽水，片尾曲出来时才走——提前走被认为不尊重。</div><div style="margin-top:8px;font-size:12px;color:var(--gold);">💡 May姐贴士：香港人推荐好戏会说「好好睇」hou2 hou2 tai2，觉得烂片会说「好柒」hou2 cat1 或「好废」hou2 fai3。</div></div></div>
+<div class="culture-item"><div class="ci-icon">🎤</div><div><div class="ci-title">KTV文化</div><div class="ci-text">香港KTV文化源于日本卡拉OK，90年代至今一直是年轻人最爱的消遣之一。2024年Neway虽然关了不少分店，但新式KTV如"唱K佬"等继续开。香港人唱K有个不成文规定：每人至少要唱一首，唔唱会被笑「唔畀面」。</div><div style="margin-top:8px;font-size:12px;color:var(--gold);">💡 May姐贴士：想融入香港朋友圈，至少要学一首粤语歌。推荐入门：陈奕迅《富士山下》、Beyond《海阔天空》、张学友《吻别》。</div></div></div>
+<div class="culture-item"><div class="ci-icon">⛰</div><div><div class="ci-title">行山文化</div><div class="ci-text">香港有超过300条行山径，75%的土地是郊野公园。龙脊、大东山、狮子山是最热门路线。疫情后行山变成全民运动，周末去行山的人比去商场的还多。行山装备在深水埗可以买到超便宜的。</div><div style="margin-top:8px;font-size:12px;color:var(--gold);">💡 May姐贴士：行山粤语：行山=爬山，落山=下山，山顶=山顶，攰死=累死了，好正=风景好棒。</div></div></div>
+<div class="culture-item"><div class="ci-icon">🍲</div><div><div class="ci-title">打边炉</div><div class="ci-text">「打边炉」daa2 bin1 lou4 = 吃火锅。香港人冬天必做的事。最常见的是沙嗲锅、清汤锅和麻辣锅。铜锣湾和旺角有大量火锅店。一人一锅的日式打边炉也很受欢迎。</div><div style="margin-top:8px;font-size:12px;color:var(--gold);">💡 May姐贴士：打边炉必学粤语：落嘢=放食材进去，熟咗未=熟了没，好味=好吃，饱到爆=撑死了。</div></div></div>
+<div class="culture-item"><div class="ci-icon">🏇</div><div><div class="ci-title">赛马文化</div><div class="ci-text">「赛马」是香港最独特的娱乐文化，跑马地和沙田马场每周三/周末开赛。香港赛马会是全球最大的赛马机构之一。赛马日的跑马地夜赛充满了独特氛围——喝啤酒、看比赛、feeling excited。</div><div style="margin-top:8px;font-size:12px;color:var(--gold);">💡 May姐贴士：赛马粤语：买马=下注，赢马=赢了，输到㩒=输惨了，冷马=冷门。但May姐提醒：小赌怡情，大赌伤身！</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- FILM QUOTES -->
+<div class="section" id="film-quotes">
+  <div class="sec-head">
+    <div class="sec-icon">🎬</div>
+    <div><h3>影视真实粤语 · 10个经典场景</h3><div class="sec-sub">港片港剧里的粤语才是最原汁原味的教科书</div></div>
+  </div>
+  <div class="may-say">
+    <div class="mini-av">👩</div>
+    <div class="may-say-body">
+      <div class="may-say-name">MAY姐说</div>
+      <div class="may-say-text">课本上的粤语永远太「干净」。下面这些经典影视场景，帮你感受<strong>真实世界里粤语的节奏和味道</strong>。重点感受语气和用法就好！</div>
+    </div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:12px;margin-top:16px;">
+    <div style="background:linear-gradient(135deg,#1a1a2e,#16213e);border-radius:14px;padding:20px;border-left:4px solid var(--gold);margin-bottom:12px;">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <span style="background:var(--gold);color:white;font-size:11px;font-weight:700;padding:3px 10px;border-radius:8px;">🎬 少林足球（2001）</span>
+        <span style="color:#888;font-size:12px;">周星驰</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="font-family:'Noto Serif SC',serif;font-size:17px;font-weight:700;color:#fff;flex:1;">星爷喊出经典台词：<span style="color:var(--gold);font-weight:700;border-bottom:1px dashed var(--gold);">做人如果冇梦想，同咸鱼有乜分别？</span></div>
+        <button onclick="speak('做人如果冇梦想，同咸鱼有乜分别', this)" style="background:rgba(245,166,35,0.2);border:1.5px solid rgba(245,166,35,0.4);color:#F5A623;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button>
+      </div>
+      <div style="color:#00B4D8;font-size:12px;margin-top:6px;">💡 「冇」mou5=没有。「梦想」mung6 soeng2。「咸鱼」haam4 jyu2=比喻没有追求的人。这是香港人引用频率最高的金句之一！</div>
+    </div>
+    <div style="background:linear-gradient(135deg,#1a1a2e,#16213e);border-radius:14px;padding:20px;border-left:4px solid var(--red);margin-bottom:12px;">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <span style="background:var(--red);color:white;font-size:11px;font-weight:700;padding:3px 10px;border-radius:8px;">📺 TVB《使徒行者2》</span>
+        <span style="color:#888;font-size:12px;">警匪剧</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="font-family:'Noto Serif SC',serif;font-size:17px;font-weight:700;color:#fff;flex:1;">角色说：今晚<span style="color:var(--gold);font-weight:700;border-bottom:1px dashed var(--gold);">收工</span> sau1 gung1 去饮嘢啦</div>
+        <button onclick="speak('收工', this)" style="background:rgba(245,166,35,0.2);border:1.5px solid rgba(245,166,35,0.4);color:#F5A623;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button>
+      </div>
+      <div style="color:#00B4D8;font-size:12px;margin-top:6px;">💡 「收工」=下班/结束工作。「收工未呀？」=下班了没？是香港打工人每日最期待的一刻！</div>
+    </div>
+    <div style="background:linear-gradient(135deg,#1a1a2e,#16213e);border-radius:14px;padding:20px;border-left:4px solid var(--teal);margin-bottom:12px;">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <span style="background:var(--teal);color:white;font-size:11px;font-weight:700;padding:3px 10px;border-radius:8px;">🎬 无间道（2002）</span>
+        <span style="color:#888;font-size:12px;">经典</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="font-family:'Noto Serif SC',serif;font-size:17px;font-weight:700;color:#fff;flex:1;">天台对峙前，在HMV听CD：<span style="color:var(--gold);font-weight:700;border-bottom:1px dashed var(--gold);">好听</span> hou2 teng1</div>
+        <button onclick="speak('好听', this)" style="background:rgba(245,166,35,0.2);border:1.5px solid rgba(245,166,35,0.4);color:#F5A623;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button>
+      </div>
+      <div style="color:#00B4D8;font-size:12px;margin-top:6px;">💡 「听」teng1 = 听。「好听」=好听。「好听过」=比...好听。音乐评价必备词！</div>
+    </div>
+    <div style="background:linear-gradient(135deg,#1a1a2e,#16213e);border-radius:14px;padding:20px;border-left:4px solid var(--purple);margin-bottom:12px;">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <span style="background:var(--purple);color:white;font-size:11px;font-weight:700;padding:3px 10px;border-radius:8px;">📺 TVB《不懂撒娇的女人》</span>
+        <span style="color:#888;font-size:12px;">都市剧</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="font-family:'Noto Serif SC',serif;font-size:17px;font-weight:700;color:#fff;flex:1;">女主约朋友：今晚<span style="color:var(--gold);font-weight:700;border-bottom:1px dashed var(--gold);">蒲吧</span> pou4 baa1</div>
+        <button onclick="speak('蒲吧', this)" style="background:rgba(245,166,35,0.2);border:1.5px solid rgba(245,166,35,0.4);color:#F5A623;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button>
+      </div>
+      <div style="color:#00B4D8;font-size:12px;margin-top:6px;">💡 「蒲」pou4 = 泡/混。「蒲吧」=泡吧。「蒲街」=逛街。「蒲得好夜」=玩到很晚。年轻人专用词！</div>
+    </div>
+    <div style="background:linear-gradient(135deg,#1a1a2e,#16213e);border-radius:14px;padding:20px;border-left:4px solid var(--green);margin-bottom:12px;">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <span style="background:var(--green);color:white;font-size:11px;font-weight:700;padding:3px 10px;border-radius:8px;">🎬 那夜凌晨（2014）</span>
+        <span style="color:#888;font-size:12px;">科幻港片</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="font-family:'Noto Serif SC',serif;font-size:17px;font-weight:700;color:#fff;flex:1;">角色说：好<span style="color:var(--gold);font-weight:700;border-bottom:1px dashed var(--gold);">攰</span> hou2 gui6，想返屋企</div>
+        <button onclick="speak('攰', this)" style="background:rgba(245,166,35,0.2);border:1.5px solid rgba(245,166,35,0.4);color:#F5A623;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button>
+      </div>
+      <div style="color:#00B4D8;font-size:12px;margin-top:6px;">💡 「攰」gui6 = 累/疲倦。「攰到死」=累死了。「攰到冇力」=累到没力气。这个字日常使用频率极高！</div>
+    </div>
+    <div style="background:linear-gradient(135deg,#1a1a2e,#16213e);border-radius:14px;padding:20px;border-left:4px solid var(--gold);margin-bottom:12px;">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <span style="background:var(--gold);color:white;font-size:11px;font-weight:700;padding:3px 10px;border-radius:8px;">📺 TVB《兄弟》</span>
+        <span style="color:#888;font-size:12px;">动作剧</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="font-family:'Noto Serif SC',serif;font-size:17px;font-weight:700;color:#fff;flex:1;">兄弟打完波后说：好<span style="color:var(--gold);font-weight:700;border-bottom:1px dashed var(--gold);">过瘾</span> hou2 gwo3 jan5</div>
+        <button onclick="speak('过瘾', this)" style="background:rgba(245,166,35,0.2);border:1.5px solid rgba(245,166,35,0.4);color:#F5A623;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button>
+      </div>
+      <div style="color:#00B4D8;font-size:12px;margin-top:6px;">💡 「过瘾」=爽/痛快/过瘾。「好过瘾」=很爽。「唔过瘾」=不过瘾。看完好电影：过瘾！玩得开心：过瘾！</div>
+    </div>
+    <div style="background:linear-gradient(135deg,#1a1a2e,#16213e);border-radius:14px;padding:20px;border-left:4px solid var(--red);margin-bottom:12px;">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <span style="background:var(--red);color:white;font-size:11px;font-weight:700;padding:3px 10px;border-radius:8px;">🎬 寒战（2012）</span>
+        <span style="color:#888;font-size:12px;">警匪</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="font-family:'Noto Serif SC',serif;font-size:17px;font-weight:700;color:#fff;flex:1;">紧张对话中：<span style="color:var(--gold);font-weight:700;border-bottom:1px dashed var(--gold);">唔好搞</span> m4 hou2 gaau2</div>
+        <button onclick="speak('唔好搞', this)" style="background:rgba(245,166,35,0.2);border:1.5px solid rgba(245,166,35,0.4);color:#F5A623;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button>
+      </div>
+      <div style="color:#00B4D8;font-size:12px;margin-top:6px;">💡 「搞」gaau2 = 弄/搞。「唔好搞」=别闹。「搞乜鬼」gaau2 mat1 gwai2 = 搞什么鬼。很口语！</div>
+    </div>
+    <div style="background:linear-gradient(135deg,#1a1a2e,#16213e);border-radius:14px;padding:20px;border-left:4px solid var(--teal);margin-bottom:12px;">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <span style="background:var(--teal);color:white;font-size:11px;font-weight:700;padding:3px 10px;border-radius:8px;">📺 TVB《降魔的》</span>
+        <span style="color:#888;font-size:12px;">灵异剧</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="font-family:'Noto Serif SC',serif;font-size:17px;font-weight:700;color:#fff;flex:1;">角色周末说：今日好<span style="color:var(--gold);font-weight:700;border-bottom:1px dashed var(--gold);">闷</span> hou2 mun6</div>
+        <button onclick="speak('闷', this)" style="background:rgba(245,166,35,0.2);border:1.5px solid rgba(245,166,35,0.4);color:#F5A623;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button>
+      </div>
+      <div style="color:#00B4D8;font-size:12px;margin-top:6px;">💡 「闷」mun6 = 无聊/闷。「好闷」=好无聊。「闷到发慌」=无聊得发慌。周末冇嘢做就会觉得「闷」。</div>
+    </div>
+    <div style="background:linear-gradient(135deg,#1a1a2e,#16213e);border-radius:14px;padding:20px;border-left:4px solid var(--purple);margin-bottom:12px;">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <span style="background:var(--purple);color:white;font-size:11px;font-weight:700;padding:3px 10px;border-radius:8px;">🎬 岁月神偷（2010）</span>
+        <span style="color:#888;font-size:12px;">文艺</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="font-family:'Noto Serif SC',serif;font-size:17px;font-weight:700;color:#fff;flex:1;">一家人去睇<span style="color:var(--gold);font-weight:700;border-bottom:1px dashed var(--gold);">大戏</span> daai6 hei3（粤剧）</div>
+        <button onclick="speak('大戏', this)" style="background:rgba(245,166,35,0.2);border:1.5px solid rgba(245,166,35,0.4);color:#F5A623;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button>
+      </div>
+      <div style="color:#00B4D8;font-size:12px;margin-top:6px;">💡 「大戏」=粤剧。「睇大戏」=看粤剧。粤剧是香港非物质文化遗产，西九文化区戏曲中心是欣赏粤剧的好去处。</div>
+    </div>
+    <div style="background:linear-gradient(135deg,#1a1a2e,#16213e);border-radius:14px;padding:20px;border-left:4px solid var(--green);margin-bottom:12px;">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <span style="background:var(--green);color:white;font-size:11px;font-weight:700;padding:3px 10px;border-radius:8px;">📺 TVB《爱·回家之开心速递》</span>
+        <span style="color:#888;font-size:12px;">家庭日常</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="font-family:'Noto Serif SC',serif;font-size:17px;font-weight:700;color:#fff;flex:1;">一家人讨论：不如星期六去<span style="color:var(--gold);font-weight:700;border-bottom:1px dashed var(--gold);">BBQ</span></div>
+        <button onclick="speak('BBQ', this)" style="background:rgba(245,166,35,0.2);border:1.5px solid rgba(245,166,35,0.4);color:#F5A623;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button>
+      </div>
+      <div style="color:#00B4D8;font-size:12px;margin-top:6px;">💡 香港人超爱BBQ（烧烤）。公园有免费烧烤场，自带食物和炭就行。「去BBQ」是香港人秋天最爱的集体活动。</div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- QUIZ -->
+<div class="section" id="quiz-section">
+  <div class="quiz-wrap">
+    <div class="quiz-head">
+      <div style="font-size:28px;">📝</div>
+      <h3>小测验 · 5道题</h3>
+      <div class="quiz-score-board" id="score-board">得分：0/5</div>
+    </div>
+
+    <div class="q-item">
+      <div class="q-num">QUESTION 1/5</div>
+      <div class="q-text">「得闲」dak1 haan4 是什么意思？</div>
+      <div class="q-options" id="q1"><div class="q-opt" onclick="ans(this,false,'q1','fb1','得闲=有空。「你几时得闲？」是约人的标准开场白。')">A. 得到好处</div>
+<div class="q-opt" onclick="ans(this,true,'q1','fb1','得闲=有空。「你几时得闲？」是约人的标准开场白。')">B. 有空/有时间</div>
+<div class="q-opt" onclick="ans(this,false,'q1','fb1','得闲=有空。「你几时得闲？」是约人的标准开场白。')">C. 很悠闲</div>
+<div class="q-opt" onclick="ans(this,false,'q1','fb1','得闲=有空。「你几时得闲？」是约人的标准开场白。')">D. 得到消息</div>
+</div>
+      <div class="q-feedback" id="fb1"></div>
+    </div>
+    <div class="q-item">
+      <div class="q-num">QUESTION 2/5</div>
+      <div class="q-text">「飞」fei1 在粤语中什么意思？</div>
+      <div class="q-options" id="q2"><div class="q-opt" onclick="ans(this,false,'q2','fb2','飞=票（来自英文fare）。买飞=买票，适用于所有票。')">A. 飞机</div>
+<div class="q-opt" onclick="ans(this,true,'q2','fb2','飞=票（来自英文fare）。买飞=买票，适用于所有票。')">B. 票</div>
+<div class="q-opt" onclick="ans(this,false,'q2','fb2','飞=票（来自英文fare）。买飞=买票，适用于所有票。')">C. 飞翔</div>
+<div class="q-opt" onclick="ans(this,false,'q2','fb2','飞=票（来自英文fare）。买飞=买票，适用于所有票。')">D. 非常</div>
+</div>
+      <div class="q-feedback" id="fb2"></div>
+    </div>
+    <div class="q-item">
+      <div class="q-num">QUESTION 3/5</div>
+      <div class="q-text">电影量词粤语用什么？</div>
+      <div class="q-options" id="q3"><div class="q-opt" onclick="ans(this,false,'q3','fb3','粤语用「套」：一套戏=一部电影。电视剧也用「套」。')">A. 部</div>
+<div class="q-opt" onclick="ans(this,true,'q3','fb3','粤语用「套」：一套戏=一部电影。电视剧也用「套」。')">B. 套</div>
+<div class="q-opt" onclick="ans(this,false,'q3','fb3','粤语用「套」：一套戏=一部电影。电视剧也用「套」。')">C. 出</div>
+<div class="q-opt" onclick="ans(this,false,'q3','fb3','粤语用「套」：一套戏=一部电影。电视剧也用「套」。')">D. 个</div>
+</div>
+      <div class="q-feedback" id="fb3"></div>
+    </div>
+    <div class="q-item">
+      <div class="q-num">QUESTION 4/5</div>
+      <div class="q-text">「定系」ding6 hai6 表示什么？</div>
+      <div class="q-options" id="q4"><div class="q-opt" onclick="ans(this,false,'q4','fb4','定系=还是。食饭定系食面？去定系唔去？')">A. 一定是</div>
+<div class="q-opt" onclick="ans(this,true,'q4','fb4','定系=还是。食饭定系食面？去定系唔去？')">B. 还是（二选一）</div>
+<div class="q-opt" onclick="ans(this,false,'q4','fb4','定系=还是。食饭定系食面？去定系唔去？')">C. 定下来</div>
+<div class="q-opt" onclick="ans(this,false,'q4','fb4','定系=还是。食饭定系食面？去定系唔去？')">D. 当然</div>
+</div>
+      <div class="q-feedback" id="fb4"></div>
+    </div>
+    <div class="q-item">
+      <div class="q-num">QUESTION 5/5</div>
+      <div class="q-text">「过瘾」gwo3 jan5 是什么感觉？</div>
+      <div class="q-options" id="q5"><div class="q-opt" onclick="ans(this,false,'q5','fb5','过瘾=爽/痛快。玩得开心、看了好电影都可以说「好过瘾」！')">A. 很难受</div>
+<div class="q-opt" onclick="ans(this,false,'q5','fb5','过瘾=爽/痛快。玩得开心、看了好电影都可以说「好过瘾」！')">B. 过了瘾</div>
+<div class="q-opt" onclick="ans(this,true,'q5','fb5','过瘾=爽/痛快。玩得开心、看了好电影都可以说「好过瘾」！')">C. 很爽/很棒</div>
+<div class="q-opt" onclick="ans(this,false,'q5','fb5','过瘾=爽/痛快。玩得开心、看了好电影都可以说「好过瘾」！')">D. 过了期限</div>
+</div>
+      <div class="q-feedback" id="fb5"></div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- STORY -->
+<div class="section" id="story-section">
+  <div class="story-section">
+    <div class="story-header">
+      <div class="story-av-large">👩</div>
+      <div class="story-header-text">
+        <h3>「我喺戏院学到嘅人生道理」</h3>
+        <p>陈美伶 · 九龙土著 · 港片铁粉三十年</p>
+      </div>
+    </div>
+    <div class="story-body">
+      <div class="story-pull-quote">「睇一套好戏，唔止学粤语，仲可以学做人。」</div>
+      <div class="story-timeline">
+
+        <div class="st-item">
+          <div class="st-left"><div class="st-dot"></div><div class="st-line"></div></div>
+          <div class="st-content">
+            <div class="st-year">大约1988年 · May姐十四岁</div>
+            <div class="st-title">🎬 第一次自己睇戏</div>
+            <div class="st-text">我第一次自己同同学去旺角百老汇戏院睇戏，係《赌神》首映！嗰阵买飞要排成条街，我哋排咗成个钟先买到。周润发一出场全场欢呼——嗰种感觉，而家Netflix永远俾唔到你。<strong>我就係嗰一刻爱上电影，爱上粤语。</strong></div>
+          </div>
+        </div>
+        <div class="st-item">
+          <div class="st-left"><div class="st-dot"></div><div class="st-line"></div></div>
+          <div class="st-content">
+            <div class="st-year">大学时代 · May姐二十岁</div>
+            <div class="st-title">🎤 KTV是我的社交课室</div>
+            <div class="st-text">大学嗰阵成日唱K，由Neway唱到RedMR。有一次外国交换生嚟唱K，佢哋完全唔识粤语歌，只会唱英文歌。我教咗一个美国女仔唱《千千阙歌》，佢由完全唔识到可以完整唱完，用咗三个星期。<strong>佢话呢首歌帮佢嘅粤语发音进步咗50%。</strong></div>
+          </div>
+        </div>
+        <div class="st-item">
+          <div class="st-left"><div class="st-dot"></div><div class="st-line"></div></div>
+          <div class="st-content">
+            <div class="st-year">教师生涯 · May姐三十五岁</div>
+            <div class="st-title">📺 用港剧教粤语</div>
+            <div class="st-text">有一年我开始用TVB剧集做教材——每集挑15分钟片段，逐句分析对白。学生反应超好！有个日本学生追《使徒行者》追到废寝忘食，粤语听力三个月暴涨。<strong>从此「追剧教学法」变成我第二个招牌。</strong>学生话：May姐，你嘅课比Netflix更addictive！</div>
+          </div>
+        </div>
+        <div class="st-item">
+          <div class="st-left"><div class="st-dot"></div></div>
+          <div class="st-content">
+            <div class="st-year">现在 · May姐的感悟</div>
+            <div class="st-title">💛 娱乐是学语言最好的动力</div>
+            <div class="st-text">我一直相信：<strong>如果学语言令你觉得闷，一定係方法不对。</strong>粤语歌、港片、TVB剧、KTV——呢啲全部都係教材。你追紧边套剧？你最钟意边首粤语歌？从你钟意嘅嘢开始学，效果快十倍。教咗廿几年，我最骄傲嘅係学生话：「May姐，我因为你开始睇港片，现在我自己都识推荐好戏畀朋友！」</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- HOMEWORK -->
+<div class="section" id="homework-section">
+  <div class="sec-head">
+    <div class="sec-icon">✏️</div>
+    <div><h3>自测练习</h3><div class="sec-sub">全部可以自己对答案，不需要任何人批改</div></div>
+  </div>
+
+    <div class="hw-interactive">
+      <div class="hw-int-title">📝 练习一 · 填词造句（点击空格看答案）</div>
+      <p style="font-size:13px;color:#888;margin-bottom:4px;">1. 你今晚有空吗？不如去看电影吧！</p><div class="hw-fill-row"><span class="hw-blank" onclick="this.classList.toggle('show')">你今晚</span><span class="hw-blank" onclick="this.classList.toggle('show')">得闲冇呀？</span><span class="hw-blank" onclick="this.classList.toggle('show')">不如去</span><span class="hw-blank" onclick="this.classList.toggle('show')">睇戏啦！</span></div>
+      <p style="font-size:13px;color:#888;margin-bottom:4px;">2. 新的那部电影好像不错，我买票吧？</p><div class="hw-fill-row"><span class="hw-blank" onclick="this.classList.toggle('show')">新嗰套戏</span><span class="hw-blank" onclick="this.classList.toggle('show')">好似唔错喎，</span><span class="hw-blank" onclick="this.classList.toggle('show')">我买飞啦？</span></div>
+      <p style="font-size:13px;color:#888;margin-bottom:4px;">3. 看完电影去唱K还是吃宵夜？</p><div class="hw-fill-row"><span class="hw-blank" onclick="this.classList.toggle('show')">睇完戏</span><span class="hw-blank" onclick="this.classList.toggle('show')">去唱K</span><span class="hw-blank" onclick="this.classList.toggle('show')">定系</span><span class="hw-blank" onclick="this.classList.toggle('show')">食宵夜？</span></div>
+    </div>
+    <div class="hw-interactive">
+      <div class="hw-int-title">🎭 练习二 · 模拟场景（心里完成后点击看参考）</div>
+      <div class="hw-scenario-box"><p style="color:var(--teal);font-weight:600;">场景：</p><p style="font-size:14px;color:#444;">你约朋友周六出去玩。你要：①问朋友有没有空 ②建议去看电影或唱K ③约好时间和地点 ④讨论看完之后的安排</p></div>
+      <button class="hw-reveal" onclick="this.nextElementSibling.classList.toggle('show');this.style.display='none';">点击看参考答案</button>
+      <div class="hw-answer-box"><p style="font-size:14px;line-height:2;color:#444;">你：喂，你星期六得闲冇呀？<br>朋友：得闲呀，做乜？<br>你：不如去睇戏啦！新嗰套恐怖片好似好好睇喎。<br>朋友：好呀！几点？<br>你：三点半嗰场，我买飞啦。约喺戏院门口？<br>朋友：OK！睇完之后呢？<br>你：睇完不如去唱K？定系去行街？<br>朋友：唱K啦！今晚要尽兴！</p></div>
+    </div>
+    <div class="hw-interactive">
+      <div class="hw-int-title">🔗 练习三 · 连线配对</div>
+      <div class="hw-match-q"><p>① 得闲 · A. ？</p><p>② 飞 · B. ？</p><p>③ 定系 · C. ？</p><p>④ 闷 · D. ？</p><p>⑤ 过瘾 · E. ？</p></div>
+      <button class="hw-reveal" onclick="this.nextElementSibling.classList.toggle('show');this.style.display='none';">点击看答案</button>
+      <div class="hw-answer-box"><p style="color:var(--green);font-weight:600;">✅ ①=有空 ｜ ②=票 ｜ ③=还是 ｜ ④=无聊 ｜ ⑤=爽/过瘾</p></div>
+    </div>
+    <div class="hw-interactive">
+      <div class="hw-int-title">🎬 练习四 · 粤语歌听力挑战（选做）</div>
+      <p style="font-size:14px;color:#555;">在YouTube/B站搜索陈奕迅《富士山下》或Beyond《海阔天空》，跟住歌词唱一遍。🎯 目标：能跟上副歌部分算通关。粤语歌是练声调和语感最好的方法——May姐亲测有效！</p>
+    </div>
+
+</div>
+
+<!-- NEXT EP -->
+<div class="section">
+  
+
+<!-- FLOATING TIP -->
+<div class="float-tip">
+  <div class="float-bubble" id="float-msg">
+    💡 学粤语小贴士：每周追一集TVB剧，配中文字幕，三个月后你会发现听力飞跃进步！
+  </div>
+  <div class="float-btn" onclick="toggleFloatTip()">👩</div>
+</div>
+
+<script>
+// Toggle analysis
+function toggleLine(id) {
+  const detail = document.getElementById(id + '-detail');
+  const btn = document.getElementById(id).querySelector('.expand-btn');
+  if (detail.classList.contains('open')) {
+    detail.classList.remove('open');
+    detail.style.display = 'none';
+    btn.textContent = '展开分析 ▾';
+  } else {
+    detail.classList.add('open');
+    detail.style.display = 'block';
+    btn.textContent = '收起分析 ▴';
+    btn.style.background = 'var(--gold)';
+    btn.style.color = 'var(--ink)';
+  }
+}
+
+// Quiz
+let quizScore = 0;
+function ans(btn, result, qId, fbId, msg) {
+  const parent = document.getElementById(qId);
+  const opts = parent.querySelectorAll('.q-opt');
+  opts.forEach(o => { o.disabled = true; o.style.pointerEvents = 'none'; });
+  const fb = document.getElementById(fbId);
+  if (result) {
+    btn.classList.add('correct');
+    fb.className = 'q-feedback ok';
+    fb.textContent = '✅ 啱晒！' + msg;
+    quizScore++;
+  } else {
+    btn.classList.add('wrong');
+    fb.className = 'q-feedback bad';
+    fb.textContent = '❌ 唔啱喎！' + msg;
+  }
+  document.getElementById('score-board').textContent = '得分：' + quizScore + '/5';
+}
+
+// Float tip
+function toggleFloatTip() {
+  const msg = document.getElementById('float-msg');
+  msg.classList.toggle('show');
+}
+
+// TTS
+(function() {
+  let ttsVoice = null;
+  let ttsReady = false;
+  function loadVoice() {
+    const voices = speechSynthesis.getVoices();
+    ttsVoice = voices.find(v => v.lang === 'zh-HK') || voices.find(v => v.lang === 'zh-TW') || voices.find(v => v.lang.startsWith('zh'));
+    ttsReady = true;
+    updateBadge();
+  }
+  function updateBadge() {
+    const b = document.getElementById('tts-badge');
+    if (!b) return;
+    if (ttsVoice) {
+      b.textContent = '🔊 粤语发音已就绪（' + ttsVoice.lang + '）';
+      b.style.background = '#2DC653';
+    } else {
+      b.textContent = '⚠️ 未检测到粤语语音包，请尝试 Chrome/Edge';
+      b.style.background = '#E84545';
+    }
+  }
+  window.speak = function(text, btn) {
+    if (!ttsReady) loadVoice();
+    speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = ttsVoice ? ttsVoice.lang : 'zh-HK';
+    if (ttsVoice) u.voice = ttsVoice;
+    u.rate = 0.85; u.pitch = 1.05;
+    if (btn) {
+      const orig = btn.innerHTML;
+      btn.innerHTML = '⏸';
+      u.onend = () => { btn.innerHTML = orig; };
+      u.onerror = () => { btn.innerHTML = orig; };
+    }
+    speechSynthesis.speak(u);
+  };
+  if (speechSynthesis.getVoices().length > 0) loadVoice();
+  speechSynthesis.onvoiceschanged = loadVoice;
+  window.addEventListener('load', loadVoice);
+})();
+</script>
+<a href="MayJie_EP09_Renting.html" class="gd-next"><h4>下一集 → EP09 租房攻略</h4><p>点击继续学习</p></a>
+<button class="gd-copy-btn" onclick="navigator.clipboard.writeText(location.href).then(function(){alert('链接已复制，快分享给朋友吧')}).catch(function(){prompt('复制链接：',location.href)})">📋 复制链接分享给朋友</button>
+<div class="gd-contact">课程合作 · 广告商务 · 投资咨询 · 学员反馈 — <a href="mailto:gaaudim2026&#64;gmail.com">gaaudim2026&#64;gmail.com</a></div>
+<div class="gd-spacer"></div>
+<div class="gd-bot">
+<a href="MayJie_EP07_Shopping.html" class="gd-bot-arr">◀</a>
+<div class="gd-bot-scroll" id="gdbs">
+<a href="MayJie_EP01_ChaChaan.html" class="gd-bot-ep">EP01</a>
+<a href="MayJie_EP02_MTR.html" class="gd-bot-ep">EP02</a>
+<a href="MayJie_EP03_ConvStore.html" class="gd-bot-ep">EP03</a>
+<a href="MayJie_EP04_Taxi_Doctor.html" class="gd-bot-ep">EP04</a>
+<a href="MayJie_EP05_Takeout.html" class="gd-bot-ep">EP05</a>
+<a href="MayJie_EP06_Self_Intro.html" class="gd-bot-ep">EP06</a>
+<a href="MayJie_EP07_Shopping.html" class="gd-bot-ep">EP07</a>
+<a href="MayJie_EP08_Entertainment.html" class="gd-bot-ep on">EP08</a>
+<a href="MayJie_EP09_Renting.html" class="gd-bot-ep">EP09</a>
+<a href="MayJie_EP10_JobInterview.html" class="gd-bot-ep">EP10</a>
+<a href="MayJie_EP11_Hiking.html" class="gd-bot-ep">EP11</a>
+<a href="MayJie_EP12_Festivals.html" class="gd-bot-ep">EP12</a>
+<a href="MayJie_EP13_Complaints.html" class="gd-bot-ep">EP13</a>
+<a href="MayJie_EP14_Dating.html" class="gd-bot-ep">EP14</a>
+<a href="MayJie_EP15_Drinking.html" class="gd-bot-ep">EP15</a>
+<a href="MayJie_EP16_Beauty.html" class="gd-bot-ep">EP16</a>
+<a href="MayJie_EP17_PhoneCall.html" class="gd-bot-ep">EP17</a>
+<a href="MayJie_EP18_Neighbors__1_.html" class="gd-bot-ep">EP18</a>
+<a href="MayJie_EP19_DimSum.html" class="gd-bot-ep">EP19</a>
+<a href="MayJie_EP20_Supermarket.html" class="gd-bot-ep">EP20</a>
+<a href="MayJie_EP21_Numbers.html" class="gd-bot-ep">EP21</a>
+<a href="MayJie_EP22.html" class="gd-bot-ep">EP22</a>
+<a href="MayJie_EP23.html" class="gd-bot-ep">EP23</a>
+<a href="MayJie_EP24.html" class="gd-bot-ep">EP24</a>
+<a href="MayJie_EP25.html" class="gd-bot-ep">EP25</a>
+<a href="MayJie_EP26.html" class="gd-bot-ep">EP26</a>
+<a href="MayJie_EP27.html" class="gd-bot-ep">EP27</a>
+<a href="MayJie_EP28.html" class="gd-bot-ep">EP28</a>
+<a href="MayJie_EP29.html" class="gd-bot-ep">EP29</a>
+<a href="MayJie_EP30.html" class="gd-bot-ep">EP30</a>
+</div>
+<a href="MayJie_EP09_Renting.html" class="gd-bot-arr">▶</a>
+</div>
+<script>document.addEventListener("DOMContentLoaded",function(){var c=document.querySelector(".gd-bot-ep.on");if(c)c.scrollIntoView({inline:"center",block:"nearest"});})</script>
+<script>document.addEventListener("contextmenu",function(e){e.preventDefault()});document.addEventListener("copy",function(e){if(e.target.tagName!=="INPUT"&&e.target.tagName!=="TEXTAREA")e.preventDefault()});document.addEventListener("selectstart",function(e){if(e.target.tagName!=="INPUT"&&e.target.tagName!=="TEXTAREA")e.preventDefault()});</script>
+<script>(function(){var os=window.speak;if(os){window.speak=function(t,b){if(speechSynthesis.speaking){speechSynthesis.cancel();if(b)b.innerHTML=b.dataset.o||'🔊';return;}os(t,b);};}else{var v=null;function lv(){var vs=speechSynthesis.getVoices();v=vs.find(function(x){return x.lang==='zh-HK'})||vs.find(function(x){return x.lang==='zh-TW'})||vs.find(function(x){return x.lang.startsWith('zh')});}if(speechSynthesis.getVoices().length>0)lv();speechSynthesis.onvoiceschanged=lv;window.speak=function(t,b){if(speechSynthesis.speaking){speechSynthesis.cancel();if(b)b.innerHTML=b.dataset.o||'🔊';return;}if(!v)lv();var u=new SpeechSynthesisUtterance(t);u.lang=v?v.lang:'zh-HK';if(v)u.voice=v;u.rate=0.85;u.pitch=1.05;if(b){b.dataset.o=b.dataset.o||b.innerHTML;var oi=b.innerHTML;b.innerHTML='⏸';u.onend=function(){b.innerHTML=oi};u.onerror=function(){b.innerHTML=oi};}speechSynthesis.speak(u);};}})();</script>
+<script src="paywall-check.js?v=3.2"></script>
+</body>
+</html>

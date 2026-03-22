@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>普通话转粤语翻译器 | 搞掂 gaaudim.com</title>
+<meta name="description" content="免费在线普通话转粤语差异对照工具。">
+<meta name="keywords" content="搞掂,gaaudim,粤语,香港,高才通,港漂,留学,粤拼,香港生活指南">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Noto+Sans+SC:wght@300;400;500;700&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GQBZMQQEQ9"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-GQBZMQQEQ9');</script>
+<style>
+:root{--ink:#1C1C2E;--cream:#FEFAF3;--gold:#F5A623;--teal:#00B4D8;--red:#E84545;--green:#2DC653;--mint:#34D399;--amber:#F59E0B;--sky:#38BDF8;--soft:#F7F3EB;--border:#E8E0D0;--card:#fff;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--cream);font-family:'Noto Sans SC',sans-serif;color:var(--ink);line-height:1.7;}
+a{text-decoration:none;color:inherit;}
+.nav{position:sticky;top:0;z-index:100;background:var(--ink);height:54px;display:flex;align-items:center;padding:0 24px;border-bottom:3px solid var(--gold);}
+.nav-logo{font-family:'ZCOOL KuaiLe',cursive;color:var(--gold);font-size:17px;}
+.nav a.back{color:rgba(255,255,255,.6);font-size:13px;margin-left:auto;}
+.nav a.back:hover{color:var(--gold);}
+.wrap{max-width:720px;margin:0 auto;padding:20px;}
+.hero{background:linear-gradient(155deg,#0F0F1A,#1a1a3e,#0F0F1A);padding:40px 24px;text-align:center;position:relative;overflow:hidden;}
+.hero h1{font-family:'Noto Serif SC',serif;font-size:clamp(22px,4vw,32px);font-weight:900;color:#fff;line-height:1.3;margin-bottom:10px;}
+.hero h1 em{font-style:normal;color:var(--gold);}
+.hero p{color:rgba(255,255,255,.55);font-size:14px;max-width:480px;margin:0 auto;}
+.tool-card{background:var(--card);border-radius:18px;border:1px solid var(--border);padding:28px;margin-top:-20px;position:relative;z-index:1;box-shadow:0 8px 40px rgba(28,28,46,.08);}
+.input-label{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+textarea{width:100%;min-height:100px;padding:14px;border:2px solid var(--border);border-radius:12px;font-size:15px;font-family:inherit;line-height:1.8;resize:vertical;outline:none;transition:border .2s;}
+textarea:focus{border-color:var(--gold);}
+.output{margin-top:20px;min-height:60px;padding:16px;background:var(--soft);border-radius:12px;border:1px solid var(--border);font-size:16px;line-height:2.4;}
+.output .label{font-size:12px;color:#999;margin-bottom:8px;}
+.output .placeholder{color:#999;font-style:italic;font-size:14px;}
+.legend{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px;font-size:12px;color:#888;}
+.legend span{display:flex;align-items:center;gap:4px;}
+.leg-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px;}
+.mini-stat{background:var(--soft);border-radius:10px;padding:12px;text-align:center;}
+.mini-stat .n{font-family:'ZCOOL KuaiLe',cursive;font-size:22px;color:var(--gold);}
+.mini-stat .l{font-size:11px;color:#999;margin-top:2px;}
+.may-tip{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;margin-top:24px;display:flex;gap:14px;align-items:flex-start;}
+.may-tip .av{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#FF9800);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+.may-tip .text{font-size:13px;color:#555;line-height:1.8;}
+.may-tip .text strong{color:var(--ink);}
+.cta-bar{text-align:center;margin:32px 0;padding:24px;background:linear-gradient(135deg,var(--ink),#2D2B55);border-radius:16px;}
+.cta-bar h3{font-family:'ZCOOL KuaiLe',cursive;color:var(--gold);font-size:18px;margin-bottom:8px;}
+.cta-bar p{color:rgba(255,255,255,.5);font-size:13px;margin-bottom:14px;}
+.cta-bar a{display:inline-block;background:var(--gold);color:var(--ink);font-weight:700;font-size:14px;padding:10px 28px;border-radius:24px;}
+.w-learned{background:rgba(52,211,153,.15);color:#059669;padding:2px 4px;border-radius:4px;cursor:pointer;border-bottom:2px solid rgba(52,211,153,.4);}
+.w-common{background:rgba(245,158,11,.12);color:#D97706;padding:2px 4px;border-radius:4px;border-bottom:2px solid rgba(245,158,11,.3);}
+.w-expand{background:rgba(56,189,248,.12);color:#0284C7;padding:2px 4px;border-radius:4px;border-bottom:2px solid rgba(56,189,248,.3);}
+.w-same{color:#999;}
+</style>
+<style id="gdprotect">*{-webkit-user-select:none;-moz-user-select:none;user-select:none}input,textarea{-webkit-user-select:text;user-select:text}</style>
+<style>
+/* === GD NAV === */
+.gd-nav{position:sticky;top:0;z-index:9999;background:rgba(28,28,46,.98);backdrop-filter:blur(14px);height:48px;display:flex;align-items:center;padding:0 14px;border-bottom:2px solid #F5A623;box-shadow:0 2px 20px rgba(245,166,35,.1);font-family:'Noto Sans SC',sans-serif;gap:8px;}
+.gd-nav-left{display:flex;align-items:center;gap:12px;flex-shrink:0;}
+.gd-nav-brand{font-family:'ZCOOL KuaiLe',cursive;color:#F5A623;font-size:15px;text-decoration:none;white-space:nowrap;}
+.gd-nav-brand span{font-family:'ZCOOL KuaiLe',cursive;font-size:13px;color:rgba(245,166,35,.6);margin-left:6px;font-weight:400;}
+
+@media(min-width:640px){}
+.gd-nav-links{flex:1;display:flex;justify-content:flex-end;gap:2px;overflow:visible;}
+.gd-dd{position:relative;display:inline-block;}
+.gd-nav-slogan{color:rgba(255,255,255,.65);font-size:12px;white-space:nowrap;display:none;}
+@media(min-width:640px){.gd-nav-slogan{display:block;}}
+.gd-dd-btn{color:rgba(255,255,255,.55);font-size:11px;padding:6px 10px;border-radius:12px;white-space:nowrap;cursor:pointer;transition:all .2s;background:none;border:none;font-family:inherit;}
+.gd-dd-btn:hover,.gd-dd-btn.on{background:rgba(245,166,35,.12);color:#F5A623;}
+.gd-dd-list{display:none;position:absolute;top:100%;right:0;background:#1C1C2E;border:1px solid rgba(245,166,35,.25);border-radius:10px;min-width:200px;max-height:70vh;overflow-y:auto;overflow-x:visible;z-index:10000;box-shadow:0 8px 32px rgba(0,0,0,.5);padding:6px 0;margin-top:4px;}
+.gd-dd:hover .gd-dd-list{display:block;}
+.gd-dd-list a{display:block;padding:7px 14px;color:rgba(255,255,255,.7);font-size:11px;text-decoration:none;white-space:nowrap;transition:all .15s;}
+.gd-dd-list a:hover{background:rgba(245,166,35,.1);color:#F5A623;}
+.gd-dd-list a.cur{color:#F5A623;font-weight:700;background:rgba(245,166,35,.08);}
+@media(max-width:600px){.gd-dd-btn{font-size:10px;padding:5px 6px;}.gd-dd-list{min-width:160px;right:-20px;}}
+/* === BOTTOM BAR === */
+.gd-bot{position:fixed;bottom:0;left:0;right:0;z-index:9998;background:rgba(28,28,46,.97);backdrop-filter:blur(12px);border-top:2px solid #F5A623;padding:6px 10px;display:flex;align-items:center;gap:6px;font-family:'Noto Sans SC',sans-serif;}
+.gd-bot-arr{color:rgba(255,255,255,.5);font-size:14px;cursor:pointer;padding:4px 6px;border:none;background:none;text-decoration:none;transition:color .2s;flex-shrink:0;}
+.gd-bot-arr:hover{color:#F5A623;}
+.gd-bot-scroll{flex:1;display:flex;gap:4px;overflow-x:auto;padding:4px 0;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+.gd-bot-scroll::-webkit-scrollbar{display:none;}
+.gd-bot-ep{color:rgba(255,255,255,.4);font-size:10px;padding:4px 10px;border-radius:10px;white-space:nowrap;text-decoration:none;transition:all .2s;flex-shrink:0;border:1px solid transparent;}
+.gd-bot-ep:hover{color:rgba(255,255,255,.7);background:rgba(255,255,255,.05);}
+.gd-bot-ep.on{color:#F5A623;background:rgba(245,166,35,.12);border-color:rgba(245,166,35,.3);font-weight:700;}
+/* === INJECTED FOOTER === */
+.gd-copy-btn{display:block;margin:24px auto 12px;padding:10px 24px;background:#F5A623;color:#1C1C2E;border:none;border-radius:24px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s;}
+.gd-copy-btn:hover{transform:scale(1.04);box-shadow:0 4px 16px rgba(245,166,35,.4);}
+.gd-contact{text-align:center;padding:14px 16px;font-size:12px;color:#000;}
+.gd-contact a{color:#000;text-decoration:underline;text-underline-offset:3px;}
+.gd-legal-index{text-align:center;padding:4px 16px 16px;font-size:9px;color:#999;}
+.gd-next{display:block;background:linear-gradient(135deg,#1C1C2E,#2d2b55);border-radius:14px;padding:20px 24px;margin:30px auto;max-width:600px;text-decoration:none;border:1px solid rgba(245,166,35,.2);transition:all .3s;}
+.gd-next:hover{border-color:rgba(245,166,35,.5);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.15);}
+.gd-next h4{color:#F5A623;font-family:'ZCOOL KuaiLe',cursive;font-size:16px;margin-bottom:4px;}
+.gd-next p{color:rgba(255,255,255,.5);font-size:12px;}
+/* anti-copy */
+body{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}
+input,textarea{-webkit-user-select:text;-moz-user-select:text;-ms-user-select:text;user-select:text;}
+.gd-spacer{height:60px;}
+</style>
+</head>
+<body>
+<nav class="gd-nav">
+<div class="gd-nav-left">
+<a href="index.html" class="gd-nav-brand">搞掂 <span>gaaudim.com</span></a>
+<span class="gd-nav-slogan">一个网站帮你搞掂粤语·签证·租房·求职·留学</span>
+
+</div>
+<div class="gd-nav-links">
+<div class="gd-dd">
+<button class="gd-dd-btn">街头粤语</button>
+<div class="gd-dd-list">
+<a href="MayJie_EP01_ChaChaan.html">EP01 茶餐厅生存战</a>
+<a href="MayJie_EP02_MTR.html">EP02 地铁大冒险</a>
+<a href="MayJie_EP03_ConvStore.html">EP03 便利店粤语</a>
+<a href="MayJie_EP04_Taxi_Doctor.html">EP04 的士+睇医生</a>
+<a href="MayJie_EP05_Takeout.html">EP05 外卖点餐</a>
+<a href="MayJie_EP06_Self_Intro.html">EP06 自我介绍</a>
+<a href="MayJie_EP07_Shopping.html">EP07 购物砍价</a>
+<a href="MayJie_EP08_Entertainment.html">EP08 娱乐消遣</a>
+<a href="MayJie_EP09_Renting.html">EP09 租房攻略</a>
+<a href="MayJie_EP10_JobInterview.html">EP10 求职面试</a>
+<a href="MayJie_EP11_Hiking.html">EP11 行山郊游</a>
+<a href="MayJie_EP12_Festivals.html">EP12 节日祝福</a>
+<a href="MayJie_EP13_Complaints.html">EP13 投诉维权</a>
+<a href="MayJie_EP14_Dating.html">EP14 恋爱社交</a>
+<a href="MayJie_EP15_Drinking.html">EP15 饮酒社交</a>
+<a href="MayJie_EP16_Beauty.html">EP16 美容美发</a>
+<a href="MayJie_EP17_PhoneCall.html">EP17 打电话</a>
+<a href="MayJie_EP18_Neighbors__1_.html">EP18 邻居社交</a>
+<a href="MayJie_EP19_DimSum.html">EP19 饮茶点心</a>
+<a href="MayJie_EP20_Supermarket.html">EP20 超市买菜</a>
+<a href="MayJie_EP21_Numbers.html">EP21 数字时间钱</a>
+<a href="MayJie_EP22.html">EP22 离岛渡轮</a>
+<a href="MayJie_EP23.html">EP23 运动健身</a>
+<a href="MayJie_EP24.html">EP24 银行邮局</a>
+<a href="MayJie_EP25.html">EP25 潮语实战</a>
+<a href="MayJie_EP26.html">EP26 亲子家庭</a>
+<a href="MayJie_EP27.html">EP27 唱K实战</a>
+<a href="MayJie_EP28.html">EP28 家务日常</a>
+<a href="MayJie_EP29.html">EP29 凉茶养生</a>
+<a href="MayJie_EP30.html">EP30 大结局</a>
+</div></div>
+<div class="gd-dd">
+<button class="gd-dd-btn">粤拼速成</button>
+<div class="gd-dd-list">
+<a href="MayJie_JP01.html">JP01 你已经会粤拼了</a>
+<a href="MayJie_JP02.html">JP02 声母：只差这6个</a>
+<a href="MayJie_JP03.html">JP03 韵母(上)</a>
+<a href="MayJie_JP04.html">JP04 韵母(下)+入声</a>
+<a href="MayJie_JP05.html">JP05 九声六调(上)</a>
+<a href="MayJie_JP06.html">JP06 九声六调(下)</a>
+<a href="MayJie_JP07.html">JP07 变调大陷阱</a>
+<a href="MayJie_JP08.html">JP08 声调最小对</a>
+<a href="MayJie_JP09.html">JP09 综合实战</a>
+<a href="MayJie_JP10.html">JP10 毕业+学习路线</a>
+<a href="MayJie_JP_Extra_LazyTones__1_.html">JP-X 懒音特辑</a>
+</div></div>
+<div class="gd-dd">
+<button class="gd-dd-btn">词汇箱</button>
+<div class="gd-dd-list">
+<a href="MayJie_VW01.html">VW01 生存25词</a>
+<a href="MayJie_VW02.html">VW02 动作25词</a>
+<a href="MayJie_VW03.html">VW03 日常动作25词</a>
+<a href="MayJie_VW04.html">VW04 形容词25词</a>
+<a href="MayJie_VW05.html">VW05 疑问+时间25词</a>
+<a href="MayJie_VW06.html">VW06 社交礼貌25词</a>
+<a href="MayJie_VW07.html">VW07 职场返工25词</a>
+<a href="MayJie_VW08.html">VW08 饮食美食25词</a>
+<a href="MayJie_VW09.html">VW09 交通出行25词</a>
+<a href="MayJie_VW10.html">VW10 购物讲价25词</a>
+<a href="MayJie_VW11.html">VW11 身体健康25词</a>
+<a href="MayJie_VW12.html">VW12 情绪心理25词</a>
+<a href="MayJie_VW13.html">VW13 数量程度25词</a>
+<a href="MayJie_VW14.html">VW14 居家日常25词</a>
+<a href="MayJie_VW15.html">VW15 天气环境25词</a>
+<a href="MayJie_VW16.html">VW16 科技网络25词</a>
+<a href="MayJie_VW17.html">VW17 语气词专题25词</a>
+<a href="MayJie_VW18.html">VW18 俗语歇后语25词</a>
+<a href="MayJie_VW19.html">VW19 潮语网络语(上)</a>
+<a href="MayJie_VW20.html">VW20 潮语网络语(下)</a>
+</div></div>
+<div class="gd-dd">
+<button class="gd-dd-btn">粤语歌</button>
+<div class="gd-dd-list">
+<a href="MayJie_HKSongs_EP01_V3.html">HK01 唱K速成</a>
+<a href="MayJie_HKSongs_EP02.html">HK02 歌词解码</a>
+<a href="MayJie_HKSongs_EP03_V3.html">HK03 林夕vs黄伟文</a>
+<a href="MayJie_HKSongs_EP04_V2.html">HK04 林夕的粤语宇宙</a>
+<a href="MayJie_HKSongs_EP05_V2.html">HK05 MIRROR与新天王</a>
+<a href="MayJie_HKSongs_EP06_V2.html">HK06 粤语情歌进化史</a>
+<a href="MayJie_HKSongs_EP07_V2.html">HK07 Beyond与摇滚</a>
+<a href="MayJie_HKSongs_EP08_V2.html">HK08 KTV实战歌单</a>
+<a href="MayJie_HKSongs_EP09_V2.html">HK09 2025年度盘点</a>
+<a href="MayJie_HKSongs_EP10_V3.html">HK10 50首文化地图</a>
+<a href="MayJie_HKSongs_Extra_V2.html">HK-X 粤语歌的世界坐标</a>
+</div></div>
+<div class="gd-dd">
+<button class="gd-dd-btn">港漂留学</button>
+<div class="gd-dd-list">
+<a href="MayJie_SZ01.html">SZ01 先找到你自己</a>
+<a href="MayJie_SZ02.html">SZ02 K-12择校攻略</a>
+<a href="MayJie_SZ03.html">SZ03 八大选校真相</a>
+<a href="MayJie_SZ04.html">SZ04 硕士申请时间线</a>
+<a href="MayJie_SZ05.html">SZ05 文书面试必杀技</a>
+<a href="MayJie_SZ06.html">SZ06 费用·奖学金·签证</a>
+<a href="MayJie_SZ07.html">SZ07 落地生存指南</a>
+<a href="MayJie_SZ08.html">SZ08 起薪·就业·行业</a>
+<a href="MayJie_SZ09.html">SZ09 Campus Life指南</a>
+<a href="MayJie_SZ10.html">SZ10 毕业后全景图</a>
+<a href="MayJie_SZ_Extra_TaoCi.html">SZ-X PhD套磁奖学金</a>
+</div></div>
+</div></nav>
+
+<section class="hero">
+<h1>普粤差异<em>放大镜</em></h1>
+<p>输入一句普通话，即时标注哪些词在粤语中说法不同<br>125+核心词汇差异对照 · 含粤拼标注</p>
+</section>
+<div class="wrap">
+<div class="tool-card">
+<div class="input-label">&#x270D; 输入普通话</div>
+<textarea id="input" placeholder="试试输入一句普通话，比如：&#10;我不知道他在哪里&#10;你有没有吃饭？&#10;这样对不对？现在怎么办？&#10;他好帅好聪明" oninput="convert()"></textarea>
+<div class="output">
+<div class="label">差异标注结果 · 有颜色的词 = 粤语说法不同</div>
+<div id="result"><span class="placeholder">输入普通话后，差异词汇会被高亮标注...</span></div>
+</div>
+<div class="legend">
+<span><span class="leg-dot" style="background:#34D399"></span> 已收录词（可学习）</span>
+<span><span class="leg-dot" style="background:#F59E0B"></span> 常见差异词</span>
+<span><span class="leg-dot" style="background:#38BDF8"></span> 粤语常识拓展</span>
+<span><span class="leg-dot" style="background:#ccc"></span> 粤普通用</span>
+</div>
+<div class="stats-row">
+<div class="mini-stat"><div class="n">125+</div><div class="l">差异词库</div></div>
+<div class="mini-stat"><div class="n">6</div><div class="l">声调标注</div></div>
+<div class="mini-stat"><div class="n" id="matchCount">0</div><div class="l">已匹配</div></div>
+</div>
+</div>
+<div class="may-tip">
+<div class="av">&#x1F469;</div>
+<div class="text">
+<strong>May姐提醒：</strong>这不是逐字翻译器！粤语的语序和语法跟普通话不同，不能简单逐字替换。这个工具帮你标注<strong>哪些词在粤语里需要换说法</strong>——真正的粤语句子，请到课程里学习完整的对话场景。
+</div>
+</div>
+<div class="cta-bar">
+<h3>想学更多粤语？</h3>
+<p>93集精品课程 · 30个真实场景 · 完全免费</p>
+<a href="index.html">进入May姐课堂 &#x2192;</a>
+</div>
+</div>
+<script>
+const DICT=[
+  {pth:"不好意思", cant:"唔好意思", jp:"m4 hou2 ji3 si1", type:"learned", wid:2},
+  {pth:"不用客气", cant:"唔使客氣", jp:"m4 sai2 haak3 hei3", type:"learned", wid:2},
+  {pth:"什么时候", cant:"几时", jp:"gei2 si4", type:"common", note:"粤语缩成两字"},
+  {pth:"公共汽车", cant:"巴士", jp:"baa1 si2", type:"common", note:"→巴士"},
+  {pth:"知不知道", cant:"知唔知", jp:"zi1 m4 zi1", type:"common", note:"X不X→X唔X"},
+  {pth:"喜不喜欢", cant:"钟唔钟意", jp:"zung1 m4 zung1 ji3", type:"preview", unit:"VW02"},
+  {pth:"太厉害了", cant:"好犀利", jp:"hou2 sai1 lei6", type:"common", note:"厉害→犀利"},
+  {pth:"差不多了", cant:"差唔多喇", jp:"caa1 m4 do1 laa3", type:"common", note:"不→唔 了→喇"},
+  {pth:"为什么不", cant:"点解唔", jp:"dim2 gaai2 m4", type:"common", note:"为什么→点解"},
+  {pth:"是不是", cant:"係咪", jp:"hai6 mai6", type:"learned", wid:1},
+  {pth:"没关系", cant:"冇紧要", jp:"mou5 gan2 jiu3", type:"learned", wid:18},
+  {pth:"有没有", cant:"有冇", jp:"jau5 mou5", type:"learned", wid:18},
+  {pth:"不知道", cant:"唔知", jp:"m4 zi1", type:"learned", wid:2},
+  {pth:"为什么", cant:"点解", jp:"dim2 gaai2", type:"learned", wid:19},
+  {pth:"怎么办", cant:"点算", jp:"dim2 syun3", type:"learned", wid:22},
+  {pth:"怎么样", cant:"点样", jp:"dim2 joeng2", type:"learned", wid:22},
+  {pth:"在哪里", cant:"喺邊度", jp:"hai2 bin1 dou6", type:"learned", wid:10},
+  {pth:"找工作", cant:"揾工", jp:"wan2 gung1", type:"learned", wid:15},
+  {pth:"看电影", cant:"睇戏", jp:"tai2 hei3", type:"learned", wid:13},
+  {pth:"看医生", cant:"睇医生", jp:"tai2 ji1 sang1", type:"learned", wid:13},
+  {pth:"搞定了", cant:"搞掂喇", jp:"gaau2 dim6 laa3", type:"learned", wid:23},
+  {pth:"可以吗", cant:"得唔得", jp:"dak1 m4 dak1", type:"learned", wid:12},
+  {pth:"多少钱", cant:"幾多錢", jp:"gei2 do1 cin2", type:"preview", unit:"VW05"},
+  {pth:"打电话", cant:"打電話", jp:"daa2 din6 waa2", type:"preview", unit:"VW06"},
+  {pth:"对不起", cant:"對唔住", jp:"deoi3 m4 zyu6", type:"preview", unit:"VW06"},
+  {pth:"没问题", cant:"冇問題", jp:"mou5 man6 tai4", type:"preview", unit:"VW04"},
+  {pth:"干什么", cant:"做乜嘢", jp:"zou6 mat1 je5", type:"learned", wid:19},
+  {pth:"无所谓", cant:"冇所谓", jp:"mou5 so2 wai6", type:"learned", wid:18},
+  {pth:"完成了", cant:"搞掂喇", jp:"gaau2 dim6 laa3", type:"learned", wid:23},
+  {pth:"不客气", cant:"唔使客气", jp:"m4 sai2 haak3 hei3", type:"common", note:"唔使=不用"},
+  {pth:"差不多", cant:"差唔多", jp:"caa1 m4 do1", type:"common", note:"不→唔"},
+  {pth:"对不对", cant:"啱唔啱", jp:"aam1 m4 aam1", type:"common", note:"对→啱"},
+  {pth:"好不好", cant:"好唔好", jp:"hou2 m4 hou2", type:"common", note:"不→唔"},
+  {pth:"要不要", cant:"要唔要", jp:"jiu3 m4 jiu3", type:"common", note:"不→唔"},
+  {pth:"能不能", cant:"可唔可以", jp:"ho2 m4 ho2 ji5", type:"common", note:"粤语用可唔可以"},
+  {pth:"想不想", cant:"想唔想", jp:"soeng2 m4 soeng2", type:"common", note:"不→唔"},
+  {pth:"去不去", cant:"去唔去", jp:"heoi3 m4 heoi3", type:"common", note:"不→唔"},
+  {pth:"来不来", cant:"嚟唔嚟", jp:"lai4 m4 lai4", type:"common", note:"来→嚟"},
+  {pth:"吃不吃", cant:"食唔食", jp:"sik6 m4 sik6", type:"common", note:"吃→食"},
+  {pth:"喝不喝", cant:"饮唔饮", jp:"jam2 m4 jam2", type:"common", note:"喝→饮"},
+  {pth:"买不买", cant:"买唔买", jp:"maai5 m4 maai5", type:"common", note:"不→唔"},
+  {pth:"走不走", cant:"走唔走", jp:"zau2 m4 zau2", type:"common", note:"不→唔"},
+  {pth:"等一下", cant:"等阵/等一阵", jp:"dang2 zan6", type:"common", note:"一下→一阵"},
+  {pth:"真的吗", cant:"真係咩", jp:"zan1 hai6 me1", type:"common", note:"吗→咩"},
+  {pth:"不一定", cant:"唔一定", jp:"m4 jat1 ding6", type:"common", note:"不→唔"},
+  {pth:"没办法", cant:"冇办法/冇计", jp:"mou5 baan6 faat3", type:"common", note:"没→冇"},
+  {pth:"有意思", cant:"有趣/得意", jp:"dak1 ji3", type:"common", note:"得意=有趣/可爱"},
+  {pth:"太好了", cant:"太好喇", jp:"taai3 hou2 laa3", type:"common", note:"了→喇"},
+  {pth:"没想到", cant:"谂唔到", jp:"nam2 m4 dou2", type:"common", note:"想→谂 没→唔"},
+  {pth:"不可以", cant:"唔可以", jp:"m4 ho2 ji5", type:"common", note:"不→唔"},
+  {pth:"不是吗", cant:"唔係咩", jp:"m4 hai6 me1", type:"common", note:"不→唔 吗→咩"},
+  {pth:"那时候", cant:"嗰阵时", jp:"go2 zan6 si4", type:"common", note:"那时候→嗰阵时"},
+  {pth:"出租车", cant:"的士", jp:"dik1 si2", type:"common", note:"出租车→的士"},
+  {pth:"公交车", cant:"巴士", jp:"baa1 si2", type:"common", note:"公交→巴士"},
+  {pth:"看不看", cant:"睇唔睇", jp:"tai2 m4 tai2", type:"learned", wid:13},
+  {pth:"给不给", cant:"畀唔畀", jp:"bei2 m4 bei2", type:"learned", wid:11},
+  {pth:"行不行", cant:"得唔得", jp:"dak1 m4 dak1", type:"learned", wid:12},
+  {pth:"做不做", cant:"做唔做", jp:"zou6 m4 zou6", type:"common", note:"不→唔"},
+  {pth:"不要紧", cant:"唔紧要", jp:"m4 gan2 jiu3", type:"common", note:"语序反过来！紧要=要紧"},
+  {pth:"不要脸", cant:"冇面", jp:"mou5 min2", type:"common", note:"不要脸→冇面"},
+  {pth:"不耐烦", cant:"冇耐性", jp:"mou5 noi6 sing3", type:"common", note:"不→冇"},
+  {pth:"不舒服", cant:"唔舒服", jp:"m4 syu1 fuk6", type:"common", note:"不→唔"},
+  {pth:"不高兴", cant:"唔开心", jp:"m4 hoi1 sam1", type:"common", note:"高兴→开心"},
+  {pth:"不小心", cant:"唔小心", jp:"m4 siu2 sam1", type:"common", note:"不→唔"},
+  {pth:"不应该", cant:"唔应该", jp:"m4 jing1 goi1", type:"common", note:"不→唔"},
+  {pth:"不喜欢", cant:"唔钟意", jp:"m4 zung1 ji3", type:"common", note:"喜欢→钟意"},
+  {pth:"来不及", cant:"赶唔切", jp:"gon2 m4 cit3", type:"common", note:"来不及→赶唔切"},
+  {pth:"受不了", cant:"顶唔顺", jp:"ding2 m4 seon6", type:"common", note:"受不了→顶唔顺"},
+  {pth:"看不懂", cant:"睇唔明", jp:"tai2 m4 ming4", type:"common", note:"看→睇 懂→明"},
+  {pth:"听不懂", cant:"听唔明", jp:"teng1 m4 ming4", type:"common", note:"懂→明"},
+  {pth:"吃不下", cant:"食唔落", jp:"sik6 m4 lok6", type:"common", note:"吃→食 下→落"},
+  {pth:"忍不住", cant:"忍唔住", jp:"jan2 m4 zyu6", type:"common", note:"不→唔"},
+  {pth:"买不起", cant:"买唔起", jp:"maai5 m4 hei2", type:"common", note:"不→唔"},
+  {pth:"想不到", cant:"谂唔到", jp:"nam2 m4 dou2", type:"common", note:"想→谂"},
+  {pth:"做不到", cant:"做唔到", jp:"zou6 m4 dou2", type:"common", note:"不→唔"},
+  {pth:"找不到", cant:"揾唔到", jp:"wan2 m4 dou2", type:"common", note:"找→揾"},
+  {pth:"看得懂", cant:"睇得明", jp:"tai2 dak1 ming4", type:"common", note:"看→睇"},
+  {pth:"听得懂", cant:"听得明", jp:"teng1 dak1 ming4", type:"common", note:"懂→明"},
+  {pth:"一会儿", cant:"一阵间", jp:"jat1 zan6 gaan1", type:"common", note:"一会儿→一阵间"},
+  {pth:"一下子", cant:"一下子", jp:"jat1 haa5 zi2", type:"common", note:"粤普相近"},
+  {pth:"有时候", cant:"有时", jp:"jau5 si4", type:"common", note:"粤普相近"},
+  {pth:"开玩笑", cant:"讲笑", jp:"gong2 siu3", type:"common", note:"开玩笑→讲笑"},
+  {pth:"什么都", cant:"乜都", jp:"mat1 dou1", type:"common", note:"什么→乜"},
+  {pth:"什么也", cant:"乜都", jp:"mat1 dou1", type:"common", note:"什么→乜"},
+  {pth:"没意思", cant:"冇意思/闷", jp:"mou5 ji3 si1", type:"common", note:"没→冇"},
+  {pth:"不愿意", cant:"唔肯", jp:"m4 hang2", type:"common", note:"不愿→唔肯"},
+  {pth:"一整天", cant:"成日", jp:"seng4 jat6", type:"common", note:"→成日"},
+  {pth:"星期天", cant:"星期日/礼拜日", jp:"sing1 kei4 jat6", type:"common", note:"天→日"},
+  {pth:"待会儿", cant:"阵间", jp:"zan6 gaan1", type:"common", note:"待会→阵间"},
+  {pth:"等会儿", cant:"阵间", jp:"zan6 gaan1", type:"common", note:"→阵间"},
+  {pth:"上厕所", cant:"去厕所", jp:"heoi3 ci3 so2", type:"common", note:"粤语直说去厕所"},
+  {pth:"发短信", cant:"send message/发讯息", jp:"faat3 seon3 sik1", type:"common", note:"港人多说send message"},
+  {pth:"发微信", cant:"WhatsApp/send message", jp:"", type:"common", note:"香港用WhatsApp不用微信"},
+  {pth:"太棒了", cant:"好劲啊", jp:"hou2 ging6 aa3", type:"common", note:"棒→劲"},
+  {pth:"不好看", cant:"唔好睇", jp:"m4 hou2 tai2", type:"common", note:"看→睇"},
+  {pth:"不好吃", cant:"唔好食", jp:"m4 hou2 sik6", type:"common", note:"吃→食"},
+  {pth:"凭什么", cant:"凭乜嘢", jp:"pang4 mat1 je5", type:"common", note:"什么→乜嘢"},
+  {pth:"自行车", cant:"单车", jp:"daan1 ce1", type:"common", note:"自行车→单车"},
+  {pth:"塑料袋", cant:"胶袋", jp:"gaau1 doi2", type:"common", note:"塑料袋→胶袋"},
+  {pth:"怎么了", cant:"做乜事", jp:"zou6 mat1 si6", type:"common", note:"怎么了→做乜事"},
+  {pth:"你说呢", cant:"你话呢", jp:"nei5 waa6 ne1", type:"common", note:"说→话"},
+  {pth:"我觉得", cant:"我觉得", jp:"ngo5 gok3 dak1", type:"common", note:"粤普相同"},
+  {pth:"我以为", cant:"我以为", jp:"ngo5 ji5 wai4", type:"common", note:"粤普相同"},
+  {pth:"别担心", cant:"唔好担心", jp:"m4 hou2 daam1 sam1", type:"common", note:"别→唔好"},
+  {pth:"没什么", cant:"冇乜嘢", jp:"mou5 mat1 je5", type:"common", note:"没→冇 什么→乜嘢"},
+  {pth:"不一样", cant:"唔一样", jp:"m4 jat1 joeng6", type:"common", note:"不→唔"},
+  {pth:"现在", cant:"而家", jp:"ji4 gaa1", type:"learned", wid:20},
+  {pth:"在哪", cant:"喺邊", jp:"hai2 bin1", type:"learned", wid:10},
+  {pth:"回家", cant:"返屋企", jp:"faan1 uk1 kei2", type:"learned", wid:16},
+  {pth:"上班", cant:"返工", jp:"faan1 gung1", type:"learned", wid:16},
+  {pth:"上学", cant:"返学", jp:"faan1 hok6", type:"learned", wid:16},
+  {pth:"赚钱", cant:"揾钱", jp:"wan2 cin2", type:"learned", wid:15},
+  {pth:"搞定", cant:"搞掂", jp:"gaau2 dim6", type:"learned", wid:23},
+  {pth:"吃了", cant:"食咗", jp:"sik6 zo2", type:"learned", wid:5},
+  {pth:"吃饭", cant:"食飯", jp:"sik6 faan6", type:"learned", wid:5},
+  {pth:"东西", cant:"嘢", jp:"je5", type:"learned", wid:6},
+  {pth:"他们", cant:"佢哋", jp:"keoi5 dei6", type:"learned", wid:8},
+  {pth:"这些", cant:"呢啲", jp:"ni1 di1", type:"learned", wid:7},
+  {pth:"那个", cant:"嗰個", jp:"go2 go3", type:"learned", wid:21},
+  {pth:"那些", cant:"嗰啲", jp:"go2 di1", type:"learned", wid:21},
+  {pth:"给我", cant:"畀我", jp:"bei2 ngo5", type:"learned", wid:11},
+  {pth:"给你", cant:"畀你", jp:"bei2 nei5", type:"learned", wid:11},
+  {pth:"有空", cant:"得闲", jp:"dak1 haan4", type:"learned", wid:12},
+  {pth:"好了", cant:"得喇", jp:"dak1 laa3", type:"learned", wid:12},
+  {pth:"过来", cant:"过嚟", jp:"gwo3 lai4", type:"learned", wid:14},
+  {pth:"进来", cant:"入嚟", jp:"jap6 lai4", type:"learned", wid:14},
+  {pth:"回来", cant:"返嚟", jp:"faan1 lai4", type:"learned", wid:16},
+  {pth:"没有", cant:"冇", jp:"mou5", type:"learned", wid:18},
+  {pth:"怎么", cant:"点", jp:"dim2", type:"learned", wid:22},
+  {pth:"这么", cant:"咁", jp:"gam3", type:"learned", wid:9},
+  {pth:"那么", cant:"咁", jp:"gam3", type:"learned", wid:9},
+  {pth:"一些", cant:"啲", jp:"di1", type:"learned", wid:7},
+  {pth:"一点", cant:"啲", jp:"di1", type:"learned", wid:7},
+  {pth:"认识", cant:"识", jp:"sik1", type:"learned", wid:24},
+  {pth:"说话", cant:"講嘢", jp:"gong2 je5", type:"preview", unit:"VW02"},
+  {pth:"告诉", cant:"話畀…知", jp:"waa6 bei2...zi1", type:"preview", unit:"VW02"},
+  {pth:"喜欢", cant:"鍾意", jp:"zung1 ji3", type:"preview", unit:"VW02"},
+  {pth:"知道", cant:"知", jp:"zi1", type:"preview", unit:"VW02"},
+  {pth:"可以", cant:"可以/得", jp:"ho2 ji5", type:"preview", unit:"VW02"},
+  {pth:"想要", cant:"想要", jp:"soeng2 jiu3", type:"preview", unit:"VW02"},
+  {pth:"睡觉", cant:"瞓觉", jp:"fan3 gaau3", type:"preview", unit:"VW03"},
+  {pth:"起床", cant:"起身", jp:"hei2 san1", type:"preview", unit:"VW03"},
+  {pth:"漂亮", cant:"靚", jp:"leng3", type:"preview", unit:"VW04"},
+  {pth:"便宜", cant:"平", jp:"peng4", type:"preview", unit:"VW04"},
+  {pth:"昂贵", cant:"貴", jp:"gwai3", type:"preview", unit:"VW04"},
+  {pth:"开心", cant:"開心", jp:"hoi1 sam1", type:"preview", unit:"VW04"},
+  {pth:"生气", cant:"嬲", jp:"nau1", type:"preview", unit:"VW04"},
+  {pth:"厉害", cant:"勁", jp:"ging6", type:"preview", unit:"VW04"},
+  {pth:"哪里", cant:"邊度", jp:"bin1 dou6", type:"preview", unit:"VW05"},
+  {pth:"什么", cant:"乜嘢", jp:"mat1 je5", type:"preview", unit:"VW05"},
+  {pth:"多少", cant:"幾多", jp:"gei2 do1", type:"preview", unit:"VW05"},
+  {pth:"手机", cant:"手機/電話", jp:"sau2 gei1", type:"preview", unit:"VW06"},
+  {pth:"明天", cant:"聽日", jp:"ting1 jat6", type:"preview", unit:"VW05"},
+  {pth:"昨天", cant:"尋日", jp:"cam4 jat6", type:"preview", unit:"VW05"},
+  {pth:"今天", cant:"今日", jp:"gam1 jat6", type:"preview", unit:"VW05"},
+  {pth:"朋友", cant:"朋友", jp:"pang4 jau5", type:"preview", unit:"VW06"},
+  {pth:"先生", cant:"先生", jp:"sin1 saang1", type:"preview", unit:"VW06"},
+  {pth:"小姐", cant:"小姐", jp:"siu2 ze2", type:"preview", unit:"VW06"},
+  {pth:"谢谢", cant:"唔該/多謝", jp:"m4 goi1", type:"preview", unit:"VW06"},
+  {pth:"不行", cant:"唔得", jp:"m4 dak1", type:"preview", unit:"VW02"},
+  {pth:"下班", cant:"收工", jp:"sau1 gung1", type:"preview", unit:"VW07"},
+  {pth:"工作", cant:"做嘢/返工", jp:"zou6 je5", type:"preview", unit:"VW07"},
+  {pth:"这样", cant:"咁样", jp:"gam3 joeng2", type:"learned", wid:9},
+  {pth:"那样", cant:"咁样", jp:"gam3 joeng2", type:"learned", wid:9},
+  {pth:"如此", cant:"咁", jp:"gam3", type:"learned", wid:9},
+  {pth:"非常", cant:"好", jp:"hou2", type:"learned", wid:4},
+  {pth:"特别", cant:"好", jp:"hou2", type:"learned", wid:4},
+  {pth:"十分", cant:"好", jp:"hou2", type:"learned", wid:4},
+  {pth:"她们", cant:"佢哋", jp:"keoi5 dei6", type:"learned", wid:8},
+  {pth:"干嘛", cant:"做乜", jp:"zou6 mat1", type:"learned", wid:19},
+  {pth:"没事", cant:"冇嘢", jp:"mou5 je5", type:"learned", wid:18},
+  {pth:"没钱", cant:"冇钱", jp:"mou5 cin2", type:"learned", wid:18},
+  {pth:"随便", cant:"冇所谓", jp:"mou5 so2 wai6", type:"learned", wid:18},
+  {pth:"好的", cant:"得/好", jp:"dak1/hou2", type:"learned", wid:12},
+  {pth:"OK", cant:"得/OK", jp:"dak1", type:"learned", wid:12},
+  {pth:"ok", cant:"得/OK", jp:"dak1", type:"learned", wid:12},
+  {pth:"我们", cant:"我哋", jp:"ngo5 dei6", type:"common", note:"哋=们"},
+  {pth:"你们", cant:"你哋", jp:"nei5 dei6", type:"common", note:"哋=们"},
+  {pth:"然后", cant:"跟住", jp:"gan1 zyu6", type:"common", note:"粤语口语用法"},
+  {pth:"还是", cant:"定係", jp:"ding6 hai6", type:"common", note:"二选一用定係"},
+  {pth:"或者", cant:"定/或者", jp:"ding6", type:"common", note:"口语多用定"},
+  {pth:"虽然", cant:"虽然", jp:"seoi1 jin4", type:"common", note:"粤普相同"},
+  {pth:"但是", cant:"但係", jp:"daan6 hai6", type:"common", note:"但+係"},
+  {pth:"因为", cant:"因为", jp:"jan1 wai6", type:"common", note:"粤普相同"},
+  {pth:"所以", cant:"所以", jp:"so2 ji5", type:"common", note:"粤普相同"},
+  {pth:"如果", cant:"如果", jp:"jyu4 gwo2", type:"common", note:"粤普相同"},
+  {pth:"已经", cant:"已经", jp:"ji5 ging1", type:"common", note:"粤普相同"},
+  {pth:"正在", cant:"喺度/紧", jp:"hai2 dou6/-gan2", type:"common", note:"进行时=喺度+动词 或 动词+紧"},
+  {pth:"应该", cant:"应该", jp:"jing1 goi1", type:"common", note:"粤普相同"},
+  {pth:"可能", cant:"可能", jp:"ho2 nang4", type:"common", note:"粤普相同"},
+  {pth:"再见", cant:"拜拜/再见", jp:"baai1 baai3", type:"common", note:"口语多说拜拜"},
+  {pth:"你好", cant:"你好", jp:"nei5 hou2", type:"common", note:"粤普相同"},
+  {pth:"请问", cant:"请问/唔该", jp:"cing2 man6", type:"common", note:"口语多用唔该"},
+  {pth:"一起", cant:"一齐", jp:"jat1 cai4", type:"common", note:"齐≠起"},
+  {pth:"自己", cant:"自己", jp:"zi6 gei2", type:"common", note:"粤普相同"},
+  {pth:"打算", cant:"打算/谂住", jp:"nam2 zyu6", type:"common", note:"口语多用谂住"},
+  {pth:"真的", cant:"真係", jp:"zan1 hai6", type:"common", note:"真+係=真的是"},
+  {pth:"这里", cant:"呢度", jp:"ni1 dou6", type:"common", note:"呢=这 度=处"},
+  {pth:"那里", cant:"嗰度", jp:"go2 dou6", type:"common", note:"嗰=那 度=处"},
+  {pth:"以前", cant:"以前", jp:"ji5 cin4", type:"common", note:"粤普相同"},
+  {pth:"以后", cant:"以后/之后", jp:"ji5 hau6", type:"common", note:"粤普相同"},
+  {pth:"马上", cant:"即刻", jp:"zik1 hak1", type:"common", note:"即刻=立刻"},
+  {pth:"立刻", cant:"即刻", jp:"zik1 hak1", type:"common", note:"粤语用即刻"},
+  {pth:"一直", cant:"一路", jp:"jat1 lou6", type:"common", note:"路≠直"},
+  {pth:"走吧", cant:"走啦", jp:"zau2 laa1", type:"common", note:"吧→啦"},
+  {pth:"对了", cant:"啱喇", jp:"aam1 laa3", type:"common", note:"对→啱"},
+  {pth:"不对", cant:"唔啱", jp:"m4 aam1", type:"common", note:"对→啱"},
+  {pth:"没错", cant:"冇错", jp:"mou5 co3", type:"common", note:"没→冇"},
+  {pth:"站着", cant:"企喺度", jp:"kei5 hai2 dou6", type:"common", note:"站→企"},
+  {pth:"聊天", cant:"倾偈", jp:"king1 gai2", type:"common", note:"聊→倾偈"},
+  {pth:"洗澡", cant:"冲凉", jp:"cung1 loeng4", type:"common", note:"洗澡=冲凉"},
+  {pth:"逛街", cant:"行街", jp:"haang4 gaai1", type:"common", note:"逛→行"},
+  {pth:"排队", cant:"排队/打蛇饼", jp:"paai4 deoi2", type:"common", note:"打蛇饼=排长队"},
+  {pth:"付钱", cant:"畀钱/俾钱", jp:"bei2 cin2", type:"common", note:"付→畀"},
+  {pth:"小心", cant:"小心", jp:"siu2 sam1", type:"common", note:"粤普相同"},
+  {pth:"害怕", cant:"惊", jp:"geng1", type:"common", note:"怕→惊"},
+  {pth:"聪明", cant:"叻", jp:"lek1", type:"common", note:"聪明=叻"},
+  {pth:"干净", cant:"干净", jp:"gon1 zeng6", type:"common", note:"粤普相同"},
+  {pth:"早上", cant:"朝早", jp:"ziu1 zou2", type:"common", note:"早上→朝早"},
+  {pth:"上午", cant:"上昼", jp:"soeng6 zau3", type:"common", note:"午→昼"},
+  {pth:"中午", cant:"晏昼", jp:"aan3 zau3", type:"common", note:"中午→晏昼"},
+  {pth:"下午", cant:"下昼", jp:"haa6 zau3", type:"common", note:"午→昼"},
+  {pth:"晚上", cant:"夜晚", jp:"je6 maan5", type:"common", note:"晚上→夜晚"},
+  {pth:"刚才", cant:"头先", jp:"tau4 sin1", type:"common", note:"刚才→头先"},
+  {pth:"后天", cant:"后日", jp:"hau6 jat6", type:"common", note:"天→日"},
+  {pth:"前天", cant:"前日", jp:"cin4 jat6", type:"common", note:"天→日"},
+  {pth:"每天", cant:"每日", jp:"mui5 jat6", type:"common", note:"天→日"},
+  {pth:"白天", cant:"日头", jp:"jat6 tau2", type:"common", note:"白天→日头"},
+  {pth:"算了", cant:"算啦/罢喇", jp:"syun3 laa1", type:"common", note:"了→啦"},
+  {pth:"完了", cant:"完咗", jp:"jyun4 zo2", type:"common", note:"了→咗"},
+  {pth:"够了", cant:"够喇", jp:"gau3 laa3", type:"common", note:"了→喇"},
+  {pth:"是吗", cant:"係咩", jp:"hai6 me1", type:"common", note:"吗→咩"},
+  {pth:"当然", cant:"梗係", jp:"gang2 hai6", type:"common", note:"当然→梗係"},
+  {pth:"无聊", cant:"闷/无聊", jp:"mun6", type:"common", note:"口语多用闷"},
+  {pth:"不好", cant:"唔好", jp:"m4 hou2", type:"common", note:"不→唔"},
+  {pth:"不错", cant:"唔错", jp:"m4 co3", type:"common", note:"不→唔"},
+  {pth:"不会", cant:"唔会/唔识", jp:"m4 wui5", type:"common", note:"口语多用唔识"},
+  {pth:"不想", cant:"唔想", jp:"m4 soeng2", type:"common", note:"不→唔"},
+  {pth:"不要", cant:"唔好/唔要", jp:"m4 hou2", type:"common", note:"不要→唔好"},
+  {pth:"不能", cant:"唔可以", jp:"m4 ho2 ji5", type:"common", note:"不→唔"},
+  {pth:"衣服", cant:"衫", jp:"saam1", type:"common", note:"衣服→衫"},
+  {pth:"裤子", cant:"裤", jp:"fu3", type:"common", note:"裤子→裤"},
+  {pth:"鞋子", cant:"鞋", jp:"haai4", type:"common", note:"鞋子→鞋"},
+  {pth:"孩子", cant:"细路/小朋友", jp:"sai3 lou6", type:"common", note:"孩子→细路"},
+  {pth:"女孩", cant:"女仔", jp:"neoi5 zai2", type:"common", note:"孩→仔"},
+  {pth:"男孩", cant:"男仔", jp:"naam4 zai2", type:"common", note:"孩→仔"},
+  {pth:"妈妈", cant:"阿妈/妈咪", jp:"aa3 maa1", type:"common", note:"粤语多叫阿妈"},
+  {pth:"爸爸", cant:"阿爸/老豆", jp:"aa3 baa1", type:"common", note:"老豆=老爸(口语)"},
+  {pth:"老婆", cant:"老婆", jp:"lou5 po4", type:"common", note:"粤普相同"},
+  {pth:"老公", cant:"老公", jp:"lou5 gung1", type:"common", note:"粤普相同"},
+  {pth:"地方", cant:"地方", jp:"dei6 fong1", type:"common", note:"粤普相同"},
+  {pth:"厕所", cant:"洗手间/厕所", jp:"sai2 sau2 gaan1", type:"common", note:"口语也说厕所"},
+  {pth:"这个", cant:"呢個", jp:"ni1 go3", type:"common", note:"这→呢"},
+  {pth:"这边", cant:"呢邊", jp:"ni1 bin1", type:"common", note:"这→呢"},
+  {pth:"这种", cant:"呢种", jp:"ni1 zung2", type:"common", note:"这→呢"},
+  {pth:"这次", cant:"今次/呢次", jp:"gam1 ci3", type:"common", note:"这次→今次(更地道)"},
+  {pth:"那边", cant:"嗰邊", jp:"go2 bin1", type:"common", note:"那→嗰"},
+  {pth:"那种", cant:"嗰种", jp:"go2 zung2", type:"common", note:"那→嗰"},
+  {pth:"那次", cant:"嗰次", jp:"go2 ci3", type:"common", note:"那→嗰"},
+  {pth:"那天", cant:"嗰日", jp:"go2 jat6", type:"common", note:"天→日"},
+  {pth:"我的", cant:"我嘅", jp:"ngo5 ge3", type:"learned", wid:4},
+  {pth:"你的", cant:"你嘅", jp:"nei5 ge3", type:"learned", wid:4},
+  {pth:"他的", cant:"佢嘅", jp:"keoi5 ge3", type:"learned", wid:4},
+  {pth:"她的", cant:"佢嘅", jp:"keoi5 ge3", type:"learned", wid:4},
+  {pth:"怎样", cant:"点样", jp:"dim2 joeng2", type:"learned", wid:22},
+  {pth:"如何", cant:"点样", jp:"dim2 joeng2", type:"common", note:"如何=点样"},
+  {pth:"哪个", cant:"邊個", jp:"bin1 go3", type:"preview", unit:"VW05"},
+  {pth:"哪边", cant:"邊邊", jp:"bin1 bin1", type:"preview", unit:"VW05"},
+  {pth:"多久", cant:"几耐", jp:"gei2 noi6", type:"common", note:"多久→几耐"},
+  {pth:"几个", cant:"几個", jp:"gei2 go3", type:"common", note:"粤普相近"},
+  {pth:"跑步", cant:"跑步/走", jp:"zau2", type:"common", note:"粤语「走」=跑！"},
+  {pth:"送给", cant:"送畀", jp:"sung3 bei2", type:"common", note:"给→畀"},
+  {pth:"借给", cant:"借畀", jp:"ze3 bei2", type:"common", note:"给→畀"},
+  {pth:"还给", cant:"还畀", jp:"waan4 bei2", type:"common", note:"给→畀"},
+  {pth:"开门", cant:"开门", jp:"hoi1 mun4", type:"common", note:"粤普相同"},
+  {pth:"关门", cant:"关门", jp:"gwaan1 mun4", type:"common", note:"粤普相同"},
+  {pth:"让我", cant:"畀我", jp:"bei2 ngo5", type:"learned", wid:11},
+  {pth:"让他", cant:"畀佢", jp:"bei2 keoi5", type:"learned", wid:11},
+  {pth:"让你", cant:"畀你", jp:"bei2 nei5", type:"learned", wid:11},
+  {pth:"叫他", cant:"叫佢", jp:"giu3 keoi5", type:"common", note:"粤普相近"},
+  {pth:"帮我", cant:"帮我", jp:"bong1 ngo5", type:"common", note:"粤普相同"},
+  {pth:"容易", cant:"容易", jp:"jung4 ji6", type:"common", note:"粤普相同"},
+  {pth:"辛苦", cant:"辛苦", jp:"san1 fu2", type:"common", note:"粤普相同"},
+  {pth:"舒服", cant:"舒服", jp:"syu1 fuk6", type:"common", note:"粤普相同"},
+  {pth:"也是", cant:"都係", jp:"dou1 hai6", type:"common", note:"也→都"},
+  {pth:"比较", cant:"比较", jp:"bei2 gaau3", type:"common", note:"粤普相同"},
+  {pth:"一定", cant:"一定", jp:"jat1 ding6", type:"common", note:"粤普相同"},
+  {pth:"其实", cant:"其实", jp:"kei4 sat6", type:"common", note:"粤普相同"},
+  {pth:"居然", cant:"居然", jp:"geoi1 jin4", type:"common", note:"粤普相同"},
+  {pth:"突然", cant:"突然", jp:"dat6 jin4", type:"common", note:"粤普相同"},
+  {pth:"终于", cant:"终于", jp:"zung1 jyu1", type:"common", note:"粤普相同"},
+  {pth:"可是", cant:"但係", jp:"daan6 hai6", type:"common", note:"可是→但係"},
+  {pth:"不过", cant:"不过", jp:"bat1 gwo3", type:"common", note:"粤普相同"},
+  {pth:"然而", cant:"但係", jp:"daan6 hai6", type:"common", note:"口语用但係"},
+  {pth:"好吧", cant:"好啦/好喇", jp:"hou2 laa1", type:"common", note:"吧→啦"},
+  {pth:"房子", cant:"屋/屋企", jp:"uk1/uk1 kei2", type:"common", note:"房子→屋"},
+  {pth:"地铁", cant:"地铁/MTR", jp:"dei6 tit3", type:"common", note:"港人也说MTR"},
+  {pth:"警察", cant:"差人/警察", jp:"caai1 jan4", type:"common", note:"口语叫差人"},
+  {pth:"医院", cant:"医院", jp:"ji1 jyun2", type:"common", note:"粤普相同"},
+  {pth:"勺子", cant:"匙羹", jp:"ci4 gang1", type:"common", note:"勺→匙羹"},
+  {pth:"杯子", cant:"杯", jp:"bui1", type:"common", note:"粤语直接说杯"},
+  {pth:"筷子", cant:"筷子", jp:"faai3 zi2", type:"common", note:"粤普相同"},
+  {pth:"雨伞", cant:"遮", jp:"ze1", type:"common", note:"伞→遮"},
+  {pth:"钥匙", cant:"锁匙", jp:"so2 si4", type:"common", note:"钥匙→锁匙"},
+  {pth:"回去", cant:"返去", jp:"faan1 heoi3", type:"learned", wid:16},
+  {pth:"出去", cant:"出去", jp:"ceot1 heoi3", type:"common", note:"粤普相同"},
+  {pth:"上去", cant:"上去", jp:"soeng5 heoi3", type:"common", note:"粤普相同"},
+  {pth:"下来", cant:"落嚟", jp:"lok6 lai4", type:"common", note:"下→落"},
+  {pth:"下去", cant:"落去", jp:"lok6 heoi3", type:"common", note:"下→落"},
+  {pth:"起来", cant:"起身/起嚟", jp:"hei2 san1", type:"common", note:"起来→起身"},
+  {pth:"过去", cant:"过去", jp:"gwo3 heoi3", type:"common", note:"粤普相同"},
+  {pth:"出来", cant:"出嚟", jp:"ceot1 lai4", type:"common", note:"来→嚟"},
+  {pth:"上来", cant:"上嚟", jp:"soeng5 lai4", type:"common", note:"来→嚟"},
+  {pth:"不用", cant:"唔使", jp:"m4 sai2", type:"common", note:"不用→唔使"},
+  {pth:"不必", cant:"唔使", jp:"m4 sai2", type:"common", note:"不必→唔使"},
+  {pth:"不准", cant:"唔准", jp:"m4 zeon2", type:"common", note:"不→唔"},
+  {pth:"不许", cant:"唔准", jp:"m4 zeon2", type:"common", note:"不许→唔准"},
+  {pth:"好吃", cant:"好食", jp:"hou2 sik6", type:"common", note:"吃→食"},
+  {pth:"好喝", cant:"好饮", jp:"hou2 jam2", type:"common", note:"喝→饮"},
+  {pth:"好看", cant:"好睇", jp:"hou2 tai2", type:"common", note:"看→睇"},
+  {pth:"好玩", cant:"好玩", jp:"hou2 waan2", type:"common", note:"粤普相同"},
+  {pth:"好久", cant:"好耐", jp:"hou2 noi6", type:"common", note:"久→耐"},
+  {pth:"好像", cant:"好似", jp:"hou2 ci5", type:"common", note:"像→似"},
+  {pth:"好多", cant:"好多", jp:"hou2 do1", type:"common", note:"粤普相同但好=很"},
+  {pth:"好大", cant:"好大", jp:"hou2 daai6", type:"common", note:"好=很"},
+  {pth:"好远", cant:"好远", jp:"hou2 jyun5", type:"common", note:"好=很"},
+  {pth:"好难", cant:"好难", jp:"hou2 naan4", type:"common", note:"好=很"},
+  {pth:"好累", cant:"好攰", jp:"hou2 gui6", type:"common", note:"累→攰"},
+  {pth:"别人", cant:"人哋", jp:"jan4 dei6", type:"common", note:"别人→人哋"},
+  {pth:"大家", cant:"大家", jp:"daai6 gaa1", type:"common", note:"粤普相同"},
+  {pth:"讨厌", cant:"憎/讨厌", jp:"zang1", type:"common", note:"口语多用憎"},
+  {pth:"着急", cant:"心急", jp:"sam1 gap1", type:"common", note:"着急→心急"},
+  {pth:"担心", cant:"担心", jp:"daam1 sam1", type:"common", note:"粤普相同"},
+  {pth:"赶紧", cant:"快啲", jp:"faai3 di1", type:"common", note:"赶紧→快啲"},
+  {pth:"赶快", cant:"快啲", jp:"faai3 di1", type:"common", note:"赶快→快啲"},
+  {pth:"经常", cant:"成日", jp:"seng4 jat6", type:"common", note:"经常→成日"},
+  {pth:"常常", cant:"成日", jp:"seng4 jat6", type:"common", note:"常常→成日"},
+  {pth:"总是", cant:"成日/总係", jp:"seng4 jat6", type:"common", note:"总是→成日"},
+  {pth:"有时", cant:"有时", jp:"jau5 si4", type:"common", note:"粤普相同"},
+  {pth:"偶尔", cant:"间中", jp:"gaan3 zung1", type:"common", note:"偶尔→间中"},
+  {pth:"刚刚", cant:"头先/啱啱", jp:"ngaam1 ngaam1", type:"common", note:"刚→啱啱"},
+  {pth:"不但", cant:"唔单止", jp:"m4 daan1 zi2", type:"common", note:"不但→唔单止"},
+  {pth:"而且", cant:"而且/仲", jp:"ji4 ce2", type:"common", note:"粤普相近"},
+  {pth:"不然", cant:"唔係嘅话", jp:"m4 hai6 ge3 waa2", type:"common", note:"不然→唔係嘅话"},
+  {pth:"否则", cant:"唔係嘅话", jp:"m4 hai6 ge3 waa2", type:"common", note:"否则→唔係嘅话"},
+  {pth:"要是", cant:"如果", jp:"jyu4 gwo2", type:"common", note:"口语用如果"},
+  {pth:"万一", cant:"万一", jp:"maan6 jat1", type:"common", note:"粤普相同"},
+  {pth:"到处", cant:"周围/到处", jp:"zau1 wai4", type:"common", note:"到处→周围"},
+  {pth:"打车", cant:"搭的士", jp:"daap3 dik1 si2", type:"common", note:"打车→搭的士"},
+  {pth:"打折", cant:"打折", jp:"daa2 zit3", type:"common", note:"粤普相同"},
+  {pth:"打扮", cant:"打扮", jp:"daa2 baan6", type:"common", note:"粤普相同"},
+  {pth:"谁都", cant:"边个都", jp:"bin1 go3 dou1", type:"common", note:"谁→边个"},
+  {pth:"愿意", cant:"肯", jp:"hang2", type:"common", note:"愿意→肯"},
+  {pth:"改天", cant:"第日", jp:"dai6 jat6", type:"common", note:"改天→第日"},
+  {pth:"改日", cant:"第日", jp:"dai6 jat6", type:"common", note:"改日→第日"},
+  {pth:"下次", cant:"下次", jp:"haa6 ci3", type:"common", note:"粤普相同"},
+  {pth:"上次", cant:"上次", jp:"soeng6 ci3", type:"common", note:"粤普相同"},
+  {pth:"整天", cant:"成日", jp:"seng4 jat6", type:"common", note:"整天→成日"},
+  {pth:"半天", cant:"半日", jp:"bun3 jat6", type:"common", note:"天→日"},
+  {pth:"几天", cant:"几日", jp:"gei2 jat6", type:"common", note:"天→日"},
+  {pth:"两天", cant:"两日", jp:"loeng5 jat6", type:"common", note:"天→日"},
+  {pth:"一天", cant:"一日", jp:"jat1 jat6", type:"common", note:"天→日"},
+  {pth:"周末", cant:"周末", jp:"zau1 mut6", type:"common", note:"粤普相同"},
+  {pth:"待会", cant:"阵间", jp:"zan6 gaan1", type:"common", note:"待会→阵间"},
+  {pth:"等会", cant:"阵间", jp:"zan6 gaan1", type:"common", note:"等会→阵间"},
+  {pth:"上网", cant:"上网", jp:"soeng5 mong5", type:"common", note:"粤普相同"},
+  {pth:"真棒", cant:"好劲", jp:"hou2 ging6", type:"common", note:"棒→劲"},
+  {pth:"看看", cant:"睇下", jp:"tai2 haa5", type:"common", note:"动词重叠→动词+下"},
+  {pth:"想想", cant:"谂下", jp:"nam2 haa5", type:"common", note:"想→谂 重叠→+下"},
+  {pth:"试试", cant:"试下", jp:"si3 haa5", type:"common", note:"重叠→+下"},
+  {pth:"等等", cant:"等阵", jp:"dang2 zan6", type:"common", note:"等等→等阵"},
+  {pth:"聊聊", cant:"倾下", jp:"king1 haa5", type:"common", note:"聊→倾"},
+  {pth:"走走", cant:"行下", jp:"haang4 haa5", type:"common", note:"走→行"},
+  {pth:"到底", cant:"到底/究竟", jp:"dou3 dai2", type:"common", note:"粤普相同"},
+  {pth:"难道", cant:"唔通", jp:"m4 tung1", type:"common", note:"难道→唔通"},
+  {pth:"零钱", cant:"散纸", jp:"saan2 zi2", type:"common", note:"零钱→散纸"},
+  {pth:"事情", cant:"嘢/事", jp:"je5", type:"common", note:"事情→嘢"},
+  {pth:"问题", cant:"问题", jp:"man6 tai4", type:"common", note:"粤普相同"},
+  {pth:"办法", cant:"办法/计", jp:"baan6 faat3", type:"common", note:"粤普相同"},
+  {pth:"消息", cant:"消息", jp:"siu1 sik1", type:"common", note:"粤普相同"},
+  {pth:"电脑", cant:"电脑", jp:"din6 nou5", type:"common", note:"粤普相同"},
+  {pth:"空调", cant:"冷气", jp:"laang5 hei3", type:"common", note:"空调→冷气"},
+  {pth:"冰箱", cant:"雪柜", jp:"syut3 gwai6", type:"common", note:"冰箱→雪柜"},
+  {pth:"超市", cant:"超市", jp:"ciu1 si5", type:"common", note:"粤普相同"},
+  {pth:"你看", cant:"你睇", jp:"nei5 tai2", type:"common", note:"看→睇"},
+  {pth:"别急", cant:"唔好急", jp:"m4 hou2 gap1", type:"common", note:"别→唔好"},
+  {pth:"一样", cant:"一样", jp:"jat1 joeng6", type:"common", note:"粤普相同"},
+  {pth:"那", cant:"嗰", jp:"go2", type:"learned", wid:21},
+  {pth:"给", cant:"畀", jp:"bei2", type:"learned", wid:11},
+  {pth:"的", cant:"嘅", jp:"ge3", type:"learned", wid:4},
+  {pth:"不", cant:"唔", jp:"m4", type:"learned", wid:2},
+  {pth:"是", cant:"係", jp:"hai6", type:"learned", wid:1},
+  {pth:"在", cant:"喺", jp:"hai2", type:"learned", wid:10},
+  {pth:"了", cant:"咗", jp:"zo2", type:"learned", wid:5},
+  {pth:"很", cant:"好", jp:"hou2", type:"learned", wid:4},
+  {pth:"他", cant:"佢", jp:"keoi5", type:"learned", wid:8},
+  {pth:"她", cant:"佢", jp:"keoi5", type:"learned", wid:8},
+  {pth:"看", cant:"睇", jp:"tai2", type:"learned", wid:13},
+  {pth:"来", cant:"嚟", jp:"lai4", type:"learned", wid:14},
+  {pth:"找", cant:"揾", jp:"wan2", type:"learned", wid:15},
+  {pth:"回", cant:"返", jp:"faan1", type:"learned", wid:16},
+  {pth:"拿", cant:"攞", jp:"lo2", type:"learned", wid:17},
+  {pth:"会", cant:"识", jp:"sik1", type:"learned", wid:24},
+  {pth:"吃", cant:"食", jp:"sik6", type:"learned", wid:6},
+  {pth:"去", cant:"去", jp:"heoi3", type:"preview", unit:"VW02"},
+  {pth:"说", cant:"講", jp:"gong2", type:"preview", unit:"VW02"},
+  {pth:"走", cant:"行", jp:"haang4", type:"preview", unit:"VW03"},
+  {pth:"跑", cant:"走/跑", jp:"zau2", type:"preview", unit:"VW03"},
+  {pth:"等", cant:"等", jp:"dang2", type:"preview", unit:"VW02"},
+  {pth:"买", cant:"買", jp:"maai5", type:"preview", unit:"VW02"},
+  {pth:"卖", cant:"賣", jp:"maai6", type:"preview", unit:"VW02"},
+  {pth:"住", cant:"住", jp:"zyu6", type:"preview", unit:"VW03"},
+  {pth:"睡", cant:"瞓", jp:"fan3", type:"preview", unit:"VW03"},
+  {pth:"累", cant:"攰", jp:"gui6", type:"preview", unit:"VW04"},
+  {pth:"谁", cant:"邊個", jp:"bin1 go3", type:"preview", unit:"VW05"},
+  {pth:"喝", cant:"飲", jp:"jam2", type:"preview", unit:"VW03"},
+  {pth:"做", cant:"做", jp:"zou6", type:"preview", unit:"VW02"},
+  {pth:"钱", cant:"錢", jp:"cin2", type:"preview", unit:"VW06"},
+  {pth:"人", cant:"人", jp:"jan4", type:"preview", unit:"VW06"},
+  {pth:"挺", cant:"几", jp:"gei2", type:"preview", unit:"VW04"},
+  {pth:"它", cant:"佢", jp:"keoi5", type:"learned", wid:8},
+  {pth:"弄", cant:"搞", jp:"gaau2", type:"learned", wid:23},
+  {pth:"办", cant:"搞", jp:"gaau2", type:"learned", wid:23},
+  {pth:"行", cant:"得", jp:"dak1", type:"learned", wid:12},
+  {pth:"些", cant:"啲", jp:"di1", type:"learned", wid:7},
+  {pth:"点", cant:"啲", jp:"di1", type:"learned", wid:7},
+  {pth:"哪", cant:"邊", jp:"bin1", type:"preview", unit:"VW05"},
+  {pth:"还", cant:"仲", jp:"zung6", type:"common", note:"仲=还/仍然"},
+  {pth:"又", cant:"又", jp:"jau6", type:"common", note:"粤普相同"},
+  {pth:"都", cant:"都", jp:"dou1", type:"common", note:"粤普相同"},
+  {pth:"才", cant:"先/先至", jp:"sin1", type:"common", note:"位置不同！粤语放动词后"},
+  {pth:"就", cant:"就", jp:"zau6", type:"common", note:"粤普相同"},
+  {pth:"把", cant:"将", jp:"zoeng1", type:"common", note:"粤语口语少用把字句"},
+  {pth:"最", cant:"最", jp:"zeoi3", type:"common", note:"粤普相同"},
+  {pth:"更", cant:"更加/仲", jp:"gang3 gaa1", type:"common", note:"口语多用仲"},
+  {pth:"别", cant:"唔好", jp:"m4 hou2", type:"common", note:"唔好=别/不要"},
+  {pth:"吧", cant:"啦", jp:"laa1", type:"common", note:"句尾助词粤普不同"},
+  {pth:"吗", cant:"咩/吗", jp:"me1", type:"common", note:"口语多用咩"},
+  {pth:"呢", cant:"呢", jp:"ne1", type:"common", note:"粤语也用呢"},
+  {pth:"对", cant:"啱", jp:"aam1", type:"common", note:"对(正确)→啱"},
+  {pth:"想", cant:"谂/想", jp:"nam2", type:"common", note:"思考=谂 想要=想"},
+  {pth:"站", cant:"企", jp:"kei5", type:"common", note:"站→企"},
+  {pth:"穿", cant:"着", jp:"zoek3", type:"common", note:"穿衣→着衫"},
+  {pth:"脱", cant:"除", jp:"ceoi4", type:"common", note:"脱衣→除衫"},
+  {pth:"藏", cant:"匿埋", jp:"nei1 maai4", type:"common", note:"藏→匿"},
+  {pth:"扔", cant:"掟", jp:"deng3", type:"common", note:"扔→掟"},
+  {pth:"放", cant:"摆", jp:"baai2", type:"common", note:"口语多用摆"},
+  {pth:"怕", cant:"惊", jp:"geng1", type:"common", note:"怕→惊"},
+  {pth:"小", cant:"细", jp:"sai3", type:"common", note:"小→细(口语)"},
+  {pth:"笨", cant:"蠢", jp:"ceon2", type:"common", note:"粤普近似"},
+  {pth:"快", cant:"快", jp:"faai3", type:"common", note:"粤普相同"},
+  {pth:"慢", cant:"慢", jp:"maan6", type:"common", note:"粤普相同"},
+  {pth:"多", cant:"多", jp:"do1", type:"common", note:"粤普相同"},
+  {pth:"少", cant:"少", jp:"siu2", type:"common", note:"粤普相同"},
+  {pth:"热", cant:"热", jp:"jit6", type:"common", note:"粤普相同"},
+  {pth:"冷", cant:"冻", jp:"dung3", type:"common", note:"冷→冻(口语)"},
+  {pth:"饿", cant:"肚饿", jp:"tou5 ngo6", type:"common", note:"粤语说肚饿"},
+  {pth:"脏", cant:"污糟", jp:"wu1 zou1", type:"common", note:"脏→污糟"},
+  {pth:"这", cant:"呢", jp:"ni1", type:"common", note:"这→呢"},
+  {pth:"胖", cant:"肥", jp:"fei4", type:"common", note:"胖→肥(粤语直说)"},
+  {pth:"瘦", cant:"瘦", jp:"sau3", type:"common", note:"粤普相同"},
+  {pth:"矮", cant:"矮", jp:"ai2", type:"common", note:"粤普相同"},
+  {pth:"远", cant:"远", jp:"jyun5", type:"common", note:"粤普相同"},
+  {pth:"近", cant:"近", jp:"kan5", type:"common", note:"粤普相同"},
+  {pth:"难", cant:"难", jp:"naan4", type:"common", note:"粤普相同"},
+  {pth:"也", cant:"都", jp:"dou1", type:"common", note:"也→都"},
+  {pth:"再", cant:"再", jp:"zoi3", type:"common", note:"粤普相同"},
+  {pth:"啊", cant:"啊/呀", jp:"aa3", type:"common", note:"粤语也用"},
+  {pth:"呀", cant:"呀", jp:"aa3", type:"common", note:"粤语也用"},
+  {pth:"菜", cant:"餸", jp:"sung3", type:"common", note:"做菜的菜→餸"},
+  {pth:"伞", cant:"遮", jp:"ze1", type:"common", note:"伞→遮"},
+  {pth:"太", cant:"太", jp:"taai3", type:"common", note:"粤普相同"},
+];
+
+function convert(){
+  var input=document.getElementById('input').value.trim();
+  var result=document.getElementById('result');
+  if(!input){result.innerHTML='<span class="placeholder">输入普通话后，差异词汇会被高亮标注...</span>';document.getElementById('matchCount').textContent='0';return;}
+  var text=input;var matches=0;
+  DICT.sort(function(a,b){return b.pth.length-a.pth.length;});
+  var tokens=[];var i=0;
+  while(i<text.length){
+    var matched=false;
+    for(var d=0;d<DICT.length;d++){
+      var w=DICT[d];
+      if(text.substr(i,w.pth.length)===w.pth){
+        var cls=w.type==='learned'?'w-learned':w.type==='expand'?'w-expand':'w-common';
+        var tip=w.cant+' '+w.jp+(w.note?' · '+w.note:'');
+        tokens.push('<span class="'+cls+'" title="'+tip+'">'+w.pth+'</span><sup style="font-size:9px;color:#999">→'+w.cant+'</sup>');
+        i+=w.pth.length;matched=true;matches++;break;
+      }
+    }
+    if(!matched){tokens.push('<span class="w-same">'+text[i]+'</span>');i++;}
+  }
+  result.innerHTML=tokens.join('');
+  document.getElementById('matchCount').textContent=matches;
+  if(typeof gtag!=='undefined')gtag('event','translate',{event_category:'tool',event_label:input.substring(0,50)});
+}
+</script>
+
+
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></s
+<div class="gd-contact">课程合作 · 广告商务 · 投资咨询 · 学员反馈 — <a href="mailto:gaaudim2026&#64;gmail.com">gaaudim2026&#64;gmail.com</a></div>
+<script>document.addEventListener("contextmenu",function(e){e.preventDefault()});document.addEventListener("copy",function(e){if(e.target.tagName!=="INPUT"&&e.target.tagName!=="TEXTAREA")e.preventDefault()});document.addEventListener("selectstart",function(e){if(e.target.tagName!=="INPUT"&&e.target.tagName!=="TEXTAREA")e.preventDefault()});</script>
+<script src="paywall-check.js?v=3.2"></script>

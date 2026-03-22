@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GQBZMQQEQ9"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-GQBZMQQEQ9");</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>韵母(下)+入声 · JP04 · 粤拼速成 | 搞掂 gaaudim.com</title>
+<meta name="keywords" content="搞掂,gaaudim,粤语,香港,高才通,港漂,留学,粤拼,香港生活指南">
+<meta name="description" content="韵母(下)+入声 · JP04 | 系统化粤拼教学 | 搞掂 gaaudim.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&family=Noto+Sans+SC:wght@400;500;700;900&family=ZCOOL+KuaiLe&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --ink:    #1C1C2E;
+  --cream:  #FEFAF3;
+  --red:    #E84545;
+  --gold:   #F5A623;
+  --teal:   #00B4D8;
+  --purple: #7B2FBE;
+  --green:  #2DC653;
+  --pink:   #FF6B9D;
+  --card:   #FFFFFF;
+  --border: #E8E0D0;
+  --soft:   #F7F3EB;
+  --shadow: 0 4px 24px rgba(28,28,46,0.10);
+  --lab-bg: #0A0E1A;
+  --lab-grid: rgba(0,180,216,0.06);
+  --lab-glow: rgba(0,180,216,0.3);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body {
+  background: var(--cream);
+  font-family:'Noto Sans SC',sans-serif;
+  color: var(--ink);
+  line-height: 1.7;
+}
+
+/* ===== STICKY NAV ===== */
+.top-bar {
+  position: sticky; top:0; z-index:100;
+  background: var(--ink);
+  padding: 0 24px;
+  display: flex; align-items:center; justify-content:space-between;
+  height: 52px;
+  border-bottom: 3px solid var(--teal);
+}
+.top-bar .logo {
+  font-family:'ZCOOL KuaiLe',cursive;
+  color: var(--teal); font-size:17px; letter-spacing:1px;
+}
+.top-bar .ep-tag {
+  background: var(--red); color:white;
+  font-size:12px; font-weight:700;
+  padding:4px 12px; border-radius:20px;
+}
+.top-bar .series-tag {
+  background: var(--teal); color:white;
+  font-size:11px; font-weight:700;
+  padding:3px 10px; border-radius:12px;
+  margin-left:8px;
+}
+
+/* ===== TEACHER BANNER ===== */
+.teacher-banner {
+  background: linear-gradient(135deg, #0A0E1A 0%, #1A1A3E 50%, #0A0E1A 100%);
+  padding: 32px 24px 24px;
+  position: relative; overflow:hidden;
+}
+.teacher-banner::before {
+  content:'';position:absolute;top:0;right:0;
+  width:300px;height:100%;
+  background: radial-gradient(ellipse at right, rgba(0,180,216,0.15), transparent 70%);
+}
+.teacher-banner::after {
+  content:'';position:absolute;bottom:0;left:0;right:0;
+  height:2px;
+  background: linear-gradient(90deg, transparent, var(--teal), transparent);
+}
+.teacher-card {
+  max-width: 880px; margin:0 auto;
+  display: flex; gap:28px; align-items:center;
+  position:relative; z-index:1; flex-wrap:wrap;
+}
+
+/* Avatar */
+.avatar-wrap { flex-shrink:0; display:flex;flex-direction:column;align-items:center;gap:6px; }
+.avatar { width:110px;height:110px; position:relative; }
+.av-head {
+  width:80px;height:80px; background:#F4C2A0; border-radius:50%;
+  position:absolute; top:0; left:15px; border:3px solid var(--ink); overflow:hidden;
+}
+.av-head::before { content:'';position:absolute;top:0;left:0;right:0;height:38px;background:#2C1A0E;border-radius:50% 50% 0 0; }
+.av-head::after { content:'';position:absolute;top:28px;left:-4px;right:-4px;height:14px;background:#2C1A0E;border-radius:0 0 40% 40%; }
+.av-eye-l,.av-eye-r { position:absolute;width:10px;height:10px;background:#2C1A0E;border-radius:50%;top:42px; }
+.av-eye-l{left:20px;} .av-eye-r{right:20px;}
+.av-mouth { position:absolute;bottom:14px;left:50%;transform:translateX(-50%);width:22px;height:10px;border:0 solid transparent;border-bottom:3px solid #C0392B;border-radius:0 0 12px 12px; }
+.av-glasses { position:absolute;top:38px;left:12px;right:12px;height:14px;border-top:2.5px solid #D4AC0D; }
+.av-glasses::before,.av-glasses::after { content:'';position:absolute;width:20px;height:18px;border:2.5px solid #D4AC0D;border-radius:4px;top:-3px; }
+.av-glasses::before{left:0;} .av-glasses::after{right:0;}
+.av-body { width:86px;height:36px;background:var(--teal);border-radius:8px 8px 0 0;position:absolute;bottom:0;left:12px;border:3px solid var(--ink); }
+.av-body::before { content:'🔬';position:absolute;font-size:18px;top:5px;left:50%;transform:translateX(-50%); }
+.av-badge {
+  background: var(--teal); color: white;
+  font-family:'ZCOOL KuaiLe',cursive;
+  font-size:13px; font-weight:700;
+  padding:4px 14px; border-radius:20px;
+  border:2px solid var(--ink);
+  white-space:nowrap; box-shadow: 2px 2px 0 var(--ink);
+}
+
+.teacher-intro { flex:1; min-width:240px; }
+.teacher-intro h2 {
+  font-family:'ZCOOL KuaiLe',cursive;
+  color: var(--teal); font-size:26px; margin-bottom:6px;
+}
+.teacher-intro .tagline { color:#aaa; font-size:14px; margin-bottom:12px; font-style:italic; }
+.teacher-speech {
+  background: rgba(255,255,255,0.05);
+  border-left: 4px solid var(--teal);
+  border-radius:0 8px 8px 0;
+  padding:12px 16px; color:#ddd; font-size:15px; line-height:1.8;
+}
+.teacher-speech strong { color: var(--teal); }
+.teacher-tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+.t-tag {
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.15);
+  color:#bbb; font-size:12px; padding:4px 10px; border-radius:12px;
+}
+
+/* ===== EPISODE INTRO ===== */
+.ep-intro { max-width:880px; margin:32px auto; padding:0 24px; }
+.ep-title-block { display:flex; align-items:flex-start; gap:20px; flex-wrap:wrap; }
+.ep-num {
+  background:var(--teal); color:white;
+  font-family:'ZCOOL KuaiLe',cursive; font-size:13px;
+  padding:4px 14px; border-radius:4px; white-space:nowrap; margin-top:4px;
+}
+.ep-title {
+  font-family:'ZCOOL KuaiLe',cursive;
+  font-size:clamp(26px,5vw,40px); color:var(--ink); line-height:1.2;
+}
+.ep-desc { color:#666; font-size:15px; margin-top:10px; max-width:600px; }
+
+/* ===== SECTION WRAPPER ===== */
+.section { max-width:880px; margin:0 auto; padding:0 24px 40px; }
+
+/* ===== SECTION HEADER ===== */
+.sec-head {
+  display:flex; align-items:center; gap:12px;
+  margin-bottom:20px; padding-bottom:12px;
+  border-bottom:2px solid var(--border);
+}
+.sec-icon {
+  width:40px;height:40px;
+  background:var(--ink); color:var(--teal);
+  border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px; flex-shrink:0;
+}
+.sec-head h3 { font-family:'ZCOOL KuaiLe',cursive; font-size:22px; color:var(--ink); }
+.sec-head .sec-sub { color:#888; font-size:13px; margin-top:2px; }
+
+/* ===== MAY SAY ===== */
+.may-say {
+  display:flex; gap:14px; align-items:flex-start;
+  background:var(--soft); border-radius:12px;
+  padding:16px; margin:20px 0; border:1.5px solid var(--border);
+}
+.may-say .mini-av {
+  width:44px;height:44px; background:#F4C2A0; border-radius:50%;
+  border:2.5px solid var(--ink);
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px; flex-shrink:0;
+}
+.may-say-body { flex:1; }
+.may-say-name { font-size:12px; font-weight:700; color:var(--red); letter-spacing:1px; margin-bottom:4px; }
+.may-say-text { font-size:14px; color:#444; line-height:1.7; }
+.may-say-text strong { color:var(--ink); }
+
+/* ===== DIVIDER ===== */
+.divider { border:none; border-top:2px dashed var(--border); margin:32px 0; }
+
+/* ╔═══════════════════════════════════════════════════╗
+   ║  发音急诊室专属样式                                  ║
+   ╚═══════════════════════════════════════════════════╝ */
+
+/* ----- LAB WORKBENCH (发音工作台) ----- */
+.lab-bench {
+  background: var(--lab-bg);
+  border-radius:16px;
+  border:2px solid rgba(0,180,216,0.3);
+  overflow:hidden;
+  margin:24px 0;
+  box-shadow: 0 0 40px rgba(0,180,216,0.08);
+}
+.lab-header {
+  background: linear-gradient(90deg, #0D1117, #161B28);
+  padding:14px 20px;
+  display:flex; align-items:center; gap:10px;
+  border-bottom:1px solid rgba(0,180,216,0.2);
+}
+.lab-header-icon { font-size:20px; }
+.lab-header-title {
+  font-family:'ZCOOL KuaiLe',cursive;
+  color:var(--teal); font-size:16px;
+}
+.lab-header-sub { color:#555; font-size:12px; margin-left:auto; }
+.lab-body {
+  padding:24px;
+  background:
+    linear-gradient(var(--lab-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--lab-grid) 1px, transparent 1px),
+    var(--lab-bg);
+  background-size: 40px 40px, 40px 40px;
+}
+
+/* ----- PHONEME PANEL (音素面板) ----- */
+.phoneme-grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  gap:10px; margin:16px 0;
+}
+.phoneme-card {
+  background: rgba(255,255,255,0.04);
+  border:1.5px solid rgba(255,255,255,0.1);
+  border-radius:10px; padding:12px 8px;
+  text-align:center; cursor:pointer;
+  transition:all 0.2s;
+  position:relative;
+}
+.phoneme-card:hover {
+  border-color:var(--teal);
+  background:rgba(0,180,216,0.08);
+  transform:translateY(-2px);
+  box-shadow:0 4px 16px rgba(0,180,216,0.15);
+}
+.phoneme-card.highlight {
+  border-color:var(--gold);
+  background:rgba(245,166,35,0.1);
+}
+.phoneme-card.new-badge::after {
+  content:'NEW';
+  position:absolute; top:-6px; right:-6px;
+  background:var(--red); color:white;
+  font-size:9px; font-weight:800;
+  padding:2px 6px; border-radius:8px;
+}
+.phoneme-card.same-badge::after {
+  content:'=普';
+  position:absolute; top:-6px; right:-6px;
+  background:var(--green); color:white;
+  font-size:9px; font-weight:800;
+  padding:2px 6px; border-radius:8px;
+}
+.ph-symbol {
+  font-size:26px; font-weight:800; color:white;
+  font-family:'Noto Serif SC',serif;
+  display:block; margin-bottom:4px;
+}
+.ph-jyutping {
+  font-size:13px; color:var(--teal); font-weight:700;
+  display:block;
+}
+.ph-desc {
+  font-size:11px; color:#777; display:block; margin-top:3px;
+}
+.ph-example {
+  font-size:11px; color:var(--gold); display:block; margin-top:4px;
+  font-style:italic;
+}
+
+/* ----- TONE LADDER (声调阶梯) ----- */
+.tone-ladder {
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:12px;
+  padding:24px;
+  margin:16px 0;
+  position:relative;
+}
+.tone-ladder-title {
+  color:var(--teal); font-size:14px; font-weight:700;
+  margin-bottom:16px;
+  font-family:'ZCOOL KuaiLe',cursive;
+}
+.tone-row {
+  display:flex; align-items:center; gap:12px;
+  padding:10px 0;
+  border-bottom:1px solid rgba(255,255,255,0.05);
+}
+.tone-row:last-child { border-bottom:none; }
+.tone-num {
+  width:36px; height:36px;
+  border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:16px; font-weight:800; color:white;
+  flex-shrink:0;
+}
+.tone-num.t1 { background:#E84545; }
+.tone-num.t2 { background:#F5A623; }
+.tone-num.t3 { background:#00B4D8; }
+.tone-num.t4 { background:#7B2FBE; }
+.tone-num.t5 { background:#2DC653; }
+.tone-num.t6 { background:#FF6B9D; }
+.tone-num.t7 { background:#E84545; border:2px dashed white; }
+.tone-num.t8 { background:#00B4D8; border:2px dashed white; }
+.tone-num.t9 { background:#FF6B9D; border:2px dashed white; }
+.tone-pitch {
+  color:#999; font-size:12px; width:40px; text-align:center; flex-shrink:0;
+}
+.tone-bar-wrap { flex:1; height:32px; position:relative; }
+.tone-bar {
+  position:absolute; height:4px; border-radius:2px;
+  top:50%; transform:translateY(-50%);
+}
+.tone-bar.level { width:80%; left:10%; }
+.tone-bar.rising { width:60%; left:20%; transform:translateY(-50%) rotate(-8deg); }
+.tone-bar.falling { width:60%; left:20%; transform:translateY(-50%) rotate(8deg); }
+.tone-word {
+  font-family:'Noto Serif SC',serif;
+  font-size:18px; font-weight:700; color:white;
+  width:40px; text-align:center; flex-shrink:0;
+}
+.tone-jyutping {
+  font-size:12px; color:var(--teal); width:60px; flex-shrink:0;
+}
+.tone-meaning {
+  font-size:12px; color:#888; flex:1;
+}
+.tone-play-btn {
+  background:rgba(0,180,216,0.15);
+  border:1.5px solid rgba(0,180,216,0.3);
+  color:var(--teal); width:32px; height:32px;
+  border-radius:50%; cursor:pointer;
+  font-size:14px; flex-shrink:0;
+  transition:all 0.15s;
+}
+.tone-play-btn:hover { background:var(--teal); color:white; }
+
+/* ----- COMPARISON DRILL (对比练习) ----- */
+.compare-drill {
+  display:grid; grid-template-columns:1fr auto 1fr;
+  gap:12px; align-items:center;
+  margin:16px 0;
+}
+@media(max-width:560px) { .compare-drill { grid-template-columns:1fr; } }
+.compare-side {
+  background:rgba(255,255,255,0.04);
+  border:1.5px solid rgba(255,255,255,0.1);
+  border-radius:10px; padding:16px;
+  text-align:center;
+  cursor:pointer; transition:all 0.2s;
+}
+.compare-side:hover {
+  border-color:var(--teal);
+  background:rgba(0,180,216,0.06);
+}
+.compare-side.mandarin { border-left:3px solid var(--pink); }
+.compare-side.cantonese { border-left:3px solid var(--teal); }
+.compare-vs {
+  font-size:20px; font-weight:900; color:#555;
+  text-align:center;
+}
+.cs-label {
+  font-size:10px; font-weight:700; letter-spacing:2px;
+  margin-bottom:8px; display:block;
+}
+.compare-side.mandarin .cs-label { color:var(--pink); }
+.compare-side.cantonese .cs-label { color:var(--teal); }
+.cs-char {
+  font-family:'Noto Serif SC',serif;
+  font-size:28px; font-weight:800; color:white;
+  display:block; margin:6px 0;
+}
+.cs-pinyin {
+  font-size:14px; font-weight:600; display:block; margin:4px 0;
+}
+.compare-side.mandarin .cs-pinyin { color:var(--pink); }
+.compare-side.cantonese .cs-pinyin { color:var(--teal); }
+.cs-tip { font-size:11px; color:#888; display:block; margin-top:6px; }
+
+/* ----- MOUTH DIAGRAM (口型图示) ----- */
+.mouth-diagram {
+  display:flex; gap:20px; align-items:center;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:12px; padding:20px;
+  margin:12px 0; flex-wrap:wrap;
+}
+.mouth-icon {
+  font-size:64px; flex-shrink:0;
+  filter:drop-shadow(0 0 12px rgba(0,180,216,0.3));
+}
+.mouth-desc { flex:1; min-width:200px; }
+.mouth-desc h4 { color:white; font-size:16px; margin-bottom:6px; }
+.mouth-desc p { color:#aaa; font-size:13px; line-height:1.7; }
+.mouth-desc .trick {
+  background:rgba(245,166,35,0.1);
+  border:1px solid rgba(245,166,35,0.3);
+  border-radius:8px; padding:8px 12px;
+  margin-top:8px; color:var(--gold);
+  font-size:12px; font-weight:600;
+}
+
+/* ----- DRILL EXERCISE (训练题) ----- */
+.drill-box {
+  background:var(--lab-bg);
+  border:2px solid rgba(0,180,216,0.2);
+  border-radius:12px; overflow:hidden;
+  margin:20px 0;
+}
+.drill-header {
+  background:linear-gradient(90deg, #0D1117, #161B28);
+  padding:12px 18px; display:flex; align-items:center; gap:10px;
+  border-bottom:1px solid rgba(0,180,216,0.15);
+}
+.drill-header-icon { font-size:18px; }
+.drill-header-title { color:var(--teal); font-size:15px; font-weight:700; font-family:'ZCOOL KuaiLe',cursive; }
+.drill-body { padding:20px; }
+.drill-item {
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:10px; padding:16px;
+  margin-bottom:12px;
+}
+.drill-q-num { font-size:11px; font-weight:700; color:var(--teal); letter-spacing:1px; margin-bottom:6px; }
+.drill-q-text { color:white; font-size:15px; margin-bottom:12px; }
+.drill-q-text .big-char {
+  font-family:'Noto Serif SC',serif;
+  font-size:28px; font-weight:800; display:inline-block;
+  margin:0 4px; color:var(--gold);
+}
+.drill-options { display:flex; flex-wrap:wrap; gap:8px; }
+.drill-opt {
+  background:rgba(255,255,255,0.06);
+  border:1.5px solid rgba(255,255,255,0.12);
+  color:#ddd; padding:8px 16px;
+  border-radius:8px; cursor:pointer;
+  font-size:14px; transition:all 0.15s;
+}
+.drill-opt:hover:not([disabled]) { background:rgba(0,180,216,0.15); border-color:var(--teal); }
+.drill-opt.correct { background:rgba(45,198,83,0.2); border-color:var(--green); color:#7DFFA6; pointer-events:none; }
+.drill-opt.wrong { background:rgba(232,69,69,0.2); border-color:var(--red); color:#FFB3B3; pointer-events:none; }
+.drill-feedback { margin-top:10px;font-size:13px;padding:8px 12px;border-radius:6px;display:none; }
+.drill-feedback.ok { display:block;background:rgba(45,198,83,0.12);color:var(--green); }
+.drill-feedback.bad { display:block;background:rgba(232,69,69,0.12);color:#ff8888; }
+
+/* ----- MNEMONIC CARD (记忆口诀卡) ----- */
+.mnemonic-card {
+  background:linear-gradient(135deg, rgba(245,166,35,0.08), rgba(123,47,190,0.08));
+  border:2px solid rgba(245,166,35,0.3);
+  border-radius:14px; padding:20px;
+  margin:16px 0; text-align:center;
+}
+.mnemonic-icon { font-size:36px; margin-bottom:8px; }
+.mnemonic-text {
+  font-family:'ZCOOL KuaiLe',cursive;
+  font-size:22px; color:var(--ink);
+  line-height:1.6; margin-bottom:8px;
+}
+.mnemonic-sub { font-size:13px; color:#888; }
+
+/* ----- KNOWLEDGE CARD (知识点卡) ----- */
+.know-card {
+  background:var(--card); border-radius:12px;
+  border:1.5px solid var(--border); padding:20px;
+  margin:16px 0;
+}
+.know-card.tip { border-left:4px solid var(--green); background:#F0FFF4; }
+.know-card.warn { border-left:4px solid var(--red); background:#FFF5F5; }
+.know-card.info { border-left:4px solid var(--teal); background:#F0F8FF; }
+.know-card.gold { border-left:4px solid var(--gold); background:#FFF8E7; }
+.know-label {
+  font-size:11px; font-weight:700; letter-spacing:1px;
+  margin-bottom:8px; display:flex; align-items:center; gap:5px;
+}
+.know-card.tip .know-label { color:var(--green); }
+.know-card.warn .know-label { color:var(--red); }
+.know-card.info .know-label { color:var(--teal); }
+.know-card.gold .know-label { color:#B7950B; }
+.know-text { font-size:14px; line-height:1.8; color:#444; }
+.know-text strong { color:var(--ink); }
+.know-text .ct { font-family:'Noto Serif SC',serif; font-weight:700; color:var(--ink); }
+.know-text .jp { color:var(--teal); font-size:12px; }
+.know-text .pk { color:var(--pink); font-size:12px; }
+
+/* ----- PROGRESS TRACKER ----- */
+.progress-track {
+  display:flex; gap:4px; margin:16px 0;
+  padding:12px 16px;
+  background:var(--soft);
+  border-radius:10px; border:1px solid var(--border);
+  flex-wrap:wrap;
+}
+.progress-dot {
+  width:24px; height:24px; border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px; font-weight:700; color:white;
+  background:#ccc; flex-shrink:0;
+}
+.progress-dot.done { background:var(--green); }
+.progress-dot.current { background:var(--teal); animation:pulse 1.5s infinite; }
+.progress-dot.locked { background:#ddd; color:#aaa; }
+@keyframes pulse { 0%,100%{box-shadow:0 0 0 0 rgba(0,180,216,0.4);} 50%{box-shadow:0 0 0 8px rgba(0,180,216,0);} }
+
+/* ----- CULTURE BOX (same as scene lessons) ----- */
+.culture-box {
+  background: linear-gradient(135deg, #1C1C2E, #2D2B55);
+  border-radius:12px; padding:24px;
+  margin:24px 0; color:white;
+  border:2px solid var(--teal);
+}
+.culture-box h4 {
+  font-family:'ZCOOL KuaiLe',cursive;
+  color:var(--teal); font-size:20px; margin-bottom:16px;
+  display:flex;align-items:center;gap:8px;
+}
+.culture-items { display:flex;flex-direction:column;gap:12px; }
+.culture-item {
+  background:rgba(255,255,255,0.06);
+  border-radius:8px; padding:14px;
+  border-left:3px solid var(--teal);
+  display:flex;gap:12px;align-items:flex-start;
+}
+.culture-item .ci-icon { font-size:24px; flex-shrink:0; }
+.ci-title { font-weight:700; margin-bottom:3px; font-size:14px; }
+.ci-text { color:#bbb; font-size:13px; line-height:1.6; }
+.ci-ct { font-family:'Noto Serif SC',serif; color:var(--gold); font-weight:700; }
+
+/* ----- QUIZ (same as scene) ----- */
+.quiz-wrap { background:var(--ink); border-radius:12px; padding:24px; margin:24px 0; }
+.quiz-head { display:flex;align-items:center;gap:12px; margin-bottom:20px; }
+.quiz-head h3 { font-family:'ZCOOL KuaiLe',cursive; color:var(--teal); font-size:22px; }
+.quiz-score-board {
+  background:rgba(255,255,255,0.08); border-radius:8px;
+  padding:8px 14px; color:var(--teal); font-size:14px;
+  font-weight:700; margin-left:auto;
+}
+.q-item { background:rgba(255,255,255,0.06); border-radius:10px; padding:18px; margin-bottom:14px; }
+.q-num { font-size:11px; font-weight:700; color:var(--teal); letter-spacing:1px; margin-bottom:8px; }
+.q-text { color:white; font-size:15px; margin-bottom:12px; font-family:'Noto Serif SC',serif; }
+.q-options { display:flex;flex-wrap:wrap;gap:8px; }
+.q-opt {
+  background:rgba(255,255,255,0.08);
+  border:1.5px solid rgba(255,255,255,0.15);
+  color:#ddd; padding:8px 16px;
+  border-radius:8px; cursor:pointer;
+  font-size:14px; transition:all 0.15s;
+}
+.q-opt:hover:not([disabled]) { background:rgba(0,180,216,0.2); border-color:var(--teal); }
+.q-opt.correct { background:rgba(45,198,83,0.25); border-color:var(--green); color:#7DFFA6; }
+.q-opt.wrong { background:rgba(232,69,69,0.25); border-color:var(--red); color:#FFB3B3; }
+.q-feedback { margin-top:10px;font-size:13px;padding:8px 12px;border-radius:6px;display:none; }
+.q-feedback.ok { display:block;background:rgba(45,198,83,0.15);color:var(--green); }
+.q-feedback.bad { display:block;background:rgba(232,69,69,0.15);color:#ff8888; }
+
+/* ----- STORY (same as scene) ----- */
+.story-section {
+  background: linear-gradient(160deg, #FFFBF0 0%, #FFF5E6 100%);
+  border: 2px solid #F0D9B0; border-radius: 16px;
+  overflow: hidden; margin-bottom: 32px;
+  box-shadow: 0 4px 24px rgba(180,120,40,0.08);
+}
+.story-header {
+  background: linear-gradient(90deg, #2C1A0E, #4A2F1A);
+  padding: 20px 28px; display: flex; align-items: center; gap: 16px;
+}
+.story-header-text h3 { font-family:'ZCOOL KuaiLe',cursive; color: var(--gold); font-size: 22px; margin-bottom: 4px; }
+.story-header-text p { color: #bbb; font-size: 13px; }
+.story-av-large {
+  width: 60px; height: 60px; border-radius: 50%;
+  background: #F4C2A0; border: 3px solid var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 30px; flex-shrink: 0;
+}
+.story-body { padding: 24px 28px; }
+.story-pull-quote {
+  font-family:'Caveat', cursive; font-size: 22px; color: #7B4A1E;
+  line-height: 1.6; border-left: 4px solid var(--gold);
+  padding: 12px 20px; background: rgba(245,166,35,0.08);
+  border-radius: 0 8px 8px 0; margin: 20px 0;
+}
+.story-timeline { margin: 24px 0; display: flex; flex-direction: column; }
+.st-item { display: flex; gap: 0; position: relative; }
+.st-left { display: flex; flex-direction: column; align-items: center; width: 48px; flex-shrink: 0; }
+.st-dot { width: 16px; height: 16px; border-radius: 50%; background: var(--teal); border: 3px solid #2C1A0E; flex-shrink: 0; z-index: 1; margin-top: 4px; }
+.st-line { width: 2px; flex: 1; background: linear-gradient(var(--teal), #ddd); margin-top: 4px; }
+.st-item:last-child .st-line { display: none; }
+.st-content { flex: 1; padding: 0 0 28px 12px; }
+.st-year { font-size: 11px; font-weight: 700; color: var(--teal); letter-spacing: 1px; margin-bottom: 4px; }
+.st-title { font-family:'ZCOOL KuaiLe',cursive; font-size: 18px; color: #2C1A0E; margin-bottom: 6px; }
+.st-text { font-size: 14px; color: #555; line-height: 1.8; }
+.st-text strong { color: #2C1A0E; }
+
+/* ----- HOMEWORK (same as scene) ----- */
+.hw-interactive { background:var(--card); border-radius:12px; border:1.5px solid var(--border); padding:20px; margin-bottom:16px; }
+.hw-int-title { font-family:'ZCOOL KuaiLe',cursive; font-size:17px; color:var(--ink); margin-bottom:12px; display:flex;align-items:center;gap:8px; }
+.hw-fill-row { display:flex; flex-wrap:wrap; gap:6px; align-items:center; margin:10px 0; font-size:15px; color:#444; }
+.hw-blank { display:inline-block; min-width:80px; border-bottom:2px dashed var(--teal); padding:2px 8px; color:transparent; cursor:pointer; text-align:center; transition:all .2s; background:rgba(0,180,216,0.05); border-radius:4px; user-select:none; }
+.hw-blank:hover { background:rgba(0,180,216,0.1); }
+.hw-blank.show { color:var(--teal); font-weight:700; }
+.hw-scenario-box { background:var(--soft); border:1.5px solid var(--border); border-radius:10px; padding:16px; margin:12px 0; }
+.hw-reveal { background:var(--ink); color:var(--teal); border:none; padding:8px 20px; border-radius:8px; font-weight:700; cursor:pointer; font-size:13px; font-family:'Noto Sans SC',sans-serif; margin-top:10px; }
+.hw-reveal:hover { background:var(--teal); color:white; }
+.hw-answer-box { display:none; margin-top:12px; padding:16px; background:#F0FFF4; border:1.5px solid #A8D5B5; border-radius:10px; }
+.hw-answer-box.show { display:block; }
+
+/* ----- NEXT EP ===== */
+.next-ep-card {
+  background:var(--ink); border-radius:12px;
+  padding:24px; margin:24px 0;
+  border:2px solid var(--teal);
+  display:flex;gap:20px;align-items:center;flex-wrap:wrap;
+}
+.next-ep-icon { font-size:48px; flex-shrink:0; }
+.next-ep-text h4 { font-family:'ZCOOL KuaiLe',cursive; color:var(--teal);font-size:20px;margin-bottom:6px; }
+.next-ep-text p { color:#aaa;font-size:14px;line-height:1.6; }
+
+/* ----- FLOAT TIP ----- */
+.float-tip { position:fixed; bottom:24px; right:24px; z-index:200; display:flex;flex-direction:column;align-items:flex-end;gap:8px; }
+.float-bubble {
+  background:white; border:2px solid var(--ink);
+  border-radius:16px 16px 4px 16px;
+  padding:12px 16px; max-width:240px;
+  font-size:13px; line-height:1.5;
+  box-shadow:0 8px 24px rgba(0,0,0,0.15); display:none;
+}
+.float-bubble.show { display:block; }
+.float-btn {
+  width:52px;height:52px; border-radius:50%;
+  background:var(--teal); border:3px solid var(--ink);
+  font-size:24px; cursor:pointer;
+  box-shadow:0 4px 16px rgba(0,0,0,0.2);
+  display:flex;align-items:center;justify-content:center;
+  transition:transform 0.2s;
+}
+.float-btn:hover { transform:scale(1.1); }
+
+/* ----- TABLE STYLES ----- */
+.jp-table {
+  width:100%; border-collapse:collapse;
+  margin:16px 0; font-size:13px;
+}
+.jp-table th {
+  background:rgba(0,180,216,0.1);
+  color:var(--teal); font-weight:700;
+  padding:10px 12px; text-align:left;
+  border-bottom:2px solid rgba(0,180,216,0.2);
+  font-size:12px; letter-spacing:0.5px;
+}
+.jp-table td {
+  padding:10px 12px;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  color:#ccc;
+}
+.jp-table tr:hover td { background:rgba(0,180,216,0.04); }
+.jp-table .char { font-family:'Noto Serif SC',serif; font-size:18px; font-weight:700; color:white; }
+.jp-table .jyut { color:var(--teal); font-weight:600; }
+.jp-table .pth { color:var(--pink); }
+.jp-table .note { color:#888; font-size:12px; }
+
+/* ----- INTERACTIVE TONE GAME ----- */
+.tone-game {
+  background:var(--lab-bg); border-radius:12px;
+  border:2px solid rgba(0,180,216,0.2);
+  padding:20px; margin:16px 0;
+}
+.tone-game-title {
+  color:var(--teal); font-family:'ZCOOL KuaiLe',cursive;
+  font-size:16px; margin-bottom:12px;
+}
+.tone-game-char {
+  font-family:'Noto Serif SC',serif;
+  font-size:48px; font-weight:800; color:white;
+  text-align:center; display:block; margin:16px 0;
+}
+.tone-game-options { display:flex; gap:8px; justify-content:center; flex-wrap:wrap; }
+.tone-game-opt {
+  background:rgba(255,255,255,0.06);
+  border:1.5px solid rgba(255,255,255,0.12);
+  color:#ddd; padding:10px 20px;
+  border-radius:10px; cursor:pointer;
+  font-size:15px; font-weight:700;
+  transition:all 0.2s; min-width:80px; text-align:center;
+}
+.tone-game-opt:hover { border-color:var(--teal); background:rgba(0,180,216,0.1); }
+.tone-game-opt.correct { background:rgba(45,198,83,0.2); border-color:var(--green); color:#7DFFA6; }
+.tone-game-opt.wrong { background:rgba(232,69,69,0.2); border-color:var(--red); color:#FFB3B3; }
+
+/* ----- WORD CHIP (for vocab) ----- */
+.word-row { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:20px; }
+.word-chip {
+  background:var(--soft); border:1.5px solid var(--border);
+  border-radius:10px; padding:10px 14px;
+  text-align:center; min-width:80px;
+  cursor:pointer; transition:all 0.15s;
+}
+.word-chip:hover { border-color:var(--teal); background:#E8F7FC; }
+.wc-char { font-family:'Noto Serif SC',serif; font-size:22px; font-weight:700; color:var(--ink); display:block; }
+.wc-jp { color:var(--teal); font-size:12px; font-weight:600; display:block; }
+.wc-en { color:#888; font-size:11px; display:block; margin-top:2px; }
+
+/* ----- SUMMARY TABLE (light) ----- */
+.summary-table {
+  width:100%; border-collapse:collapse;
+  margin:16px 0; font-size:13px;
+  background:var(--card); border:1.5px solid var(--border);
+  border-radius:10px; overflow:hidden;
+}
+.summary-table th {
+  background:var(--ink); color:var(--teal);
+  padding:10px 12px; text-align:left; font-size:12px;
+}
+.summary-table td {
+  padding:10px 12px; border-bottom:1px solid var(--border);
+}
+.summary-table .char { font-family:'Noto Serif SC',serif; font-size:17px; font-weight:700; }
+.summary-table .jyut { color:var(--teal); font-weight:600; }
+
+/* ----- RESPONSIVE ----- */
+@media(max-width:600px) {
+  .teacher-card { gap:16px; }
+  .lab-body { padding:16px; }
+  .phoneme-grid { grid-template-columns: repeat(auto-fill, minmax(75px, 1fr)); gap:8px; }
+  .tone-row { flex-wrap:wrap; gap:8px; }
+  .compare-drill { grid-template-columns:1fr; }
+  .compare-vs { display:none; }
+}
+
+</style>
+<style>
+/* === GD NAV === */
+.gd-nav{position:sticky;top:0;z-index:9999;background:rgba(28,28,46,.98);backdrop-filter:blur(14px);height:48px;display:flex;align-items:center;padding:0 14px;border-bottom:2px solid #F5A623;box-shadow:0 2px 20px rgba(245,166,35,.1);font-family:'Noto Sans SC',sans-serif;gap:8px;}
+.gd-nav-left{display:flex;align-items:center;gap:12px;flex-shrink:0;}
+.gd-nav-brand{font-family:'ZCOOL KuaiLe',cursive;color:#F5A623;font-size:15px;text-decoration:none;white-space:nowrap;}
+.gd-nav-brand span{font-family:'ZCOOL KuaiLe',cursive;font-size:13px;color:rgba(245,166,35,.6);margin-left:6px;font-weight:400;}
+
+@media(min-width:640px){}
+.gd-nav-links{flex:1;display:flex;justify-content:flex-end;gap:2px;overflow:visible;}
+.gd-dd{position:relative;display:inline-block;}
+.gd-nav-slogan{color:rgba(255,255,255,.65);font-size:12px;white-space:nowrap;display:none;}
+@media(min-width:640px){.gd-nav-slogan{display:block;}}
+.gd-dd-btn{color:rgba(255,255,255,.55);font-size:11px;padding:6px 10px;border-radius:12px;white-space:nowrap;cursor:pointer;transition:all .2s;background:none;border:none;font-family:inherit;}
+.gd-dd-btn:hover,.gd-dd-btn.on{background:rgba(245,166,35,.12);color:#F5A623;}
+.gd-dd-list{display:none;position:absolute;top:100%;right:0;background:#1C1C2E;border:1px solid rgba(245,166,35,.25);border-radius:10px;min-width:200px;max-height:70vh;overflow-y:auto;overflow-x:visible;z-index:10000;box-shadow:0 8px 32px rgba(0,0,0,.5);padding:6px 0;margin-top:4px;}
+.gd-dd:hover .gd-dd-list{display:block;}
+.gd-dd-list a{display:block;padding:7px 14px;color:rgba(255,255,255,.7);font-size:11px;text-decoration:none;white-space:nowrap;transition:all .15s;}
+.gd-dd-list a:hover{background:rgba(245,166,35,.1);color:#F5A623;}
+.gd-dd-list a.cur{color:#F5A623;font-weight:700;background:rgba(245,166,35,.08);}
+@media(max-width:600px){.gd-dd-btn{font-size:10px;padding:5px 6px;}.gd-dd-list{min-width:160px;right:-20px;}}
+/* === BOTTOM BAR === */
+.gd-bot{position:fixed;bottom:0;left:0;right:0;z-index:9998;background:rgba(28,28,46,.97);backdrop-filter:blur(12px);border-top:2px solid #F5A623;padding:6px 10px;display:flex;align-items:center;gap:6px;font-family:'Noto Sans SC',sans-serif;}
+.gd-bot-arr{color:rgba(255,255,255,.5);font-size:14px;cursor:pointer;padding:4px 6px;border:none;background:none;text-decoration:none;transition:color .2s;flex-shrink:0;}
+.gd-bot-arr:hover{color:#F5A623;}
+.gd-bot-scroll{flex:1;display:flex;gap:4px;overflow-x:auto;padding:4px 0;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+.gd-bot-scroll::-webkit-scrollbar{display:none;}
+.gd-bot-ep{color:rgba(255,255,255,.4);font-size:10px;padding:4px 10px;border-radius:10px;white-space:nowrap;text-decoration:none;transition:all .2s;flex-shrink:0;border:1px solid transparent;}
+.gd-bot-ep:hover{color:rgba(255,255,255,.7);background:rgba(255,255,255,.05);}
+.gd-bot-ep.on{color:#F5A623;background:rgba(245,166,35,.12);border-color:rgba(245,166,35,.3);font-weight:700;}
+/* === INJECTED FOOTER === */
+.gd-copy-btn{display:block;margin:24px auto 12px;padding:10px 24px;background:#F5A623;color:#1C1C2E;border:none;border-radius:24px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s;}
+.gd-copy-btn:hover{transform:scale(1.04);box-shadow:0 4px 16px rgba(245,166,35,.4);}
+.gd-contact{text-align:center;padding:14px 16px;font-size:12px;color:#000;}
+.gd-contact a{color:#000;text-decoration:underline;text-underline-offset:3px;}
+.gd-legal-index{text-align:center;padding:4px 16px 16px;font-size:9px;color:#999;}
+.gd-next{display:block;background:linear-gradient(135deg,#1C1C2E,#2d2b55);border-radius:14px;padding:20px 24px;margin:30px auto;max-width:600px;text-decoration:none;border:1px solid rgba(245,166,35,.2);transition:all .3s;}
+.gd-next:hover{border-color:rgba(245,166,35,.5);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.15);}
+.gd-next h4{color:#F5A623;font-family:'ZCOOL KuaiLe',cursive;font-size:16px;margin-bottom:4px;}
+.gd-next p{color:rgba(255,255,255,.5);font-size:12px;}
+/* anti-copy */
+body{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}
+input,textarea{-webkit-user-select:text;-moz-user-select:text;-ms-user-select:text;user-select:text;}
+.gd-spacer{height:60px;}
+</style>
+</head>
+<body>
+<nav class="gd-nav">
+<div class="gd-nav-left">
+<a href="index.html" class="gd-nav-brand">搞掂 <span>gaaudim.com</span></a>
+<span class="gd-nav-slogan">一个网站帮你搞掂粤语·签证·租房·求职·留学</span>
+
+</div>
+<div class="gd-nav-links">
+<div class="gd-dd">
+<button class="gd-dd-btn">街头粤语</button>
+<div class="gd-dd-list">
+<a href="MayJie_EP01_ChaChaan.html">EP01 茶餐厅生存战</a>
+<a href="MayJie_EP02_MTR.html">EP02 地铁大冒险</a>
+<a href="MayJie_EP03_ConvStore.html">EP03 便利店粤语</a>
+<a href="MayJie_EP04_Taxi_Doctor.html">EP04 的士+睇医生</a>
+<a href="MayJie_EP05_Takeout.html">EP05 外卖点餐</a>
+<a href="MayJie_EP06_Self_Intro.html">EP06 自我介绍</a>
+<a href="MayJie_EP07_Shopping.html">EP07 购物砍价</a>
+<a href="MayJie_EP08_Entertainment.html">EP08 娱乐消遣</a>
+<a href="MayJie_EP09_Renting.html">EP09 租房攻略</a>
+<a href="MayJie_EP10_JobInterview.html">EP10 求职面试</a>
+<a href="MayJie_EP11_Hiking.html">EP11 行山郊游</a>
+<a href="MayJie_EP12_Festivals.html">EP12 节日祝福</a>
+<a href="MayJie_EP13_Complaints.html">EP13 投诉维权</a>
+<a href="MayJie_EP14_Dating.html">EP14 恋爱社交</a>
+<a href="MayJie_EP15_Drinking.html">EP15 饮酒社交</a>
+<a href="MayJie_EP16_Beauty.html">EP16 美容美发</a>
+<a href="MayJie_EP17_PhoneCall.html">EP17 打电话</a>
+<a href="MayJie_EP18_Neighbors__1_.html">EP18 邻居社交</a>
+<a href="MayJie_EP19_DimSum.html">EP19 饮茶点心</a>
+<a href="MayJie_EP20_Supermarket.html">EP20 超市买菜</a>
+<a href="MayJie_EP21_Numbers.html">EP21 数字时间钱</a>
+<a href="MayJie_EP22.html">EP22 离岛渡轮</a>
+<a href="MayJie_EP23.html">EP23 运动健身</a>
+<a href="MayJie_EP24.html">EP24 银行邮局</a>
+<a href="MayJie_EP25.html">EP25 潮语实战</a>
+<a href="MayJie_EP26.html">EP26 亲子家庭</a>
+<a href="MayJie_EP27.html">EP27 唱K实战</a>
+<a href="MayJie_EP28.html">EP28 家务日常</a>
+<a href="MayJie_EP29.html">EP29 凉茶养生</a>
+<a href="MayJie_EP30.html">EP30 大结局</a>
+</div></div>
+<div class="gd-dd">
+<button class="gd-dd-btn on">粤拼速成</button>
+<div class="gd-dd-list">
+<a href="MayJie_JP01.html">JP01 你已经会粤拼了</a>
+<a href="MayJie_JP02.html">JP02 声母：只差这6个</a>
+<a href="MayJie_JP03.html">JP03 韵母(上)</a>
+<a href="MayJie_JP04.html" class="cur">JP04 韵母(下)+入声</a>
+<a href="MayJie_JP05.html">JP05 九声六调(上)</a>
+<a href="MayJie_JP06.html">JP06 九声六调(下)</a>
+<a href="MayJie_JP07.html">JP07 变调大陷阱</a>
+<a href="MayJie_JP08.html">JP08 声调最小对</a>
+<a href="MayJie_JP09.html">JP09 综合实战</a>
+<a href="MayJie_JP10.html">JP10 毕业+学习路线</a>
+<a href="MayJie_JP_Extra_LazyTones__1_.html">JP-X 懒音特辑</a>
+</div></div>
+<div class="gd-dd">
+<button class="gd-dd-btn">词汇箱</button>
+<div class="gd-dd-list">
+<a href="MayJie_VW01.html">VW01 生存25词</a>
+<a href="MayJie_VW02.html">VW02 动作25词</a>
+<a href="MayJie_VW03.html">VW03 日常动作25词</a>
+<a href="MayJie_VW04.html">VW04 形容词25词</a>
+<a href="MayJie_VW05.html">VW05 疑问+时间25词</a>
+<a href="MayJie_VW06.html">VW06 社交礼貌25词</a>
+<a href="MayJie_VW07.html">VW07 职场返工25词</a>
+<a href="MayJie_VW08.html">VW08 饮食美食25词</a>
+<a href="MayJie_VW09.html">VW09 交通出行25词</a>
+<a href="MayJie_VW10.html">VW10 购物讲价25词</a>
+<a href="MayJie_VW11.html">VW11 身体健康25词</a>
+<a href="MayJie_VW12.html">VW12 情绪心理25词</a>
+<a href="MayJie_VW13.html">VW13 数量程度25词</a>
+<a href="MayJie_VW14.html">VW14 居家日常25词</a>
+<a href="MayJie_VW15.html">VW15 天气环境25词</a>
+<a href="MayJie_VW16.html">VW16 科技网络25词</a>
+<a href="MayJie_VW17.html">VW17 语气词专题25词</a>
+<a href="MayJie_VW18.html">VW18 俗语歇后语25词</a>
+<a href="MayJie_VW19.html">VW19 潮语网络语(上)</a>
+<a href="MayJie_VW20.html">VW20 潮语网络语(下)</a>
+</div></div>
+<div class="gd-dd">
+<button class="gd-dd-btn">粤语歌</button>
+<div class="gd-dd-list">
+<a href="MayJie_HKSongs_EP01_V3.html">HK01 唱K速成</a>
+<a href="MayJie_HKSongs_EP02.html">HK02 歌词解码</a>
+<a href="MayJie_HKSongs_EP03_V3.html">HK03 林夕vs黄伟文</a>
+<a href="MayJie_HKSongs_EP04_V2.html">HK04 林夕的粤语宇宙</a>
+<a href="MayJie_HKSongs_EP05_V2.html">HK05 MIRROR与新天王</a>
+<a href="MayJie_HKSongs_EP06_V2.html">HK06 粤语情歌进化史</a>
+<a href="MayJie_HKSongs_EP07_V2.html">HK07 Beyond与摇滚</a>
+<a href="MayJie_HKSongs_EP08_V2.html">HK08 KTV实战歌单</a>
+<a href="MayJie_HKSongs_EP09_V2.html">HK09 2025年度盘点</a>
+<a href="MayJie_HKSongs_EP10_V3.html">HK10 50首文化地图</a>
+<a href="MayJie_HKSongs_Extra_V2.html">HK-X 粤语歌的世界坐标</a>
+</div></div>
+<div class="gd-dd">
+<button class="gd-dd-btn">港漂留学</button>
+<div class="gd-dd-list">
+<a href="MayJie_SZ01.html">SZ01 先找到你自己</a>
+<a href="MayJie_SZ02.html">SZ02 K-12择校攻略</a>
+<a href="MayJie_SZ03.html">SZ03 八大选校真相</a>
+<a href="MayJie_SZ04.html">SZ04 硕士申请时间线</a>
+<a href="MayJie_SZ05.html">SZ05 文书面试必杀技</a>
+<a href="MayJie_SZ06.html">SZ06 费用·奖学金·签证</a>
+<a href="MayJie_SZ07.html">SZ07 落地生存指南</a>
+<a href="MayJie_SZ08.html">SZ08 起薪·就业·行业</a>
+<a href="MayJie_SZ09.html">SZ09 Campus Life指南</a>
+<a href="MayJie_SZ10.html">SZ10 毕业后全景图</a>
+<a href="MayJie_SZ_Extra_TaoCi.html">SZ-X PhD套磁奖学金</a>
+</div></div>
+</div></nav>
+
+
+  
+
+<div class="teacher-banner" id="teacher">
+  <div class="teacher-card">
+    <div class="avatar-wrap">
+      <div class="avatar">
+        <div class="av-head">
+          <div class="av-eye-l"></div><div class="av-eye-r"></div>
+          <div class="av-glasses"></div><div class="av-mouth"></div>
+        </div>
+        <div class="av-body"></div>
+      </div>
+      <div class="av-badge">Dr. May姐 🔬</div>
+    </div>
+    <div class="teacher-intro">
+      <h2>发音急诊室——May姐坐诊中 🩺</h2>
+      <p class="tagline">发音急诊室 · 韵母手术（下） · 入声急刹车特训</p>
+      <div class="teacher-speech">今日系韵母嘅终极boss——<strong>入声韵尾 -p / -t / -k</strong>！呢三个音係粤语同普通话嘅最大分野之一。普通话早就丢失咗入声，但粤语完整保留住。学识入声，你嘅粤语即刻从「学生级」升级到「地道级」。而且入声韵尾有个好靓嘅名字——<strong>「急刹车」</strong>。</div>
+      <div class="teacher-tags"><span class="t-tag">🔬 入声专项</span><span class="t-tag">🛑 急刹车训练</span><span class="t-tag">📜 古汉语活化石</span><span class="t-tag">🆚 普粤最大分野</span><span class="t-tag">🎯 地道必备</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="ep-intro">
+  <div class="ep-title-block">
+    <div class="ep-num">🔬 JP04</div>
+    <div>
+      <div class="ep-title">🛑 韵母篇（下）：入声韵尾 -p/-t/-k</div>
+      <div class="ep-desc">普通话已经失去的入声，粤语完整保留！学会这三个「急刹车」韵尾，你的粤语立刻有港味。</div>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="s1">
+<div class="sec-head">
+  <div class="sec-icon">📜</div>
+  <div><h3>什么是入声？</h3><div class="sec-sub">古汉语的活化石——粤语独家保留</div></div>
+</div>
+
+<div class="may-say">
+  <div class="mini-av">👩</div>
+  <div class="may-say-body">
+    <div class="may-say-name">MAY姐说</div>
+    <div class="may-say-text">先讲个冷知识：<strong>古代汉语有四个声调——平、上、去、入</strong>。普通话在演变过程中丢失咗「入声」，所以现代普通话只有平上去三类（一二三四声）。但粤语作为古汉语嘅活化石，<strong>完整保留咗入声</strong>！入声嘅特点就係——字嘅末尾有一个<strong>突然停止嘅塞音</strong>，嘴巴做到位但唔送气。我叫佢做「急刹车」。</div>
+  </div>
+</div>
+
+<div class="know-card gold">
+  <div class="know-label">🏆 语言学冷知识</div>
+  <div class="know-text">
+入声嘅保留係粤语被语言学家称为「古汉语活化石」嘅最重要原因之一。<br>
+唐诗宋词嘅平仄格律中，入声字扮演关键角色。用粤语读唐诗，比普通话更接近原来嘅音韵——<br>
+因为<strong>普通话把入声字分散到了四个声调里</strong>，而粤语保留住佢哋嘅原始读法。<br><br>
+例如李白嘅「床前明<strong>月</strong>光」——「月 jyut6」在粤语是入声字（-t收尾），<br>
+但在普通话变成了去声「yuè」，失去了那个急促的韵尾。
+</div>
+</div>
+
+<div class="lab-bench">
+  <div class="lab-header">
+    <div class="lab-header-icon">🔬</div>
+    <div class="lab-header-title">入声韵尾的三种「刹车」</div>
+    <div class="lab-header-sub">嘴巴做到位，但不送气！</div>
+  </div>
+  <div class="lab-body">
+    
+<div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:20px;">
+<div class="mouth-diagram" style="flex:1;min-width:250px;">
+  <div class="mouth-icon">🫦</div>
+  <div class="mouth-desc">
+    <h4>-p 韵尾：双唇急停</h4>
+    <p><strong>嘴巴动作：</strong>双唇合拢，气流被挡住<br>
+    <strong>像什么：</strong>像说「pa」但说到p就停住，不发出a<br>
+    <strong>关键：</strong>嘴巴合上但<strong>不送气、不爆破</strong></p>
+    <div class="trick">💡 <strong>「合嘴急停」</strong></div>
+  </div>
+</div>
+<div class="mouth-diagram" style="flex:1;min-width:250px;">
+  <div class="mouth-icon">👅</div>
+  <div class="mouth-desc">
+    <h4>-t 韵尾：舌尖急停</h4>
+    <p><strong>舌头动作：</strong>舌尖抵住上齿龈，气流被挡住<br>
+    <strong>像什么：</strong>像说「ta」但说到t就停住<br>
+    <strong>关键：</strong>舌尖到位但<strong>不弹开、不送气</strong></p>
+    <div class="trick">💡 <strong>「顶舌急停」</strong></div>
+  </div>
+</div>
+<div class="mouth-diagram" style="flex:1;min-width:250px;">
+  <div class="mouth-icon">😤</div>
+  <div class="mouth-desc">
+    <h4>-k 韵尾：舌根急停</h4>
+    <p><strong>舌头动作：</strong>舌根抵住软腭，气流被挡住<br>
+    <strong>像什么：</strong>像说「ka」但说到k就停住<br>
+    <strong>关键：</strong>舌根到位但<strong>不爆破、不送气</strong></p>
+    <div class="trick">💡 <strong>「锁喉急停」</strong></div>
+  </div>
+</div>
+</div>
+
+<div style="padding:16px;background:rgba(245,166,35,0.08);border:1px solid rgba(245,166,35,0.2);border-radius:10px;">
+  <p style="color:var(--gold);font-size:14px;font-weight:700;margin-bottom:6px;">🔑 统一原则：做到位，不送气</p>
+  <p style="color:#ccc;font-size:13px;line-height:1.8;">三种入声韵尾嘅共同点：<strong>嘴巴/舌头做到发音位置，但气流被挡住、不释放出来</strong>。<br>
+  想象你在开车——看到红灯，脚踩刹车，车<strong>停住</strong>了但引擎还在。<br>
+  入声字就是——<strong>音停住了但嘴巴还在发音位置上</strong>。<br>
+  英语也有类似的现象：「stop」最后的p很多人不送气，就是这个感觉。</p>
+</div>
+
+  </div>
+</div>
+</div><div class="section" id="s2">
+<div class="sec-head">
+  <div class="sec-icon">🫦</div>
+  <div><h3>-p 韵尾详解</h3><div class="sec-sub">双唇合拢急停</div></div>
+</div>
+
+<div class="may-say">
+  <div class="mini-av">👩</div>
+  <div class="may-say-body">
+    <div class="may-say-name">MAY姐说</div>
+    <div class="may-say-text">我哋逐个来。先看 -p——呢个係最容易感受到嘅入声韵尾，因为你可以<strong>用眼睛看到嘴巴合上</strong>。发音嘅最后一刻，双唇合拢，声音被「关住」。</div>
+  </div>
+</div>
+
+<div class="lab-bench">
+  <div class="lab-header">
+    <div class="lab-header-icon">🔬</div>
+    <div class="lab-header-title">-p 韵尾练习台</div>
+    <div class="lab-header-sub">合嘴急停——看得见的刹车</div>
+  </div>
+  <div class="lab-body">
+    
+<p style="color:var(--teal);font-size:14px;font-weight:700;margin-bottom:10px;">含 -p 韵尾的常见字：</p>
+<div class="phoneme-grid">
+  <div class="phoneme-card" onclick="speak('十', this)"><span class="ph-symbol">十</span><span class="ph-jyutping">sap6</span><span class="ph-desc">十</span></div>
+  <div class="phoneme-card" onclick="speak('合', this)"><span class="ph-symbol">合</span><span class="ph-jyutping">hap6</span><span class="ph-desc">合适</span></div>
+  <div class="phoneme-card" onclick="speak('入', this)"><span class="ph-symbol">入</span><span class="ph-jyutping">jap6</span><span class="ph-desc">进入</span></div>
+  <div class="phoneme-card" onclick="speak('急', this)"><span class="ph-symbol">急</span><span class="ph-jyutping">gap1</span><span class="ph-desc">着急</span></div>
+  <div class="phoneme-card" onclick="speak('湿', this)"><span class="ph-symbol">湿</span><span class="ph-jyutping">sap1</span><span class="ph-desc">潮湿</span></div>
+  <div class="phoneme-card" onclick="speak('答', this)"><span class="ph-symbol">答</span><span class="ph-jyutping">daap3</span><span class="ph-desc">回答</span></div>
+  <div class="phoneme-card" onclick="speak('汁', this)"><span class="ph-symbol">汁</span><span class="ph-jyutping">zap1</span><span class="ph-desc">果汁</span></div>
+  <div class="phoneme-card" onclick="speak('集', this)"><span class="ph-symbol">集</span><span class="ph-jyutping">zaap6</span><span class="ph-desc">集合</span></div>
+</div>
+
+<div style="margin-top:16px;padding:16px;background:rgba(0,180,216,0.06);border:1px solid rgba(0,180,216,0.15);border-radius:10px;">
+  <p style="color:var(--teal);font-size:13px;font-weight:700;margin-bottom:6px;">🧪 对比实验：-p vs -m</p>
+  <p style="color:#ccc;font-size:13px;">-p 和 -m 都是双唇音，区别在于：<br>
+  <strong>-m（鼻音韵尾）：</strong>嘴巴合上，气流从<strong>鼻子</strong>出来，音可以延长<br>
+  <strong>-p（入声韵尾）：</strong>嘴巴合上，气流被<strong>完全挡住</strong>，音立刻停止<br>
+  对比：「三 saa<strong>m</strong>1」（m可以拉长）vs「十 sa<strong>p</strong>6」（p瞬间停止）</p>
+</div>
+
+  </div>
+</div>
+</div><div class="section" id="s3">
+<div class="sec-head">
+  <div class="sec-icon">👅</div>
+  <div><h3>-t 韵尾详解</h3><div class="sec-sub">舌尖抵住急停</div></div>
+</div>
+
+<div class="lab-bench">
+  <div class="lab-header">
+    <div class="lab-header-icon">🔬</div>
+    <div class="lab-header-title">-t 韵尾练习台</div>
+    <div class="lab-header-sub">顶舌急停</div>
+  </div>
+  <div class="lab-body">
+    
+<p style="color:var(--teal);font-size:14px;font-weight:700;margin-bottom:10px;">含 -t 韵尾的常见字：</p>
+<div class="phoneme-grid">
+  <div class="phoneme-card" onclick="speak('一', this)"><span class="ph-symbol">一</span><span class="ph-jyutping">jat1</span><span class="ph-desc">一</span></div>
+  <div class="phoneme-card" onclick="speak('七', this)"><span class="ph-symbol">七</span><span class="ph-jyutping">cat1</span><span class="ph-desc">七</span></div>
+  <div class="phoneme-card" onclick="speak('八', this)"><span class="ph-symbol">八</span><span class="ph-jyutping">baat3</span><span class="ph-desc">八</span></div>
+  <div class="phoneme-card" onclick="speak('月', this)"><span class="ph-symbol">月</span><span class="ph-jyutping">jyut6</span><span class="ph-desc">月亮</span></div>
+  <div class="phoneme-card" onclick="speak('出', this)"><span class="ph-symbol">出</span><span class="ph-jyutping">ceot1</span><span class="ph-desc">出去</span></div>
+  <div class="phoneme-card" onclick="speak('食', this)"><span class="ph-symbol">食</span><span class="ph-jyutping">sik6</span><span class="ph-desc">吃</span></div>
+  <div class="phoneme-card" onclick="speak('日', this)"><span class="ph-symbol">日</span><span class="ph-jyutping">jat6</span><span class="ph-desc">日/天</span></div>
+  <div class="phoneme-card" onclick="speak('物', this)"><span class="ph-symbol">物</span><span class="ph-jyutping">mat6</span><span class="ph-desc">东西</span></div>
+  <div class="phoneme-card" onclick="speak('热', this)"><span class="ph-symbol">热</span><span class="ph-jyutping">jit6</span><span class="ph-desc">热</span></div>
+  <div class="phoneme-card" onclick="speak('活', this)"><span class="ph-symbol">活</span><span class="ph-jyutping">wut6</span><span class="ph-desc">生活</span></div>
+</div>
+
+  </div>
+</div>
+
+<div class="know-card info">
+  <div class="know-label">💡 -t vs -n 的关系</div>
+  <div class="know-text">
+-t 和 -n 嘅舌头位置完全一样（都是舌尖抵上齿龈），区别在于：<br>
+<strong>-n（鼻音）：</strong>气流从<strong>鼻子</strong>出来，音可以延长（如「山 saa<strong>n</strong>1」）<br>
+<strong>-t（入声）：</strong>气流被<strong>完全阻断</strong>，音立刻停止（如「八 baa<strong>t</strong>3」）<br><br>
+<strong>规律：</strong>-m/-n/-ng 是「开放式收尾」（鼻音通气），-p/-t/-k 是「关闭式收尾」（入声堵气）<br>
+-m → -p（双唇音对）<br>
+-n → -t（舌尖音对）<br>
+-ng → -k（舌根音对）
+</div>
+</div>
+</div><div class="section" id="s4">
+<div class="sec-head">
+  <div class="sec-icon">😤</div>
+  <div><h3>-k 韵尾详解</h3><div class="sec-sub">舌根锁喉急停</div></div>
+</div>
+
+<div class="lab-bench">
+  <div class="lab-header">
+    <div class="lab-header-icon">🔬</div>
+    <div class="lab-header-title">-k 韵尾练习台</div>
+    <div class="lab-header-sub">锁喉急停——最隐蔽的刹车</div>
+  </div>
+  <div class="lab-body">
+    
+<p style="color:var(--teal);font-size:14px;font-weight:700;margin-bottom:10px;">含 -k 韵尾的常见字：</p>
+<div class="phoneme-grid">
+  <div class="phoneme-card" onclick="speak('六', this)"><span class="ph-symbol">六</span><span class="ph-jyutping">luk6</span><span class="ph-desc">六</span></div>
+  <div class="phoneme-card" onclick="speak('百', this)"><span class="ph-symbol">百</span><span class="ph-jyutping">baak3</span><span class="ph-desc">一百</span></div>
+  <div class="phoneme-card" onclick="speak('食', this)"><span class="ph-symbol">食</span><span class="ph-jyutping">sik6</span><span class="ph-desc">吃</span></div>
+  <div class="phoneme-card" onclick="speak('北', this)"><span class="ph-symbol">北</span><span class="ph-jyutping">bak1</span><span class="ph-desc">北方</span></div>
+  <div class="phoneme-card" onclick="speak('国', this)"><span class="ph-symbol">国</span><span class="ph-jyutping">gwok3</span><span class="ph-desc">国家</span></div>
+  <div class="phoneme-card" onclick="speak('脚', this)"><span class="ph-symbol">脚</span><span class="ph-jyutping">goek3</span><span class="ph-desc">脚</span></div>
+  <div class="phoneme-card" onclick="speak('得', this)"><span class="ph-symbol">得</span><span class="ph-jyutping">dak1</span><span class="ph-desc">可以/得到</span></div>
+  <div class="phoneme-card" onclick="speak('白', this)"><span class="ph-symbol">白</span><span class="ph-jyutping">baak6</span><span class="ph-desc">白色</span></div>
+  <div class="phoneme-card" onclick="speak('黑', this)"><span class="ph-symbol">黑</span><span class="ph-jyutping">hak1</span><span class="ph-desc">黑色</span></div>
+  <div class="phoneme-card" onclick="speak('学', this)"><span class="ph-symbol">学</span><span class="ph-jyutping">hok6</span><span class="ph-desc">学习</span></div>
+</div>
+
+<div style="margin-top:16px;padding:16px;background:rgba(232,69,69,0.06);border:1px solid rgba(232,69,69,0.15);border-radius:10px;">
+  <p style="color:#ff8888;font-size:13px;font-weight:700;margin-bottom:6px;">⚠️ -k 是最难的入声韵尾</p>
+  <p style="color:#ccc;font-size:13px;">-p 你能看到嘴巴合上，-t 你能感受到舌尖碰齿龈，但 -k 嘅动作发生在<strong>喉咙深处</strong>，看不到也不太容易感受到。<br>
+  <strong>练习方法：</strong>先大声说「嗝——」（打嗝的感觉），感受舌根碰到软腭嗰一下。入声-k就是在那个位置做「急停」。<br>
+  <strong>自测：</strong>录音说「六 luk6」，如果最后听到一个清脆的「k」爆破声，就是送气了（错！）。正确的是——音突然停住，有「被掐住」的感觉。</p>
+</div>
+
+  </div>
+</div>
+</div><div class="section" id="s5">
+<div class="sec-head">
+  <div class="sec-icon">🔢</div>
+  <div><h3>入声与声调的关系</h3><div class="sec-sub">为什么传统讲「九声」——入声字的声调特点</div></div>
+</div>
+
+<div class="may-say">
+  <div class="mini-av">👩</div>
+  <div class="may-say-body">
+    <div class="may-say-name">MAY姐说</div>
+    <div class="may-say-text">你可能听过「九声六调」呢个讲法。点解既有9声又只有6调？因为<strong>入声字虽然有3个声调编号（第7/8/9声），但佢哋嘅调值和1/3/6声完全一样</strong>——只不过发音更短促。粤拼嘅处理方式好聪明：入声字只标1/3/6声，唔另外标7/8/9声。</div>
+  </div>
+</div>
+
+<div class="know-card info">
+  <div class="know-label">📋 九声六调速查</div>
+  <div class="know-text">
+<strong>传统九声 → 粤拼六调对应：</strong><br><br>
+第1声（阴平 55）：诗 si1 → 第7声（上阴入 5）：色 sik<strong>1</strong> 👈 同调值！<br>
+第3声（阴去 33）：试 si3 → 第8声（下阴入 3）：锡 sik<strong>3</strong> 👈 同调值！<br>
+第6声（阳去 22）：事 si6 → 第9声（阳入 2）：食 sik<strong>6</strong> 👈 同调值！<br><br>
+<strong>简单讲：</strong>入声字 = 普通字嘅「短促版」。声调一样，只是时长更短、韵尾是 -p/-t/-k。<br>
+粤拼不单独标789声，只用<strong>1/3/6 + 入声韵尾</strong>来表示。
+</div>
+</div>
+
+<div class="mnemonic-card">
+  <div class="mnemonic-icon">🧮</div>
+  <div class="mnemonic-text">入声字 = 声调（1/3/6） + 急刹车（-p/-t/-k）</div>
+  <div class="mnemonic-sub">记住这个公式，「九声六调」的谜题就解开了！</div>
+</div>
+</div><div class="section" id="s6">
+<div class="sec-head">
+  <div class="sec-icon">📊</div>
+  <div><h3>韵母篇总结</h3><div class="sec-sub">两集搞掂——你已经认识所有粤拼韵母了！</div></div>
+</div>
+
+<div class="may-say">
+  <div class="mini-av">👩</div>
+  <div class="may-say-body">
+    <div class="may-say-name">MAY姐说</div>
+    <div class="may-say-text">经过JP03和JP04两集，你已经<strong>认识晒粤拼嘅全部韵母系统</strong>喇！来总结一下重点：</div>
+  </div>
+</div>
+
+<div class="know-card gold">
+  <div class="know-label">🏆 韵母篇核心知识点</div>
+  <div class="know-text">
+<strong>1. 粤语独有韵母</strong>（JP03教的）：<br>
+• <span class="jp">eoi</span>（去/佢/水）、<span class="jp">oe</span>（靴）、<span class="jp">oeng</span>（香/想/样）、<span class="jp">eon</span>（春/信）、<span class="jp">eot</span>（出/术）<br><br>
+<strong>2. 长短元音区分</strong>（JP03教的）：<br>
+• <span class="jp">aa</span>（长）vs <span class="jp">a</span>（短）——三saam1 vs 心sam1<br><br>
+<strong>3. 入声韵尾</strong>（JP04教的）：<br>
+• <span class="jp">-p</span>（合嘴急停）· <span class="jp">-t</span>（顶舌急停）· <span class="jp">-k</span>（锁喉急停）<br>
+• 和鼻音韵尾是「对」的关系：-m/-p、-n/-t、-ng/-k<br><br>
+<strong>4. 九声六调</strong>：入声字调值=1/3/6声的短促版<br><br>
+<strong>下一步：</strong>JP05-06正式教声调——六个调值逐个过！
+</div>
+</div>
+</div><div class="section" id="quiz-section">
+<div class="quiz-wrap">
+  <div class="quiz-head">
+    <span style="font-size:28px;">🧪</span>
+    <h3>发音急诊测验</h3>
+    <div class="quiz-score-board" id="score-board">得分：0/5</div>
+  </div>
+  
+    <div class="q-item">
+      <div class="q-num">QUESTION 1/5</div>
+      <div class="q-text">入声韵尾 -p/-t/-k 的共同特点是什么？</div>
+      <div class="q-options" id="q1"><div class="q-opt" onclick="ans(this,false,'q1','fb1','入声韵尾的共同特点是嘴巴做到位但不送气——急刹车。')">A. 送气爆破</div><div class="q-opt" onclick="ans(this,true,'q1','fb1','入声韵尾的共同特点是嘴巴做到位但不送气——急刹车。')">B. 做到位但不送气（急停）</div><div class="q-opt" onclick="ans(this,false,'q1','fb1','入声韵尾的共同特点是嘴巴做到位但不送气——急刹车。')">C. 气流从鼻子出</div><div class="q-opt" onclick="ans(this,false,'q1','fb1','入声韵尾的共同特点是嘴巴做到位但不送气——急刹车。')">D. 声音拖长</div></div>
+      <div class="q-feedback" id="fb1"></div>
+    </div>
+    <div class="q-item">
+      <div class="q-num">QUESTION 2/5</div>
+      <div class="q-text">-p和-m有什么关系？</div>
+      <div class="q-options" id="q2"><div class="q-opt" onclick="ans(this,false,'q2','fb2','-m和-p都是双唇音，-m气流走鼻腔，-p气流被完全挡住。')">A. 完全不同</div><div class="q-opt" onclick="ans(this,true,'q2','fb2','-m和-p都是双唇音，-m气流走鼻腔，-p气流被完全挡住。')">B. 发音位置相同（双唇），但-m通鼻腔，-p堵死</div><div class="q-opt" onclick="ans(this,false,'q2','fb2','-m和-p都是双唇音，-m气流走鼻腔，-p气流被完全挡住。')">C. 声调不同</div><div class="q-opt" onclick="ans(this,false,'q2','fb2','-m和-p都是双唇音，-m气流走鼻腔，-p气流被完全挡住。')">D. 一个是声母一个是韵母</div></div>
+      <div class="q-feedback" id="fb2"></div>
+    </div>
+    <div class="q-item">
+      <div class="q-num">QUESTION 3/5</div>
+      <div class="q-text">「月 jyut6」的-t韵尾应该怎么发？</div>
+      <div class="q-options" id="q3"><div class="q-opt" onclick="ans(this,false,'q3','fb3','-t韵尾是舌尖抵上齿龈急停，气流被挡住但不爆破。')">A. 像英文t一样送气</div><div class="q-opt" onclick="ans(this,true,'q3','fb3','-t韵尾是舌尖抵上齿龈急停，气流被挡住但不爆破。')">B. 舌尖抵上齿龈急停，不送气</div><div class="q-opt" onclick="ans(this,false,'q3','fb3','-t韵尾是舌尖抵上齿龈急停，气流被挡住但不爆破。')">C. 舌尖放松</div><div class="q-opt" onclick="ans(this,false,'q3','fb3','-t韵尾是舌尖抵上齿龈急停，气流被挡住但不爆破。')">D. 不用发</div></div>
+      <div class="q-feedback" id="fb3"></div>
+    </div>
+    <div class="q-item">
+      <div class="q-num">QUESTION 4/5</div>
+      <div class="q-text">为什么说「九声六调」？</div>
+      <div class="q-options" id="q4"><div class="q-opt" onclick="ans(this,false,'q4','fb4','入声有3个调值（传统叫7/8/9声），但调值分别和1/3/6声一样，只是更短促。')">A. 有9个声调和6个音高</div><div class="q-opt" onclick="ans(this,true,'q4','fb4','入声有3个调值（传统叫7/8/9声），但调值分别和1/3/6声一样，只是更短促。')">B. 入声3个调值与1/3/6声相同，只是更短促</div><div class="q-opt" onclick="ans(this,false,'q4','fb4','入声有3个调值（传统叫7/8/9声），但调值分别和1/3/6声一样，只是更短促。')">C. 古代9个声调现在只剩6个</div><div class="q-opt" onclick="ans(this,false,'q4','fb4','入声有3个调值（传统叫7/8/9声），但调值分别和1/3/6声一样，只是更短促。')">D. 9声是错误的说法</div></div>
+      <div class="q-feedback" id="fb4"></div>
+    </div>
+    <div class="q-item">
+      <div class="q-num">QUESTION 5/5</div>
+      <div class="q-text">以下哪个字包含入声韵尾？</div>
+      <div class="q-options" id="q5"><div class="q-opt" onclick="ans(this,false,'q5','fb5','食sik6的-k是入声韵尾；saam/saan/saang的-m/-n/-ng是鼻音韵尾。')">A. 三 saam1</div><div class="q-opt" onclick="ans(this,false,'q5','fb5','食sik6的-k是入声韵尾；saam/saan/saang的-m/-n/-ng是鼻音韵尾。')">B. 山 saan1</div><div class="q-opt" onclick="ans(this,true,'q5','fb5','食sik6的-k是入声韵尾；saam/saan/saang的-m/-n/-ng是鼻音韵尾。')">C. 食 sik6</div><div class="q-opt" onclick="ans(this,false,'q5','fb5','食sik6的-k是入声韵尾；saam/saan/saang的-m/-n/-ng是鼻音韵尾。')">D. 生 saang1</div></div>
+      <div class="q-feedback" id="fb5"></div>
+    </div>
+</div>
+</div>
+<div class="section" id="story-section">
+  <div class="story-section">
+    <div class="story-header">
+      <div class="story-av-large">👩</div>
+      <div class="story-header-text">
+        <h3>「入声——让唐诗活过来的声音」</h3>
+        <p>陈美伶 · 古典文学爱好者 · 偶尔假装文青</p>
+      </div>
+    </div>
+    <div class="story-body">
+      <div class="story-pull-quote">「我中学读翻译系嗰阵，有个教授话：『你哋知唔知用粤语读唐诗先至係最正宗嘅？因为粤语保留咗入声。』嗰一刻全班哗然——我哋第一次知道，自己每日讲嘅母语原来係一件活嘅文化遗产。」</div>
+      <div class="story-timeline">
+        
+        <div class="st-item">
+          <div class="st-left"><div class="st-dot"></div><div class="st-line"></div></div>
+          <div class="st-content">
+            <div class="st-year">中学时代 · May姐16岁</div>
+            <div class="st-title">📖 第一次知道入声的价值</div>
+            <div class="st-text">中文堂教李白嘅《静夜思》，老师突然叫我用粤语读一次。「床前明<strong>月</strong>光，疑是地上霜。举头望明<strong>月</strong>，低头思故乡。」全班同学听完都觉得——用粤语读好似更加有「古味」。老师解释：因为「月」字在粤语保留咗入声（jyut6，-t收尾），读起来短促有力，符合唐诗嘅节奏感。<strong>普通话嘅「yuè」把入声拖长咗，失去咗嗰种急促嘅美感。</strong></div>
+          </div>
+        </div>
+        <div class="st-item">
+          <div class="st-left"><div class="st-dot"></div><div class="st-line"></div></div>
+          <div class="st-content">
+            <div class="st-year">大学时代 · 翻译系</div>
+            <div class="st-title">🎓 入声同翻译嘅关系</div>
+            <div class="st-text">读翻译系嗰阵，我发现一个有趣嘅现象：英文诗歌翻译成粤语，<strong>节奏感比普通话版本更好</strong>。因为粤语有入声字可以做「短音节」，同英文嘅stressed/unstressed系统更匹配。呢个发现让我对粤语嘅敬意大增——<strong>原来我哋嘅母语唔只係日常沟通嘅工具，佢本身就係一件精密嘅艺术品。</strong></div>
+          </div>
+        </div>
+        <div class="st-item">
+          <div class="st-left"><div class="st-dot"></div><div class="st-line"></div></div>
+          <div class="st-content">
+            <div class="st-year">教学生涯 · Tom读唐诗</div>
+            <div class="st-title">🇬🇧 英国人读出了入声的美</div>
+            <div class="st-text">Tom学咗半年粤语之后，我教佢用粤语读杜甫嘅《春望》。佢读到「国<strong>破</strong>山河在，城春草木深」——「破 po3」唔係入声，但「国 gwok3」係！Tom好认真地把-k收住，成首诗听起来有一种<strong>铿锵有力嘅节奏</strong>。佢读完之后话：<strong>「May, I think Cantonese sounds like a drumbeat.」</strong>呢个比喻好靓——入声就係粤语嘅鼓点。</div>
+          </div>
+        </div>
+        <div class="st-item">
+          <div class="st-left"><div class="st-dot"></div><div class="st-line"></div></div>
+          <div class="st-content">
+            <div class="st-year">May姐嘅感悟</div>
+            <div class="st-title">💡 入声是粤语的文化密码</div>
+            <div class="st-text">我成日同学生讲：学粤语嘅入声，唔只係学一个发音技巧——佢係打开一扇通向中国古典文化嘅门。<strong>当你用粤语读出「床前明月光」嗰一刻，你同1300年前嘅李白，听到嘅係几乎一样嘅声音。</strong>呢种跨越千年嘅连结，係学任何其他现代汉语方言都做唔到嘅。粤语嘅入声，就係一道活嘅文化密码。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="homework-section">
+  
+<div class="sec-head">
+  <div class="sec-icon">✏️</div>
+  <div><h3>自测练习</h3><div class="sec-sub">全部可以自己对答案，不需要任何人批改</div></div>
+</div>
+
+  
+    <div class="hw-interactive">
+      <div class="hw-int-title">🛑 练习一 · 入声三连击</div>
+      <p style="font-size:14px;color:#555;">逐组练习，每组重复5次：<br><br>
+<strong>-p组：</strong>十(sap6)→ 合(hap6)→ 入(jap6)→ 急(gap1)→ 湿(sap1)<br>
+<strong>-t组：</strong>一(jat1)→ 七(cat1)→ 八(baat3)→ 月(jyut6)→ 日(jat6)<br>
+<strong>-k组：</strong>六(luk6)→ 百(baak3)→ 食(sik6)→ 北(bak1)→ 得(dak1)<br><br>
+🎯 关键：每个字最后要有「被掐住」的感觉——音突然停止！</p>
+    </div>
+    <div class="hw-interactive">
+      <div class="hw-int-title">🆚 练习二 · 鼻音vs入声对比</div>
+      <p style="font-size:14px;color:#555;">交替读以下配对，感受「通鼻」和「堵气」的区别：<br><br>
+三 saa<strong>m</strong>1（鼻音延长）↔ 十 sa<strong>p</strong>6（双唇急停）<br>
+山 saa<strong>n</strong>1（鼻音延长）↔ 八 baa<strong>t</strong>3（舌尖急停）<br>
+生 saa<strong>ng</strong>1（鼻音延长）↔ 百 baa<strong>k</strong>3（舌根急停）<br><br>
+🎯 对着镜子做，确保-p时嘴唇合上，-t时舌尖到位。</p>
+    </div>
+    <div class="hw-interactive">
+      <div class="hw-int-title">📖 练习三 · 用粤语读诗</div>
+      <p style="font-size:14px;color:#555;">用粤拼读出李白《静夜思》（注意入声字！）：<br><br>
+床 cong4 前 cin4 明 ming4 <strong>月 jyut6</strong> 光 gwong1<br>
+疑 ji4 是 si6 地 dei6 上 soeng6 霜 soeng1<br>
+举 geoi2 头 tau4 望 mong6 明 ming4 <strong>月 jyut6</strong><br>
+低 dai1 头 tau4 思 si1 故 gu3 乡 hoeng1<br><br>
+🎯 重点感受「月 jyut6」的-t收尾——短促有力！</p>
+    </div>
+    <div class="hw-interactive">
+      <div class="hw-int-title">🎧 练习四 · 听辨入声（选做）</div>
+      <p style="font-size:14px;color:#555;">回到上面三个练习台的🔊按钮，闭眼听音，判断每个字的韵尾是-p/-t/-k中的哪一个。<br>
+🎯 能准确判断8个以上就算通关！<br>
+<strong>进阶：</strong>试着在日常听到的粤语中辨认入声字——TVB剧、歌曲、新闻都可以。</p>
+    </div>
+</div>
+
+<div class="section">
+  
+
+<div class="float-tip">
+  <div class="float-bubble" id="float-msg">💡 入声是粤语的灵魂！-p合嘴、-t顶舌、-k锁喉——急刹车三连🛑</div>
+  <div class="float-btn" onclick="toggleFloatTip()">🔬</div>
+</div>
+
+<script>
+// ===== TTS =====
+(function() {
+  let ttsVoice = null, ttsReady = false;
+  function loadVoice() {
+    const voices = speechSynthesis.getVoices();
+    ttsVoice = voices.find(v => v.lang === 'zh-HK') || voices.find(v => v.lang === 'zh-TW') || voices.find(v => v.lang.startsWith('zh'));
+    ttsReady = true;
+    const b = document.getElementById('tts-badge');
+    if(b) {
+      if(ttsVoice) { b.textContent='🔊 粤语发音已就绪（'+ttsVoice.lang+'）'; b.style.background='#2DC653'; }
+      else { b.textContent='⚠️ 未检测到粤语语音包'; b.style.background='#E84545'; }
+    }
+  }
+  window.speak = function(text, btn) {
+    if(!ttsReady) loadVoice();
+    speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = ttsVoice ? ttsVoice.lang : 'zh-HK';
+    if(ttsVoice) u.voice = ttsVoice;
+    u.rate = 0.82; u.pitch = 1.05;
+    if(btn) {
+      const orig = btn.innerHTML;
+      btn.innerHTML = '⏸';
+      u.onend = () => { btn.innerHTML = orig; };
+      u.onerror = () => { btn.innerHTML = orig; };
+    }
+    speechSynthesis.speak(u);
+  };
+  if(speechSynthesis.getVoices().length > 0) loadVoice();
+  speechSynthesis.onvoiceschanged = loadVoice;
+  window.addEventListener('load', loadVoice);
+})();
+
+// ===== QUIZ =====
+let quizScore = 0;
+function ans(btn, result, qId, fbId, msg) {
+  const parent = document.getElementById(qId);
+  parent.querySelectorAll('.q-opt').forEach(o => { o.disabled=true; o.style.pointerEvents='none'; });
+  const fb = document.getElementById(fbId);
+  if(result) { btn.classList.add('correct'); fb.className='q-feedback ok'; fb.textContent='✅ 啱晒！'+msg; quizScore++; }
+  else { btn.classList.add('wrong'); fb.className='q-feedback bad'; fb.textContent='❌ 唔啱喎！'+msg; }
+  document.getElementById('score-board').textContent = '得分：'+quizScore+'/5';
+}
+
+// ===== DRILL (for lab exercises) =====
+let drillScore = 0, drillTotal = 0;
+function drillAns(btn, result, qId, fbId, msg) {
+  drillTotal++;
+  const parent = document.getElementById(qId);
+  parent.querySelectorAll('.drill-opt').forEach(o => { o.style.pointerEvents='none'; });
+  const fb = document.getElementById(fbId);
+  if(result) { btn.classList.add('correct'); fb.className='drill-feedback ok'; fb.textContent='✅ '+msg; drillScore++; }
+  else { btn.classList.add('wrong'); fb.className='drill-feedback bad'; fb.textContent='❌ '+msg; }
+  const sb = document.getElementById('drill-score');
+  if(sb) sb.textContent = drillScore+'/'+drillTotal;
+}
+
+// ===== FLOAT TIP =====
+function toggleFloatTip() { document.getElementById('float-msg').classList.toggle('show'); }
+</script>
+
+<a href="MayJie_JP05.html" class="gd-next"><h4>下一集 → JP05 九声六调(上)</h4><p>点击继续学习</p></a>
+<button class="gd-copy-btn" onclick="navigator.clipboard.writeText(location.href).then(function(){alert('链接已复制，快分享给朋友吧')}).catch(function(){prompt('复制链接：',location.href)})">📋 复制链接分享给朋友</button>
+<div class="gd-contact">课程合作 · 广告商务 · 投资咨询 · 学员反馈 — <a href="mailto:gaaudim2026&#64;gmail.com">gaaudim2026&#64;gmail.com</a></div>
+<div class="gd-spacer"></div>
+<div class="gd-bot">
+<a href="MayJie_JP03.html" class="gd-bot-arr">◀</a>
+<div class="gd-bot-scroll" id="gdbs">
+<a href="MayJie_JP01.html" class="gd-bot-ep">JP01</a>
+<a href="MayJie_JP02.html" class="gd-bot-ep">JP02</a>
+<a href="MayJie_JP03.html" class="gd-bot-ep">JP03</a>
+<a href="MayJie_JP04.html" class="gd-bot-ep on">JP04</a>
+<a href="MayJie_JP05.html" class="gd-bot-ep">JP05</a>
+<a href="MayJie_JP06.html" class="gd-bot-ep">JP06</a>
+<a href="MayJie_JP07.html" class="gd-bot-ep">JP07</a>
+<a href="MayJie_JP08.html" class="gd-bot-ep">JP08</a>
+<a href="MayJie_JP09.html" class="gd-bot-ep">JP09</a>
+<a href="MayJie_JP10.html" class="gd-bot-ep">JP10</a>
+<a href="MayJie_JP_Extra_LazyTones__1_.html" class="gd-bot-ep">JP-X</a>
+</div>
+<a href="MayJie_JP05.html" class="gd-bot-arr">▶</a>
+</div>
+<script>document.addEventListener("DOMContentLoaded",function(){var c=document.querySelector(".gd-bot-ep.on");if(c)c.scrollIntoView({inline:"center",block:"nearest"});})</script>
+<script>document.addEventListener("contextmenu",function(e){e.preventDefault()});document.addEventListener("copy",function(e){if(e.target.tagName!=="INPUT"&&e.target.tagName!=="TEXTAREA")e.preventDefault()});document.addEventListener("selectstart",function(e){if(e.target.tagName!=="INPUT"&&e.target.tagName!=="TEXTAREA")e.preventDefault()});</script>
+<script>(function(){var os=window.speak;if(os){window.speak=function(t,b){if(speechSynthesis.speaking){speechSynthesis.cancel();if(b)b.innerHTML=b.dataset.o||'🔊';return;}os(t,b);};}else{var v=null;function lv(){var vs=speechSynthesis.getVoices();v=vs.find(function(x){return x.lang==='zh-HK'})||vs.find(function(x){return x.lang==='zh-TW'})||vs.find(function(x){return x.lang.startsWith('zh')});}if(speechSynthesis.getVoices().length>0)lv();speechSynthesis.onvoiceschanged=lv;window.speak=function(t,b){if(speechSynthesis.speaking){speechSynthesis.cancel();if(b)b.innerHTML=b.dataset.o||'🔊';return;}if(!v)lv();var u=new SpeechSynthesisUtterance(t);u.lang=v?v.lang:'zh-HK';if(v)u.voice=v;u.rate=0.85;u.pitch=1.05;if(b){b.dataset.o=b.dataset.o||b.innerHTML;var oi=b.innerHTML;b.innerHTML='⏸';u.onend=function(){b.innerHTML=oi};u.onerror=function(){b.innerHTML=oi};}speechSynthesis.speak(u);};}})();</script>
+<script src="paywall-check.js?v=3.2"></script>
+</body>
+</html>
