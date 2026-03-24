@@ -599,6 +599,226 @@ input,textarea{-webkit-user-select:text;-moz-user-select:text;-ms-user-select:te
 
 <hr class="divider">
 
+<!-- QUIZ SECTION - 综合测评 -->
+<div class="section">
+  <div class="sec-head">
+    <div class="sec-icon">🧠</div>
+    <div><h3>综合测评 · 30集知识点大检验</h3><div class="sec-sub">May姐帮你检测一下，你到底学识咗几多！</div></div>
+  </div>
+  <div class="may-say">
+    <div class="mini-av">👩</div>
+    <div class="may-say-body">
+      <div class="may-say-name">MAY姐说</div>
+      <div class="may-say-text">嚟㗎！最后一关！May姐出5题，考查你30集学过嘅精华。每题选一个答案，睇下你有冇<strong>搞掂</strong>！唔识嘅返头去复习——May姐唔会笑你㗎，继续学先係赢。</div>
+    </div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:20px;margin-top:16px;">
+
+    <!-- Q1 -->
+    <div style="background:var(--card);border:1.5px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);">
+      <div style="background:linear-gradient(135deg,var(--ink),#2D2B55);padding:14px 20px;display:flex;align-items:center;gap:10px;">
+        <span style="background:var(--red);color:white;font-family:'ZCOOL KuaiLe',cursive;font-size:13px;padding:3px 12px;border-radius:12px;">Q1</span>
+        <span style="color:white;font-size:15px;font-weight:700;">你喺茶餐厅听到服务员讲「饮乜嘢？」，你应该点答？</span>
+      </div>
+      <div style="padding:16px 20px;" id="q1-opts">
+        <div onclick="checkAns(this,'q1',true)" style="display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:10px;border:1.5px solid var(--border);margin-bottom:10px;cursor:pointer;transition:all .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="if(!this.dataset.done)this.style.borderColor='var(--border)'"><span style="width:28px;height:28px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;">A</span><span style="font-size:14px;">冻柠茶，走甜</span></div>
+        <div onclick="checkAns(this,'q1',false)" style="display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:10px;border:1.5px solid var(--border);margin-bottom:10px;cursor:pointer;transition:all .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="if(!this.dataset.done)this.style.borderColor='var(--border)'"><span style="width:28px;height:28px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;">B</span><span style="font-size:14px;">我要一杯冰柠檬茶不加糖</span></div>
+        <div onclick="checkAns(this,'q1',false)" style="display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:10px;border:1.5px solid var(--border);margin-bottom:10px;cursor:pointer;transition:all .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="if(!this.dataset.done)this.style.borderColor='var(--border)'"><span style="width:28px;height:28px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;">C</span><span style="font-size:14px;">给我一杯tea</span></div>
+        <div id="q1-fb" style="display:none;background:var(--soft);border-radius:10px;padding:12px 16px;font-size:13px;line-height:1.7;border-left:4px solid var(--green);">✅ <strong>A 正确！</strong>「冻柠茶 dung3 ning4 caa4，走甜 zau2 tim4」系最地道嘅茶餐厅回答。「走甜」=不加糖，系EP01学过嘅经典茶餐厅术语。B同C系普通话思维，茶餐厅师奶听到会摸唔着头脑㗎！</div>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div style="background:var(--card);border:1.5px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);">
+      <div style="background:linear-gradient(135deg,var(--ink),#2D2B55);padding:14px 20px;display:flex;align-items:center;gap:10px;">
+        <span style="background:var(--red);color:white;font-family:'ZCOOL KuaiLe',cursive;font-size:13px;padding:3px 12px;border-radius:12px;">Q2</span>
+        <span style="color:white;font-size:15px;font-weight:700;">你坐的士去铜锣湾，到了之后应该讲？</span>
+      </div>
+      <div style="padding:16px 20px;">
+        <div onclick="checkAns(this,'q2',false)" style="display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:10px;border:1.5px solid var(--border);margin-bottom:10px;cursor:pointer;transition:all .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="if(!this.dataset.done)this.style.borderColor='var(--border)'"><span style="width:28px;height:28px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;">A</span><span style="font-size:14px;">停这里</span></div>
+        <div onclick="checkAns(this,'q2',true)" style="display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:10px;border:1.5px solid var(--border);margin-bottom:10px;cursor:pointer;transition:all .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="if(!this.dataset.done)this.style.borderColor='var(--border)'"><span style="width:28px;height:28px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;">B</span><span style="font-size:14px;">呢度有落</span></div>
+        <div onclick="checkAns(this,'q2',false)" style="display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:10px;border:1.5px solid var(--border);margin-bottom:10px;cursor:pointer;transition:all .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="if(!this.dataset.done)this.style.borderColor='var(--border)'"><span style="width:28px;height:28px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;">C</span><span style="font-size:14px;">到了</span></div>
+        <div id="q2-fb" style="display:none;background:var(--soft);border-radius:10px;padding:12px 16px;font-size:13px;line-height:1.7;border-left:4px solid var(--green);">✅ <strong>B 正确！</strong>「呢度有落 ni1 dou6 jau5 lok6」係的士落车嘅标准粤语用法，EP04学过。「有落」=有人下车。讲完司机就知道停车，好专业！A「停这里」普通话，司机会翻白眼；C「到了」太短，唔够地道。</div>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div style="background:var(--card);border:1.5px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);">
+      <div style="background:linear-gradient(135deg,var(--ink),#2D2B55);padding:14px 20px;display:flex;align-items:center;gap:10px;">
+        <span style="background:var(--red);color:white;font-family:'ZCOOL KuaiLe',cursive;font-size:13px;padding:3px 12px;border-radius:12px;">Q3</span>
+        <span style="color:white;font-size:15px;font-weight:700;">以下哪个系粤语特有嘅表达？</span>
+      </div>
+      <div style="padding:16px 20px;">
+        <div onclick="checkAns(this,'q3',false)" style="display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:10px;border:1.5px solid var(--border);margin-bottom:10px;cursor:pointer;transition:all .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="if(!this.dataset.done)this.style.borderColor='var(--border)'"><span style="width:28px;height:28px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;">A</span><span style="font-size:14px;">今天很热</span></div>
+        <div onclick="checkAns(this,'q3',true)" style="display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:10px;border:1.5px solid var(--border);margin-bottom:10px;cursor:pointer;transition:all .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="if(!this.dataset.done)this.style.borderColor='var(--border)'"><span style="width:28px;height:28px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;">B</span><span style="font-size:14px;">今日好热气</span></div>
+        <div onclick="checkAns(this,'q3',false)" style="display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:10px;border:1.5px solid var(--border);margin-bottom:10px;cursor:pointer;transition:all .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="if(!this.dataset.done)this.style.borderColor='var(--border)'"><span style="width:28px;height:28px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;">C</span><span style="font-size:14px;">今天好热</span></div>
+        <div id="q3-fb" style="display:none;background:var(--soft);border-radius:10px;padding:12px 16px;font-size:13px;line-height:1.7;border-left:4px solid var(--green);">✅ <strong>B 正确！</strong>「热气 jit6 hei3」係粤语独有概念——不仅形容天气热，更常用来形容「上火」。「今日好热气」= 今天天气好上火。EP29凉茶养生集专门讲过这个文化概念。「热气」背后是整套广东养生哲学！</div>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div style="background:var(--card);border:1.5px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);">
+      <div style="background:linear-gradient(135deg,var(--ink),#2D2B55);padding:14px 20px;display:flex;align-items:center;gap:10px;">
+        <span style="background:var(--red);color:white;font-family:'ZCOOL KuaiLe',cursive;font-size:13px;padding:3px 12px;border-radius:12px;">Q4</span>
+        <span style="color:white;font-size:15px;font-weight:700;">「搞掂」（gaau2 dim6）嘅意思係？</span>
+      </div>
+      <div style="padding:16px 20px;">
+        <div onclick="checkAns(this,'q4',false)" style="display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:10px;border:1.5px solid var(--border);margin-bottom:10px;cursor:pointer;transition:all .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="if(!this.dataset.done)this.style.borderColor='var(--border)'"><span style="width:28px;height:28px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;">A</span><span style="font-size:14px;">搞砸了</span></div>
+        <div onclick="checkAns(this,'q4',true)" style="display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:10px;border:1.5px solid var(--border);margin-bottom:10px;cursor:pointer;transition:all .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="if(!this.dataset.done)this.style.borderColor='var(--border)'"><span style="width:28px;height:28px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;">B</span><span style="font-size:14px;">搞定了 / 完成了</span></div>
+        <div onclick="checkAns(this,'q4',false)" style="display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:10px;border:1.5px solid var(--border);margin-bottom:10px;cursor:pointer;transition:all .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="if(!this.dataset.done)this.style.borderColor='var(--border)'"><span style="width:28px;height:28px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;">C</span><span style="font-size:14px;">搞不清楚</span></div>
+        <div id="q4-fb" style="display:none;background:var(--soft);border-radius:10px;padding:12px 16px;font-size:13px;line-height:1.7;border-left:4px solid var(--green);">✅ <strong>B 正确！</strong>「搞掂 gaau2 dim6」=搞定了、完成了，系全课程嘅核心词同品牌名。「呢件事搞掂喇」= 这件事搞定了。May姐用呢个词作网站名，就系要你知道：学完粤语，香港嘅嘢你全部都可以搞掂！</div>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div style="background:var(--card);border:1.5px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);">
+      <div style="background:linear-gradient(135deg,var(--ink),#2D2B55);padding:14px 20px;display:flex;align-items:center;gap:10px;">
+        <span style="background:var(--red);color:white;font-family:'ZCOOL KuaiLe',cursive;font-size:13px;padding:3px 12px;border-radius:12px;">Q5</span>
+        <span style="color:white;font-size:15px;font-weight:700;">以下哪句最适合同新认识嘅香港朋友讲？</span>
+      </div>
+      <div style="padding:16px 20px;">
+        <div onclick="checkAns(this,'q5',true)" style="display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:10px;border:1.5px solid var(--border);margin-bottom:10px;cursor:pointer;transition:all .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="if(!this.dataset.done)this.style.borderColor='var(--border)'"><span style="width:28px;height:28px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;">A</span><span style="font-size:14px;">得闲饮茶啊</span></div>
+        <div onclick="checkAns(this,'q5',false)" style="display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:10px;border:1.5px solid var(--border);margin-bottom:10px;cursor:pointer;transition:all .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="if(!this.dataset.done)this.style.borderColor='var(--border)'"><span style="width:28px;height:28px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;">B</span><span style="font-size:14px;">有时间喝茶吗</span></div>
+        <div onclick="checkAns(this,'q5',false)" style="display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:10px;border:1.5px solid var(--border);margin-bottom:10px;cursor:pointer;transition:all .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="if(!this.dataset.done)this.style.borderColor='var(--border)'"><span style="width:28px;height:28px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;">C</span><span style="font-size:14px;">你明天有空吗我请你喝茶</span></div>
+        <div id="q5-fb" style="display:none;background:var(--soft);border-radius:10px;padding:12px 16px;font-size:13px;line-height:1.7;border-left:4px solid var(--green);">✅ <strong>A 正确！</strong>「得闲饮茶啊 dak1 haan4 jam2 caa4 aa3」係香港人最经典嘅社交客套话，EP06学过。并唔系真的约你去饮茶，而系「有空我哋保持联系」嘅意思。香港人听到会觉得你好本地化！B同C太直接、太普通话思维，反而显得唔够随性。</div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+  var qDone = {};
+  function checkAns(el, qid, correct) {
+    if (qDone[qid]) return;
+    qDone[qid] = true;
+    var opts = el.parentNode.querySelectorAll('div[onclick]');
+    opts.forEach(function(o){ o.style.cursor='default'; o.dataset.done='1'; });
+    if (correct) {
+      el.style.background = '#E8F8F0';
+      el.style.borderColor = 'var(--green)';
+      el.querySelector('span:first-child').style.background = 'var(--green)';
+      el.querySelector('span:first-child').style.color = 'white';
+      el.querySelector('span:first-child').style.borderColor = 'var(--green)';
+    } else {
+      el.style.background = '#FFF0F0';
+      el.style.borderColor = 'var(--red)';
+      el.querySelector('span:first-child').style.background = 'var(--red)';
+      el.querySelector('span:first-child').style.color = 'white';
+      el.querySelector('span:first-child').style.borderColor = 'var(--red)';
+      opts.forEach(function(o){
+        if (o.getAttribute('onclick').indexOf('true') !== -1) {
+          o.style.background = '#E8F8F0';
+          o.style.borderColor = 'var(--green)';
+          o.querySelector('span:first-child').style.background = 'var(--green)';
+          o.querySelector('span:first-child').style.color = 'white';
+        }
+      });
+    }
+    document.getElementById(qid+'-fb').style.display = 'block';
+  }
+  </script>
+</div>
+
+<hr class="divider">
+
+<!-- CULTURE NOTES SECTION - 文化笔记 -->
+<div class="section">
+  <div class="sec-head">
+    <div class="sec-icon">🏙</div>
+    <div><h3>文化笔记 · 你喺香港真正需要知道嘅嘢</h3><div class="sec-sub">30集走完，May姐最后分享三个「只有住过才知道」嘅香港文化秘密</div></div>
+  </div>
+  <div class="may-say">
+    <div class="mini-av">👩</div>
+    <div class="may-say-body">
+      <div class="may-say-name">MAY姐说</div>
+      <div class="may-say-text">语言只系入门票。<strong>真正融入香港，你要理解这座城市背后嘅文化逻辑。</strong>May姐精选三条笔记，每条都系我廿年教学生涯里睇着学生踩过嘅坑——你记住，就可以少走好多弯路。</div>
+    </div>
+  </div>
+  <div class="culture-box">
+    <h4 style="margin-bottom:16px;">📖 大结局文化笔记</h4>
+    <div class="culture-items">
+
+      <div class="culture-item">
+        <div class="ci-icon">📈</div>
+        <div>
+          <div class="ci-title">文化笔记一：粤语学习嘅「高原期」点过？</div>
+          <div class="ci-text">好多学习者学到第15-20集嘅时候会觉得「进步变慢咗」——呢个系正常嘅<strong>学习高原期（Learning Plateau）</strong>。你嘅大脑正在消化同整合之前嘅输入，唔系退步，系在「沉淀」。解决方法：<strong>第一，用粤语歌同港剧做「快乐输入」</strong>——唔使刻意记，睇住睇住就吸收咗；<strong>第二，主动喺日常用粤语</strong>——哪怕只系同茶餐厅阿姐讲两句，都算数；<strong>第三，唔好追求完美，敢讲就赢。</strong>May姐教过来自世界各地嘅学生，最快进步嘅从来唔系最聪明那个，而係<strong>最敢开口</strong>那个。</div>
+        </div>
+      </div>
+
+      <div class="culture-item">
+        <div class="ci-icon">🔑</div>
+        <div>
+          <div class="ci-title">文化笔记二：从「学粤语」到「用粤语」嘅关键转变</div>
+          <div class="ci-text">30集场景课教你嘅系「识别同理解」，但下一步系<strong>「主动输出」</strong>——你要开始用粤语思考。试下每日同自己讲一句粤语内心独白：「今日好攰（gam1 jat6 hou2 gui6）」、「食乜好呢（sik6 mat1 hou2 ne1）」、「今日天气好正（gam1 jat6 tin1 hei3 hou2 zing3）」。当你开始用粤语喃喃自语，你就真正入门㗎喇。粤语唔系「外语」，系你生活嘅一部分。<strong>粤语系一把钥匙，打开嘅唔止系语言，系一种文化同人情味。</strong>喺香港，当你用粤语同一个陌生人倾偈，对方嘅眼神会不同——那种「自己人」嘅感觉，系任何翻译软件都给唔到你嘅。</div>
+        </div>
+      </div>
+
+      <div class="culture-item">
+        <div class="ci-icon">🗺</div>
+        <div>
+          <div class="ci-title">文化笔记三：May姐嘅粤语进阶路线图（详细版）</div>
+          <div class="ci-text">May姐建议嘅最优学习路径：<strong>① 场景课EP01-30（你已完成！）</strong>→ <strong>② 粤拼速成JP01-10</strong>（系统打好发音底子，九声六调唔再怕）→ <strong>③ 高频词VW01-20</strong>（扩充词汇量到500+，日常表达唔再卡壳）→ <strong>④ 港乐学粤语HK01-10</strong>（文化理解同发音双重巩固）→ <strong>⑤ 回头重温EP系列</strong>（你会发现好多之前听唔明嘅细节，而家完全理解——呢种「原来如此」嘅感觉，系粤语学习最大嘅奖励）。记住：学语言冇捷径，但<strong>有方法就快好多</strong>。May姐帮你设计好晒路线，你跟住行就得喇。</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- INTERACTIVE ASSIGNMENT SECTION - 互动作业 -->
+<div class="section">
+  <div class="sec-head">
+    <div class="sec-icon">✍️</div>
+    <div><h3>互动作业 · 大结局挑战任务</h3><div class="sec-sub">May姐最后嘅作业，完成咗你就正式毕业！</div></div>
+  </div>
+  <div class="may-say">
+    <div class="mini-av">👩</div>
+    <div class="may-say-body">
+      <div class="may-say-name">MAY姐说</div>
+      <div class="may-say-text">最后一份作业！May姐出两个任务，你选一个完成。两个都做就更好㗎——但唔勉强，<strong>开始先系最重要</strong>。</div>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:8px;">
+
+    <!-- Task 1 -->
+    <div style="background:var(--card);border:2px solid var(--gold);border-radius:16px;padding:24px;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:12px;right:16px;font-size:28px;opacity:0.2;">🎤</div>
+      <div style="background:var(--gold);color:var(--ink);font-family:'ZCOOL KuaiLe',cursive;font-size:12px;padding:3px 12px;border-radius:10px;display:inline-block;margin-bottom:12px;font-weight:700;">挑战任务 A · 说出来</div>
+      <h4 style="font-family:'ZCOOL KuaiLe',cursive;font-size:18px;color:var(--ink);margin-bottom:10px;">30秒粤语自我介绍</h4>
+      <div style="font-size:13px;color:#555;line-height:1.8;margin-bottom:14px;">用粤语做一段<strong>30秒以上</strong>嘅自我介绍，包含：你嘅名字、你从哪里来、你在香港做乜嘢、你有乜嘢兴趣。用到EP06学过嘅自我介绍框架。</div>
+      <div style="background:var(--soft);border-radius:10px;padding:12px;font-size:12px;color:#666;line-height:1.7;">
+        <strong>参考框架：</strong><br>
+        「你好，我叫___。我係___人，嚟香港___（做乜嘢）。我最钟意___。如果有机会，我哋得闲饮茶啊！」<br>
+        <span style="color:var(--teal);font-weight:700;">粤拼提示：钟意 zung1 ji3 · 得闲 dak1 haan4 · 饮茶 jam2 caa4</span>
+      </div>
+    </div>
+
+    <!-- Task 2 -->
+    <div style="background:var(--card);border:2px solid var(--teal);border-radius:16px;padding:24px;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:12px;right:16px;font-size:28px;opacity:0.2;">✍️</div>
+      <div style="background:var(--teal);color:white;font-family:'ZCOOL KuaiLe',cursive;font-size:12px;padding:3px 12px;border-radius:10px;display:inline-block;margin-bottom:12px;font-weight:700;">挑战任务 B · 写出来</div>
+      <h4 style="font-family:'ZCOOL KuaiLe',cursive;font-size:18px;color:var(--ink);margin-bottom:10px;">香港生活场景短剧</h4>
+      <div style="font-size:13px;color:#555;line-height:1.8;margin-bottom:14px;">写一段<strong>不少于6句</strong>嘅粤语对话。场景自选：茶餐厅点餐、地铁问路、买嘢讲价、同朋友倾偈——用到至少<strong>3个学过嘅粤语词汇或句式</strong>。</div>
+      <div style="background:var(--soft);border-radius:10px;padding:12px;font-size:12px;color:#666;line-height:1.7;">
+        <strong>温馨提示：</strong>唔使写得完美！错多错少都唔要紧，关键系<strong>敢写、敢试</strong>。May姐评分标准只有一个：你有没有用粤语<strong>真诚地表达</strong>自己。<br>
+        <span style="color:var(--teal);font-weight:700;">可以发去 gaaudim2026@gmail.com，May姐有空会帮你批改！</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="background:linear-gradient(135deg,#1C1C2E,#2D2B55);border-radius:14px;padding:20px 24px;margin-top:20px;text-align:center;border:1px solid rgba(245,166,35,0.3);">
+    <div style="font-family:'ZCOOL KuaiLe',cursive;color:var(--gold);font-size:20px;margin-bottom:8px;">🎓 完成作业 = 正式毕业！</div>
+    <div style="color:#ccc;font-size:13px;line-height:1.7;">做完任何一个挑战，你就系gaaudim.com第一期<strong style="color:var(--gold);">「搞掂粤语毕业生」</strong>。<br>May姐在粤语世界等着你——<strong style="color:var(--gold);">搞掂！</strong></div>
+  </div>
+</div>
+
+<hr class="divider">
+
 <!-- CTA MEGA SECTION -->
 <div class="section">
   <div class="cta-mega">
