@@ -195,6 +195,36 @@ a{text-decoration:none;color:inherit}
 .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--ink);color:#fff;padding:12px 24px;border-radius:10px;font-size:14px;font-weight:500;z-index:2000;opacity:0;transition:all .3s;pointer-events:none}
 .toast.show{transform:translateX(-50%) translateY(0);opacity:1}
 @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+/* 学习路径选择器 */
+.lp-section{max-width:900px;margin:0 auto;padding:0 24px 48px}
+.lp-section .section-header{text-align:center;margin-bottom:28px}
+.lp-section .section-header h2{font-family:'Noto Serif SC',serif;font-size:22px;font-weight:900}
+.lp-section .section-header p{font-size:14px;color:var(--muted);margin-top:4px}
+.lp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:700px){.lp-grid{grid-template-columns:1fr}}
+.lp-card{background:var(--card-bg);border:2px solid var(--border);border-radius:16px;padding:24px 20px;cursor:pointer;transition:all .3s ease;position:relative;overflow:hidden}
+.lp-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,.08);border-color:var(--gold)}
+.lp-card.active{border-color:var(--gold);box-shadow:0 8px 28px rgba(200,152,46,.15)}
+.lp-card-icon{font-size:36px;margin-bottom:12px;display:block}
+.lp-card-title{font-family:'Noto Serif SC',serif;font-size:17px;font-weight:900;margin-bottom:4px;color:var(--ink)}
+.lp-card-subtitle{font-size:13px;color:var(--gold);font-weight:700;margin-bottom:8px}
+.lp-card-desc{font-size:13px;color:var(--body);line-height:1.7;margin-bottom:12px}
+.lp-card-meta{display:flex;gap:12px;font-size:12px;color:var(--muted);margin-bottom:0}
+.lp-card-meta span{display:inline-flex;align-items:center;gap:4px}
+.lp-card-cta{display:inline-block;margin-top:14px;font-size:13px;font-weight:700;padding:8px 20px;border-radius:20px;background:var(--gold-soft);color:var(--gold);transition:all .2s}
+.lp-card:hover .lp-card-cta{background:var(--gold);color:#fff}
+/* 展开内容 */
+.lp-detail{max-height:0;overflow:hidden;transition:max-height .4s ease,opacity .3s ease;opacity:0}
+.lp-card.active .lp-detail{max-height:600px;opacity:1;margin-top:16px}
+.lp-detail-inner{padding-top:14px;border-top:1px solid var(--border)}
+.lp-detail-title{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:8px}
+.lp-detail-list{list-style:none;padding:0;margin:0 0 14px}
+.lp-detail-list li{font-size:13px;color:var(--body);line-height:1.8;padding-left:16px;position:relative}
+.lp-detail-list li::before{content:'▸';position:absolute;left:0;color:var(--gold);font-weight:700}
+.lp-detail-btn{display:inline-block;background:var(--gold);color:#fff;font-size:14px;font-weight:900;padding:10px 24px;border-radius:10px;transition:all .2s;text-decoration:none}
+.lp-detail-btn:hover{background:#b8882a;transform:translateY(-1px)}
+.lp-detail-sub{font-size:12px;color:var(--muted);margin-top:6px}
 </style>
 </head>
 <body>
@@ -202,7 +232,7 @@ a{text-decoration:none;color:inherit}
 <nav class="nav">
   <a href="#" class="nav-logo">搞掂<span> GaauDim</span></a>
   <div class="nav-links">
-    <a href="#path">学习路线</a>
+    <a href="#learning-path">学习路线</a>
     <a href="#wall">留言墙</a>
     <a href="#all">全部课程</a>
   </div>
@@ -214,6 +244,121 @@ a{text-decoration:none;color:inherit}
   <a class="hero-cta" href="MayJie_EP01_ChaChaan.html">跟May姐上第一课 · 免费试学 →</a>
   <p class="hero-proof">3,200+ 人正在跟May姐学粤语</p>
 </div>
+
+<!-- 学习路径选择器 -->
+<div class="lp-section" id="learning-path">
+  <div class="section-header">
+    <h2>🧭 找到适合你的学习路线</h2>
+    <p>点击选择你的情况，查看May姐为你定制的学习路径</p>
+  </div>
+  <div class="lp-grid">
+
+    <!-- 路径A：零基础 -->
+    <div class="lp-card" onclick="togglePath(this)">
+      <span class="lp-card-icon">🌱</span>
+      <div class="lp-card-title">从哑巴到开口</div>
+      <div class="lp-card-subtitle">零基础入门路径</div>
+      <div class="lp-card-desc">从完全唔识粤语，到喺香港自信开口——May姐带你用4-6周搞掂。</div>
+      <div class="lp-card-meta">
+        <span>📚 28课</span>
+        <span>⏱ 14-16小时</span>
+        <span>📅 4-6周</span>
+      </div>
+      <span class="lp-card-cta">了解详情 ↓</span>
+      <div class="lp-detail">
+        <div class="lp-detail-inner">
+          <div class="lp-detail-title">适合你如果...</div>
+          <ul class="lp-detail-list">
+            <li>你刚到香港（或即将到），粤语一个字都唔识</li>
+            <li>你有普通话底子但零粤语基础</li>
+            <li>你试过自学但冇方向</li>
+            <li>你需要快速上手生存粤语</li>
+          </ul>
+          <div class="lp-detail-title">学习旅程</div>
+          <ul class="lp-detail-list">
+            <li>第1周：发音破冰——茶餐厅点餐 + 粤拼入门</li>
+            <li>第2周：声调攻坚 + 词汇扩展</li>
+            <li>第3-4周：场景实战——地铁、便利店、的士、外卖</li>
+            <li>第5-6周：巩固提升——饮茶、超市、数字时间</li>
+          </ul>
+          <a class="lp-detail-btn" href="MayJie_EP01_ChaChaan.html">从茶餐厅开始我的粤语旅程 →</a>
+          <div class="lp-detail-sub">30分钟后你就能用粤语点餐了</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 路径B：有基础 -->
+    <div class="lp-card" onclick="togglePath(this)">
+      <span class="lp-card-icon">🚀</span>
+      <div class="lp-card-title">从能听懂到说得地道</div>
+      <div class="lp-card-subtitle">有基础提高路径</div>
+      <div class="lp-card-desc">你已经识少少粤语，但想讲得更地道、更有文化底蕴——从"能用"升级到"好用"。</div>
+      <div class="lp-card-meta">
+        <span>📚 34课</span>
+        <span>⏱ 16-18小时</span>
+        <span>📅 5-7周</span>
+      </div>
+      <span class="lp-card-cta">了解详情 ↓</span>
+      <div class="lp-detail">
+        <div class="lp-detail-inner">
+          <div class="lp-detail-title">适合你如果...</div>
+          <ul class="lp-detail-list">
+            <li>你在香港住咗1年以上，粤语一直"半桶水"</li>
+            <li>你能听懂七八成但不敢讲</li>
+            <li>你的粤语"太课本"，缺少地道表达</li>
+            <li>你想融入本地社交圈——KTV、饭局、office闲聊</li>
+          </ul>
+          <div class="lp-detail-title">学习旅程</div>
+          <ul class="lp-detail-list">
+            <li>第1-2周：社交场景突破——自我介绍、求职面试、打电话</li>
+            <li>第3-4周：生活深度场景——租房、投诉、银行、salon</li>
+            <li>第5-6周：文化融入——节日、潮语、俗语、粤语歌</li>
+            <li>第7周：综合运用——KTV实战、大结局回顾</li>
+          </ul>
+          <a class="lp-detail-btn" href="MayJie_EP06_DimSum.html" onclick="event.stopPropagation();if(localStorage.getItem('gd_unlocked')!=='true'){event.preventDefault();showPaywall('街头粤语EP06-EP30')}">开始我的粤语进阶之路 →</a>
+          <div class="lp-detail-sub">从"能用"到"地道"，May姐带你升级</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 路径C：兴趣驱动 -->
+    <div class="lp-card" onclick="togglePath(this)">
+      <span class="lp-card-icon">🎵</span>
+      <div class="lp-card-title">兴趣驱动</div>
+      <div class="lp-card-subtitle">灵活学习路径</div>
+      <div class="lp-card-desc">唔追求系统学习，跟住兴趣走——用粤语歌、港片、香港文化做你学粤语嘅动力。</div>
+      <div class="lp-card-meta">
+        <span>📚 4条子路线</span>
+        <span>⏱ 3-5.5小时/条</span>
+        <span>📅 自由节奏</span>
+      </div>
+      <span class="lp-card-cta">了解详情 ↓</span>
+      <div class="lp-detail">
+        <div class="lp-detail-inner">
+          <div class="lp-detail-title">适合你如果...</div>
+          <ul class="lp-detail-list">
+            <li>你系粤语歌/港片粉丝，想听得明歌词、唱得准</li>
+            <li>你对香港文化有兴趣，觉得粤语好有趣</li>
+            <li>你唔钟意被逼住按顺序学</li>
+            <li>你正在申请/已在香港留学</li>
+          </ul>
+          <div class="lp-detail-title">4条子路线任选</div>
+          <ul class="lp-detail-list">
+            <li>C1 港乐入门：8集 · 从唱歌到学粤语（2周）</li>
+            <li>C2 港乐深度：5集 · 词人的粤语宇宙（1周）</li>
+            <li>C3 文化探索：8集 · 吃喝玩乐学粤语（2周）</li>
+            <li>C4 留学专属：10集 · 港漂留学生全攻略（2-3周）</li>
+          </ul>
+          <a class="lp-detail-btn" href="MayJie_HKSongs_EP01_V3.html">从我感兴趣嘅课开始 →</a>
+          <div class="lp-detail-sub">唔使按顺序，跟住兴趣走就得</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<hr class="divider">
 
 <div class="path-section" id="path">
   <div class="section-header">
@@ -496,6 +641,8 @@ if(localStorage.getItem('gd_reward_sz05')){document.getElementById('reward-area'
 var _e='gaaudim2026'+'@'+'gmail.com';
 var fe=document.getElementById('footer-email');if(fe){fe.innerHTML='<a href="mai'+'lto:'+_e+'" style="color:var(--gold)">'+_e+'</a>'}
 var me=document.getElementById('modal-email');if(me){me.innerHTML='<a href="mai'+'lto:'+_e+'" style="color:var(--gold);font-weight:600">联系我们</a>'}
+// 学习路径选择器交互
+function togglePath(card){var wasActive=card.classList.contains('active');document.querySelectorAll('.lp-card').forEach(function(c){c.classList.remove('active')});if(!wasActive){card.classList.add('active');setTimeout(function(){card.scrollIntoView({behavior:'smooth',block:'nearest'})},100)}if(typeof gtag==='function')gtag('event','learning_path_click',{path_title:card.querySelector('.lp-card-title').textContent})}
 </script>
 </body>
 </html>
