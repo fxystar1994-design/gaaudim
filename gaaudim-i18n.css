@@ -1,0 +1,56 @@
+/* ===== i18n Language Switch Styles ===== */
+
+/* Default: show Chinese, hide English */
+.lang-en { display: none; }
+
+/* When body has 'en' class: show English, hide Chinese */
+body.en .lang-zh { display: none; }
+body.en .lang-en { display: block; }
+
+/* Inline elements need inline display */
+span.lang-en { display: none; }
+body.en span.lang-zh { display: none; }
+body.en span.lang-en { display: inline; }
+
+/* Preserve flex/grid display for elements that use them */
+div.may-say-text.lang-en { display: none; }
+body.en div.may-say-text.lang-zh { display: none; }
+body.en div.may-say-text.lang-en { display: block; }
+
+div.note-text.lang-en { display: none; }
+body.en div.note-text.lang-zh { display: none; }
+body.en div.note-text.lang-en { display: block; }
+
+div.teacher-speech.lang-en { display: none; }
+body.en div.teacher-speech.lang-zh { display: none; }
+body.en div.teacher-speech.lang-en { display: block; }
+
+div.ep-desc.lang-en { display: none; }
+body.en div.ep-desc.lang-zh { display: none; }
+body.en div.ep-desc.lang-en { display: block; }
+
+p.tagline.lang-en { display: none; }
+body.en p.tagline.lang-zh { display: none; }
+body.en p.tagline.lang-en { display: block; }
+
+/* ===== Language Toggle Button ===== */
+.gd-lang-btn {
+  background: transparent;
+  border: 1.5px solid rgba(245, 166, 35, 0.6);
+  color: #F5A623;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 14px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  font-family: 'Noto Sans SC', sans-serif;
+  flex-shrink: 0;
+  margin-left: auto;
+  letter-spacing: 0.5px;
+}
+.gd-lang-btn:hover {
+  background: rgba(245, 166, 35, 0.15);
+  border-color: #F5A623;
+}
