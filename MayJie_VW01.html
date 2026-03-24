@@ -246,6 +246,75 @@ body{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-se
 input,textarea{-webkit-user-select:text;-moz-user-select:text;-ms-user-select:text;user-select:text;}
 .gd-spacer{height:60px;}
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Course",
+      "@id": "https://gaaudim.com/MayJie_VW01.html#course",
+      "name": "生存25词 · VW01 · 高频词500",
+      "description": "高频粤语500词系列第1集：25个最基本的粤语生存词汇，包括「係」「唔」「冇」等核心用词，配有粤拼注音、例句和发音练习。",
+      "url": "https://gaaudim.com/MayJie_VW01.html",
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://gaaudim.com/#organization",
+        "name": "搞掂 GaauDim",
+        "url": "https://gaaudim.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://gaaudim.com/favicon.svg",
+          "width": 100,
+          "height": 100
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "gaaudim2026@gmail.com",
+          "contactType": "customer service",
+          "availableLanguage": ["Chinese", "Cantonese", "English"]
+        }
+      },
+      "inLanguage": "zh-HK",
+      "educationalLevel": "Beginner",
+      "teaches": "粤语高频词汇 VW01：係、唔、冇、嘅、咗、喺、好、嚟、㗎、都、嘢、呢、佢、啲、咁、去、食、得、畀、同、又、定、先、仲、返",
+      "numberOfCredits": 0,
+      "isAccessibleForFree": true,
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "online",
+        "courseWorkload": "PT1H",
+        "instructor": {
+          "@type": "Person",
+          "name": "May姐"
+        }
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://gaaudim.com/MayJie_VW01.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://gaaudim.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "高频词500",
+          "item": "https://gaaudim.com/MayJie_VW01.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "VW01 生存25词"
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head><body>
 <nav class="gd-nav">
 <div class="gd-nav-left">
@@ -5464,6 +5533,6 @@ setTimeout(drawPoster, 500);
 </div>
 <script>document.addEventListener("DOMContentLoaded",function(){var c=document.querySelector(".gd-bot-ep.on");if(c)c.scrollIntoView({inline:"center",block:"nearest"});})</script>
 <script>document.addEventListener("contextmenu",function(e){e.preventDefault()});document.addEventListener("copy",function(e){if(e.target.tagName!=="INPUT"&&e.target.tagName!=="TEXTAREA")e.preventDefault()});document.addEventListener("selectstart",function(e){if(e.target.tagName!=="INPUT"&&e.target.tagName!=="TEXTAREA")e.preventDefault()});</script>
-<script>(function(){var os=window.speak;if(os){window.speak=function(t,b){if(speechSynthesis.speaking){speechSynthesis.cancel();if(b)b.innerHTML=b.dataset.o||'🔊';return;}os(t,b);};}else{var v=null;function lv(){var vs=speechSynthesis.getVoices();v=vs.find(function(x){return x.lang==='zh-HK'})||vs.find(function(x){return x.lang==='zh-TW'})||vs.find(function(x){return x.lang.startsWith('zh')});}if(speechSynthesis.getVoices().length>0)lv();speechSynthesis.onvoiceschanged=lv;window.speak=function(t,b){if(speechSynthesis.speaking){speechSynthesis.cancel();if(b)b.innerHTML=b.dataset.o||'🔊';return;}if(!v)lv();var u=new SpeechSynthesisUtterance(t);u.lang=v?v.lang:'zh-HK';if(v)u.voice=v;u.rate=0.85;u.pitch=1.05;if(b){b.dataset.o=b.dataset.o||b.innerHTML;var oi=b.innerHTML;b.innerHTML='⏸';u.onend=function(){b.innerHTML=oi};u.onerror=function(){b.innerHTML=oi};}speechSynthesis.speak(u);};}})();</script>
+<script src="gaaudim-tts.js?v=1.0"></script>
 <script src="paywall-check.js?v=3.2"></script>
 </body></html>
