@@ -1,0 +1,42 @@
+{
+  "cards": [
+    {
+      "template": "cover",
+      "filename": "test_cover.png",
+      "page_num": "01/08",
+      "bg_start": "#FFF3E0",
+      "bg_end": "#FFE0B2",
+      "emoji_top": "🍜☕🫖",
+      "title": "茶餐厅8句\n救命粤语",
+      "subtitle": "学会再也不被阿姐凶",
+      "desc": "来香港第一课\n不是办八达通\n是学会在茶餐厅生存",
+      "emoji_deco": "🙋‍♀️👩‍🍳"
+    },
+    {
+      "template": "bubble",
+      "filename": "test_bubble.png",
+      "page_num": "02/08",
+      "bg_start": "#FFF8E1",
+      "bg_end": "#FFF3E0",
+      "bubbles": [
+        {"speaker": "you", "cantonese": "唔该，呢度有冇位？", "jyutping": "m4 goi1, ni1 dou6 jau5 mou5 wai2?", "mandarin": "请问，这里有没有位子？"},
+        {"speaker": "other", "cantonese": "坐呢边！食乜嘢呀？", "jyutping": "co5 ni1 bin1! sik6 mat1 je5 aa3?", "mandarin": "坐这边！吃什么？"}
+      ],
+      "tip_emoji": "💡",
+      "tip_text": "香港茶餐厅是搭台文化，不用等位直接找空位坐。"
+    },
+    {
+      "template": "cta",
+      "filename": "test_cta.png",
+      "page_num": "08/08",
+      "emoji_big": "🎉🍜✨",
+      "title": "恭喜你学会了\n茶餐厅生存8句！",
+      "review_items": [
+        "① 唔该 — 万能礼貌词",
+        "② 走糖/走冰/走辣 — 去掉不要",
+        "③ 同埋 — 还有/和"
+      ],
+      "cta_text": "评论区回「茶餐厅」获取完整学习卡片"
+    }
+  ]
+}
