@@ -1,0 +1,25 @@
+/* ===== Mobile Bug Fixes (2026-03-26) ===== */
+/* 修复课程页面在移动端的横向溢出问题 */
+/* 不改变视觉设计，仅修复overflow bug */
+
+/* 防止页面整体横向溢出 */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* 修复导航栏溢出 */
+.gd-nav-links {
+  overflow: hidden !important;
+}
+
+/* 确保底部EP导航栏正确滚动 */
+.gd-bot-scroll {
+  max-width: calc(100vw - 120px);
+}
+
+/* 确保底部栏不超出视口 */
+.gd-bot {
+  max-width: 100vw;
+  overflow: hidden;
+}
