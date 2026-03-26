@@ -1,0 +1,44 @@
+{
+  "MayJie_EP01_ChaChaan.html": [
+    {
+      "selector": ".gd-nav",
+      "note": "移动端响应式修复：box-sizing + flex shrink 替代 overflow-x:hidden",
+      "date": "2026-03-26"
+    }
+  ],
+  "MayJie_VW16.html": [
+    {
+      "selector": "head",
+      "note": "补充缺失的 </head> 标签 + 注入 mobile-fix CSS",
+      "date": "2026-03-25"
+    }
+  ],
+  "MayJie_VW17.html": [
+    {
+      "selector": "head",
+      "note": "补充缺失的 </head> 标签 + 注入 mobile-fix CSS",
+      "date": "2026-03-25"
+    }
+  ],
+  "MayJie_VW18.html": [
+    {
+      "selector": "head",
+      "note": "补充缺失的 </head> 标签 + 注入 mobile-fix CSS",
+      "date": "2026-03-25"
+    }
+  ],
+  "MayJie_VW19.html": [
+    {
+      "selector": "head",
+      "note": "补充缺失的 </head> 标签 + 注入 mobile-fix CSS",
+      "date": "2026-03-25"
+    }
+  ],
+  "MayJie_VW20.html": [
+    {
+      "selector": "head",
+      "note": "补充缺失的 </head> 标签 + 注入 mobile-fix CSS",
+      "date": "2026-03-25"
+    }
+  ]
+}
