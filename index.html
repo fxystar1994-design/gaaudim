@@ -72,7 +72,7 @@ a{text-decoration:none;color:inherit}
 .section-header p{font-size:14px;color:var(--muted);margin-top:4px}
 .path-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
 @media(max-width:700px){.path-steps{grid-template-columns:1fr}}
-.path-card{background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:24px 20px;text-align:center;transition:all .25s;cursor:pointer;position:relative;display:block}
+.path-card{background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:24px 20px;text-align:center;transition:all .25s;cursor:pointer;position:relative;display:flex;flex-direction:column}
 .path-card:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,0,0,.06)}
 .path-card.featured{border-color:var(--gold);box-shadow:0 4px 20px rgba(200,152,46,.12)}
 .path-card.featured::before{content:'⭐ 推荐起点';position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--gold);color:#fff;font-size:11px;font-weight:700;padding:2px 12px;border-radius:10px;white-space:nowrap}
@@ -80,7 +80,7 @@ a{text-decoration:none;color:inherit}
 .path-num.c1{background:var(--gold)}.path-num.c2{background:var(--accent)}.path-num.c3{background:var(--blue)}.path-num.c4{background:var(--red)}
 .path-card h4{font-size:15px;font-weight:900;margin-bottom:6px}
 .path-card .time-est{font-size:12px;color:var(--muted);margin-bottom:6px}
-.path-card p{font-size:13px;color:var(--body);line-height:1.6;margin-bottom:12px}
+.path-card p{font-size:13px;color:var(--body);line-height:1.6;margin-bottom:12px;flex:1}
 .path-btn{display:inline-block;font-size:13px;font-weight:700;padding:7px 18px;border-radius:20px;transition:all .2s}
 .path-btn.b1{background:var(--gold-soft);color:var(--gold)}.path-btn.b1:hover{background:var(--gold);color:#fff}
 .path-btn.b2{background:var(--accent-soft);color:var(--accent)}.path-btn.b2:hover{background:var(--accent);color:#fff}
@@ -313,7 +313,7 @@ a{text-decoration:none;color:inherit}
 
 <div class="hero">
   <h1>来香港前，<br>先学会<em>点一杯丝袜奶茶</em></h1>
-  <p class="hero-sub">May姐带你用<strong>30个真实场景</strong>，从零学会生存粤语。<br>茶餐厅、地铁、便利店、租房、求职——<strong>学完直接用。</strong></p>
+  <p class="hero-sub">用<strong>30个真实香港场景</strong>，从零学会生存粤语。<br>茶餐厅、地铁、便利店、租房、求职——<strong>学完直接用。</strong></p>
   <a class="hero-cta" href="MayJie_EP01_ChaChaan.html" onclick="if(typeof gtag==='function')gtag('event','homepage_hero_cta_click',{event_category:'engagement'})">免费开始第一课 · 茶餐厅生存战 →</a>
   <p class="hero-proof">已有 500+ 人正在学习 · 无需注册</p>
 </div>
@@ -363,7 +363,7 @@ a{text-decoration:none;color:inherit}
       <span class="path-btn b4" style="background:transparent;border:1px solid var(--border);color:var(--muted)">去深入</span>
     </a>
   </div>
-  <a class="path-mega-cta" href="MayJie_EP01_ChaChaan.html" onclick="if(typeof gtag==='function')gtag('event','homepage_hero_cta_click',{event_category:'engagement'})">🚀 我是零基础，直接从茶餐厅开始<span class="sub">30分钟后你就能用粤语点餐了</span></a>
+  <a class="path-mega-cta" href="MayJie_EP01_ChaChaan.html" onclick="if(typeof gtag==='function')gtag('event','homepage_hero_cta_click',{event_category:'engagement'})">零基础？30分钟后你就能用粤语点餐了 →</a>
 </div>
 
 <!-- 第三屏（新增）：为什么选择搞掂 -->

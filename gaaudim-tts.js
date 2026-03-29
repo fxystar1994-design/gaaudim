@@ -106,6 +106,7 @@
 
     audio.oncanplaythrough = function () {
       // MP3可以播放
+      console.log('🎵 Playing MP3:', mp3Url);
       if (btn) {
         btn.innerHTML = CONFIG.iconPlaying;
         btn.classList.remove('tts-loading');
@@ -124,6 +125,7 @@
 
     audio.onerror = function () {
       // MP3不存在或加载失败，fallback到Web Speech API
+      console.log('⚠️ MP3 load failed, fallback to Web Speech API:', mp3Url);
       currentAudio = null;
       if (btn) {
         btn.classList.remove('tts-loading');
@@ -135,6 +137,7 @@
     // 设置超时（3秒内加载不了就fallback）
     setTimeout(function () {
       if (audio.readyState < 3 && currentAudio === audio) {
+        console.log('⚠️ MP3 load timeout, fallback to Web Speech API:', mp3Url);
         audio.src = '';
         currentAudio = null;
         if (btn) {
