@@ -102,18 +102,13 @@ overlay.className = 'pw-overlay';
 overlay.innerHTML = '<div class="pw-box">'
   + '<h2 class="pw-hook">你离开口说粤语<br>只差这一步</h2>'
   + '<p class="pw-sub">EP01-05免费内容你已经体验过了<br>接下来的内容更精彩</p>'
-  // 权益卡片grid
-  + '<div class="pw-benefit-grid">'
-  + '<div class="pw-benefit-card" style="background:#FFF8EE"><div class="pw-benefit-num" style="color:#F5A623">30集</div><div class="pw-benefit-desc">场景对话 · 茶餐厅到求职</div></div>'
-  + '<div class="pw-benefit-card" style="background:#EEF7F8"><div class="pw-benefit-num" style="color:#2AABB3">10集</div><div class="pw-benefit-desc">粤拼系统课 · 九声六调</div></div>'
-  + '<div class="pw-benefit-card" style="background:#FFF8EE"><div class="pw-benefit-num" style="color:#F5A623">500词</div><div class="pw-benefit-desc">高频词速查 · 按场景分类</div></div>'
-  + '<div class="pw-benefit-card" style="background:#EEF7F8"><div class="pw-benefit-num" style="color:#2AABB3">10集</div><div class="pw-benefit-desc">留学工作指南 · 签证租房</div></div>'
-  + '</div>'
-  + '<div class="pw-benefit-extra">✅ 未来新增内容永久同步解锁 · 电脑手机随时学</div>'
-  // 社会认证
-  + '<div class="pw-social">'
-  + '<div class="pw-avatars"><span style="background:#FBF6ED">🧑</span><span style="background:#F0F9F5">👩</span><span style="background:#EBF3FB">🧑‍🎓</span><span style="background:#FDF2F0">👨‍💼</span></div>'
-  + '已有 200+ 人解锁了完整课程'
+  // 权益列表（紧凑版）
+  + '<div style="text-align:left;margin:16px 0;font-size:14px;color:#333;line-height:2.2">'
+  + '<div>✅ <strong>30集</strong>场景对话 · 茶餐厅到求职面试</div>'
+  + '<div>✅ <strong>10集</strong>粤拼系统课 · 九声六调</div>'
+  + '<div>✅ <strong>500词</strong>高频速查 · 按场景分类</div>'
+  + '<div>✅ <strong>10集</strong>留学工作指南 · 签证租房</div>'
+  + '<div>✅ 未来新增内容永久同步解锁</div>'
   + '</div>'
   // 三列价格对比
   + '<div class="pw-compare-row">'
