@@ -61,7 +61,8 @@ if (isUnlocked()) return;
 if (filename.indexOf('SZ05') !== -1 && localStorage.getItem('gd_reward_sz05') === '1') return;
 
 // ===== 未解锁 → 显示付费遮罩 =====
-var MIANBAODUO_URL = 'MIANBAODUO_URL'; // 面包多商品链接占位符
+var MIANBAODUO_URL = 'https://mbd.pub/o/bread/YZWclJZpag==';
+function _h(s){var h=0;for(var i=0;i<s.length;i++){h=((h<<5)-h)+s.charCodeAt(i);h=h&h}return h}
 if(typeof gtag === 'function') gtag('event', 'paywall_view', { page: filename });
 
 var overlay = document.createElement('div');
@@ -98,10 +99,7 @@ window.pwUnlock = function() {
   var code = document.getElementById('pw-code').value.trim().toUpperCase();
   var msg = document.getElementById('pw-msg');
   if (!code) { msg.style.color = '#C0392B'; msg.textContent = '请输入解锁码'; return; }
-  var valid = [
-    String.fromCharCode(71,68,55,88,57,75,69,50,77,70)
-  ];
-  if (valid.indexOf(code) !== -1) {
+  if (_h(code) === 602092493) {
     saveUnlockState();
     msg.style.color = '#1A7A5C'; msg.textContent = '✓ 解锁成功！正在刷新...';
     if(typeof gtag === 'function'){ gtag('event', 'unlock_attempt', { success: true }); gtag('event', 'unlock_success'); }
