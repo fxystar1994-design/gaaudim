@@ -152,7 +152,7 @@ input,textarea{-webkit-user-select:text;-moz-user-select:text;-ms-user-select:te
 .gd-spacer{height:60px;}
 </style>
 <link rel="stylesheet" href="gaaudim-mobile-fix.css">
-<script src="gaaudim-analytics.js?v=3.5"></script>
+<script src="gaaudim-analytics.js?v=3.5" defer></script>
 <meta property="og:image" content="https://gaaudim.com/images/og-card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -4880,7 +4880,7 @@ setTimeout(drawPoster,500);
 </div>
 <script>document.addEventListener("DOMContentLoaded",function(){var c=document.querySelector(".gd-bot-ep.on");if(c)c.scrollIntoView({inline:"center",block:"nearest"});})</script>
 <script>document.addEventListener("contextmenu",function(e){e.preventDefault()});document.addEventListener("copy",function(e){if(e.target.tagName!=="INPUT"&&e.target.tagName!=="TEXTAREA")e.preventDefault()});document.addEventListener("selectstart",function(e){if(e.target.tagName!=="INPUT"&&e.target.tagName!=="TEXTAREA")e.preventDefault()});</script>
-<script src="gaaudim-tts.js?v=3.5"></script>
+<script src="gaaudim-tts.js?v=3.5" defer></script>
 <script>(function(){var os=window.speak;if(os){window.speak=function(t,b){if(speechSynthesis.speaking){speechSynthesis.cancel();if(b)b.innerHTML=b.dataset.o||'🔊';return;}os(t,b);};}else{var v=null;function lv(){var vs=speechSynthesis.getVoices();v=vs.find(function(x){return x.lang==='zh-HK'})||vs.find(function(x){return x.lang==='zh-TW'})||vs.find(function(x){return x.lang.startsWith('zh')});}if(speechSynthesis.getVoices().length>0)lv();speechSynthesis.onvoiceschanged=lv;window.speak=function(t,b){if(speechSynthesis.speaking){speechSynthesis.cancel();if(b)b.innerHTML=b.dataset.o||'🔊';return;}if(!v)lv();var u=new SpeechSynthesisUtterance(t);u.lang=v?v.lang:'zh-HK';if(v)u.voice=v;u.rate=0.85;u.pitch=1.05;if(b){b.dataset.o=b.dataset.o||b.innerHTML;var oi=b.innerHTML;b.innerHTML='⏸';u.onend=function(){b.innerHTML=oi};u.onerror=function(){b.innerHTML=oi};}speechSynthesis.speak(u);};}})();</script>
-<script src="paywall-check.js?v=3.5"></script>
+<script src="paywall-check.js?v=3.5" defer></script>
 </body></html>

@@ -124,7 +124,7 @@ overlay.innerHTML = '<div class="pw-box">'
   + '<div class="pw-urgency">🔥 前100名早鸟价 · 随时恢复¥299</div>'
   + '</div>'
   // CTA
-  + '<button class="pw-cta" onclick="pwGoMianbaoduo()">立即解锁全站 ¥99 →</button>'
+  + '<a class="pw-cta" href="' + MIANBAODUO_URL + '" target="_blank" rel="noopener" onclick="if(typeof gtag===\'function\')gtag(\'event\',\'payment_redirect_mianbaoduo\',{page:\'' + filename + '\'});" style="text-decoration:none;display:block">立即解锁全站 ¥99 →</a>'
   + '<div class="pw-note">支持微信支付 / 支付宝 · 购买后获取解锁码</div>'
   + '<button class="pw-unlock-toggle" onclick="this.nextElementSibling.classList.toggle(\'show\')">已有解锁码？点击输入</button>'
   + '<div class="pw-unlock-area">'
@@ -141,10 +141,7 @@ document.body.style.overflow = 'hidden';
 
 // 点击遮罩外部不关闭（付费墙不允许关闭）
 
-window.pwGoMianbaoduo = function(){
-  if(typeof gtag === 'function') gtag('event', 'payment_redirect_mianbaoduo', { page: filename });
-  window.open(MIANBAODUO_URL, '_blank');
-};
+// pwGoMianbaoduo removed — CTA now uses <a target="_blank"> for better mobile compatibility
 
 window.pwUnlock = function() {
   var code = document.getElementById('pw-code').value.trim().toUpperCase();
