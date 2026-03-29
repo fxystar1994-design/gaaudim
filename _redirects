@@ -1,0 +1,26 @@
+# ===========================================
+# 搞掂 GaauDim — 重定向规则
+# 拦截常见机器人探测路径，返回410避免消耗带宽
+# ===========================================
+
+# WordPress 探测（最常见的机器人行为）
+/wp-admin/*       /robots.txt  410
+/wp-login.php     /robots.txt  410
+/wp-content/*     /robots.txt  410
+/wp-includes/*    /robots.txt  410
+/xmlrpc.php       /robots.txt  410
+
+# 环境文件探测
+/.env             /robots.txt  410
+/.git/*           /robots.txt  410
+/.htaccess        /robots.txt  410
+
+# PHP 探测
+/*.php            /robots.txt  410
+
+# 常见漏洞扫描路径
+/admin            /robots.txt  410
+/administrator    /robots.txt  410
+/phpmyadmin/*     /robots.txt  410
+/config/*         /robots.txt  410
+/backup/*         /robots.txt  410
