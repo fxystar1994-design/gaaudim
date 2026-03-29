@@ -1,15 +1,13 @@
 /**
- * gaaudim-tts.js — 搞掂粤语发音引擎 v1.0
+ * gaaudim-tts.js — 搞掂粤语发音引擎 v2.0
  *
- * 功能：
- * 1. 检测浏览器是否有粤语语音包 (zh-HK / zh-TW / zh-*)
- * 2. 有粤语语音 → 使用 Web Speech API 播放（优化参数）
- * 3. 无粤语语音 → 显示友好提示，引导安装语音包
- * 4. 提供统一的 speak(text, btn) 接口，替换各页面内联实现
- * 5. 为发音按钮提供增强样式（hover 高亮、播放状态切换）
+ * 变更 v2.0:
+ * - 优先加载预生成MP3 (/audio/{ep_id}/{line_id}.mp3)
+ * - MP3加载失败时 fallback 到 Web Speech API
+ * - 加载中显示 loading 状态
+ * - 保留原有 Web Speech API 全部功能
  *
- * 回退链：zh-HK → zh-TW → zh-* → 提示安装
- * 未来扩展：支持预生成音频 manifest + Audio API 播放
+ * 回退链：预生成MP3 → zh-HK → zh-TW → zh-* → 提示安装
  */
 (function () {
   'use strict';
@@ -18,24 +16,141 @@
   var CONFIG = {
     rate: 0.82,
     pitch: 1.05,
-    langPriority: ['zh-HK', 'zh-TW'],   // 首选语言
-    langPrefix: 'zh',                     // 回退前缀
-    iconDefault: '\uD83D\uDD0A',          // 🔊
-    iconPlaying: '\u23F8',                // ⏸
-    toastDuration: 4000
+    langPriority: ['zh-HK', 'zh-TW'],
+    langPrefix: 'zh',
+    iconDefault: '\uD83D\uDD0A',   // 🔊
+    iconPlaying: '\u23F8',          // ⏸
+    iconLoading: '\u23F3',          // ⏳
+    toastDuration: 4000,
+    audioBasePath: '/audio/'        // 预生成音频根路径
   };
 
   // ── 状态 ──
   var voice = null;
   var voiceReady = false;
-  var cantonesAvailable = null; // null = 未检测, true/false
+  var cantonesAvailable = null;
+  var currentAudio = null;  // 当前播放的 Audio 对象
+
+  // ── 从页面URL推断 episode ID ──
+  function getEpisodeId() {
+    var path = window.location.pathname;
+    var filename = path.split('/').pop().replace('.html', '').toLowerCase();
+
+    // MayJie_EP01_ChaChaan -> ep01
+    var epMatch = filename.match(/mayjie_ep(\d+)/i);
+    if (epMatch) return 'ep' + epMatch[1].padStart(2, '0');
+
+    // MayJie_JP01 -> jp01
+    var jpMatch = filename.match(/mayjie_jp(\d+)/i);
+    if (jpMatch) return 'jp' + jpMatch[1].padStart(2, '0');
+
+    // MayJie_VW01 -> vw01
+    var vwMatch = filename.match(/mayjie_vw(\d+)/i);
+    if (vwMatch) return 'vw' + vwMatch[1].padStart(2, '0');
+
+    // MayJie_SZ01 -> sz01
+    var szMatch = filename.match(/mayjie_sz(\d+)/i);
+    if (szMatch) return 'sz' + szMatch[1].padStart(2, '0');
+
+    // MayJie_HKSongs_EP01 -> hksongs_ep01
+    var hkMatch = filename.match(/mayjie_hksongs_ep(\d+)/i);
+    if (hkMatch) return 'hksongs_ep' + hkMatch[1].padStart(2, '0');
+
+    // JP/VW Extra
+    if (filename.match(/mayjie_jp_extra/i)) return 'jp_extra';
+    if (filename.match(/mayjie_vw_extra/i)) return 'vw_extra';
+
+    return null;
+  }
+
+  // ── 构建音频manifest（页面加载时扫描所有speak按钮）──
+  var audioManifest = {};  // text -> line_number mapping
+
+  function buildManifest() {
+    // 扫描页面中所有 onclick="speak('...')" 的按钮
+    var buttons = document.querySelectorAll('[onclick*="speak("]');
+    var lineNum = 1;
+    buttons.forEach(function (btn) {
+      var match = btn.getAttribute('onclick').match(/speak\s*\(\s*['"]([^'"]+)['"]/);
+      if (match) {
+        var text = match[1];
+        if (!audioManifest[text]) {
+          audioManifest[text] = String(lineNum).padStart(2, '0');
+          lineNum++;
+        }
+      }
+    });
+  }
+
+  // ── 尝试播放预生成MP3 ──
+  function tryPlayMP3(text, btn, onFail) {
+    var epId = getEpisodeId();
+    var lineId = audioManifest[text];
+
+    if (!epId || !lineId) {
+      onFail();
+      return;
+    }
+
+    var mp3Url = CONFIG.audioBasePath + epId + '/' + epId + '_' + lineId + '.mp3';
+
+    // 设置loading状态
+    if (btn) {
+      if (!btn.dataset.originalIcon) btn.dataset.originalIcon = btn.innerHTML;
+      btn.innerHTML = CONFIG.iconLoading;
+      btn.classList.add('tts-loading');
+    }
+
+    var audio = new Audio(mp3Url);
+    currentAudio = audio;
+
+    audio.oncanplaythrough = function () {
+      // MP3可以播放
+      if (btn) {
+        btn.innerHTML = CONFIG.iconPlaying;
+        btn.classList.remove('tts-loading');
+        btn.classList.add('tts-playing');
+      }
+      audio.play();
+    };
+
+    audio.onended = function () {
+      currentAudio = null;
+      if (btn) {
+        btn.innerHTML = btn.dataset.originalIcon || CONFIG.iconDefault;
+        btn.classList.remove('tts-playing');
+      }
+    };
+
+    audio.onerror = function () {
+      // MP3不存在或加载失败，fallback到Web Speech API
+      currentAudio = null;
+      if (btn) {
+        btn.classList.remove('tts-loading');
+        btn.innerHTML = btn.dataset.originalIcon || CONFIG.iconDefault;
+      }
+      onFail();
+    };
+
+    // 设置超时（3秒内加载不了就fallback）
+    setTimeout(function () {
+      if (audio.readyState < 3 && currentAudio === audio) {
+        audio.src = '';
+        currentAudio = null;
+        if (btn) {
+          btn.classList.remove('tts-loading');
+          btn.innerHTML = btn.dataset.originalIcon || CONFIG.iconDefault;
+        }
+        onFail();
+      }
+    }, 3000);
+  }
 
   // ── 语音检测与加载 ──
   function loadVoice() {
     var vs = speechSynthesis.getVoices();
     if (!vs || vs.length === 0) return;
 
-    // 按优先级查找粤语声音
     for (var i = 0; i < CONFIG.langPriority.length; i++) {
       var found = vs.filter(function (v) { return v.lang === CONFIG.langPriority[i]; });
       if (found.length > 0) {
@@ -46,7 +161,6 @@
       }
     }
 
-    // 回退到任意中文声音
     var zhVoice = vs.filter(function (v) { return v.lang.indexOf(CONFIG.langPrefix) === 0; });
     if (zhVoice.length > 0) {
       voice = zhVoice[0];
@@ -55,12 +169,10 @@
       return;
     }
 
-    // 无任何中文声音
     voiceReady = true;
     cantonesAvailable = false;
   }
 
-  // 浏览器异步加载 voices
   if (typeof speechSynthesis !== 'undefined') {
     if (speechSynthesis.getVoices().length > 0) {
       loadVoice();
@@ -98,29 +210,18 @@
     } else if (/Linux/i.test(ua) && !/Android/i.test(ua)) {
       return '未检测到粤语语音包。请安装 espeak-ng 并添加 yue 语言包（sudo apt install espeak-ng）。';
     }
-    // macOS/iOS 通常自带 Sin-Ji 粤语声音
     return '未检测到粤语语音包，请检查系统语言设置是否已安装中文(粤语)语音。';
   }
 
-  // ── 核心发音函数 ──
-  function speak(text, btn) {
-    // 如果正在播放，则停止
-    if (speechSynthesis.speaking) {
-      speechSynthesis.cancel();
-      if (btn) btn.innerHTML = btn.dataset.originalIcon || CONFIG.iconDefault;
-      return;
-    }
-
-    // 懒加载 voice
+  // ── Web Speech API fallback ──
+  function speakWithWebSpeech(text, btn) {
     if (!voiceReady) loadVoice();
 
-    // 无声音 → 提示安装
     if (cantonesAvailable === false) {
       showTtsToast(getNoVoiceMessage());
       return;
     }
 
-    // 取消任何排队的语音
     speechSynthesis.cancel();
 
     var utterance = new SpeechSynthesisUtterance(text);
@@ -129,11 +230,8 @@
     utterance.rate = CONFIG.rate;
     utterance.pitch = CONFIG.pitch;
 
-    // 按钮状态管理
     if (btn) {
-      if (!btn.dataset.originalIcon) {
-        btn.dataset.originalIcon = btn.innerHTML;
-      }
+      if (!btn.dataset.originalIcon) btn.dataset.originalIcon = btn.innerHTML;
       var originalIcon = btn.innerHTML;
       btn.innerHTML = CONFIG.iconPlaying;
       btn.classList.add('tts-playing');
@@ -151,13 +249,42 @@
     speechSynthesis.speak(utterance);
   }
 
+  // ── 核心发音函数（MP3优先 + Web Speech API fallback）──
+  function speak(text, btn) {
+    // 如果正在播放Audio，停止
+    if (currentAudio) {
+      currentAudio.pause();
+      currentAudio.src = '';
+      currentAudio = null;
+      if (btn) {
+        btn.innerHTML = btn.dataset.originalIcon || CONFIG.iconDefault;
+        btn.classList.remove('tts-playing', 'tts-loading');
+      }
+      return;
+    }
+
+    // 如果正在播放Web Speech，停止
+    if (speechSynthesis.speaking) {
+      speechSynthesis.cancel();
+      if (btn) {
+        btn.innerHTML = btn.dataset.originalIcon || CONFIG.iconDefault;
+        btn.classList.remove('tts-playing');
+      }
+      return;
+    }
+
+    // 尝试MP3，失败则fallback
+    tryPlayMP3(text, btn, function () {
+      speakWithWebSpeech(text, btn);
+    });
+  }
+
   // ── 注入发音按钮 CSS ──
   function injectTtsStyles() {
     if (document.getElementById('gaaudim-tts-styles')) return;
     var style = document.createElement('style');
     style.id = 'gaaudim-tts-styles';
     style.textContent =
-      /* 通用发音按钮 */
       '.gd-speak-btn{' +
         'display:inline-flex;align-items:center;justify-content:center;' +
         'width:30px;height:30px;border-radius:50%;border:1px solid rgba(0,210,190,.3);' +
@@ -174,11 +301,17 @@
         'background:rgba(0,210,190,.3);border-color:#00D2BE;' +
         'animation:gd-tts-pulse 1s ease-in-out infinite;' +
       '}' +
+      '.gd-speak-btn.tts-loading{' +
+        'background:rgba(0,210,190,.15);border-color:rgba(0,210,190,.4);' +
+        'animation:gd-tts-spin 1s linear infinite;' +
+      '}' +
       '@keyframes gd-tts-pulse{' +
         '0%,100%{box-shadow:0 0 0 0 rgba(0,210,190,.3)}' +
         '50%{box-shadow:0 0 0 6px rgba(0,210,190,0)}' +
       '}' +
-      /* 兼容已有的 wcard-speak / ex-speak / usage-speak */
+      '@keyframes gd-tts-spin{' +
+        '0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}' +
+      '}' +
       '.wcard-speak:hover,.ex-speak:hover,.usage-speak:hover{' +
         'background:rgba(0,210,190,.25)!important;' +
         'transform:scale(1.12);box-shadow:0 0 12px rgba(0,210,190,.3);' +
@@ -187,16 +320,30 @@
       '.wcard-speak.tts-playing,.ex-speak.tts-playing,.usage-speak.tts-playing{' +
         'animation:gd-tts-pulse 1s ease-in-out infinite;' +
       '}' +
-      /* Toast */
       '#gaaudim-tts-toast{pointer-events:none;}';
     document.head.appendChild(style);
   }
 
+  // ── 替换内联TTS状态提示 ──
+  function updateTtsBadge() {
+    var badge = document.getElementById('tts-badge');
+    if (badge) {
+      badge.textContent = '🎧 高清粤语发音已就绪';
+      badge.style.background = '#2DC653';
+    }
+  }
+
   // ── 初始化 ──
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', injectTtsStyles);
-  } else {
+  function init() {
     injectTtsStyles();
+    buildManifest();
+    updateTtsBadge();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
   }
 
   // ── 公开 API ──
@@ -204,7 +351,9 @@
     speak: speak,
     isCantonesAvailable: function () { return cantonesAvailable; },
     getVoice: function () { return voice; },
-    showToast: showTtsToast
+    showToast: showTtsToast,
+    getManifest: function () { return audioManifest; },
+    getEpisodeId: getEpisodeId
   };
 
   // 覆盖全局 speak 函数（兼容现有 onclick="speak(...)" 调用）

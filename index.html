@@ -294,6 +294,11 @@ a{text-decoration:none;color:inherit}
 }
 </script>
 <link rel="stylesheet" href="gaaudim-mobile-fix.css">
+<meta property="og:image" content="https://gaaudim.com/images/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://gaaudim.com/images/og-card.png">
 </head>
 <body>
 
@@ -334,28 +339,28 @@ a{text-decoration:none;color:inherit}
       <h4>生存粤语速成</h4>
       <div class="time-est">⏱ EP01-EP05 · 5课 · 最受欢迎</div>
       <p>茶餐厅、地铁、便利店、的士、外卖——落地就能用的5个场景。</p>
-      <span class="path-btn b1">⭐ 从这开始</span>
+      <span class="path-btn b1">免费试学 →</span>
     </a>
     <a class="path-card" href="MayJie_JP01.html" onclick="if(typeof gtag==='function')gtag('event','homepage_series_click',{series_name:'JP-jyutping'})">
       <div class="path-num c2">2</div>
       <h4>粤拼系统学习</h4>
       <div class="time-est">⏱ JP01-JP10 · 10课 · 打好基础</div>
       <p>有普通话底子，粤拼已经会60%。系统补完剩下的40%。</p>
-      <span class="path-btn b2">去学粤拼</span>
+      <span class="path-btn b2" style="background:transparent;border:1px solid var(--border);color:var(--muted)">去学粤拼</span>
     </a>
     <a class="path-card" href="MayJie_SZ01.html" onclick="if(typeof gtag==='function')gtag('event','homepage_series_click',{series_name:'SZ-study'})">
       <div class="path-num c3">3</div>
       <h4>留学港漂指南</h4>
       <div class="time-est">⏱ SZ01-SZ10 · 10课 · 实用必看</div>
       <p>选校、申请、签证、租房、求职——港漂全流程一站搞掂。</p>
-      <span class="path-btn b3">看指南</span>
+      <span class="path-btn b3" style="background:transparent;border:1px solid var(--border);color:var(--muted)">看指南</span>
     </a>
     <a class="path-card" href="MayJie_VW01.html" onclick="if(typeof gtag==='function')gtag('event','homepage_series_click',{series_name:'VW-vocab'})">
       <div class="path-num c4">4</div>
       <h4>高频词500 + 场景实战</h4>
       <div class="time-est">⏱ VW01-20 + EP06-30 · 50课</div>
       <p>500高频词覆盖日常85%对话 + 30个真实场景逐句拆解。</p>
-      <span class="path-btn b4">去深入</span>
+      <span class="path-btn b4" style="background:transparent;border:1px solid var(--border);color:var(--muted)">去深入</span>
     </a>
   </div>
   <a class="path-mega-cta" href="MayJie_EP01_ChaChaan.html" onclick="if(typeof gtag==='function')gtag('event','homepage_hero_cta_click',{event_category:'engagement'})">🚀 我是零基础，直接从茶餐厅开始<span class="sub">30分钟后你就能用粤语点餐了</span></a>
@@ -485,31 +490,46 @@ a{text-decoration:none;color:inherit}
   <div class="modal-box">
     <button class="modal-close" onclick="closePaywall()">✕</button>
 
-    <!-- Step 1: 价格+权益+付款按钮 -->
     <div id="pay-step1">
-      <div class="modal-icon">🔓</div>
-      <div class="modal-title">解锁完整课程</div>
-      <div class="modal-desc" id="modal-desc">解锁后永久查看全站所有指南。</div>
-      <div class="modal-pricing">
-        <div style="font-size:13px;color:var(--red);font-weight:900;margin-bottom:4px">🔥 限时早鸟 · 省 ¥200</div>
+      <h2 class="modal-title" style="font-size:22px;line-height:1.4">你离开口说粤语<br>只差这一步</h2>
+      <div class="modal-desc" id="modal-desc" style="margin-bottom:18px">EP01-05免费内容你已经体验过了，接下来的内容更精彩</div>
+
+      <div class="modal-features" style="margin-bottom:18px">
+        <div class="modal-feature"><span class="check">✓</span> 全部30集场景对话 · 从茶餐厅到求职面试</div>
+        <div class="modal-feature"><span class="check">✓</span> 10集粤拼系统课 · 九声六调彻底搞掂</div>
+        <div class="modal-feature"><span class="check">✓</span> 500高频词速查表 · 按场景分类</div>
+        <div class="modal-feature"><span class="check">✓</span> 10集香港留学/工作指南 · 签证租房一站式</div>
+        <div class="modal-feature"><span class="check">✓</span> 未来新增内容 · 永久同步解锁</div>
+      </div>
+
+      <div style="display:flex;align-items:center;justify-content:center;gap:8px;font-size:13px;color:var(--muted);margin-bottom:16px">
+        <span style="display:flex">
+          <span style="width:22px;height:22px;border-radius:50%;background:var(--gold-soft);display:flex;align-items:center;justify-content:center;font-size:10px">🧑</span>
+          <span style="width:22px;height:22px;border-radius:50%;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;font-size:10px;margin-left:-6px;border:2px solid #fff">👩</span>
+          <span style="width:22px;height:22px;border-radius:50%;background:var(--blue-soft);display:flex;align-items:center;justify-content:center;font-size:10px;margin-left:-6px;border:2px solid #fff">🧑‍🎓</span>
+        </span>
+        已有 200+ 人解锁了完整课程
+      </div>
+
+      <div class="modal-pricing" style="background:linear-gradient(135deg,var(--gold-soft),#FFF8E7)">
+        <div style="display:flex;justify-content:center;gap:16px;margin-bottom:6px">
+          <span style="font-size:12px;color:var(--muted);text-decoration:line-through">线下粤语班 ¥6,000+</span>
+          <span style="font-size:12px;color:var(--muted);text-decoration:line-through">1对1家教 ¥200/小时</span>
+        </div>
         <div><span class="modal-price-original">¥299</span><span class="modal-price">¥99</span></div>
-        <div style="display:inline-block;background:var(--red);color:#fff;font-size:12px;font-weight:900;padding:3px 10px;border-radius:4px;margin-top:6px">低至 3.3折 · 每篇仅 ¥1.2</div>
-        <div class="modal-price-note" style="margin-top:8px">前100名早鸟价 · 随时恢复原价</div>
+        <div class="modal-price-note" style="margin-top:4px">每篇仅 ¥1.2 · 一杯奶茶钱学会一个场景</div>
       </div>
-      <div class="modal-features">
-        <div class="modal-feature"><span class="check">✓</span> 全部5个系列85篇深度指南</div>
-        <div class="modal-feature"><span class="check">✓</span> 未来新增内容同步解锁</div>
-        <div class="modal-feature"><span class="check">✓</span> 电脑+手机随时查看</div>
-      </div>
-      <button class="modal-buy-btn" onclick="goMianbaoduo()">去面包多购买 ¥99 →</button>
-      <p style="font-size:12px;color:var(--muted);margin-top:8px;line-height:1.6">支持微信支付 / 支付宝<br>购买成功后会收到解锁码，回来输入即可</p>
+
+      <button class="modal-buy-btn" onclick="goMianbaoduo()" style="background:linear-gradient(135deg,#D4A24C,#C8982E);box-shadow:0 4px 16px rgba(200,152,46,.3);transition:all .25s">立即解锁全站 ¥99 →</button>
+      <p style="font-size:12px;color:var(--muted);margin-top:6px">支持微信支付 / 支付宝 · 购买后获取解锁码</p>
     </div>
 
-    <div class="modal-alt" style="margin-top:14px">企业批量采购？<span id="modal-email" style="color:var(--gold);font-weight:600;cursor:pointer"></span></div>
     <div class="unlock-section">
-      <p style="font-size:13px;color:var(--muted);margin-bottom:8px">已有解锁码？直接输入：</p>
-      <div class="unlock-row"><input class="unlock-input" type="text" id="unlock-code" placeholder="输入解锁码"><button class="unlock-btn" onclick="tryUnlock()">解锁</button></div>
-      <div class="unlock-msg" id="unlock-msg"></div>
+      <button onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block'" style="font-size:13px;color:var(--muted);cursor:pointer;border:none;background:none;font-family:inherit;margin-bottom:8px">已有解锁码？点击输入</button>
+      <div style="display:none">
+        <div class="unlock-row"><input class="unlock-input" type="text" id="unlock-code" placeholder="输入解锁码"><button class="unlock-btn" onclick="tryUnlock()">解锁</button></div>
+        <div class="unlock-msg" id="unlock-msg"></div>
+      </div>
     </div>
   </div>
 </div>
@@ -521,7 +541,7 @@ a{text-decoration:none;color:inherit}
 </div>
 
 <div class="toast" id="toast"></div>
-<script src="gaaudim-analytics.js?v=3.3"></script>
+<script src="gaaudim-analytics.js?v=3.4"></script>
 <script src="https://cdn.jsdelivr.net/npm/twikoo@1.7.3/dist/twikoo.all.min.js"></script>
 <script>
 var SEEDS=[

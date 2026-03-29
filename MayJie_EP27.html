@@ -222,7 +222,12 @@ input,textarea{-webkit-user-select:text;-moz-user-select:text;-ms-user-select:te
 .gd-spacer{height:60px;}
 </style>
 <link rel="stylesheet" href="gaaudim-mobile-fix.css">
-<script src="gaaudim-analytics.js?v=3.3"></script>
+<script src="gaaudim-analytics.js?v=3.4"></script>
+<meta property="og:image" content="https://gaaudim.com/images/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://gaaudim.com/images/og-card.png">
 </head>
 <body>
 <nav class="gd-nav">
@@ -1184,7 +1189,7 @@ function toggleLine(id){var d=document.getElementById(id+'-detail');var b=docume
 let quizScore=0;function ans(btn,result,qId,fbId,msg){var p=document.getElementById(qId);var opts=p.querySelectorAll('.q-opt');opts.forEach(o=>{o.disabled=true;o.style.pointerEvents='none';});var fb=document.getElementById(fbId);if(result){btn.classList.add('correct');fb.className='q-feedback ok';fb.textContent='✅ 啱晒！'+msg;quizScore++;}else{btn.classList.add('wrong');fb.className='q-feedback bad';fb.textContent='❌ 唔啱喎！'+msg;}document.getElementById('score-board').textContent='得分：'+quizScore+'/5';}
 let quizScore2=0;function ans2(btn,result,qId,fbId,msg){var p=document.getElementById(qId);var opts=p.querySelectorAll('.q-opt');opts.forEach(o=>{o.disabled=true;o.style.pointerEvents='none';});var fb=document.getElementById(fbId);if(result){btn.classList.add('correct');fb.className='q-feedback ok';fb.textContent='✅ 啱晒！'+msg;quizScore2++;}else{btn.classList.add('wrong');fb.className='q-feedback bad';fb.textContent='❌ 唔啱喎！'+msg;}document.getElementById('score-board-2').textContent='得分：'+quizScore2+'/4';}
 function toggleFloatTip(){var m=document.getElementById('float-msg');m.classList.toggle('show');}
-(function(){let ttsVoice=null;let ttsReady=false;function loadVoice(){var v=speechSynthesis.getVoices();ttsVoice=v.find(x=>x.lang==='zh-HK')||v.find(x=>x.lang==='zh-TW')||v.find(x=>x.lang.startsWith('zh'));ttsReady=true;updateBadge();}function updateBadge(){var b=document.getElementById('tts-badge');if(!b)return;if(ttsVoice){b.textContent='🔊 粤语发音已就绪（'+ttsVoice.lang+'）';b.style.background='#2DC653';}else{b.textContent='⚠️ 未检测到粤语语音包，请尝试 Chrome/Edge';b.style.background='#E84545';}}window.speak=function(text,btn){if(!ttsReady)loadVoice();speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(text);u.lang=ttsVoice?ttsVoice.lang:'zh-HK';if(ttsVoice)u.voice=ttsVoice;u.rate=0.85;u.pitch=1.05;if(btn){var orig=btn.innerHTML;btn.innerHTML='⏸';u.onend=()=>{btn.innerHTML=orig;};u.onerror=()=>{btn.innerHTML=orig;};}speechSynthesis.speak(u);};if(speechSynthesis.getVoices().length>0)loadVoice();speechSynthesis.onvoiceschanged=loadVoice;window.addEventListener('load',loadVoice);})();
+(function(){let ttsVoice=null;let ttsReady=false;function loadVoice(){var v=speechSynthesis.getVoices();ttsVoice=v.find(x=>x.lang==='zh-HK')||v.find(x=>x.lang==='zh-TW')||v.find(x=>x.lang.startsWith('zh'));ttsReady=true;updateBadge();}function updateBadge(){var b=document.getElementById('tts-badge');if(!b)return;if(ttsVoice){b.textContent='🎧 高清粤语发音已就绪';b.style.background='#2DC653';}else{b.textContent='⚠️ 未检测到粤语语音包，请尝试 Chrome/Edge';b.style.background='#E84545';}}window.speak=function(text,btn){if(!ttsReady)loadVoice();speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(text);u.lang=ttsVoice?ttsVoice.lang:'zh-HK';if(ttsVoice)u.voice=ttsVoice;u.rate=0.85;u.pitch=1.05;if(btn){var orig=btn.innerHTML;btn.innerHTML='⏸';u.onend=()=>{btn.innerHTML=orig;};u.onerror=()=>{btn.innerHTML=orig;};}speechSynthesis.speak(u);};if(speechSynthesis.getVoices().length>0)loadVoice();speechSynthesis.onvoiceschanged=loadVoice;window.addEventListener('load',loadVoice);})();
 </script>
 
 <a href="MayJie_EP28.html" class="gd-next"><h4>下一集 → EP28 家务日常</h4><p>点击继续学习</p></a>
@@ -1229,8 +1234,8 @@ function toggleFloatTip(){var m=document.getElementById('float-msg');m.classList
 </div>
 <script>document.addEventListener("DOMContentLoaded",function(){var c=document.querySelector(".gd-bot-ep.on");if(c)c.scrollIntoView({inline:"center",block:"nearest"});})</script>
 <script>document.addEventListener("contextmenu",function(e){e.preventDefault()});document.addEventListener("copy",function(e){if(e.target.tagName!=="INPUT"&&e.target.tagName!=="TEXTAREA")e.preventDefault()});document.addEventListener("selectstart",function(e){if(e.target.tagName!=="INPUT"&&e.target.tagName!=="TEXTAREA")e.preventDefault()});</script>
-<script src="gaaudim-tts.js?v=3.3"></script>
+<script src="gaaudim-tts.js?v=3.4"></script>
 <script>(function(){var os=window.speak;if(os){window.speak=function(t,b){if(speechSynthesis.speaking){speechSynthesis.cancel();if(b)b.innerHTML=b.dataset.o||'🔊';return;}os(t,b);};}else{var v=null;function lv(){var vs=speechSynthesis.getVoices();v=vs.find(function(x){return x.lang==='zh-HK'})||vs.find(function(x){return x.lang==='zh-TW'})||vs.find(function(x){return x.lang.startsWith('zh')});}if(speechSynthesis.getVoices().length>0)lv();speechSynthesis.onvoiceschanged=lv;window.speak=function(t,b){if(speechSynthesis.speaking){speechSynthesis.cancel();if(b)b.innerHTML=b.dataset.o||'🔊';return;}if(!v)lv();var u=new SpeechSynthesisUtterance(t);u.lang=v?v.lang:'zh-HK';if(v)u.voice=v;u.rate=0.85;u.pitch=1.05;if(b){b.dataset.o=b.dataset.o||b.innerHTML;var oi=b.innerHTML;b.innerHTML='⏸';u.onend=function(){b.innerHTML=oi};u.onerror=function(){b.innerHTML=oi};}speechSynthesis.speak(u);};}})();</script>
-<script src="paywall-check.js?v=3.3"></script>
+<script src="paywall-check.js?v=3.4"></script>
 </body>
 </html>

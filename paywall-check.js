@@ -1,7 +1,5 @@
-// paywall-check.js v3.3 — 2026-03-29
-// v3.3: 面包多支付集成 + GA4事件埋点
-// 逻辑：只有文件名包含以下付费关键词才上锁，其余全部放行
-// 特殊规则：SZ05如果已领取奖励（gd_reward_sz05），也放行
+// paywall-check.js v3.4 — 2026-03-29
+// v3.4: 情感化付费遮罩重设计 + 面包多集成 + GA4事件 + hash解锁
 (function(){
 
 // ===== 付费页面关键词（大写，用于匹配）=====
@@ -20,25 +18,16 @@ var PAID = [
   'HKSONGS_EP09','HKSONGS_EP10','HKSONGS_EP11','HKSONGS_EXTRA'
 ];
 
-// 获取当前文件名，转大写（Netlify会把URL转小写）
 var path = window.location.pathname;
 var filename = path.substring(path.lastIndexOf('/') + 1).toUpperCase();
-// 兜底：如果取不到文件名，直接放行
 if (!filename || filename === '' || filename === '/') return;
 
-// 检查是否付费页面
 var isPaid = false;
 for (var i = 0; i < PAID.length; i++) {
-  if (filename.indexOf(PAID[i]) !== -1) {
-    isPaid = true;
-    break;
-  }
+  if (filename.indexOf(PAID[i]) !== -1) { isPaid = true; break; }
 }
-
-// 不是付费页面 → 直接放行
 if (!isPaid) return;
 
-// ===== 解锁检查：Cookie + localStorage 双重 =====
 function isUnlocked() {
   if (localStorage.getItem('gd_unlocked') === 'true') return true;
   if (document.cookie.indexOf('gd_unlocked=true') !== -1) {
@@ -54,47 +43,90 @@ function saveUnlockState() {
   document.cookie = 'gd_unlocked=true;expires=' + d.toUTCString() + ';path=/;SameSite=Lax';
 }
 
-// 已解锁（全站付费） → 放行
 if (isUnlocked()) return;
-
-// ===== 特殊规则：SZ05奖励放行 =====
 if (filename.indexOf('SZ05') !== -1 && localStorage.getItem('gd_reward_sz05') === '1') return;
 
-// ===== 未解锁 → 显示付费遮罩 =====
+// ===== 付费遮罩 =====
 var MIANBAODUO_URL = 'https://mbd.pub/o/bread/YZWclJZpag==';
 function _h(s){var h=0;for(var i=0;i<s.length;i++){h=((h<<5)-h)+s.charCodeAt(i);h=h&h}return h}
 if(typeof gtag === 'function') gtag('event', 'paywall_view', { page: filename });
 
+// 注入样式
+var style = document.createElement('style');
+style.textContent = '.pw-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);z-index:99999;display:flex;align-items:center;justify-content:center;padding:16px;overflow-y:auto}'
++ '.pw-box{background:#fff;border-radius:20px;max-width:440px;width:100%;padding:32px 24px;text-align:center;animation:pwIn .35s ease-out;box-shadow:0 20px 60px rgba(0,0,0,.2);max-height:95vh;overflow-y:auto}'
++ '@keyframes pwIn{from{opacity:0;transform:scale(.93) translateY(16px)}to{opacity:1;transform:none}}'
++ '.pw-hook{font-family:"Noto Serif SC",serif;font-size:22px;font-weight:900;color:#111;line-height:1.4;margin-bottom:6px}'
++ '.pw-sub{font-size:14px;color:#777;line-height:1.7;margin-bottom:20px}'
++ '.pw-benefits{text-align:left;margin-bottom:18px}'
++ '.pw-benefit{display:flex;align-items:flex-start;gap:8px;font-size:14px;color:#444;padding:5px 0;line-height:1.6}'
++ '.pw-benefit .ck{color:#1A7A5C;font-weight:900;flex-shrink:0}'
++ '.pw-social{display:flex;align-items:center;justify-content:center;gap:8px;font-size:13px;color:#999;margin-bottom:18px}'
++ '.pw-avatars{display:flex}.pw-avatars span{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;margin-left:-6px;border:2px solid #fff}'
++ '.pw-pricing{background:linear-gradient(135deg,#FBF6ED,#FFF8E7);border-radius:14px;padding:18px;margin-bottom:18px}'
++ '.pw-compare{display:flex;justify-content:center;gap:16px;margin-bottom:8px}'
++ '.pw-compare span{font-size:12px;color:#999;text-decoration:line-through}'
++ '.pw-price-old{text-decoration:line-through;color:#999;font-size:16px;margin-right:8px}'
++ '.pw-price{font-family:"Noto Serif SC",serif;font-size:40px;font-weight:900;color:#C8982E}'
++ '.pw-per{font-size:13px;color:#888;margin-top:4px}'
++ '.pw-cta{display:block;width:100%;background:linear-gradient(135deg,#D4A24C,#C8982E);color:#fff;border:none;padding:15px;border-radius:12px;font-family:"Noto Sans SC",sans-serif;font-size:17px;font-weight:900;cursor:pointer;transition:all .25s;box-shadow:0 4px 16px rgba(200,152,46,.3);margin-bottom:6px}'
++ '.pw-cta:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 8px 28px rgba(200,152,46,.4)}'
++ '.pw-note{font-size:12px;color:#999;margin-bottom:16px}'
++ '.pw-unlock-toggle{font-size:13px;color:#999;cursor:pointer;border:none;background:none;font-family:inherit}'
++ '.pw-unlock-toggle:hover{color:#C8982E}'
++ '.pw-unlock-area{display:none;margin-top:14px;padding-top:14px;border-top:1px solid #E8E4DE}'
++ '.pw-unlock-area.show{display:block}'
++ '.pw-unlock-row{display:flex;gap:8px}'
++ '.pw-unlock-input{flex:1;padding:10px 14px;border:1px solid #E8E4DE;border-radius:8px;font-family:"Noto Sans SC",sans-serif;font-size:14px;outline:none;transition:border-color .2s}'
++ '.pw-unlock-input:focus{border-color:#C8982E}'
++ '.pw-unlock-btn{background:#111;color:#fff;border:none;padding:10px 18px;border-radius:8px;font-family:"Noto Sans SC",sans-serif;font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap}'
++ '.pw-back{display:block;font-size:13px;color:#bbb;margin-top:12px;text-decoration:none}'
++ '.pw-back:hover{color:#999}';
+document.head.appendChild(style);
+
 var overlay = document.createElement('div');
-overlay.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(250,250,248,0.98);z-index:99999;display:flex;align-items:center;justify-content:center;padding:24px';
-overlay.innerHTML = '<div style="max-width:420px;text-align:center;font-family:-apple-system,\'Noto Sans SC\',sans-serif">'
-  + '<div style="font-size:48px;margin-bottom:12px">🔒</div>'
-  + '<h2 style="font-size:22px;font-weight:900;margin-bottom:8px;color:#111">此内容需要解锁</h2>'
-  + '<p style="font-size:14px;color:#555;line-height:1.7;margin-bottom:20px">解锁全站85篇深度指南，一次购买永久使用。</p>'
-  + '<div style="background:#FBF6ED;border-radius:12px;padding:16px;margin-bottom:20px">'
-  + '<span style="text-decoration:line-through;color:#999;font-size:14px">¥299</span> '
-  + '<span style="font-size:32px;font-weight:900;color:#C8982E">¥99</span>'
-  + '<div style="font-size:12px;color:#999;margin-top:4px">限时早鸟价 · 每篇仅 ¥1.2</div></div>'
-  + '<button onclick="pwGoMianbaoduo()" style="display:block;width:100%;background:#C8982E;color:#fff;border:none;padding:14px;border-radius:10px;font-size:16px;font-weight:900;cursor:pointer;margin-bottom:6px">去面包多购买 ¥99 →</button>'
-  + '<p style="font-size:12px;color:#999;margin-bottom:16px">支持微信支付 / 支付宝 · 购买后获取解锁码</p>'
-  + '<a href="javascript:history.back()" style="display:block;font-size:13px;color:#999;margin-bottom:16px;text-decoration:none">← 返回上一页</a>'
-  + '<div style="padding-top:12px;border-top:1px solid #E8E4DE">'
-  + '<p style="font-size:13px;color:#999;margin-bottom:6px">已有解锁码？直接输入：</p>'
-  + '<div style="display:flex;gap:8px">'
-  + '<input type="text" id="pw-code" placeholder="输入解锁码" style="flex:1;padding:10px 14px;border:1px solid #E8E4DE;border-radius:8px;font-size:14px;outline:none">'
-  + '<button onclick="pwUnlock()" style="background:#111;color:#fff;border:none;padding:10px 18px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer">解锁</button></div>'
+overlay.className = 'pw-overlay';
+overlay.innerHTML = '<div class="pw-box">'
+  + '<h2 class="pw-hook">你离开口说粤语<br>只差这一步</h2>'
+  + '<p class="pw-sub">EP01-05免费内容你已经体验过了<br>接下来的内容更精彩</p>'
+  + '<div class="pw-benefits">'
+  + '<div class="pw-benefit"><span class="ck">✓</span>全部30集场景对话 · 从茶餐厅到求职面试</div>'
+  + '<div class="pw-benefit"><span class="ck">✓</span>10集粤拼系统课 · 九声六调彻底搞掂</div>'
+  + '<div class="pw-benefit"><span class="ck">✓</span>500高频词速查表 · 按场景分类</div>'
+  + '<div class="pw-benefit"><span class="ck">✓</span>10集香港留学/工作指南 · 签证租房一站式</div>'
+  + '<div class="pw-benefit"><span class="ck">✓</span>未来新增内容 · 永久同步解锁</div>'
+  + '</div>'
+  + '<div class="pw-social">'
+  + '<div class="pw-avatars"><span style="background:#FBF6ED">🧑</span><span style="background:#F0F9F5">👩</span><span style="background:#EBF3FB">🧑‍🎓</span><span style="background:#FDF2F0">👨‍💼</span></div>'
+  + '已有 200+ 人解锁了完整课程'
+  + '</div>'
+  + '<div class="pw-pricing">'
+  + '<div class="pw-compare"><span>线下粤语班 ¥6,000+</span><span>1对1家教 ¥200/小时</span></div>'
+  + '<div><span class="pw-price-old">¥299</span><span class="pw-price">¥99</span></div>'
+  + '<div class="pw-per">每篇仅 ¥1.2 · 一杯奶茶钱学会一个场景</div>'
+  + '</div>'
+  + '<button class="pw-cta" onclick="pwGoMianbaoduo()">立即解锁全站 ¥99 →</button>'
+  + '<p class="pw-note">支持微信支付 / 支付宝 · 购买后获取解锁码</p>'
+  + '<button class="pw-unlock-toggle" onclick="this.nextElementSibling.classList.toggle(\'show\')">已有解锁码？点击输入</button>'
+  + '<div class="pw-unlock-area">'
+  + '<div class="pw-unlock-row">'
+  + '<input type="text" id="pw-code" class="pw-unlock-input" placeholder="输入解锁码">'
+  + '<button onclick="pwUnlock()" class="pw-unlock-btn">解锁</button>'
+  + '</div>'
   + '<p id="pw-msg" style="font-size:12px;margin-top:6px;min-height:16px"></p>'
-  + '</div></div>';
+  + '</div>'
+  + '<a href="javascript:history.back()" class="pw-back">← 返回上一页</a>'
+  + '</div>';
 document.body.appendChild(overlay);
 document.body.style.overflow = 'hidden';
 
-// 面包多跳转
+// 点击遮罩外部不关闭（付费墙不允许关闭）
+
 window.pwGoMianbaoduo = function(){
   if(typeof gtag === 'function') gtag('event', 'payment_redirect_mianbaoduo', { page: filename });
   window.open(MIANBAODUO_URL, '_blank');
 };
 
-// 解锁函数
 window.pwUnlock = function() {
   var code = document.getElementById('pw-code').value.trim().toUpperCase();
   var msg = document.getElementById('pw-msg');
@@ -110,10 +142,7 @@ window.pwUnlock = function() {
   }
 };
 
-// 回车键触发解锁
 document.addEventListener('keydown', function(e) {
-  if (e.key === 'Enter' && document.getElementById('pw-code')) {
-    window.pwUnlock();
-  }
+  if (e.key === 'Enter' && document.getElementById('pw-code')) window.pwUnlock();
 });
 })();
