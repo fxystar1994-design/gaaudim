@@ -1,11 +1,10 @@
 /**
- * gaaudim-tts.js — 搞掂粤语发音引擎 v2.0
+ * gaaudim-tts.js — 搞掂粤语发音引擎 v2.1
  *
- * 变更 v2.0:
- * - 优先加载预生成MP3 (/audio/{ep_id}/{line_id}.mp3)
- * - MP3加载失败时 fallback 到 Web Speech API
- * - 加载中显示 loading 状态
- * - 保留原有 Web Speech API 全部功能
+ * 变更 v2.1:
+ * - 修复快速连点按钮导致音频冲突
+ * - 修复暂停时误触发 Web Speech API
+ * - 全局音频状态管理器，防止竞态
  *
  * 回退链：预生成MP3 → zh-HK → zh-TW → zh-* → 提示安装
  */
@@ -30,6 +29,8 @@
   var voiceReady = false;
   var cantonesAvailable = null;
   var currentAudio = null;  // 当前播放的 Audio 对象
+  var currentText = null;   // 当前正在播放的文本（用于判断同一按钮切换）
+  var isPlaying = false;    // 全局播放状态
 
   // ── 从页面URL推断 episode ID ──
   function getEpisodeId() {
@@ -82,6 +83,38 @@
     });
   }
 
+  // ── 停止所有正在播放的音频 ──
+  function stopAll() {
+    if (currentAudio) {
+      currentAudio.oncanplaythrough = null;
+      currentAudio.onended = null;
+      currentAudio.onerror = null;
+      currentAudio.pause();
+      currentAudio.src = '';
+      currentAudio = null;
+    }
+    if (typeof speechSynthesis !== 'undefined' && speechSynthesis.speaking) {
+      speechSynthesis.cancel();
+    }
+    isPlaying = false;
+    currentText = null;
+    // 重置所有按钮状态
+    document.querySelectorAll('.tts-playing, .tts-loading').forEach(function (el) {
+      el.classList.remove('tts-playing', 'tts-loading');
+      if (el.dataset.originalIcon) el.innerHTML = el.dataset.originalIcon;
+    });
+  }
+
+  // ── 根据文本找到对应的发音按钮 ──
+  function findButtonForText(text) {
+    var buttons = document.querySelectorAll('[onclick*="speak("]');
+    for (var i = 0; i < buttons.length; i++) {
+      var match = buttons[i].getAttribute('onclick').match(/speak\s*\(\s*['"]([^'"]+)['"]/);
+      if (match && match[1] === text) return buttons[i];
+    }
+    return null;
+  }
+
   // ── 尝试播放预生成MP3 ──
   function tryPlayMP3(text, btn, onFail) {
     var epId = getEpisodeId();
@@ -103,9 +136,12 @@
 
     var audio = new Audio(mp3Url);
     currentAudio = audio;
+    currentText = text;
+    isPlaying = true;
 
     audio.oncanplaythrough = function () {
-      // MP3可以播放
+      // 竞态保护：确认仍是当前请求
+      if (currentAudio !== audio) return;
       console.log('🎵 Playing MP3:', mp3Url);
       if (btn) {
         btn.innerHTML = CONFIG.iconPlaying;
@@ -116,7 +152,10 @@
     };
 
     audio.onended = function () {
+      if (currentAudio !== audio) return;
       currentAudio = null;
+      currentText = null;
+      isPlaying = false;
       if (btn) {
         btn.innerHTML = btn.dataset.originalIcon || CONFIG.iconDefault;
         btn.classList.remove('tts-playing');
@@ -124,7 +163,7 @@
     };
 
     audio.onerror = function () {
-      // MP3不存在或加载失败，fallback到Web Speech API
+      if (currentAudio !== audio) return;
       console.log('⚠️ MP3 load failed, fallback to Web Speech API:', mp3Url);
       currentAudio = null;
       if (btn) {
@@ -134,10 +173,12 @@
       onFail();
     };
 
-    // 设置超时（3秒内加载不了就fallback）
+    // 超时保护：3秒
     setTimeout(function () {
-      if (audio.readyState < 3 && currentAudio === audio) {
+      if (currentAudio === audio && audio.readyState < 3) {
         console.log('⚠️ MP3 load timeout, fallback to Web Speech API:', mp3Url);
+        audio.oncanplaythrough = null;
+        audio.onerror = null;
         audio.src = '';
         currentAudio = null;
         if (btn) {
@@ -221,6 +262,8 @@
     if (!voiceReady) loadVoice();
 
     if (cantonesAvailable === false) {
+      isPlaying = false;
+      currentText = null;
       showTtsToast(getNoVoiceMessage());
       return;
     }
@@ -233,47 +276,52 @@
     utterance.rate = CONFIG.rate;
     utterance.pitch = CONFIG.pitch;
 
+    currentText = text;
+    isPlaying = true;
+
     if (btn) {
       if (!btn.dataset.originalIcon) btn.dataset.originalIcon = btn.innerHTML;
-      var originalIcon = btn.innerHTML;
       btn.innerHTML = CONFIG.iconPlaying;
       btn.classList.add('tts-playing');
-
-      utterance.onend = function () {
-        btn.innerHTML = originalIcon;
-        btn.classList.remove('tts-playing');
-      };
-      utterance.onerror = function () {
-        btn.innerHTML = originalIcon;
-        btn.classList.remove('tts-playing');
-      };
     }
+
+    utterance.onend = function () {
+      isPlaying = false;
+      currentText = null;
+      if (btn) {
+        btn.innerHTML = btn.dataset.originalIcon || CONFIG.iconDefault;
+        btn.classList.remove('tts-playing');
+      }
+    };
+    utterance.onerror = function () {
+      isPlaying = false;
+      currentText = null;
+      if (btn) {
+        btn.innerHTML = btn.dataset.originalIcon || CONFIG.iconDefault;
+        btn.classList.remove('tts-playing');
+      }
+    };
 
     speechSynthesis.speak(utterance);
   }
 
   // ── 核心发音函数（MP3优先 + Web Speech API fallback）──
   function speak(text, btn) {
-    // 如果正在播放Audio，停止
-    if (currentAudio) {
-      currentAudio.pause();
-      currentAudio.src = '';
-      currentAudio = null;
-      if (btn) {
-        btn.innerHTML = btn.dataset.originalIcon || CONFIG.iconDefault;
-        btn.classList.remove('tts-playing', 'tts-loading');
-      }
+    // 如果没传btn，自动从DOM查找
+    if (!btn) btn = findButtonForText(text);
+
+    // 如果点击的是当前正在播放的同一句 → 暂停/停止
+    if (isPlaying && currentText === text) {
+      stopAll();
       return;
     }
 
-    // 如果正在播放Web Speech，停止
-    if (speechSynthesis.speaking) {
-      speechSynthesis.cancel();
-      if (btn) {
-        btn.innerHTML = btn.dataset.originalIcon || CONFIG.iconDefault;
-        btn.classList.remove('tts-playing');
-      }
-      return;
+    // 停止任何正在播放的音频（切换到新句子）
+    stopAll();
+
+    // 保存按钮原始图标
+    if (btn && !btn.dataset.originalIcon) {
+      btn.dataset.originalIcon = btn.innerHTML;
     }
 
     // 尝试MP3，失败则fallback
