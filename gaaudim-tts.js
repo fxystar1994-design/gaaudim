@@ -1,5 +1,9 @@
 /**
- * gaaudim-tts.js — 搞掂粤语发音引擎 v2.1
+ * gaaudim-tts.js — 搞掂粤语发音引擎 v2.2
+ *
+ * 变更 v2.2:
+ * - 修复移动端音频播放被浏览器拦截（audio.play()移到用户点击同步栈）
+ * - 使用play().then().catch()替代oncanplaythrough回调
  *
  * 变更 v2.1:
  * - 修复快速连点按钮导致音频冲突
@@ -139,17 +143,33 @@
     currentText = text;
     isPlaying = true;
 
-    audio.oncanplaythrough = function () {
-      // 竞态保护：确认仍是当前请求
-      if (currentAudio !== audio) return;
-      console.log('🎵 Playing MP3:', mp3Url);
-      if (btn) {
-        btn.innerHTML = CONFIG.iconPlaying;
-        btn.classList.remove('tts-loading');
-        btn.classList.add('tts-playing');
-      }
-      audio.play();
-    };
+    // 关键修复：在用户点击的同步调用栈中直接调用play()
+    // 移动端浏览器要求play()在用户手势的同步上下文中触发
+    // 浏览器会自动等待加载完再播放，不需要等oncanplaythrough
+    var playPromise = audio.play();
+
+    if (playPromise !== undefined) {
+      playPromise.then(function () {
+        // 播放成功（已加载并开始播放）
+        if (currentAudio !== audio) return;
+        console.log('🎵 Playing MP3:', mp3Url);
+        if (btn) {
+          btn.innerHTML = CONFIG.iconPlaying;
+          btn.classList.remove('tts-loading');
+          btn.classList.add('tts-playing');
+        }
+      }).catch(function (error) {
+        // 播放失败（404、网络错误或被浏览器拦截）
+        if (currentAudio !== audio) return;
+        console.log('⚠️ MP3 play failed, fallback:', error.message);
+        currentAudio = null;
+        if (btn) {
+          btn.classList.remove('tts-loading');
+          btn.innerHTML = btn.dataset.originalIcon || CONFIG.iconDefault;
+        }
+        onFail();
+      });
+    }
 
     audio.onended = function () {
       if (currentAudio !== audio) return;
@@ -161,33 +181,6 @@
         btn.classList.remove('tts-playing');
       }
     };
-
-    audio.onerror = function () {
-      if (currentAudio !== audio) return;
-      console.log('⚠️ MP3 load failed, fallback to Web Speech API:', mp3Url);
-      currentAudio = null;
-      if (btn) {
-        btn.classList.remove('tts-loading');
-        btn.innerHTML = btn.dataset.originalIcon || CONFIG.iconDefault;
-      }
-      onFail();
-    };
-
-    // 超时保护：3秒
-    setTimeout(function () {
-      if (currentAudio === audio && audio.readyState < 3) {
-        console.log('⚠️ MP3 load timeout, fallback to Web Speech API:', mp3Url);
-        audio.oncanplaythrough = null;
-        audio.onerror = null;
-        audio.src = '';
-        currentAudio = null;
-        if (btn) {
-          btn.classList.remove('tts-loading');
-          btn.innerHTML = btn.dataset.originalIcon || CONFIG.iconDefault;
-        }
-        onFail();
-      }
-    }, 3000);
   }
 
   // ── 语音检测与加载 ──
