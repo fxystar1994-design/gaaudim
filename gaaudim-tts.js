@@ -22,7 +22,7 @@
     iconPlaying: '\u23F8',          // ⏸
     iconLoading: '\u23F3',          // ⏳
     toastDuration: 4000,
-    audioBasePath: '/audio/'        // 预生成音频根路径
+    audioBasePath: (window.location.hostname.includes('github.io') ? '/gaaudim' : '') + '/audio/'
   };
 
   // ── 状态 ──
