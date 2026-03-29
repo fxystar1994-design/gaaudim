@@ -176,14 +176,27 @@ a{text-decoration:none;color:inherit}
 .modal-icon{font-size:48px;margin-bottom:12px}
 .modal-title{font-family:'Noto Serif SC',serif;font-size:22px;font-weight:900;margin-bottom:8px}
 .modal-desc{font-size:14px;color:var(--body);line-height:1.7;margin-bottom:20px}
-.modal-pricing{background:var(--gold-soft);border-radius:12px;padding:20px;margin-bottom:20px}
-.modal-price{font-family:'Noto Serif SC',serif;font-size:36px;font-weight:900;color:var(--gold)}
-.modal-price-note{font-size:13px;color:var(--muted);margin-top:4px}
-.modal-price-original{text-decoration:line-through;color:var(--muted);font-size:14px;margin-right:8px}
-.modal-features{text-align:left;margin-bottom:20px}
-.modal-feature{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--body);padding:5px 0}
-.modal-feature .check{color:var(--accent);font-weight:700}
-.modal-buy-btn{display:block;width:100%;background:var(--gold);color:#fff;border:none;padding:14px;border-radius:10px;font-family:'Noto Sans SC',sans-serif;font-size:16px;font-weight:900;cursor:pointer;transition:all .2s;margin-bottom:10px}.modal-buy-btn:hover{background:#b8882a}
+.modal-benefit-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.modal-benefit-card{border-radius:10px;padding:14px;text-align:center}
+.modal-benefit-num{font-size:28px;font-weight:900}
+.modal-benefit-desc{font-size:13px;color:#666;margin-top:4px}
+.modal-compare-row{display:flex;gap:10px;margin-bottom:16px}
+.modal-compare-item{flex:1;background:#f5f5f5;border-radius:8px;padding:12px 8px;text-align:center}
+.modal-compare-label{font-size:12px;color:#999}
+.modal-compare-price{font-size:20px;font-weight:900;color:#999;text-decoration:line-through;margin-top:4px}
+.modal-compare-note{font-size:11px;color:#bbb}
+.modal-compare-ours{flex:1;background:#FFF0E8;border:2px solid #E85D3A;border-radius:8px;padding:12px 8px;text-align:center}
+.modal-compare-ours .modal-compare-label{color:#E85D3A;font-weight:700}
+.modal-compare-ours .modal-compare-price{color:#E85D3A;text-decoration:none;font-size:28px}
+.modal-compare-ours .modal-compare-note{color:#E85D3A}
+.modal-price-area{text-align:center;margin-bottom:16px}
+.modal-price{font-family:'Noto Serif SC',serif;font-size:52px;font-weight:900;color:#E85D3A;margin-left:6px}
+.modal-price-note{font-size:13px;color:var(--muted);margin-top:6px}
+.modal-price-original{text-decoration:line-through;color:var(--muted);font-size:14px}
+.modal-early-tag{display:inline-block;background:#E85D3A;color:#fff;font-size:12px;font-weight:700;padding:3px 10px;border-radius:4px;vertical-align:middle}
+.modal-urgency{font-size:12px;color:#E85D3A;margin-top:8px;font-weight:700}
+.modal-buy-btn{display:block;width:100%;background:#E85D3A;color:#fff;border:none;padding:16px;border-radius:12px;font-family:'Noto Sans SC',sans-serif;font-size:18px;font-weight:900;cursor:pointer;transition:all .25s;margin-bottom:10px}.modal-buy-btn:hover{transform:translateY(-2px) scale(1.02);background:#D14E30}
+@media(max-width:480px){.modal-compare-row{flex-direction:column}.modal-compare-row>div{padding:10px}}
 .modal-alt{font-size:13px;color:var(--muted)}.modal-alt a{color:var(--gold);font-weight:600}
 .unlock-section{margin-top:16px;padding-top:16px;border-top:1px solid var(--border)}
 .unlock-row{display:flex;gap:8px}
@@ -494,13 +507,13 @@ a{text-decoration:none;color:inherit}
       <h2 class="modal-title" style="font-size:22px;line-height:1.4">你离开口说粤语<br>只差这一步</h2>
       <div class="modal-desc" id="modal-desc" style="margin-bottom:18px">EP01-05免费内容你已经体验过了，接下来的内容更精彩</div>
 
-      <div class="modal-features" style="margin-bottom:18px">
-        <div class="modal-feature"><span class="check">✓</span> 全部30集场景对话 · 从茶餐厅到求职面试</div>
-        <div class="modal-feature"><span class="check">✓</span> 10集粤拼系统课 · 九声六调彻底搞掂</div>
-        <div class="modal-feature"><span class="check">✓</span> 500高频词速查表 · 按场景分类</div>
-        <div class="modal-feature"><span class="check">✓</span> 10集香港留学/工作指南 · 签证租房一站式</div>
-        <div class="modal-feature"><span class="check">✓</span> 未来新增内容 · 永久同步解锁</div>
+      <div class="modal-benefit-grid">
+        <div class="modal-benefit-card" style="background:#FFF8EE"><div class="modal-benefit-num" style="color:#F5A623">30集</div><div class="modal-benefit-desc">场景对话 · 茶餐厅到求职</div></div>
+        <div class="modal-benefit-card" style="background:#EEF7F8"><div class="modal-benefit-num" style="color:#2AABB3">10集</div><div class="modal-benefit-desc">粤拼系统课 · 九声六调</div></div>
+        <div class="modal-benefit-card" style="background:#FFF8EE"><div class="modal-benefit-num" style="color:#F5A623">500词</div><div class="modal-benefit-desc">高频词速查 · 按场景分类</div></div>
+        <div class="modal-benefit-card" style="background:#EEF7F8"><div class="modal-benefit-num" style="color:#2AABB3">10集</div><div class="modal-benefit-desc">留学工作指南 · 签证租房</div></div>
       </div>
+      <div style="text-align:center;font-size:13px;color:var(--muted);margin-bottom:16px">✅ 未来新增内容永久同步解锁 · 电脑手机随时学</div>
 
       <div style="display:flex;align-items:center;justify-content:center;gap:8px;font-size:13px;color:var(--muted);margin-bottom:16px">
         <span style="display:flex">
@@ -511,17 +524,21 @@ a{text-decoration:none;color:inherit}
         已有 200+ 人解锁了完整课程
       </div>
 
-      <div class="modal-pricing" style="background:linear-gradient(135deg,var(--gold-soft),#FFF8E7)">
-        <div style="display:flex;justify-content:center;gap:16px;margin-bottom:6px">
-          <span style="font-size:12px;color:var(--muted);text-decoration:line-through">线下粤语班 ¥6,000+</span>
-          <span style="font-size:12px;color:var(--muted);text-decoration:line-through">1对1家教 ¥200/小时</span>
-        </div>
-        <div><span class="modal-price-original">¥299</span><span class="modal-price">¥99</span></div>
-        <div class="modal-price-note" style="margin-top:4px">每篇仅 ¥1.2 · 一杯奶茶钱学会一个场景</div>
+      <div class="modal-compare-row">
+        <div class="modal-compare-item"><div class="modal-compare-label">线下粤语班</div><div class="modal-compare-price">¥6,000+</div><div class="modal-compare-note">3个月 / 每周2次</div></div>
+        <div class="modal-compare-item"><div class="modal-compare-label">1对1家教</div><div class="modal-compare-price">¥200/时</div><div class="modal-compare-note">30小时 = ¥6,000</div></div>
+        <div class="modal-compare-ours"><div class="modal-compare-label">搞掂全站</div><div class="modal-compare-price">¥99</div><div class="modal-compare-note">永久 / 85篇全解锁</div></div>
       </div>
 
-      <button class="modal-buy-btn" onclick="goMianbaoduo()" style="background:linear-gradient(135deg,#D4A24C,#C8982E);box-shadow:0 4px 16px rgba(200,152,46,.3);transition:all .25s">立即解锁全站 ¥99 →</button>
-      <p style="font-size:12px;color:var(--muted);margin-top:6px">支持微信支付 / 支付宝 · 购买后获取解锁码</p>
+      <div class="modal-price-area">
+        <div style="font-size:13px;color:var(--muted)">正式定价 <span class="modal-price-original">¥299</span></div>
+        <div style="margin-top:6px"><span class="modal-early-tag">早鸟价</span><span class="modal-price">¥99</span></div>
+        <div class="modal-price-note">每篇仅 ¥1.2 · 一杯奶茶钱学会一个场景</div>
+        <div class="modal-urgency">🔥 前100名早鸟价 · 随时恢复¥299</div>
+      </div>
+
+      <button class="modal-buy-btn" onclick="goMianbaoduo()">立即解锁全站 ¥99 →</button>
+      <p style="font-size:13px;color:var(--muted);margin-top:6px">支持微信支付 / 支付宝 · 购买后获取解锁码</p>
     </div>
 
     <div class="unlock-section">
@@ -541,7 +558,7 @@ a{text-decoration:none;color:inherit}
 </div>
 
 <div class="toast" id="toast"></div>
-<script src="gaaudim-analytics.js?v=3.4"></script>
+<script src="gaaudim-analytics.js?v=3.5"></script>
 <script src="https://cdn.jsdelivr.net/npm/twikoo@1.7.3/dist/twikoo.all.min.js"></script>
 <script>
 var SEEDS=[
