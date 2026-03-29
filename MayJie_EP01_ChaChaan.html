@@ -912,7 +912,7 @@ input,textarea{-webkit-user-select:text;-moz-user-select:text;-ms-user-select:te
             <span style="font-family:'Noto Serif SC',serif;font-size:18px;font-weight:700;color:#fff;">我要一個火腿蛋三文治，同埋一杯凍鴛鴦。</span>
             <button onclick="speak('我要一個火腿蛋三文治，同埋一杯凍鴛鴦。', this)" style="background:rgba(245,166,35,0.2);border:1.5px solid rgba(245,166,35,0.4);color:#F5A623;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;flex-shrink:0;">🔊</button>
           </div>
-          <div style="color:#00B4D8;font-size:12px;">ngo5 jiu3 jat1 go3 fo2 teoi2 daan2 saam1 man4 zi3, tung4 maai4 jat1 bui1 dung3 jyun1 joeng1.</div>
+          <div style="color:#00B4D8;font-size:12px;">ngo5 jiu3 jat1 go3 fo2 teoi2 daan2 saam1 man4 zi6, tung4 maai4 jat1 bui1 dung3 jyun1 joeng1.</div>
           <div style="color:#888;font-size:13px;margin-top:2px;">我要一个火腿蛋三明治，还有一杯冰鸳鸯。</div>
           <div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:6px;"><button onclick="speak('同埋', this)" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:6px;padding:4px 10px;cursor:pointer;color:#fff;font-size:12px;">同埋 <span style="color:#00B4D8">tung4maai4</span> 还有 🔊</button>
 <button onclick="speak('凍', this)" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:6px;padding:4px 10px;cursor:pointer;color:#fff;font-size:12px;">凍 <span style="color:#00B4D8">dung3</span> 冰的 🔊</button>
@@ -1050,7 +1050,7 @@ input,textarea{-webkit-user-select:text;-moz-user-select:text;-ms-user-select:te
         <div class="t-line-main">
           <div class="speaker-name">客人 · 阿明</div>
           <div class="t-cantonese">我要一個火腿蛋三文治，同埋一杯凍鴛鴦。</div>
-          <div class="t-jyutping">ngo5 jiu3 jat1 go3 fo2 teoi2 daan2 saam1 man4 zi3, tung4 maai4 jat1 bui1 dung3 jyun1 joeng1.</div>
+          <div class="t-jyutping">ngo5 jiu3 jat1 go3 fo2 teoi2 daan2 saam1 man4 zi6, tung4 maai4 jat1 bui1 dung3 jyun1 joeng1.</div>
           <div class="t-meaning">「我要一个火腿蛋三明治，还有一杯冰鸳鸯。」</div>
         </div>
         <button class="expand-btn">展开分析 ▾</button>
@@ -1624,8 +1624,9 @@ function toggleFloatTip() {
 </div>
 <script>document.addEventListener("DOMContentLoaded",function(){var c=document.querySelector(".gd-bot-ep.on");if(c)c.scrollIntoView({inline:"center",block:"nearest"});})</script>
 <script>document.addEventListener("contextmenu",function(e){e.preventDefault()});document.addEventListener("copy",function(e){if(e.target.tagName!=="INPUT"&&e.target.tagName!=="TEXTAREA")e.preventDefault()});document.addEventListener("selectstart",function(e){if(e.target.tagName!=="INPUT"&&e.target.tagName!=="TEXTAREA")e.preventDefault()});</script>
+<script src="gaaudim-tts.js?v=3.3"></script>
 <script>(function(){var os=window.speak;if(os){window.speak=function(t,b){if(speechSynthesis.speaking){speechSynthesis.cancel();if(b)b.innerHTML=b.dataset.o||'🔊';return;}os(t,b);};}else{var v=null;function lv(){var vs=speechSynthesis.getVoices();v=vs.find(function(x){return x.lang==='zh-HK'})||vs.find(function(x){return x.lang==='zh-TW'})||vs.find(function(x){return x.lang.startsWith('zh')});}if(speechSynthesis.getVoices().length>0)lv();speechSynthesis.onvoiceschanged=lv;window.speak=function(t,b){if(speechSynthesis.speaking){speechSynthesis.cancel();if(b)b.innerHTML=b.dataset.o||'🔊';return;}if(!v)lv();var u=new SpeechSynthesisUtterance(t);u.lang=v?v.lang:'zh-HK';if(v)u.voice=v;u.rate=0.85;u.pitch=1.05;if(b){b.dataset.o=b.dataset.o||b.innerHTML;var oi=b.innerHTML;b.innerHTML='⏸';u.onend=function(){b.innerHTML=oi};u.onerror=function(){b.innerHTML=oi};}speechSynthesis.speak(u);};}})();</script>
-<script src="paywall-check.js?v=3.2"></script>
-<script src="gaaudim-i18n.js"></script>
+<script src="paywall-check.js?v=3.3"></script>
+<script src="gaaudim-i18n.js?v=3.3"></script>
 </body>
 </html>
