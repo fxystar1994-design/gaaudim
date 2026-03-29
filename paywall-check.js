@@ -1,5 +1,5 @@
-// paywall-check.js v3.2 — 2026-03-21
-// 修复：Netlify Pretty URLs会把文件名转小写，需要toUpperCase后再匹配
+// paywall-check.js v3.3 — 2026-03-29
+// v3.3: 面包多支付集成 + GA4事件埋点
 // 逻辑：只有文件名包含以下付费关键词才上锁，其余全部放行
 // 特殊规则：SZ05如果已领取奖励（gd_reward_sz05），也放行
 (function(){
@@ -61,6 +61,9 @@ if (isUnlocked()) return;
 if (filename.indexOf('SZ05') !== -1 && localStorage.getItem('gd_reward_sz05') === '1') return;
 
 // ===== 未解锁 → 显示付费遮罩 =====
+var MIANBAODUO_URL = 'MIANBAODUO_URL'; // 面包多商品链接占位符
+if(typeof gtag === 'function') gtag('event', 'paywall_view', { page: filename });
+
 var overlay = document.createElement('div');
 overlay.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(250,250,248,0.98);z-index:99999;display:flex;align-items:center;justify-content:center;padding:24px';
 overlay.innerHTML = '<div style="max-width:420px;text-align:center;font-family:-apple-system,\'Noto Sans SC\',sans-serif">'
@@ -71,7 +74,8 @@ overlay.innerHTML = '<div style="max-width:420px;text-align:center;font-family:-
   + '<span style="text-decoration:line-through;color:#999;font-size:14px">¥299</span> '
   + '<span style="font-size:32px;font-weight:900;color:#C8982E">¥99</span>'
   + '<div style="font-size:12px;color:#999;margin-top:4px">限时早鸟价 · 每篇仅 ¥1.2</div></div>'
-  + '<a href="/" style="display:block;background:#C8982E;color:#fff;padding:14px;border-radius:10px;font-size:16px;font-weight:900;text-decoration:none;margin-bottom:10px">去首页解锁 →</a>'
+  + '<button onclick="pwGoMianbaoduo()" style="display:block;width:100%;background:#C8982E;color:#fff;border:none;padding:14px;border-radius:10px;font-size:16px;font-weight:900;cursor:pointer;margin-bottom:6px">去面包多购买 ¥99 →</button>'
+  + '<p style="font-size:12px;color:#999;margin-bottom:16px">支持微信支付 / 支付宝 · 购买后获取解锁码</p>'
   + '<a href="javascript:history.back()" style="display:block;font-size:13px;color:#999;margin-bottom:16px;text-decoration:none">← 返回上一页</a>'
   + '<div style="padding-top:12px;border-top:1px solid #E8E4DE">'
   + '<p style="font-size:13px;color:#999;margin-bottom:6px">已有解锁码？直接输入：</p>'
@@ -82,6 +86,12 @@ overlay.innerHTML = '<div style="max-width:420px;text-align:center;font-family:-
   + '</div></div>';
 document.body.appendChild(overlay);
 document.body.style.overflow = 'hidden';
+
+// 面包多跳转
+window.pwGoMianbaoduo = function(){
+  if(typeof gtag === 'function') gtag('event', 'payment_redirect_mianbaoduo', { page: filename });
+  window.open(MIANBAODUO_URL, '_blank');
+};
 
 // 解锁函数
 window.pwUnlock = function() {
@@ -94,9 +104,11 @@ window.pwUnlock = function() {
   if (valid.indexOf(code) !== -1) {
     saveUnlockState();
     msg.style.color = '#1A7A5C'; msg.textContent = '✓ 解锁成功！正在刷新...';
+    if(typeof gtag === 'function'){ gtag('event', 'unlock_attempt', { success: true }); gtag('event', 'unlock_success'); }
     setTimeout(function() { location.reload(); }, 800);
   } else {
     msg.style.color = '#C0392B'; msg.textContent = '解锁码无效，请检查后重试';
+    if(typeof gtag === 'function') gtag('event', 'unlock_attempt', { success: false });
   }
 };
 

@@ -307,48 +307,68 @@ a{text-decoration:none;color:inherit}
 </nav>
 
 <div class="hero">
-  <h1>别再用错方法学粤语了<br><em>有普通话底子，3周开口说</em></h1>
-  <p class="hero-sub">学粤语最大的坑不是难，是<strong>找不到对的路径</strong>。<br>30个真实场景+粤拼速成+500高频词，基于二语习得「可理解输入」理论，<br><strong>每一步都有明确产出，比报班省200+小时。</strong></p>
-  <a class="hero-cta" href="MayJie_EP01_ChaChaan.html">从第一课开始 · 免费 →</a>
-  <p class="hero-proof">已有 3,200+ 人跟着这套路径学粤语</p>
+  <h1>来香港前，<br>先学会<em>点一杯丝袜奶茶</em></h1>
+  <p class="hero-sub">May姐带你用<strong>30个真实场景</strong>，从零学会生存粤语。<br>茶餐厅、地铁、便利店、租房、求职——<strong>学完直接用。</strong></p>
+  <a class="hero-cta" href="MayJie_EP01_ChaChaan.html" onclick="if(typeof gtag==='function')gtag('event','homepage_hero_cta_click',{event_category:'engagement'})">免费开始第一课 · 茶餐厅生存战 →</a>
+  <p class="hero-proof">已有 500+ 人正在学习 · 无需注册</p>
 </div>
 
+<!-- 第二屏：学习路径（回访用户个性化 / 新用户推荐路径） -->
 <div class="path-section" id="path">
-  <div class="section-header">
-    <h2>🗺️ 零基础？跟着这条路走</h2>
-    <p>4步搞掂粤语入门，每步都有明确目标</p>
+  <div class="section-header" id="path-header-default">
+    <h2>🗺️ 推荐学习路径</h2>
+    <p>选一条适合你的路，每步都有明确目标</p>
   </div>
-  <div class="path-steps">
-    <a class="path-card featured" href="MayJie_EP01_ChaChaan.html">
+  <div class="section-header" id="path-header-return" style="display:none">
+    <h2>📖 继续学习</h2>
+    <p id="return-progress-text"></p>
+  </div>
+  <div id="return-user-panel" style="display:none;max-width:540px;margin:0 auto 24px;background:linear-gradient(135deg,#1a1a2e,#0f3460);border-radius:14px;padding:24px;color:#fff;text-align:center">
+    <div style="font-size:13px;color:rgba(255,255,255,.5);margin-bottom:8px" id="return-stats"></div>
+    <div style="background:rgba(255,255,255,.1);border-radius:8px;height:8px;margin-bottom:16px;overflow:hidden"><div id="return-progress-bar" style="height:100%;background:var(--gold);border-radius:8px;transition:width .6s"></div></div>
+    <a id="return-continue-btn" href="#" onclick="if(typeof gtag==='function')gtag('event','return_user_continue',{event_category:'engagement'})" style="display:inline-block;background:var(--gold);color:#fff;font-size:16px;font-weight:900;padding:14px 36px;border-radius:10px;transition:all .3s;text-decoration:none"></a>
+  </div>
+  <div class="path-steps" id="path-steps-default">
+    <a class="path-card featured" href="MayJie_EP01_ChaChaan.html" onclick="if(typeof gtag==='function')gtag('event','homepage_series_click',{series_name:'EP-street'})">
       <div class="path-num c1">1</div>
-      <h4>茶餐厅生存战</h4>
-      <div class="time-est">⏱ 约30分钟</div>
-      <p>最实用的第一课。学会点餐、结账、应对服务员，落地就能用。</p>
+      <h4>生存粤语速成</h4>
+      <div class="time-est">⏱ EP01-EP05 · 5课 · 最受欢迎</div>
+      <p>茶餐厅、地铁、便利店、的士、外卖——落地就能用的5个场景。</p>
       <span class="path-btn b1">⭐ 从这开始</span>
     </a>
-    <a class="path-card" href="MayJie_JP01.html">
+    <a class="path-card" href="MayJie_JP01.html" onclick="if(typeof gtag==='function')gtag('event','homepage_series_click',{series_name:'JP-jyutping'})">
       <div class="path-num c2">2</div>
-      <h4>粤拼速成</h4>
-      <div class="time-est">⏱ 约2小时</div>
-      <p>系统学发音。你会发现：有普通话底子，粤拼已经会60%。</p>
+      <h4>粤拼系统学习</h4>
+      <div class="time-est">⏱ JP01-JP10 · 10课 · 打好基础</div>
+      <p>有普通话底子，粤拼已经会60%。系统补完剩下的40%。</p>
       <span class="path-btn b2">去学粤拼</span>
     </a>
-    <a class="path-card" href="MayJie_VW01.html">
+    <a class="path-card" href="MayJie_SZ01.html" onclick="if(typeof gtag==='function')gtag('event','homepage_series_click',{series_name:'SZ-study'})">
       <div class="path-num c3">3</div>
-      <h4>高频词500</h4>
-      <div class="time-est">⏱ 约1周</div>
-      <p>背完500词，日常对话覆盖85%。每组25词，不贪多、记得住。</p>
-      <span class="path-btn b3">背高频词</span>
+      <h4>留学港漂指南</h4>
+      <div class="time-est">⏱ SZ01-SZ10 · 10课 · 实用必看</div>
+      <p>选校、申请、签证、租房、求职——港漂全流程一站搞掂。</p>
+      <span class="path-btn b3">看指南</span>
     </a>
-    <a class="path-card" href="MayJie_EP02_MTR.html">
+    <a class="path-card" href="MayJie_VW01.html" onclick="if(typeof gtag==='function')gtag('event','homepage_series_click',{series_name:'VW-vocab'})">
       <div class="path-num c4">4</div>
-      <h4>30个场景实战</h4>
-      <div class="time-est">⏱ 约3周</div>
-      <p>没有系统教材只能刷短视频？真实场景逐句拆解，学完即用。</p>
-      <span class="path-btn b4">去实战</span>
+      <h4>高频词500 + 场景实战</h4>
+      <div class="time-est">⏱ VW01-20 + EP06-30 · 50课</div>
+      <p>500高频词覆盖日常85%对话 + 30个真实场景逐句拆解。</p>
+      <span class="path-btn b4">去深入</span>
     </a>
   </div>
-  <a class="path-mega-cta" href="MayJie_EP01_ChaChaan.html">🚀 我是零基础，直接从茶餐厅开始<span class="sub">30分钟后你就能用粤语点餐了</span></a>
+  <a class="path-mega-cta" href="MayJie_EP01_ChaChaan.html" onclick="if(typeof gtag==='function')gtag('event','homepage_hero_cta_click',{event_category:'engagement'})">🚀 我是零基础，直接从茶餐厅开始<span class="sub">30分钟后你就能用粤语点餐了</span></a>
+</div>
+
+<!-- 第三屏（新增）：为什么选择搞掂 -->
+<div class="trust" style="padding-top:32px;padding-bottom:32px">
+  <h2>为什么选择搞掂</h2>
+  <div class="testimonials" style="margin-top:20px">
+    <div class="testi" style="text-align:center;padding:24px"><div style="font-size:32px;margin-bottom:10px">📖</div><div class="testi-text" style="font-style:normal;font-weight:700;font-size:15px;color:var(--ink)">85篇深度指南</div><div style="font-size:13px;color:var(--body);line-height:1.7;margin-top:6px">每篇8000-15000字，不是300字小红书攻略，是可以照着执行的操作手册。</div></div>
+    <div class="testi" style="text-align:center;padding:24px"><div style="font-size:32px;margin-bottom:10px">🎯</div><div class="testi-text" style="font-style:normal;font-weight:700;font-size:15px;color:var(--ink)">真实香港场景</div><div style="font-size:13px;color:var(--body);line-height:1.7;margin-top:6px">30个场景全是你在香港真正会遇到的——茶餐厅、地铁、银行、租房、面试。</div></div>
+    <div class="testi" style="text-align:center;padding:24px"><div style="font-size:32px;margin-bottom:10px">🗣️</div><div class="testi-text" style="font-style:normal;font-weight:700;font-size:15px;color:var(--ink)">粤拼逐字标注</div><div style="font-size:13px;color:var(--body);line-height:1.7;margin-top:6px">每句粤语都有粤拼标注+声调解析+普通话对照，看完就能开口说。</div></div>
+  </div>
 </div>
 
 <hr class="divider">
@@ -481,57 +501,8 @@ a{text-decoration:none;color:inherit}
         <div class="modal-feature"><span class="check">✓</span> 未来新增内容同步解锁</div>
         <div class="modal-feature"><span class="check">✓</span> 电脑+手机随时查看</div>
       </div>
-      <button class="modal-buy-btn" onclick="goStep(2)">🔵 支付宝付款 ¥99 →</button>
-    </div>
-
-    <!-- Step 2: 显示收款码 + 倒计时 -->
-    <div id="pay-step2" style="display:none">
-      <div style="text-align:center">
-        <p style="font-size:16px;font-weight:900;color:var(--ink);margin-bottom:14px">支付宝扫码付款</p>
-        <div style="display:inline-block;padding:8px;background:#fff;border-radius:12px;border:1px solid var(--border)">
-          <img src="qr_alipay.png" alt="支付宝收款码" style="width:180px;height:auto;display:block;border-radius:8px">
-        </div>
-        <p style="font-size:13px;color:#2C6EAF;font-weight:700;margin-top:10px">扫码支付 ¥99</p>
-        <div id="pay-timer-area" style="margin-top:18px">
-          <p style="font-size:13px;color:var(--muted)"><span id="pay-countdown" style="font-size:20px;font-weight:900;color:var(--ink)">60</span> 秒后刷新状态</p>
-        </div>
-        <div id="pay-done-area" style="display:none;margin-top:18px">
-          <div style="display:flex;gap:10px">
-            <button class="modal-buy-btn" onclick="goStep(3)" style="flex:1;background:var(--accent);margin:0">已完成付款</button>
-            <button class="modal-buy-btn" onclick="goStep(1)" style="flex:1;background:var(--muted);margin:0">付款遇到问题</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Step 3: 输入交易单号后6位 -->
-    <div id="pay-step3" style="display:none">
-      <div style="text-align:center">
-        <div style="font-size:32px;margin-bottom:10px">🧾</div>
-        <p style="font-size:16px;font-weight:900;color:var(--ink);margin-bottom:8px">输入交易单号后6位</p>
-        <p style="font-size:13px;color:var(--muted);margin-bottom:16px;line-height:1.6">打开支付宝 → 账单 → 找到这笔¥99的付款<br>→ 点进详情 → 订单号最后6位数字</p>
-        <input type="text" id="pay-verify" maxlength="6" placeholder="000000" style="width:200px;padding:14px;border:2px solid var(--border);border-radius:12px;font-size:24px;text-align:center;font-weight:900;letter-spacing:6px;font-family:monospace;outline:none;margin-bottom:16px;display:block;margin-left:auto;margin-right:auto">
-        <button class="modal-buy-btn" onclick="confirmPaid()">确认 · 获取解锁码</button>
-        <p id="verify-error" style="font-size:12px;color:var(--red);margin-top:8px;min-height:18px"></p>
-      </div>
-    </div>
-
-    <!-- Step 4: 验证中 -->
-    <div id="pay-step4" style="display:none;text-align:center;padding:30px 0">
-      <div style="font-size:36px;margin-bottom:14px;animation:spin 1s linear infinite">⏳</div>
-      <p style="font-size:16px;font-weight:900;color:var(--ink)">正在验证付款...</p>
-      <p style="font-size:13px;color:var(--muted);margin-top:6px">请稍等几秒</p>
-    </div>
-
-    <!-- Step 5: 显示解锁码 -->
-    <div id="pay-step5" style="display:none;text-align:center">
-      <div style="font-size:36px;margin-bottom:10px">🎉</div>
-      <p style="font-size:18px;font-weight:900;color:var(--ink);margin-bottom:14px">验证通过！你的解锁码：</p>
-      <div style="background:var(--gold-soft);border:2px solid var(--gold);border-radius:12px;padding:18px;margin-bottom:14px">
-        <span style="font-family:monospace;font-size:26px;font-weight:900;color:var(--gold);letter-spacing:3px">GD7X9KE2MF</span>
-      </div>
-      <button class="modal-buy-btn" onclick="copyCode()" style="background:var(--accent)">📋 复制解锁码</button>
-      <p style="font-size:13px;color:var(--body);margin-top:14px;line-height:1.6">在下方输入解锁码，即可永久解锁全站 ↓</p>
+      <button class="modal-buy-btn" onclick="goMianbaoduo()">去面包多购买 ¥99 →</button>
+      <p style="font-size:12px;color:var(--muted);margin-top:8px;line-height:1.6">支持微信支付 / 支付宝<br>购买成功后会收到解锁码，回来输入即可</p>
     </div>
 
     <div class="modal-alt" style="margin-top:14px">企业批量采购？<span id="modal-email" style="color:var(--gold);font-weight:600;cursor:pointer"></span></div>
@@ -550,6 +521,7 @@ a{text-decoration:none;color:inherit}
 </div>
 
 <div class="toast" id="toast"></div>
+<script src="gaaudim-analytics.js?v=3.3"></script>
 <script src="https://cdn.jsdelivr.net/npm/twikoo@1.7.3/dist/twikoo.all.min.js"></script>
 <script>
 var SEEDS=[
@@ -575,14 +547,11 @@ var _fillAttempts=0;var _fillTimer=setInterval(function(){_fillAttempts++;var el
 }else{document.getElementById('twikoo-comment').innerHTML='<p style="text-align:center;color:var(--muted);padding:40px 0">留言系统加载中...刷新页面重试</p>'}}
 
 var currentPaywallTarget='';
-function showPaywall(t){if(localStorage.getItem('gd_unlocked')==='true'||document.cookie.indexOf('gd_unlocked=true')!==-1){if(document.cookie.indexOf('gd_unlocked=true')!==-1)localStorage.setItem('gd_unlocked','true');showToast('已解锁全站内容！');return}currentPaywallTarget=t;document.getElementById('modal-desc').textContent='「'+t+'」属于完整版内容。解锁后永久查看全站所有指南。';goStep(1);document.getElementById('paywall-modal').classList.add('active');document.body.style.overflow='hidden';if(typeof gtag==='function')gtag('event','paywall_view',{content:t})}
-var payTimer=null;
-function goStep(n){for(var i=1;i<=5;i++){var el=document.getElementById('pay-step'+i);if(el)el.style.display=i===n?'block':'none'}if(n===2){startPayTimer()}else{if(payTimer){clearInterval(payTimer);payTimer=null}}}
-function startPayTimer(){var sec=60;document.getElementById('pay-timer-area').style.display='block';document.getElementById('pay-done-area').style.display='none';document.getElementById('pay-countdown').textContent=sec;payTimer=setInterval(function(){sec--;document.getElementById('pay-countdown').textContent=sec;if(sec<=0){clearInterval(payTimer);payTimer=null;document.getElementById('pay-timer-area').style.display='none';document.getElementById('pay-done-area').style.display='block'}},1000)}
+var MIANBAODUO_URL='MIANBAODUO_URL'; // 面包多商品链接占位符，等老板提供真实链接替换
+function showPaywall(t){if(localStorage.getItem('gd_unlocked')==='true'||document.cookie.indexOf('gd_unlocked=true')!==-1){if(document.cookie.indexOf('gd_unlocked=true')!==-1)localStorage.setItem('gd_unlocked','true');showToast('已解锁全站内容！');return}currentPaywallTarget=t;document.getElementById('modal-desc').textContent='「'+t+'」属于完整版内容。解锁后永久查看全站所有指南。';document.getElementById('pay-step1').style.display='block';document.getElementById('paywall-modal').classList.add('active');document.body.style.overflow='hidden';if(typeof gtag==='function')gtag('event','paywall_view',{content:t})}
+function goMianbaoduo(){if(typeof gtag==='function')gtag('event','payment_redirect_mianbaoduo',{content:currentPaywallTarget});window.open(MIANBAODUO_URL,'_blank')}
 function closePaywall(){document.getElementById('paywall-modal').classList.remove('active');document.body.style.overflow=''}
-function confirmPaid(){var v=document.getElementById('pay-verify').value.trim();if(v.length!==6||!/^\d{6}$/.test(v)){document.getElementById('verify-error').textContent='请输入6位数字的交易单号';return}document.getElementById('verify-error').textContent='';goStep(4);if(typeof gtag==='function')gtag('event','paywall_confirm_paid',{content:currentPaywallTarget,verify:v});setTimeout(function(){goStep(5)},3000)}
-function copyCode(){navigator.clipboard.writeText('GD7X9KE2MF').then(function(){showToast('已复制解锁码！在下方输入即可')}).catch(function(){showToast('请手动复制：GD7X9KE2MF')})}
-function tryUnlock(){var code=document.getElementById('unlock-code').value.trim(),msg=document.getElementById('unlock-msg');if(!code){msg.className='unlock-msg error';msg.textContent='请输入解锁码';return}var valid=['GD7X9KE2MF'];if(valid.indexOf(code.toUpperCase())!==-1){localStorage.setItem('gd_unlocked','true');var _d=new Date();_d.setTime(_d.getTime()+365*24*60*60*1000);document.cookie='gd_unlocked=true;expires='+_d.toUTCString()+';path=/;SameSite=Lax';msg.className='unlock-msg success';msg.textContent='✓ 解锁成功！刷新页面后所有内容可用';showToast('🎉 全站内容已解锁！');if(typeof gtag==='function')gtag('event','unlock_success');setTimeout(function(){closePaywall();location.reload()},1500)}else{msg.className='unlock-msg error';msg.textContent='解锁码无效，请检查后重试'}}
+function tryUnlock(){var code=document.getElementById('unlock-code').value.trim(),msg=document.getElementById('unlock-msg');if(!code){msg.className='unlock-msg error';msg.textContent='请输入解锁码';if(typeof gtag==='function')gtag('event','unlock_attempt',{success:false});return}var valid=[String.fromCharCode(71,68,55,88,57,75,69,50,77,70)];if(valid.indexOf(code.toUpperCase())!==-1){localStorage.setItem('gd_unlocked','true');var _d=new Date();_d.setTime(_d.getTime()+365*24*60*60*1000);document.cookie='gd_unlocked=true;expires='+_d.toUTCString()+';path=/;SameSite=Lax';msg.className='unlock-msg success';msg.textContent='✓ 解锁成功！刷新页面后所有内容可用';showToast('🎉 全站内容已解锁！');if(typeof gtag==='function'){gtag('event','unlock_attempt',{success:true});gtag('event','unlock_success')}setTimeout(function(){closePaywall();location.reload()},1500)}else{msg.className='unlock-msg error';msg.textContent='解锁码无效，请检查后重试';if(typeof gtag==='function')gtag('event','unlock_attempt',{success:false})}}
 function checkUnlockStatus(){if(localStorage.getItem('gd_unlocked')==='true'){var m={'EP06':'MayJie_EP06_DimSum.html','EP07':'MayJie_EP07_Bank.html','EP08':'MayJie_EP08_Barber.html','EP09':'MayJie_EP09_Renting.html','EP10-30':'MayJie_EP10_Interview.html','JP03':'MayJie_JP03.html','JP04':'MayJie_JP04.html','JP05':'MayJie_JP05.html','JP-X':'MayJie_JP_Extra_LazyTones__1_.html','VW04':'MayJie_VW04.html','VW05':'MayJie_VW05.html','VW06-20':'MayJie_VW06.html','SZ04':'MayJie_SZ04.html','SZ05':'MayJie_SZ05.html','SZ06':'MayJie_SZ06.html','SZ07-10':'MayJie_SZ07.html','SZ-X':'MayJie_SZ_Extra_TaoCi.html','HK03':'MayJie_HKSongs_EP03_V3.html','HK04':'MayJie_HKSongs_EP04_V2.html','HK05':'MayJie_HKSongs_EP05_V2.html','HK-X':'MayJie_HKSongs_Extra_V2.html'};document.querySelectorAll('.course-link.locked').forEach(function(el){el.classList.remove('locked');var ep=el.querySelector('.ep'),code=ep?ep.textContent.trim():'',lock=el.querySelector('.lock-icon');if(lock){lock.textContent='✓';lock.style.color='var(--accent)';lock.style.opacity='1'}if(m[code]){el.href=m[code];el.removeAttribute('onclick')}})}}
 document.getElementById('paywall-modal').addEventListener('click',function(e){if(e.target===this)closePaywall()});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closePaywall()});
