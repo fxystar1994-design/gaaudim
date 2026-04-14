@@ -14695,18 +14695,11 @@ function initTranslateEngine(){
   const REV_KEYS_WRITTEN = Object.keys(REV_MAP_WRITTEN).sort((a,b) => b.length - a.length);
   REV_KEYS_ALL = [...new Set([...REV_KEYS_SPOKEN, ...REV_KEYS_WRITTEN])].sort((a,b) => b.length - a.length);
   
-  // Build dict browser index
-  initDictIndex();
-  renderHistory();
+  // initDictIndex 和 renderHistory 在下一个script块定义，延迟到那里调用
 }
-// 数据已内联，立即初始化
-initTranslateEngine();
-document.getElementById('translateBtn').disabled=false;
-document.getElementById('translateBtn').textContent='翻译';
-document.getElementById('loadingBar').style.display='none';
 </script>
 
-<!-- ===== 翻译函数+UI逻辑（不依赖数据，延迟执行）===== -->
+<!-- ===== 翻译函数+UI逻辑 ===== -->
 <script>
 function translatePth2Cant(text, st) {
   let result = [], diffs = [], cultureHits = new Set(), i = 0;
@@ -14986,6 +14979,21 @@ function loadMoreSub(type){
   el.insertAdjacentHTML('beforeend',h);s.shown=end;
   document.getElementById(type+'More').style.display=s.shown<s.filtered.length?'':'none';
   document.getElementById(type+'Stats').textContent='显示 '+s.shown+' / '+s.filtered.length+' 条';
+}
+
+// ===== 统一初始化（所有函数已定义，安全调用）=====
+try {
+  initTranslateEngine();
+  initDictIndex();
+  renderHistory();
+  document.getElementById('translateBtn').disabled=false;
+  document.getElementById('translateBtn').textContent='翻译';
+  document.getElementById('loadingBar').style.display='none';
+} catch(e) {
+  console.error('初始化失败:', e);
+  document.getElementById('translateBtn').disabled=false;
+  document.getElementById('translateBtn').textContent='翻译';
+  document.getElementById('loadingBar').style.display='none';
 }
 </script>
 <script src="gaaudim-analytics.js?v=3.5" defer></script>
