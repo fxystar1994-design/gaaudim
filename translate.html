@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>普通话转粤语翻译器 | 粤拼标注+声调+文化注解 | 搞掂 gaaudim.com</title>
+<meta name="description" content="免费在线普通话粤语互译工具！输入普通话即时转粤语，附带粤拼声调标注、口语书面切换、7981条词典浏览、1000条英粤表达和粤语俚语百科。学粤语最实用的翻译器。">
+<meta name="keywords" content="粤语翻译器,普通话转粤语,粤语翻译在线,广东话翻译,粤拼转换,粤语词典,粤语俚语,学粤语,香港粤语,搞掂,gaaudim">
+<link rel="canonical" href="https://gaaudim.com/translate.html">
+<link rel="alternate" hreflang="zh-CN" href="https://gaaudim.com/translate.html">
+<link rel="alternate" hreflang="zh-HK" href="https://gaaudim.com/translate.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="粤语翻译器 — 普粤互译+粤拼标注 | 搞掂 gaaudim.com">
+<meta property="og:description" content="输入普通话即时转粤语，7981条词典+粤拼声调标注+文化注解。最好用的粤语学习翻译器。">
+<meta property="og:url" content="https://gaaudim.com/translate.html">
+<meta property="og:image" content="https://gaaudim.com/images/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="搞掂 GaauDim">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="粤语翻译器 — 普粤互译+粤拼标注 | 搞掂">
+<meta name="twitter:description" content="输入普通话即时转粤语，附带粤拼声调标注和文化注解。">
+<meta name="twitter:image" content="https://gaaudim.com/images/og-card.png">
+<meta name="robots" content="index, follow">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://gaaudim.com/translate.html#app",
+      "name": "粤语翻译器",
+      "description": "普通话粤语互译工具，附带粤拼标注、声调色彩标记、口语书面切换、文化注解。",
+      "url": "https://gaaudim.com/translate.html",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "Web",
+      "browserRequirements": "Requires JavaScript",
+      "softwareVersion": "2.0",
+      "inLanguage": ["zh-CN", "zh-HK", "en"],
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "CNY",
+        "description": "核心翻译功能免费，完整词典需解锁"
+      },
+      "featureList": [
+        "普粤双向翻译",
+        "粤拼声调色彩标注",
+        "口语/书面模式切换",
+        "7981条普粤对照词典",
+        "1000条英粤表达",
+        "1000条粤语俚语百科",
+        "文化差异注解",
+        "TTS粤语发音播放",
+        "翻译历史记录"
+      ],
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://gaaudim.com/#website"
+      },
+      "provider": {
+        "@type": "Organization",
+        "name": "搞掂 GaauDim",
+        "url": "https://gaaudim.com/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "首页", "item": "https://gaaudim.com/"},
+        {"@type": "ListItem", "position": 2, "name": "粤语工具", "item": "https://gaaudim.com/#tools"},
+        {"@type": "ListItem", "position": 3, "name": "粤语翻译器", "item": "https://gaaudim.com/translate.html"}
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "普通话和粤语有什么区别？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "粤语和普通话在词汇、语法、声调上都有显著差异。例如'吃饭'粤语说'食饭'，'漂亮'说'靓'，'找'说'揾'。粤语有9声6调，比普通话的4声更复杂。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "粤语翻译器怎么用？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "输入普通话文字，点击翻译即可得到粤语翻译结果。支持口语/书面模式切换，翻译结果附带粤拼声调标注和文化注解，帮助你理解普粤差异。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GQBZMQQEQ9"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-GQBZMQQEQ9');</script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans SC','PingFang SC',sans-serif;background:#FEFCF8;color:#2C2420;min-height:100vh;padding:0 16px}
+.container{max-width:520px;margin:0 auto;padding:20px 0 40px}
+.header{display:flex;align-items:center;padding:12px 0}
+.header a{color:#D4603A;text-decoration:none;font-size:14px;font-weight:500}
+.header a:hover{text-decoration:underline}
+.title-section{text-align:center;margin:24px 0}
+.title-section h1{font-size:28px;font-weight:700;color:#2C2420;margin-bottom:8px}
+.title-section p{color:#8C7E73;font-size:15px}
+.card{background:#FFF;border-radius:16px;box-shadow:0 2px 12px rgba(0,0,0,0.06);padding:20px;margin-bottom:16px}
+.input-area textarea{width:100%;min-height:100px;border:2px solid #E8E2DC;border-radius:12px;padding:14px;font-size:16px;font-family:inherit;resize:vertical;outline:none;transition:border-color .2s;background:#FEFCF8;color:#2C2420}
+.input-area textarea:focus{border-color:#D4603A}
+.input-area textarea::placeholder{color:#B5A99E}
+.controls{display:flex;align-items:center;justify-content:space-between;margin-top:12px;gap:12px}
+.direction-btn{display:flex;align-items:center;gap:8px;background:#F5F0EB;border:none;border-radius:10px;padding:10px 16px;cursor:pointer;font-size:14px;font-family:inherit;color:#2C2420;font-weight:500;transition:background .2s;min-height:44px}
+.direction-btn:hover{background:#EBE4DD}
+.direction-btn .arrow{color:#D4603A;font-weight:700}
+.style-toggle{display:flex;background:#F5F0EB;border-radius:10px;overflow:hidden}
+.style-toggle button{border:none;background:none;padding:10px 16px;cursor:pointer;font-size:13px;font-family:inherit;color:#8C7E73;font-weight:500;min-height:44px;transition:all .2s}
+.style-toggle button.active{background:#D4603A;color:#FFF;border-radius:10px}
+.translate-btn{width:100%;padding:14px;background:#D4603A;color:#FFF;border:none;border-radius:12px;font-size:17px;font-weight:700;font-family:inherit;cursor:pointer;margin-top:16px;min-height:48px;transition:background .2s,transform .1s}
+.translate-btn:hover{background:#C05030}
+.translate-btn:active{transform:scale(0.98)}
+.translate-btn:disabled{opacity:.5;cursor:not-allowed}
+.result-section{display:none}
+.result-section.show{display:block}
+.result-text{font-size:22px;line-height:2.4;margin-bottom:12px;letter-spacing:1px}
+.result-text ruby{ruby-position:over}
+.result-text rt{font-size:11px;font-weight:500;letter-spacing:0}
+.speak-btn{display:inline-flex;align-items:center;gap:6px;background:#F5F0EB;border:none;border-radius:8px;padding:8px 14px;cursor:pointer;font-size:14px;font-family:inherit;color:#2C2420;min-height:44px;transition:background .2s}
+.speak-btn:hover{background:#EBE4DD}
+.diff-section{margin-top:16px;padding-top:16px;border-top:1px solid #F0EBE5}
+.diff-title{font-size:13px;color:#8C7E73;margin-bottom:8px;font-weight:500}
+.diff-items{display:flex;flex-wrap:wrap;gap:8px}
+.diff-item{background:#FEF7F3;border:1px solid #F5D5C8;border-radius:8px;padding:6px 10px;font-size:13px;color:#2C2420}
+.diff-item .from{color:#8C7E73}
+.diff-item .arrow{color:#D4603A;margin:0 4px}
+.diff-item .to{color:#D4603A;font-weight:500}
+.diff-item .jp{color:#2B7A5F;font-size:11px;margin-left:4px}
+.culture-section{display:none;margin-top:16px}
+.culture-section.show{display:block}
+.culture-card{background:#FEF9E7;border-left:4px solid #F5A623;border-radius:0 12px 12px 0;padding:14px 16px}
+.culture-card-title{font-size:13px;font-weight:700;color:#B8860B;margin-bottom:8px}
+.culture-item{font-size:13px;color:#5D4E37;line-height:1.6;margin-bottom:8px}
+.culture-item:last-child{margin-bottom:0}
+.culture-keyword{font-weight:700;color:#B8860B}
+.history-section{margin-top:24px}
+.history-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.history-header h3{font-size:15px;color:#8C7E73;font-weight:500}
+.clear-history-btn{background:none;border:none;color:#D4603A;font-size:13px;cursor:pointer;font-family:inherit;padding:4px 8px}
+.clear-history-btn:hover{text-decoration:underline}
+.history-list{list-style:none}
+.history-item{padding:10px 14px;background:#FFF;border-radius:10px;margin-bottom:8px;cursor:pointer;transition:background .2s;border:1px solid #F0EBE5}
+.history-item:hover{background:#FEF7F3}
+.history-input{font-size:13px;color:#8C7E73;margin-bottom:4px}
+.history-output{font-size:15px;color:#2C2420}
+.history-meta{font-size:11px;color:#B5A99E;margin-top:4px}
+.history-empty{text-align:center;color:#B5A99E;font-size:14px;padding:20px}
+.tone1{color:#E11D48}.tone2{color:#F97316}.tone3{color:#2563EB}.tone4{color:#7C3AED}.tone5{color:#16A34A}.tone6{color:#64748B}
+.unmatched{color:#B5A99E}
+.input-wrapper{position:relative}
+.clear-input-btn{position:absolute;top:8px;right:8px;background:none;border:none;color:#B5A99E;font-size:20px;cursor:pointer;width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:6px;transition:color .2s,background .2s;z-index:1}
+.clear-input-btn:hover{color:#D4603A;background:#F5F0EB}
+.examples{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.example-pill{background:#F5F0EB;border:none;border-radius:8px;padding:6px 12px;font-size:12px;font-family:inherit;color:#D4603A;cursor:pointer;transition:background .2s}
+.example-pill:hover{background:#EBE4DD}
+.input-jyutping{margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid #F0EBE5}
+.input-jyutping-title{font-size:13px;color:#8C7E73;margin-bottom:6px;font-weight:500}
+.input-jyutping-text{font-size:18px;line-height:2.2}
+.input-jyutping-text ruby{ruby-position:over}
+.input-jyutping-text rt{font-size:10px;font-weight:500}
+.dict-banner{background:#FEF7F3;border:1px solid #F5D5C8;border-radius:12px;padding:14px 16px;margin:16px 0;cursor:pointer;font-size:15px;color:#D4603A;font-weight:500;text-align:center;transition:background .2s}
+.dict-banner:hover{background:#FDF0E8}
+.dict-banner .arrow{display:inline-block;transition:transform .2s;margin-left:4px}
+.dict-banner:hover .arrow{transform:translateX(2px)}
+.dict-panel{display:none;background:#FFF;border-radius:16px;box-shadow:0 2px 12px rgba(0,0,0,0.06);padding:20px;margin-bottom:16px}
+.dict-panel.open{display:block}
+.dict-panel-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.dict-close-btn{background:none;border:none;color:#B5A99E;font-size:22px;cursor:pointer;width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:6px;transition:color .2s}
+.dict-close-btn:hover{color:#D4603A}
+.dict-search{width:100%;border:2px solid #E8E2DC;border-radius:12px;padding:10px 14px;font-size:15px;font-family:inherit;outline:none;transition:border-color .2s;background:#FEFCF8;color:#2C2420;margin-bottom:10px;box-sizing:border-box}
+.dict-search:focus{border-color:#D4603A}
+.dict-search::placeholder{color:#B5A99E}
+.dict-cats{display:flex;flex-wrap:wrap;gap:6px;padding:6px 0}
+.dict-cat-pill{border:none;background:#F5F0EB;border-radius:8px;padding:6px 12px;font-size:12px;font-family:inherit;color:#8C7E73;cursor:pointer;white-space:nowrap;transition:all .2s;min-height:36px;display:inline-flex;align-items:center;gap:4px}
+.dict-cat-pill:hover{background:#EBE4DD}
+.dict-cat-pill.active{background:#D4603A;color:#FFF}
+.dict-cat-pill .ct{font-size:11px;opacity:.7}
+.dict-stats{font-size:13px;color:#8C7E73;padding:6px 0}
+.dict-list{max-height:60vh;overflow-y:auto}
+.dict-card{background:#FEFCF8;border:1px solid #F0EBE5;border-radius:10px;padding:10px 14px;margin-bottom:8px;cursor:pointer;transition:background .2s;position:relative}
+.dict-card:hover{background:#FEF7F3}
+.dict-card-top{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.dict-card-pth{font-size:13px;color:#8C7E73}
+.dict-card-arrow{color:#D4603A;font-size:12px}
+.dict-card-cant{font-size:17px;color:#2C2420;font-weight:500}
+.dict-card-jp{font-size:14px;line-height:2;margin-top:2px}
+.dict-card-jp ruby{ruby-position:over}
+.dict-card-jp rt{font-size:9px;font-weight:500}
+.dict-card-note{font-size:12px;color:#5D4E37;background:#FEF9E7;border-left:3px solid #F5A623;border-radius:0 6px 6px 0;padding:4px 8px;margin-top:6px;line-height:1.5}
+.dict-card-speak{position:absolute;top:10px;right:10px;background:none;border:none;cursor:pointer;font-size:14px;padding:4px;opacity:.5;transition:opacity .2s}
+.dict-card-speak:hover{opacity:1}
+.dict-more-btn{width:100%;padding:12px;background:#F5F0EB;color:#D4603A;border:none;border-radius:12px;font-size:14px;font-weight:500;font-family:inherit;cursor:pointer;margin-top:8px;min-height:44px;transition:background .2s}
+.dict-more-btn:hover{background:#EBE4DD}
+.dict-empty{text-align:center;color:#B5A99E;font-size:14px;padding:24px}
+.eng-banner{background:#F0F4FF;border:1px solid #C8D6F0;border-radius:12px;padding:12px 16px;margin-bottom:8px;cursor:pointer;font-size:14px;color:#3B6CB5;font-weight:500;text-align:center;transition:background .2s}
+.eng-banner:hover{background:#E4ECFA}
+.slang-banner{background:#F0F9F4;border:1px solid #B8E0CC;border-radius:12px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:14px;color:#2B7A5F;font-weight:500;text-align:center;transition:background .2s}
+.slang-banner:hover{background:#E0F3EA}
+.eng-panel,.slang-panel{display:none;background:#FFF;border-radius:16px;box-shadow:0 2px 12px rgba(0,0,0,0.06);padding:20px;margin-bottom:16px}
+.eng-panel.open,.slang-panel.open{display:block}
+.sub-card{background:#FEFCF8;border:1px solid #F0EBE5;border-radius:10px;padding:10px 14px;margin-bottom:8px;position:relative}
+.sub-card-eng{font-size:15px;color:#3B6CB5;font-weight:600}
+.sub-card-slang{font-size:16px;color:#2B7A5F;font-weight:600}
+.sub-card-cant{font-size:17px;color:#2C2420;font-weight:500;margin:4px 0}
+.sub-card-meaning{font-size:14px;color:#2C2420;margin:4px 0}
+.sub-card-example{font-size:13px;color:#8C7E73;font-style:italic;margin:4px 0}
+.sub-card-note{font-size:12px;color:#5D4E37;background:#FEF9E7;border-left:3px solid #F5A623;border-radius:0 6px 6px 0;padding:4px 8px;margin-top:6px;line-height:1.5}
+.sub-card-cat{display:inline-block;font-size:11px;color:#8C7E73;background:#F5F0EB;border-radius:4px;padding:2px 6px;margin-top:4px}
+.sub-card-speak{position:absolute;top:10px;right:10px;background:none;border:none;cursor:pointer;font-size:14px;padding:4px;opacity:.5;transition:opacity .2s}
+.sub-card-speak:hover{opacity:1}
+.sub-card-jp{font-size:13px;line-height:1.8}
+.sub-card-jp ruby{ruby-position:over}
+.sub-card-jp rt{font-size:9px;font-weight:500}
+/* Loading state */
+.loading-bar{height:3px;background:#F5F0EB;border-radius:2px;overflow:hidden;margin:12px 0}
+.loading-bar-inner{height:100%;background:#D4603A;border-radius:2px;width:0%;transition:width .3s}
+/* CTA banner */
+.cta-banner{background:linear-gradient(135deg,#1C1C2E,#2a2a4e);border-radius:16px;padding:24px;margin-top:24px;text-align:center}
+.cta-banner h3{color:#F5A623;font-size:18px;margin-bottom:8px}
+.cta-banner p{color:rgba(255,255,255,.6);font-size:13px;margin-bottom:16px;line-height:1.6}
+.cta-banner a{display:inline-block;background:#F5A623;color:#1C1C2E;font-weight:700;padding:12px 28px;border-radius:10px;font-size:15px;text-decoration:none;transition:transform .1s}
+.cta-banner a:hover{transform:scale(1.02)}
+</style>
+<link rel="stylesheet" href="gaaudim-mobile-fix.css">
+</head>
+<body>
+<div class="container">
+<div class="header"><a href="index.html">&larr; 搞掂 gaaudim.com</a></div>
+<div class="title-section">
+<h1>粤语翻译器</h1>
+<p>输入普通话或粤语，即时互译 · 附粤拼+声调+文化注解</p>
+</div>
+
+<!-- 数据加载状态 -->
+<div class="loading-bar" id="loadingBar"><div class="loading-bar-inner" id="loadingInner"></div></div>
+
+<div class="card input-card">
+<div class="input-area"><div class="input-wrapper"><textarea id="inputText" placeholder="输入要翻译的文字..." rows="3"></textarea><button class="clear-input-btn" onclick="document.getElementById('inputText').value='';document.getElementById('inputText').style.height='100px'">&times;</button></div>
+<div class="examples"><button class="example-pill" onclick="fillExample('你吃饭了吗')">你吃饭了吗</button><button class="example-pill" onclick="fillExample('这个多少钱')">这个多少钱</button><button class="example-pill" onclick="fillExample('我想去那里')">我想去那里</button></div></div>
+<div class="controls">
+<button class="direction-btn" id="directionBtn" onclick="toggleDirection()"><span id="dirLabel">普通话</span><span class="arrow">&rarr;</span><span id="dirTarget">粤语</span></button>
+<div class="style-toggle"><button id="spokenBtn" class="active" onclick="setStyle('spoken')">口语</button><button id="writtenBtn" onclick="setStyle('written')">书面</button></div>
+</div>
+<button class="translate-btn" id="translateBtn" onclick="doTranslate()" disabled>加载数据中...</button>
+</div>
+<div class="dict-banner" id="dictBanner" onclick="toggleDictPanel()">&#x1f4d6; 探索 <span id="dictTotalCount">7,981</span> 条普粤对照词条 <span class="arrow">&rarr;</span></div>
+<div class="dict-panel" id="dictPanel">
+<div class="dict-panel-header"><span style="font-size:15px;font-weight:700;color:#2C2420">&#x1f4d6; 词典浏览</span><button class="dict-close-btn" onclick="toggleDictPanel()">&times;</button></div>
+<input class="dict-search" id="dictSearch" type="text" placeholder="&#x1f50d; 搜索词条（普通话/粤语/粤拼）..." oninput="onDictSearch()">
+<div class="dict-cats" id="dictCats"></div>
+<div class="dict-stats" id="dictStats"></div>
+<div class="dict-list" id="dictList"></div>
+<button class="dict-more-btn" id="dictMoreBtn" onclick="loadMoreDict()" style="display:none">加载更多</button>
+<div class="dict-empty" id="dictEmpty" style="display:none">未找到匹配的词条</div>
+</div>
+<div class="eng-banner" id="engBanner" onclick="loadAndToggleSub('eng')">&#x1f524; 常见英粤表达 · <span id="engCount">1,000</span>条 <span class="arrow">&rarr;</span></div>
+<div class="eng-panel" id="engPanel">
+<div class="dict-panel-header"><span style="font-size:15px;font-weight:700;color:#3B6CB5">&#x1f524; 英粤表达</span><button class="dict-close-btn" onclick="toggleSubPanel('eng')">&times;</button></div>
+<input class="dict-search" id="engSearch" type="text" placeholder="&#x1f50d; 搜索英语/粤语/粤拼..." oninput="onSubSearch('eng')">
+<div class="dict-cats" id="engCats"></div>
+<div class="dict-stats" id="engStats"></div>
+<div class="dict-list" id="engList"></div>
+<button class="dict-more-btn" id="engMore" onclick="loadMoreSub('eng')" style="display:none">加载更多</button>
+<div class="dict-empty" id="engEmpty" style="display:none">未找到匹配的词条</div>
+</div>
+<div class="slang-banner" id="slangBanner" onclick="loadAndToggleSub('slang')">&#x1f5e3;&#xfe0f; 粤语俚语百科 · <span id="slangCount">1,000</span>条 <span class="arrow">&rarr;</span></div>
+<div class="slang-panel" id="slangPanel">
+<div class="dict-panel-header"><span style="font-size:15px;font-weight:700;color:#2B7A5F">&#x1f5e3;&#xfe0f; 粤语俚语</span><button class="dict-close-btn" onclick="toggleSubPanel('slang')">&times;</button></div>
+<input class="dict-search" id="slangSearch" type="text" placeholder="&#x1f50d; 搜索俚语/意思/粤拼..." oninput="onSubSearch('slang')">
+<div class="dict-cats" id="slangCats"></div>
+<div class="dict-stats" id="slangStats"></div>
+<div class="dict-list" id="slangList"></div>
+<button class="dict-more-btn" id="slangMore" onclick="loadMoreSub('slang')" style="display:none">加载更多</button>
+<div class="dict-empty" id="slangEmpty" style="display:none">未找到匹配的词条</div>
+</div>
+<div class="card result-section" id="resultSection">
+<div class="input-jyutping" id="inputJyutpingSection" style="display:none"><div class="input-jyutping-title">原文粤拼</div><div class="input-jyutping-text" id="inputJyutpingText"></div></div>
+<div class="result-text" id="resultText"></div>
+<button class="speak-btn" id="speakBtn" onclick="speakResult()">&#x1f50a; 播放发音</button>
+<div class="diff-section" id="diffSection"><div class="diff-title">差异标注</div><div class="diff-items" id="diffItems"></div></div>
+<div class="culture-section" id="cultureSection"><div class="culture-card"><div class="culture-card-title">&#x1f4a1; 文化注解</div><div id="cultureItems"></div></div></div>
+</div>
+<div class="history-section" id="historySection">
+<div class="history-header"><h3>翻译历史</h3><button class="clear-history-btn" onclick="clearHistory()">清空</button></div>
+<ul class="history-list" id="historyList"><li class="history-empty">暂无翻译记录</li></ul>
+</div>
+
+<!-- 课程转化CTA -->
+<div class="cta-banner">
+<h3>翻译只是第一步，开口才是目标</h3>
+<p>30个真实香港场景 · 粤拼速成10集 · 500高频词<br>从茶餐厅到求职面试，学完直接用</p>
+<a href="MayJie_EP01_ChaChaan.html" onclick="if(typeof gtag==='function')gtag('event','translate_to_course_click')">免费开始第一课 · 茶餐厅生存战 &rarr;</a>
+</div>
+</div>
+
+<!-- ===== 异步加载核心数据 ===== -->
+<script>
+// TTS
+(function(){
+  let v=null,rdy=false;
+  function ld(){const vs=speechSynthesis.getVoices();v=vs.find(x=>x.lang==='zh-HK')||vs.find(x=>x.lang==='zh-TW')||vs.find(x=>x.lang.startsWith('zh'));rdy=true}
+  window.speak=function(t,b){if(!rdy)ld();speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang=v?v.lang:'zh-HK';if(v)u.voice=v;u.rate=0.82;u.pitch=1.05;if(b){const o=b.innerHTML;b.innerHTML='\u23f8';u.onend=()=>b.innerHTML=o;u.onerror=()=>b.innerHTML=o}speechSynthesis.speak(u)};
+  if(speechSynthesis.getVoices().length>0)ld();speechSynthesis.onvoiceschanged=ld;window.addEventListener('load',ld);
+})();
+
+// State
+let direction='pth2cant',style='spoken',lastPlainResult='';
+let dataReady=false, extraReady=false;
+
+function toggleDirection(){
+  direction=direction==='pth2cant'?'cant2pth':'pth2cant';
+  document.getElementById('dirLabel').textContent=direction==='pth2cant'?'普通话':'粤语';
+  document.getElementById('dirTarget').textContent=direction==='pth2cant'?'粤语':'普通话';
+}
+function setStyle(s){
+  style=s;
+  document.getElementById('spokenBtn').classList.toggle('active',s==='spoken');
+  document.getElementById('writtenBtn').classList.toggle('active',s==='written');
+}
+function speakResult(){if(lastPlainResult)speak(lastPlainResult,document.getElementById('speakBtn'))}
+function fillExample(text){document.getElementById('inputText').value=text;doTranslate()}
+
+// ===== 异步加载数据文件 =====
+function loadScript(src, onProgress){
+  return new Promise((resolve, reject) => {
+    const s = document.createElement('script');
+    s.src = src;
+    s.onload = resolve;
+    s.onerror = reject;
+    document.body.appendChild(s);
+  });
+}
+
+// 加载核心数据
+(async function(){
+  const bar = document.getElementById('loadingInner');
+  const btn = document.getElementById('translateBtn');
+  bar.style.width = '30%';
+  
+  try {
+    await loadScript('gaaudim-translate-data.js');
+    bar.style.width = '100%';
+    
+    // 数据加载完成，初始化翻译引擎
+    initTranslateEngine();
+    dataReady = true;
+    btn.disabled = false;
+    btn.textContent = '翻译';
+    
+    setTimeout(()=>{
+      document.getElementById('loadingBar').style.display='none';
+    }, 500);
+    
+    if(typeof gtag==='function') gtag('event','translate_data_loaded');
+  } catch(e) {
+    bar.style.width = '100%';
+    bar.style.background = '#E24B4A';
+    btn.textContent = '数据加载失败，请刷新';
+    console.error('Failed to load translate data:', e);
+  }
+})();
+
+// ===== 翻译引擎初始化（数据加载后执行）=====
+let SORTED_DICT, REV_MAP_SPOKEN, REV_MAP_WRITTEN, REV_KEYS_ALL, EFFECTIVE_DICT, ED;
+
+function initTranslateEngine(){
+  EFFECTIVE_DICT = DICT.filter(e => {
+    if (e[0] !== e[1] || e[0] !== e[2]) return true;
+    if (e[4] !== null) return true;
+    return false;
+  });
+  SORTED_DICT = EFFECTIVE_DICT.slice().sort((a,b) => b[0].length - a[0].length);
+  
+  REV_MAP_SPOKEN = {};
+  REV_MAP_WRITTEN = {};
+  SORTED_DICT.forEach(entry => {
+    const [pth, spoken, written, jp] = entry;
+    if (spoken !== pth && !REV_MAP_SPOKEN[spoken]) REV_MAP_SPOKEN[spoken] = {pth, jp};
+    if (written !== pth && written !== spoken && !REV_MAP_WRITTEN[written]) REV_MAP_WRITTEN[written] = {pth, jp};
+  });
+  const REV_KEYS_SPOKEN = Object.keys(REV_MAP_SPOKEN).sort((a,b) => b.length - a.length);
+  const REV_KEYS_WRITTEN = Object.keys(REV_MAP_WRITTEN).sort((a,b) => b.length - a.length);
+  REV_KEYS_ALL = [...new Set([...REV_KEYS_SPOKEN, ...REV_KEYS_WRITTEN])].sort((a,b) => b.length - a.length);
+  
+  // Build dict browser index
+  initDictIndex();
+  renderHistory();
+}
+</script>
+
+<!-- ===== 翻译函数+UI逻辑（不依赖数据，延迟执行）===== -->
+<script>
+function translatePth2Cant(text, st) {
+  let result = [], diffs = [], cultureHits = new Set(), i = 0;
+  const len = text.length;
+  while (i < len) {
+    let matched = false;
+    for (const entry of SORTED_DICT) {
+      const pth = entry[0];
+      if (text.substring(i, i + pth.length) === pth) {
+        const target = st === 'spoken' ? entry[1] : entry[2];
+        result.push(target);
+        if (target !== pth) diffs.push({from: pth, to: target, jp: entry[3]});
+        if (entry[4]) cultureHits.add(target);
+        for (const ckey of Object.keys(CULTURE_NOTES)) {
+          if (target.includes(ckey)) cultureHits.add(ckey);
+        }
+        i += pth.length; matched = true; break;
+      }
+    }
+    if (!matched) { result.push(text[i]); i++; }
+  }
+  let translated = result.join('');
+  translated = translated.replace(/(.)(不)\1/g, '$1唔$1');
+  let cultureNotes = {};
+  diffs.forEach(d => {
+    const entry = SORTED_DICT.find(e => e[0] === d.from);
+    if (entry && entry[4]) cultureNotes[d.to] = entry[4];
+  });
+  for (const [key, val] of Object.entries(CULTURE_NOTES)) {
+    if (translated.includes(key) && !cultureNotes[key]) cultureNotes[key] = val;
+  }
+  return {translated, diffs, cultureNotes};
+}
+
+function translateCant2Pth(text) {
+  let result = [], diffs = [], i = 0;
+  const len = text.length;
+  while (i < len) {
+    let matched = false;
+    for (const key of REV_KEYS_ALL) {
+      if (text.substring(i, i + key.length) === key) {
+        const entry = REV_MAP_SPOKEN[key] || REV_MAP_WRITTEN[key];
+        result.push(entry.pth);
+        if (entry.pth !== key) diffs.push({from: key, to: entry.pth, jp: entry.jp});
+        i += key.length; matched = true; break;
+      }
+    }
+    if (!matched) { result.push(text[i]); i++; }
+  }
+  return {translated: result.join(''), diffs, cultureNotes: {}};
+}
+
+const TONE_COLORS = {1:'#E11D48',2:'#F97316',3:'#2563EB',4:'#7C3AED',5:'#16A34A',6:'#64748B'};
+
+function annotateJyutping(text) {
+  let html = '', plain = '';
+  for (const ch of text) {
+    const info = JYUTPING_MAP[ch];
+    if (info) {
+      const color = TONE_COLORS[info.tone] || '#64748B';
+      html += '<ruby>'+ch+'<rt style="color:'+color+'">'+info.jp+'</rt></ruby>';
+    } else if (/[\u4e00-\u9fff]/.test(ch)) {
+      html += '<ruby>'+ch+'<rt class="unmatched">?</rt></ruby>';
+    } else { html += ch; }
+    plain += ch;
+  }
+  return {html, plain};
+}
+
+function doTranslate() {
+  if (!dataReady) return;
+  const input = document.getElementById('inputText').value.trim();
+  if (!input) return;
+  
+  let result;
+  if (direction === 'pth2cant') result = translatePth2Cant(input, style);
+  else result = translateCant2Pth(input);
+  
+  const annotated = direction === 'pth2cant' ? annotateJyutping(result.translated) : {html: result.translated, plain: result.translated};
+  lastPlainResult = annotated.plain;
+  
+  const inputJpSection = document.getElementById('inputJyutpingSection');
+  if (direction === 'cant2pth') {
+    document.getElementById('inputJyutpingText').innerHTML = annotateJyutping(input).html;
+    inputJpSection.style.display = 'block';
+  } else { inputJpSection.style.display = 'none'; }
+  
+  document.getElementById('resultText').innerHTML = annotated.html;
+  document.getElementById('resultSection').classList.add('show');
+  
+  const diffItems = document.getElementById('diffItems');
+  if (result.diffs.length > 0) {
+    document.getElementById('diffSection').style.display = 'block';
+    diffItems.innerHTML = result.diffs
+      .filter((d, i, arr) => arr.findIndex(x => x.from === d.from && x.to === d.to) === i)
+      .map(d => '<span class="diff-item"><span class="from">'+d.from+'</span><span class="arrow">&rarr;</span><span class="to">'+d.to+'</span><span class="jp">'+d.jp+'</span></span>')
+      .join('');
+  } else { document.getElementById('diffSection').style.display = 'none'; }
+  
+  const cultureSection = document.getElementById('cultureSection');
+  const cultureItems = document.getElementById('cultureItems');
+  const notes = Object.entries(result.cultureNotes);
+  if (notes.length > 0) {
+    cultureSection.classList.add('show');
+    cultureItems.innerHTML = notes.map(([key, val]) =>
+      '<div class="culture-item"><span class="culture-keyword">「'+key+'」</span>：'+val+'</div>'
+    ).join('');
+  } else { cultureSection.classList.remove('show'); }
+  
+  saveHistory({ input, output: annotated.plain, direction, style, time: new Date().toLocaleString('zh-CN') });
+  
+  if(typeof gtag==='function') gtag('event','translate_action',{direction:direction,style:style,input_length:input.length});
+}
+
+// History
+function getHistory(){try{return JSON.parse(localStorage.getItem('gaaudim_translate_history')||'[]')}catch{return[]}}
+function saveHistory(entry){let h=getHistory();h.unshift(entry);if(h.length>20)h=h.slice(0,20);localStorage.setItem('gaaudim_translate_history',JSON.stringify(h));renderHistory()}
+function clearHistory(){localStorage.removeItem('gaaudim_translate_history');renderHistory()}
+function renderHistory(){
+  const list=document.getElementById('historyList');const history=getHistory();
+  if(history.length===0){list.innerHTML='<li class="history-empty">暂无翻译记录</li>';return}
+  list.innerHTML=history.map((h,i)=>{
+    const dirLabel=h.direction==='pth2cant'?'普→粤':'粤→普';
+    const styleLabel=h.style==='spoken'?'口语':'书面';
+    return '<li class="history-item" onclick="loadHistory('+i+')"><div class="history-input">'+h.input+'</div><div class="history-output">'+h.output+'</div><div class="history-meta">'+dirLabel+' · '+styleLabel+' · '+h.time+'</div></li>';
+  }).join('');
+}
+function loadHistory(index){const h=getHistory()[index];if(!h)return;document.getElementById('inputText').value=h.input;if(h.direction!==direction)toggleDirection();if(h.style!==style)setStyle(h.style);doTranslate()}
+
+// Keyboard
+document.getElementById('inputText').addEventListener('keydown',function(e){if(e.key==='Enter'&&(e.ctrlKey||e.metaKey)){e.preventDefault();doTranslate()}});
+document.getElementById('inputText').addEventListener('input',function(){this.style.height='auto';this.style.height=Math.max(100,this.scrollHeight)+'px'});
+
+// ===== Dict Browser =====
+const DICT_GROUPS=[
+{label:'代词',s:0,e:69},{label:'否定词',s:70,e:124},{label:'疑问词',s:125,e:182},
+{label:'时间词',s:183,e:281},{label:'量词',s:282,e:382},{label:'介词/连词',s:383,e:450},
+{label:'高频动词',s:451,e:1376},{label:'形容词/副词',s:1377,e:1985},
+{label:'日常名词',s:1986,e:2788},{label:'饮食/茶餐厅',s:2789,e:3218},
+{label:'香港特色',s:3219,e:3607},{label:'语气助词',s:3608,e:3717},
+{label:'常见句式',s:3718,e:99999}
+];
+const HOT_WORDS=new Set(["吃","喝","看","说","找","给","拿","想","站","睡觉","穿","你好","谢谢","对不起","多少钱","为什么","怎么办","在哪里","现在","今天","明天","回家","上班","喜欢","搞定了","买单","堵车","拍照","洗澡","奶茶","少甜","走冰","菠萝油","叉烧","虾饺","肠粉","蛋挞","鱼蛋","凉茶","饮茶","八达通","茶餐厅","拍拖","行山","打边炉","唱K","炒鱿鱼","吹水","港漂","高才通","你吃饭了吗"]);
+
+let dictOpen=false,dictCat=null,dictQ='',dictFiltered=[],dictShown=0,dictTimer=null;
+const DICT_PAGE=50;
+const DICT_CAT_ORDER=['代词','否定词','疑问词','时间词','量词','介词/连词','高频动词','形容词/副词','日常名词','饮食/茶餐厅','香港特色','语气助词','常见句式'];
+
+function initDictIndex(){
+  if(typeof DICT==='undefined')return;
+  const _origGroup=new Array(DICT.length);
+  DICT_GROUPS.forEach(g=>{for(let i=g.s;i<=Math.min(g.e,DICT.length-1);i++)_origGroup[i]=g.label});
+  ED=[];
+  for(let i=0;i<DICT.length;i++){
+    const e=DICT[i];
+    if(e[0]===e[1]&&e[0]===e[2]&&e[4]===null)continue;
+    ED.push({e:e,g:_origGroup[i]||'其他'});
+  }
+  document.getElementById('dictTotalCount').textContent=ED.length.toLocaleString();
+}
+
+function toggleDictPanel(){
+  dictOpen=!dictOpen;
+  const p=document.getElementById('dictPanel'),b=document.getElementById('dictBanner');
+  if(dictOpen){p.classList.add('open');b.style.display='none';initDictBrowser()}
+  else{p.classList.remove('open');b.style.display=''}
+}
+function initDictBrowser(){
+  if(!ED||!ED.length)return;
+  const edGroupCounts={};ED.forEach(d=>{edGroupCounts[d.g]=(edGroupCounts[d.g]||0)+1});
+  const c=document.getElementById('dictCats');
+  let h='<button class="dict-cat-pill active" data-cat="" onclick="selDictCat(null)">全部 <span class="ct">'+ED.length.toLocaleString()+'</span></button>';
+  h+='<button class="dict-cat-pill" data-cat="_hot" onclick="selDictCat(\'_hot\')" style="color:#E11D48">\ud83d\udd25 热门</button>';
+  DICT_CAT_ORDER.forEach(cat=>{const n=edGroupCounts[cat]||0;if(n>0)h+='<button class="dict-cat-pill" data-cat="'+cat+'" onclick="selDictCat(\''+cat+'\')">'+cat+' <span class="ct">'+n+'</span></button>'});
+  c.innerHTML=h;dictCat=null;dictQ='';document.getElementById('dictSearch').value='';filterDict();
+}
+function selDictCat(cat){dictCat=cat;document.querySelectorAll('#dictPanel .dict-cat-pill').forEach(p=>{const d=p.dataset.cat;p.classList.toggle('active',cat===null?d==='':d===cat)});filterDict()}
+function onDictSearch(){clearTimeout(dictTimer);dictTimer=setTimeout(()=>{dictQ=document.getElementById('dictSearch').value.trim().toLowerCase();filterDict()},200)}
+function filterDict(){
+  dictFiltered=[];
+  for(let i=0;i<ED.length;i++){
+    const d=ED[i],e=d.e;
+    if(dictCat==='_hot'){if(!HOT_WORDS.has(e[0]))continue}
+    else if(dictCat&&d.g!==dictCat)continue;
+    if(dictQ){if(!e[0].toLowerCase().includes(dictQ)&&!e[1].toLowerCase().includes(dictQ)&&!e[3].toLowerCase().includes(dictQ))continue}
+    dictFiltered.push(i);
+  }
+  dictShown=0;document.getElementById('dictList').innerHTML='';
+  const label=dictCat==='_hot'?'\ud83d\udd25 热门':dictCat||'';
+  document.getElementById('dictStats').textContent='共 '+dictFiltered.length.toLocaleString()+' 条'+(label?' · '+label:'')+(dictQ?' · 搜索: "'+dictQ+'"':'');
+  if(dictFiltered.length===0){document.getElementById('dictEmpty').style.display='';document.getElementById('dictMoreBtn').style.display='none'}
+  else{document.getElementById('dictEmpty').style.display='none';loadMoreDict()}
+}
+function loadMoreDict(){
+  const el=document.getElementById('dictList'),end=Math.min(dictShown+DICT_PAGE,dictFiltered.length);
+  let h='';
+  for(let i=dictShown;i<end;i++){
+    const d=ED[dictFiltered[i]],e=d.e,pth=e[0],sp=e[1],wr=e[2],jp=e[3],nt=e[4];
+    const ann=annotateJyutping(sp);
+    let note=nt||'';
+    if(!note){for(const k of Object.keys(CULTURE_NOTES)){if(sp.includes(k)||pth.includes(k)){note=CULTURE_NOTES[k];break}}}
+    const spEsc=sp.replace(/'/g,"\\'");
+    const diff=sp!==wr&&wr!==pth?' <span style="font-size:11px;color:#8C7E73">书面: '+wr+'</span>':'';
+    h+='<div class="dict-card" onclick="dictClick('+dictFiltered[i]+')"><div class="dict-card-top"><span class="dict-card-pth">'+pth+'</span><span class="dict-card-arrow">&rarr;</span><span class="dict-card-cant">'+sp+'</span>'+diff+'</div><div class="dict-card-jp">'+ann.html+'</div>'+(note?'<div class="dict-card-note">'+note+'</div>':'')+'<button class="dict-card-speak" onclick="event.stopPropagation();speak(\''+spEsc+'\',this)">&#x1f50a;</button></div>';
+  }
+  el.insertAdjacentHTML('beforeend',h);dictShown=end;
+  document.getElementById('dictMoreBtn').style.display=dictShown<dictFiltered.length?'':'none';
+  document.getElementById('dictStats').textContent='显示 '+dictShown+' / '+dictFiltered.length.toLocaleString()+' 条';
+}
+function dictClick(edIdx){const e=ED[edIdx].e;document.getElementById('inputText').value=e[0];if(direction!=='pth2cant')toggleDirection();doTranslate();document.getElementById('resultSection').scrollIntoView({behavior:'smooth'})}
+
+// ===== 英粤/俚语面板（懒加载）=====
+const subState={eng:{open:false,cat:null,q:'',filtered:[],shown:0,timer:null},slang:{open:false,cat:null,q:'',filtered:[],shown:0,timer:null}};
+const SUB_PAGE=50;
+
+function loadAndToggleSub(type){
+  if(!extraReady){
+    const banner=document.getElementById(type+'Banner');
+    banner.textContent='加载中...';
+    loadScript('gaaudim-translate-extra.js').then(()=>{
+      extraReady=true;
+      banner.textContent=type==='eng'?'\u{1f524} 常见英粤表达 · '+ENGLISH_CANT.length+'条 \u2192':'\u{1f5e3}\ufe0f 粤语俚语百科 · '+SLANG_DICT.length+'条 \u2192';
+      document.getElementById('engCount').textContent=ENGLISH_CANT.length;
+      document.getElementById('slangCount').textContent=SLANG_DICT.length;
+      toggleSubPanel(type);
+    }).catch(()=>{
+      banner.textContent='加载失败，点击重试';
+    });
+  } else {
+    toggleSubPanel(type);
+  }
+}
+
+function getSubData(type){return type==='eng'?ENGLISH_CANT:SLANG_DICT}
+function getSubCats(type){const data=getSubData(type),cats={};data.forEach(e=>{const c=e[3];cats[c]=(cats[c]||0)+1});return cats}
+
+function toggleSubPanel(type){
+  const s=subState[type];
+  if(!s.open){if(dictOpen)toggleDictPanel();['eng','slang'].forEach(t=>{if(t!==type&&subState[t].open){subState[t].open=false;document.getElementById(t+'Panel').classList.remove('open');document.getElementById(t+'Banner').style.display=''}})}
+  s.open=!s.open;
+  const p=document.getElementById(type+'Panel'),b=document.getElementById(type+'Banner');
+  if(s.open){p.classList.add('open');b.style.display='none';initSubPanel(type)}
+  else{p.classList.remove('open');b.style.display=''}
+}
+function initSubPanel(type){
+  const data=getSubData(type),cats=getSubCats(type),s=subState[type];
+  const cEl=document.getElementById(type+'Cats');
+  let h='<button class="dict-cat-pill active" data-cat="" onclick="selSubCat(\''+type+'\',null)">全部 <span class="ct">'+data.length+'</span></button>';
+  Object.keys(cats).sort().forEach(c=>{h+='<button class="dict-cat-pill" data-cat="'+c+'" onclick="selSubCat(\''+type+'\',\''+c+'\')">'+c+' <span class="ct">'+cats[c]+'</span></button>'});
+  cEl.innerHTML=h;s.cat=null;s.q='';document.getElementById(type+'Search').value='';filterSub(type);
+}
+function selSubCat(type,cat){subState[type].cat=cat;document.getElementById(type+'Cats').querySelectorAll('.dict-cat-pill').forEach(p=>{const d=p.dataset.cat;p.classList.toggle('active',cat===null?d==='':d===cat)});filterSub(type)}
+function onSubSearch(type){const s=subState[type];clearTimeout(s.timer);s.timer=setTimeout(()=>{s.q=document.getElementById(type+'Search').value.trim().toLowerCase();filterSub(type)},200)}
+function filterSub(type){
+  const s=subState[type],data=getSubData(type);s.filtered=[];
+  for(let i=0;i<data.length;i++){const e=data[i];if(s.cat&&e[3]!==s.cat)continue;if(s.q){const fields=e.map(f=>String(f||'').toLowerCase()).join(' ');if(!fields.includes(s.q))continue}s.filtered.push(i)}
+  s.shown=0;document.getElementById(type+'List').innerHTML='';
+  document.getElementById(type+'Stats').textContent='共 '+s.filtered.length+' 条'+(s.cat?' · '+s.cat:'')+(s.q?' · 搜索: "'+s.q+'"':'');
+  if(s.filtered.length===0){document.getElementById(type+'Empty').style.display='';document.getElementById(type+'More').style.display='none'}
+  else{document.getElementById(type+'Empty').style.display='none';loadMoreSub(type)}
+}
+function loadMoreSub(type){
+  const s=subState[type],data=getSubData(type),el=document.getElementById(type+'List'),end=Math.min(s.shown+SUB_PAGE,s.filtered.length);
+  let h='';
+  for(let i=s.shown;i<end;i++){
+    const e=data[s.filtered[i]];
+    if(type==='eng'){
+      const jpParts=e[2].split(' ');const jpHtml=jpParts.map(p=>{const t=parseInt(p.slice(-1));const c=TONE_COLORS[t]||'#64748B';return'<span style="color:'+c+'">'+p+'</span>'}).join(' ');
+      h+='<div class="sub-card"><div class="sub-card-eng">'+e[0]+'</div><div class="sub-card-cant">'+e[1]+'</div><div class="sub-card-jp">'+jpHtml+'</div>'+(e[4]?'<div class="sub-card-note">'+e[4]+'</div>':'')+'<span class="sub-card-cat">'+e[3]+'</span><button class="sub-card-speak" onclick="event.stopPropagation();speak(\''+e[1].replace(/'/g,"\\'")+'\',this)">&#x1f50a;</button></div>';
+    } else {
+      const jpParts=e[1].split(' ');const jpHtml=jpParts.map(p=>{const t=parseInt(p.slice(-1));const c=TONE_COLORS[t]||'#64748B';return'<span style="color:'+c+'">'+p+'</span>'}).join(' ');
+      h+='<div class="sub-card"><div class="sub-card-slang">'+e[0]+'</div><div class="sub-card-jp">'+jpHtml+'</div><div class="sub-card-meaning">意思：'+e[2]+'</div>'+(e[4]?'<div class="sub-card-example">\ud83d\udcac '+e[4]+'</div>':'')+(e[5]?'<div class="sub-card-note">'+e[5]+'</div>':'')+'<span class="sub-card-cat">'+e[3]+'</span><button class="sub-card-speak" onclick="event.stopPropagation();speak(\''+e[0].replace(/'/g,"\\'")+'\',this)">&#x1f50a;</button></div>';
+    }
+  }
+  el.insertAdjacentHTML('beforeend',h);s.shown=end;
+  document.getElementById(type+'More').style.display=s.shown<s.filtered.length?'':'none';
+  document.getElementById(type+'Stats').textContent='显示 '+s.shown+' / '+s.filtered.length+' 条';
+}
+</script>
+<script src="gaaudim-analytics.js?v=3.5" defer></script>
+</body>
+</html>

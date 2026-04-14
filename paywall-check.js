@@ -108,6 +108,7 @@ overlay.innerHTML = '<div class="pw-box">'
   + '<div>✅ <strong>10集</strong>粤拼系统课 · 九声六调</div>'
   + '<div>✅ <strong>500词</strong>高频速查 · 按场景分类</div>'
   + '<div>✅ <strong>10集</strong>留学工作指南 · 签证租房</div>'
+  + '<div>✅ <strong>翻译器</strong>完整词典7981条 + 英粤/俚语各1000条</div>'
   + '<div>✅ 未来新增内容永久同步解锁</div>'
   + '</div>'
   // 三列价格对比
