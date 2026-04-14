@@ -25,8 +25,9 @@ body{background:var(--bg);font-family:'Noto Sans SC',-apple-system,sans-serif;co
 a{text-decoration:none;color:inherit}
 
 .nav{position:sticky;top:0;z-index:100;background:rgba(250,250,248,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 24px;height:52px;display:flex;align-items:center;justify-content:space-between}
-.nav-logo{font-family:'Noto Serif SC',serif;font-weight:900;font-size:18px;color:var(--ink);letter-spacing:-.5px}.nav-logo span{color:var(--gold)}
-.nav-links{display:flex;gap:20px}.nav-links a{font-size:13px;font-weight:500;color:var(--muted);transition:color .2s}.nav-links a:hover{color:var(--ink)}
+.nav-logo{font-family:'Noto Serif SC',serif;font-weight:900;font-size:18px;color:var(--ink);letter-spacing:-.5px;flex-shrink:0}.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;gap:16px;overflow-x:auto;-webkit-overflow-scrolling:touch}.nav-links a{font-size:13px;font-weight:500;color:var(--muted);transition:color .2s;white-space:nowrap}.nav-links a:hover{color:var(--ink)}
+@media(max-width:480px){.nav{padding:0 14px;height:48px}.nav-logo{font-size:16px}.nav-links{gap:12px}.nav-links a{font-size:12px}}
 
 .hero{max-width:580px;margin:0 auto;padding:32px 24px 14px;text-align:center}
 .hero h1{font-family:'Noto Serif SC',serif;font-size:clamp(22px,4.5vw,34px);font-weight:900;line-height:1.35;color:var(--ink);margin-bottom:6px;letter-spacing:-.5px}
@@ -45,6 +46,7 @@ a{text-decoration:none;color:inherit}
 .hero-demo-pill.hl{background:var(--gold-soft);border-color:rgba(200,152,46,.2);color:#9a7520;font-weight:600}
 .hero-demo-footer a{font-size:12px;color:var(--gold);font-weight:700;text-decoration:none;margin-left:auto;white-space:nowrap}
 .hero-demo-footer a:hover{text-decoration:underline}
+@media(max-width:480px){.hero{padding:24px 16px 12px}.hero-demo{max-width:100%}.hero-demo-left,.hero-demo-right{padding:12px 14px}.hero-demo-text{font-size:16px}.hero-demo-jp{font-size:10px}.hero-demo-footer{padding:8px 12px;gap:4px}.hero-demo-pill{font-size:9px;padding:2px 6px}}
 .hero-cta{display:inline-block;background:var(--gold);color:#fff;font-size:15px;font-weight:900;padding:12px 32px;border-radius:10px;transition:all .3s;box-shadow:0 4px 20px rgba(200,152,46,.25);margin-bottom:8px}
 .hero-cta:hover{background:#b8882a;transform:translateY(-2px);box-shadow:0 8px 32px rgba(200,152,46,.35)}
 .hero-proof{font-size:12px;color:var(--muted)}
@@ -536,9 +538,9 @@ a{text-decoration:none;color:inherit}
     <div class="course-group-title">🔤 粤语工具</div>
     <div class="course-list">
       <a class="course-link" href="translate.html"><span class="ep">工具</span>粤语翻译器 · 普粤互译 <span class="course-free-badge">免费</span></a>
-      <a class="course-link" href="translate.html#dictBanner"><span class="ep">词典</span>7981条普粤对照词典 <span class="lock-icon">🔒</span></a>
-      <a class="course-link" href="translate.html#engBanner"><span class="ep">英粤</span>1000条英粤表达 <span class="lock-icon">🔒</span></a>
-      <a class="course-link" href="translate.html#slangBanner"><span class="ep">俚语</span>1000条粤语俚语百科 <span class="lock-icon">🔒</span></a>
+      <a class="course-link locked" href="javascript:void(0)" onclick="showPaywall('翻译器完整词典+英粤+俚语')"><span class="ep">词典</span>7981条普粤对照词典 <span class="lock-icon">🔒</span></a>
+      <a class="course-link locked" href="javascript:void(0)" onclick="showPaywall('翻译器完整词典+英粤+俚语')"><span class="ep">英粤</span>1000条英粤表达 <span class="lock-icon">🔒</span></a>
+      <a class="course-link locked" href="javascript:void(0)" onclick="showPaywall('翻译器完整词典+英粤+俚语')"><span class="ep">俚语</span>1000条粤语俚语百科 <span class="lock-icon">🔒</span></a>
     </div>
   </div>
 </div>
@@ -626,7 +628,7 @@ function showPaywall(t){if(localStorage.getItem('gd_unlocked')==='true'||documen
 function goMianbaoduo(){if(typeof gtag==='function')gtag('event','payment_redirect_mianbaoduo',{content:currentPaywallTarget});window.open(MIANBAODUO_URL,'_blank')}
 function closePaywall(){document.getElementById('paywall-modal').classList.remove('active');document.body.style.overflow=''}
 function tryUnlock(){var code=document.getElementById('unlock-code').value.trim(),msg=document.getElementById('unlock-msg');if(!code){msg.className='unlock-msg error';msg.textContent='请输入解锁码';if(typeof gtag==='function')gtag('event','unlock_attempt',{success:false});return}if(_h(code.toUpperCase())===602092493){localStorage.setItem('gd_unlocked','true');var _d=new Date();_d.setTime(_d.getTime()+365*24*60*60*1000);document.cookie='gd_unlocked=true;expires='+_d.toUTCString()+';path=/;SameSite=Lax';msg.className='unlock-msg success';msg.textContent='✓ 解锁成功！刷新页面后所有内容可用';showToast('🎉 全站内容已解锁！');if(typeof gtag==='function'){gtag('event','unlock_attempt',{success:true});gtag('event','unlock_success')}setTimeout(function(){closePaywall();location.reload()},1500)}else{msg.className='unlock-msg error';msg.textContent='解锁码无效，请检查后重试';if(typeof gtag==='function')gtag('event','unlock_attempt',{success:false})}}
-function checkUnlockStatus(){if(localStorage.getItem('gd_unlocked')==='true'){var m={'EP06':'MayJie_EP06_DimSum.html','EP07':'MayJie_EP07_Bank.html','EP08':'MayJie_EP08_Barber.html','EP09':'MayJie_EP09_Renting.html','EP10-30':'MayJie_EP10_Interview.html','JP03':'MayJie_JP03.html','JP04':'MayJie_JP04.html','JP05':'MayJie_JP05.html','JP-X':'MayJie_JP_Extra_LazyTones__1_.html','VW04':'MayJie_VW04.html','VW05':'MayJie_VW05.html','VW06-20':'MayJie_VW06.html','SZ04':'MayJie_SZ04.html','SZ05':'MayJie_SZ05.html','SZ06':'MayJie_SZ06.html','SZ07-10':'MayJie_SZ07.html','SZ-X':'MayJie_SZ_Extra_TaoCi.html','HK03':'MayJie_HKSongs_EP03_V3.html','HK04':'MayJie_HKSongs_EP04_V2.html','HK05':'MayJie_HKSongs_EP05_V2.html','HK-X':'MayJie_HKSongs_Extra_V2.html'};document.querySelectorAll('.course-link.locked').forEach(function(el){el.classList.remove('locked');var ep=el.querySelector('.ep'),code=ep?ep.textContent.trim():'',lock=el.querySelector('.lock-icon');if(lock){lock.textContent='✓';lock.style.color='var(--accent)';lock.style.opacity='1'}if(m[code]){el.href=m[code];el.removeAttribute('onclick')}})}}
+function checkUnlockStatus(){if(localStorage.getItem('gd_unlocked')==='true'){var m={'EP06':'MayJie_EP06_DimSum.html','EP07':'MayJie_EP07_Bank.html','EP08':'MayJie_EP08_Barber.html','EP09':'MayJie_EP09_Renting.html','EP10-30':'MayJie_EP10_Interview.html','JP03':'MayJie_JP03.html','JP04':'MayJie_JP04.html','JP05':'MayJie_JP05.html','JP-X':'MayJie_JP_Extra_LazyTones__1_.html','VW04':'MayJie_VW04.html','VW05':'MayJie_VW05.html','VW06-20':'MayJie_VW06.html','SZ04':'MayJie_SZ04.html','SZ05':'MayJie_SZ05.html','SZ06':'MayJie_SZ06.html','SZ07-10':'MayJie_SZ07.html','SZ-X':'MayJie_SZ_Extra_TaoCi.html','HK03':'MayJie_HKSongs_EP03_V3.html','HK04':'MayJie_HKSongs_EP04_V2.html','HK05':'MayJie_HKSongs_EP05_V2.html','HK-X':'MayJie_HKSongs_Extra_V2.html','词典':'translate.html','英粤':'translate.html','俚语':'translate.html'};document.querySelectorAll('.course-link.locked').forEach(function(el){el.classList.remove('locked');var ep=el.querySelector('.ep'),code=ep?ep.textContent.trim():'',lock=el.querySelector('.lock-icon');if(lock){lock.textContent='✓';lock.style.color='var(--accent)';lock.style.opacity='1'}if(m[code]){el.href=m[code];el.removeAttribute('onclick')}})}}
 document.getElementById('paywall-modal').addEventListener('click',function(e){if(e.target===this)closePaywall()});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closePaywall()});
 function showToast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2500)}

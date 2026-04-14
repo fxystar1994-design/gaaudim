@@ -322,6 +322,49 @@ body{font-family:'Noto Sans SC','PingFang SC',sans-serif;background:#FEFCF8;colo
 let direction='pth2cant',style='spoken',lastPlainResult='';
 let dataReady=false, extraReady=false;
 
+// ===== 付费墙：解锁检查 =====
+const DICT_FREE_LIMIT = 50;
+const SUB_FREE_LIMIT = 100;
+const GD_PAY_URL = 'https://mbd.pub/o/bread/YZWclJZpag==';
+function _h(s){var h=0;for(var i=0;i<s.length;i++){h=((h<<5)-h)+s.charCodeAt(i);h=h&h}return h}
+function gdIsUnlocked(){
+  if(localStorage.getItem('gd_unlocked')==='true') return true;
+  if(document.cookie.indexOf('gd_unlocked=true')!==-1){localStorage.setItem('gd_unlocked','true');return true;}
+  return false;
+}
+function gdSaveUnlock(){
+  localStorage.setItem('gd_unlocked','true');
+  var d=new Date();d.setTime(d.getTime()+365*24*60*60*1000);
+  document.cookie='gd_unlocked=true;expires='+d.toUTCString()+';path=/;SameSite=Lax';
+}
+function gdTryUnlock(inputId, msgId){
+  var code=document.getElementById(inputId).value.trim().toUpperCase();
+  var msg=document.getElementById(msgId);
+  if(!code){msg.style.color='#C0392B';msg.textContent='请输入解锁码';return;}
+  if(_h(code)===602092493){
+    gdSaveUnlock();
+    msg.style.color='#1A7A5C';msg.textContent='✓ 解锁成功！正在刷新...';
+    if(typeof gtag==='function'){gtag('event','unlock_success',{page:'translate'});}
+    setTimeout(function(){location.reload()},800);
+  } else {
+    msg.style.color='#C0392B';msg.textContent='解锁码无效，请检查后重试';
+  }
+}
+function gdPaywallCard(shownCount, totalCount, label){
+  return '<div style="text-align:center;padding:24px 16px;margin:12px 0;background:linear-gradient(135deg,#FEF7F3,#FFF);border:1.5px solid #F5D5C8;border-radius:14px">'
+    +'<div style="font-size:14px;color:#8C7E73;margin-bottom:8px">已展示 <strong style="color:#D4603A">'+shownCount+'</strong> 条免费'+label+'</div>'
+    +'<div style="font-size:22px;font-weight:900;color:#D4603A;margin-bottom:4px">解锁全部 '+totalCount.toLocaleString()+' 条</div>'
+    +'<div style="font-size:13px;color:#8C7E73;margin-bottom:16px">解锁全站 ¥99 · 永久 · 含全部课程+工具</div>'
+    +'<a href="'+GD_PAY_URL+'" target="_blank" rel="noopener" style="display:inline-block;background:#D4603A;color:#fff;font-weight:700;padding:12px 28px;border-radius:10px;font-size:15px;text-decoration:none;margin-bottom:10px" onclick="if(typeof gtag===\'function\')gtag(\'event\',\'translate_paywall_click\')">立即解锁 ¥99 →</a>'
+    +'<div style="font-size:13px;color:#B5A99E;margin-bottom:8px">支持微信支付 / 支付宝</div>'
+    +'<div style="border-top:1px solid #F0EBE5;padding-top:10px;margin-top:4px">'
+    +'<button onclick="document.getElementById(\'pw-area-'+label+'\').style.display=\'block\'" style="font-size:12px;color:#B5A99E;border:none;background:none;cursor:pointer;font-family:inherit">已有解锁码？点击输入</button>'
+    +'<div id="pw-area-'+label+'" style="display:none;margin-top:8px">'
+    +'<div style="display:flex;gap:6px"><input type="text" id="pw-input-'+label+'" placeholder="输入解锁码" style="flex:1;padding:8px 12px;border:1px solid #E8E2DC;border-radius:8px;font-size:13px;outline:none;font-family:inherit"><button onclick="gdTryUnlock(\'pw-input-'+label+'\',\'pw-msg-'+label+'\')" style="background:#2C2420;color:#fff;border:none;padding:8px 14px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;font-family:inherit">解锁</button></div>'
+    +'<div id="pw-msg-'+label+'" style="font-size:12px;margin-top:6px;min-height:14px"></div>'
+    +'</div></div></div>';
+}
+
 function toggleDirection(){
   direction=direction==='pth2cant'?'cant2pth':'pth2cant';
   document.getElementById('dirLabel').textContent=direction==='pth2cant'?'普通话':'粤语';
@@ -336,44 +379,52 @@ function speakResult(){if(lastPlainResult)speak(lastPlainResult,document.getElem
 function fillExample(text){document.getElementById('inputText').value=text;doTranslate()}
 
 // ===== 异步加载数据文件 =====
-function loadScript(src, onProgress){
+function loadScript(src){
   return new Promise((resolve, reject) => {
     const s = document.createElement('script');
-    s.src = src;
+    s.src = src + '?v=1';
     s.onload = resolve;
     s.onerror = reject;
+    const timer = setTimeout(()=>{
+      s.onload = null;
+      s.onerror = null;
+      reject(new Error('timeout'));
+    }, 15000);
+    s.addEventListener('load', ()=>clearTimeout(timer));
+    s.addEventListener('error', ()=>clearTimeout(timer));
     document.body.appendChild(s);
   });
 }
 
 // 加载核心数据
-(async function(){
+function loadCoreData(){
   const bar = document.getElementById('loadingInner');
   const btn = document.getElementById('translateBtn');
   bar.style.width = '30%';
+  bar.style.background = '#D4603A';
+  btn.disabled = true;
+  btn.textContent = '加载数据中...';
+  btn.onclick = null;
   
-  try {
-    await loadScript('gaaudim-translate-data.js');
+  loadScript('gaaudim-translate-data.js').then(()=>{
     bar.style.width = '100%';
-    
-    // 数据加载完成，初始化翻译引擎
     initTranslateEngine();
     dataReady = true;
     btn.disabled = false;
     btn.textContent = '翻译';
-    
-    setTimeout(()=>{
-      document.getElementById('loadingBar').style.display='none';
-    }, 500);
-    
+    btn.onclick = doTranslate;
+    setTimeout(()=>{ document.getElementById('loadingBar').style.display='none'; }, 500);
     if(typeof gtag==='function') gtag('event','translate_data_loaded');
-  } catch(e) {
+  }).catch((e)=>{
     bar.style.width = '100%';
     bar.style.background = '#E24B4A';
-    btn.textContent = '数据加载失败，请刷新';
+    btn.disabled = false;
+    btn.textContent = '加载失败，点击重试';
+    btn.onclick = function(){ loadCoreData(); };
     console.error('Failed to load translate data:', e);
-  }
-})();
+  });
+}
+loadCoreData();
 
 // ===== 翻译引擎初始化（数据加载后执行）=====
 let SORTED_DICT, REV_MAP_SPOKEN, REV_MAP_WRITTEN, REV_KEYS_ALL, EFFECTIVE_DICT, ED;
@@ -598,6 +649,13 @@ function filterDict(){
   else{document.getElementById('dictEmpty').style.display='none';loadMoreDict()}
 }
 function loadMoreDict(){
+  // 付费墙：未解锁用户最多浏览50条
+  if(dictShown >= DICT_FREE_LIMIT && !gdIsUnlocked()){
+    document.getElementById('dictList').insertAdjacentHTML('beforeend', gdPaywallCard(DICT_FREE_LIMIT, ED.length, '词典'));
+    document.getElementById('dictMoreBtn').style.display='none';
+    document.getElementById('dictStats').textContent='显示 '+DICT_FREE_LIMIT+' / '+dictFiltered.length.toLocaleString()+' 条 · 解锁查看全部';
+    return;
+  }
   const el=document.getElementById('dictList'),end=Math.min(dictShown+DICT_PAGE,dictFiltered.length);
   let h='';
   for(let i=dictShown;i<end;i++){
@@ -625,12 +683,15 @@ function loadAndToggleSub(type){
     banner.textContent='加载中...';
     loadScript('gaaudim-translate-extra.js').then(()=>{
       extraReady=true;
-      banner.textContent=type==='eng'?'\u{1f524} 常见英粤表达 · '+ENGLISH_CANT.length+'条 \u2192':'\u{1f5e3}\ufe0f 粤语俚语百科 · '+SLANG_DICT.length+'条 \u2192';
-      document.getElementById('engCount').textContent=ENGLISH_CANT.length;
-      document.getElementById('slangCount').textContent=SLANG_DICT.length;
+      if(type==='eng'){
+        banner.innerHTML='&#x1f524; 常见英粤表达 · '+ENGLISH_CANT.length+'条 <span class="arrow">&rarr;</span>';
+      } else {
+        banner.innerHTML='&#x1f5e3;&#xfe0f; 粤语俚语百科 · '+SLANG_DICT.length+'条 <span class="arrow">&rarr;</span>';
+      }
       toggleSubPanel(type);
     }).catch(()=>{
       banner.textContent='加载失败，点击重试';
+      extraReady=false;
     });
   } else {
     toggleSubPanel(type);
@@ -666,7 +727,16 @@ function filterSub(type){
   else{document.getElementById(type+'Empty').style.display='none';loadMoreSub(type)}
 }
 function loadMoreSub(type){
-  const s=subState[type],data=getSubData(type),el=document.getElementById(type+'List'),end=Math.min(s.shown+SUB_PAGE,s.filtered.length);
+  const s=subState[type],data=getSubData(type),el=document.getElementById(type+'List');
+  // 付费墙：未解锁用户最多浏览100条
+  if(s.shown >= SUB_FREE_LIMIT && !gdIsUnlocked()){
+    var lbl=type==='eng'?'英粤':'俚语';
+    el.insertAdjacentHTML('beforeend', gdPaywallCard(SUB_FREE_LIMIT, data.length, lbl));
+    document.getElementById(type+'More').style.display='none';
+    document.getElementById(type+'Stats').textContent='显示 '+SUB_FREE_LIMIT+' / '+s.filtered.length+' 条 · 解锁查看全部';
+    return;
+  }
+  const end=Math.min(s.shown+SUB_PAGE,s.filtered.length);
   let h='';
   for(let i=s.shown;i<end;i++){
     const e=data[s.filtered[i]];
