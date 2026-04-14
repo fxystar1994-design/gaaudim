@@ -240,11 +240,11 @@ body{font-family:'Noto Sans SC','PingFang SC',sans-serif;background:#FEFCF8;colo
 </head>
 <body>
 <script>
-window._gd_v='2.1';window._gd_ck=[];window._gd_err=[];
+window._gd_v='2.2';window._gd_ck=[];window._gd_err=[];
 window.onerror=function(m,s,l,c,e){window._gd_err.push(l+':'+m);var d=document.getElementById('_gd_diag');if(d)d.innerHTML='<b>v'+window._gd_v+'</b> ERR: '+window._gd_err.join('<br>')};
 function _ck(n){window._gd_ck.push(n);var d=document.getElementById('_gd_diag');if(d)d.innerHTML='<b>v'+window._gd_v+'</b> '+window._gd_ck.join(' → ')+(window._gd_err.length?' <span style="color:red">ERR:'+window._gd_err.join(';')+'</span>':'')}
 </script>
-<div id="_gd_diag" style="position:fixed;top:0;left:0;right:0;z-index:999999;background:#fffbe6;border-bottom:2px solid #f59e0b;padding:6px 12px;font-size:11px;color:#92400e;font-family:monospace">v2.1 loading...</div>
+<div id="_gd_diag" style="position:fixed;top:0;left:0;right:0;z-index:999999;background:#fffbe6;border-bottom:2px solid #f59e0b;padding:6px 12px;font-size:11px;color:#92400e;font-family:monospace">v2.2 loading...</div>
 <div class="container">
 <div class="header"><a href="index.html">&larr; 搞掂 gaaudim.com</a></div>
 <div class="title-section">
@@ -316,12 +316,16 @@ function _ck(n){window._gd_ck.push(n);var d=document.getElementById('_gd_diag');
 
 <!-- ===== 异步加载核心数据 ===== -->
 <script>
-// TTS
+// TTS（安全检查：部分浏览器不支持speechSynthesis）
 (function(){
+  if(typeof speechSynthesis==='undefined'){
+    window.speak=function(){};
+    return;
+  }
   let v=null,rdy=false;
-  function ld(){const vs=speechSynthesis.getVoices();v=vs.find(x=>x.lang==='zh-HK')||vs.find(x=>x.lang==='zh-TW')||vs.find(x=>x.lang.startsWith('zh'));rdy=true}
-  window.speak=function(t,b){if(!rdy)ld();speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang=v?v.lang:'zh-HK';if(v)u.voice=v;u.rate=0.82;u.pitch=1.05;if(b){const o=b.innerHTML;b.innerHTML='\u23f8';u.onend=()=>b.innerHTML=o;u.onerror=()=>b.innerHTML=o}speechSynthesis.speak(u)};
-  if(speechSynthesis.getVoices().length>0)ld();speechSynthesis.onvoiceschanged=ld;window.addEventListener('load',ld);
+  function ld(){try{const vs=speechSynthesis.getVoices();v=vs.find(x=>x.lang==='zh-HK')||vs.find(x=>x.lang==='zh-TW')||vs.find(x=>x.lang.startsWith('zh'));rdy=true}catch(e){}}
+  window.speak=function(t,b){try{if(!rdy)ld();speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang=v?v.lang:'zh-HK';if(v)u.voice=v;u.rate=0.82;u.pitch=1.05;if(b){const o=b.innerHTML;b.innerHTML='\u23f8';u.onend=()=>b.innerHTML=o;u.onerror=()=>b.innerHTML=o}speechSynthesis.speak(u)}catch(e){}};
+  try{if(speechSynthesis.getVoices().length>0)ld();speechSynthesis.onvoiceschanged=ld;window.addEventListener('load',ld)}catch(e){}
 })();
 
 // State
