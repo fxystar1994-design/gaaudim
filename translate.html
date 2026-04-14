@@ -239,12 +239,6 @@ body{font-family:'Noto Sans SC','PingFang SC',sans-serif;background:#FEFCF8;colo
 <link rel="stylesheet" href="gaaudim-mobile-fix.css">
 </head>
 <body>
-<script>
-window._gd_v='2.2';window._gd_ck=[];window._gd_err=[];
-window.onerror=function(m,s,l,c,e){window._gd_err.push(l+':'+m);var d=document.getElementById('_gd_diag');if(d)d.innerHTML='<b>v'+window._gd_v+'</b> ERR: '+window._gd_err.join('<br>')};
-function _ck(n){window._gd_ck.push(n);var d=document.getElementById('_gd_diag');if(d)d.innerHTML='<b>v'+window._gd_v+'</b> '+window._gd_ck.join(' → ')+(window._gd_err.length?' <span style="color:red">ERR:'+window._gd_err.join(';')+'</span>':'')}
-</script>
-<div id="_gd_diag" style="position:fixed;top:0;left:0;right:0;z-index:999999;background:#fffbe6;border-bottom:2px solid #f59e0b;padding:6px 12px;font-size:11px;color:#92400e;font-family:monospace">v2.2 loading...</div>
 <div class="container">
 <div class="header"><a href="index.html">&larr; 搞掂 gaaudim.com</a></div>
 <div class="title-section">
@@ -392,7 +386,6 @@ function fillExample(text){document.getElementById('inputText').value=text;doTra
 
 // ===== 内联数据（消灭外部文件依赖）=====
 </script>
-<script>_ck('TTS')</script>
 <script>
 // gaaudim-translate-data.js — 核心翻译数据（DICT + PARTICLES + JYUTPING_MAP + CULTURE_NOTES）
 // 自动从 translate.html 拆分生成 — 2026-04-13
@@ -12659,7 +12652,6 @@ const CULTURE_NOTES={
 window.__GD_DATA_LOADED = true;
 
 </script>
-<script>_ck('DICT:'+typeof DICT+'/'+((typeof DICT!=='undefined')?DICT.length:'?'))</script>
 <script>
 // gaaudim-translate-extra.js — 英粤表达 + 俚语百科（按需懒加载）
 // 自动从 translate.html 拆分生成 — 2026-04-13
@@ -14683,7 +14675,6 @@ const SLANG_DICT=[
 window.__GD_EXTRA_LOADED = true;
 
 </script>
-<script>_ck('EXTRA:'+typeof ENGLISH_CANT+'/'+typeof SLANG_DICT)</script>
 <script>
 // ===== 数据已内联，直接初始化 =====
 // ===== 翻译引擎初始化（数据加载后执行）=====
@@ -14711,7 +14702,6 @@ function initTranslateEngine(){
   // initDictIndex 和 renderHistory 在下一个script块定义，延迟到那里调用
 }
 </script>
-<script>_ck('ENGINE')</script>
 
 <!-- ===== 翻译函数+UI逻辑 ===== -->
 <script>
@@ -14997,18 +14987,13 @@ function loadMoreSub(type){
 
 // ===== 统一初始化（所有函数已定义，安全调用）=====
 try {
-  _ck('INIT-start');
   initTranslateEngine();
-  _ck('INIT-engine');
   initDictIndex();
-  _ck('INIT-dict:ED='+(typeof ED!=='undefined'?ED.length:'?'));
   renderHistory();
   document.getElementById('translateBtn').disabled=false;
   document.getElementById('translateBtn').textContent='翻译';
   document.getElementById('loadingBar').style.display='none';
-  _ck('DONE');
 } catch(e) {
-  _ck('INIT-ERR:'+e.message);
   console.error('初始化失败:', e);
   document.getElementById('translateBtn').disabled=false;
   document.getElementById('translateBtn').textContent='翻译';
