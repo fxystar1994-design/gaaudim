@@ -1,10 +1,92 @@
 # ===========================================
 # 搞掂 GaauDim — robots.txt
+# 更新日期：2026-04-15
+# 策略：允许搜索引擎+AI搜索爬虫，屏蔽训练爬虫+工具爬虫
 # ===========================================
-User-agent: *
+
+# ✅ Google 搜索
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 10
+
+User-agent: Googlebot-Image
 Allow: /
 
-# 阻止爬虫抓取工具页和脚本
+# ✅ Google AI（用于AI Overview搜索结果）
+User-agent: Google-Extended
+Allow: /
+
+# ✅ Bing 搜索
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 10
+
+# ✅ 百度搜索
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 30
+
+# ✅ Yandex 搜索
+User-agent: Yandex
+Allow: /
+Crawl-delay: 60
+
+# ✅ OpenAI 搜索（ChatGPT搜索功能引用你的网站）
+User-agent: OAI-SearchBot
+Allow: /
+
+# ✅ Perplexity 搜索（AI搜索引擎）
+User-agent: PerplexityBot
+Allow: /
+
+# ✅ Anthropic 搜索（Claude搜索功能）
+User-agent: Claude-SearchBot
+Allow: /
+
+# ❌ OpenAI 训练爬虫（只训练模型，不带来流量）
+User-agent: GPTBot
+Disallow: /
+
+# ❌ Anthropic 训练爬虫
+User-agent: ClaudeBot
+Disallow: /
+
+# ❌ 字节跳动（头号带宽杀手）
+User-agent: Bytespider
+Disallow: /
+
+# ❌ Common Crawl（AI训练数据集）
+User-agent: CCBot
+Disallow: /
+
+# ❌ Meta/Facebook 训练爬虫
+User-agent: FacebookBot
+Disallow: /
+
+# ❌ SEO工具爬虫（大量抓取不产生用户价值）
+User-agent: AhrefsBot
+Disallow: /
+User-agent: SemrushBot
+Disallow: /
+User-agent: MJ12bot
+Disallow: /
+User-agent: DotBot
+Disallow: /
+User-agent: BLEXBot
+Disallow: /
+User-agent: DataForSeoBot
+Disallow: /
+
+# ❌ 搜狗（流量极低不值得开放）
+User-agent: Sogou web spider
+Disallow: /
+
+# ❌ 其他未知爬虫默认允许（但Cloudflare会拦截恶意的）
+User-agent: *
+Allow: /
+Crawl-delay: 30
+
+# 屏蔽工具脚本
 Disallow: /add_version.py
 Disallow: /inject_paywall.py
 
