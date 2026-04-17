@@ -577,15 +577,46 @@ a{text-decoration:none;color:inherit}
         <div class="modal-urgency">🔥 前100名早鸟价 · 随时恢复¥299</div>
       </div>
 
-      <a class="modal-buy-btn" href="https://mbd.pub/o/bread/YZWclJZpag==" target="_blank" rel="noopener" onclick="if(typeof gtag==='function')gtag('event','payment_redirect_mianbaoduo',{content:currentPaywallTarget||'index'})" style="text-decoration:none;display:block;text-align:center">立即解锁全站 ¥99 →</a>
-      <p style="font-size:13px;color:var(--muted);margin-top:6px">支持微信支付 / 支付宝 · 购买后获取解锁码</p>
+      <!-- ALIPAY_PRIMARY_BLOCK -->
+      <button id="btn-pay-alipay" onclick="startAlipayPay()" style="display:block;width:100%;background:linear-gradient(135deg,#C8982E,#B8862B);color:#fff;border:none;padding:16px;border-radius:12px;font-family:'Noto Sans SC',sans-serif;font-size:17px;font-weight:900;cursor:pointer;margin-bottom:10px;box-shadow:0 4px 12px rgba(200,152,46,.3);transition:all .25s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+        支付宝即时付款 ¥99 · 推荐
+        <div style="font-size:12px;font-weight:400;margin-top:4px;opacity:.92">30秒内完成 · 自动解锁 · 附赠凭证</div>
+      </button>
+      <a class="modal-buy-btn" href="https://mbd.pub/o/bread/YZWclJZpag==" target="_blank" rel="noopener" onclick="if(typeof gtag==='function')gtag('event','payment_redirect_mianbaoduo',{content:currentPaywallTarget||'index'})" style="text-decoration:none;display:block;text-align:center;background:#fff;color:#555;border:1px solid var(--border);font-weight:700;font-size:15px;box-shadow:none;padding:13px;margin-bottom:6px">面包多购买 ¥99(备选 · 跳转第三方)</a>
+      <p style="font-size:12px;color:var(--muted);margin-top:4px">支付宝 30 秒自动解锁 · 面包多付款后需手动输入码</p>
+    </div>
+
+    <!-- EMAIL_COLLECT_MODAL (隐藏,点支付宝后弹出) -->
+    <div id="email-collect-step" style="display:none">
+      <h2 class="modal-title" style="font-size:20px;line-height:1.4">支付前留个联系方式</h2>
+      <p class="modal-desc" style="font-size:13px;color:var(--muted);margin-bottom:18px">用于付款凭证发送和换设备找回解锁码</p>
+      <input type="email" id="pay-email" placeholder="邮箱(必填)" autocomplete="email" required style="width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:10px;font-family:inherit;font-size:15px;outline:none;margin-bottom:10px">
+      <input type="tel" id="pay-phone" placeholder="手机号(可选)" autocomplete="tel" style="width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:10px;font-family:inherit;font-size:15px;outline:none;margin-bottom:6px">
+      <p id="pay-email-msg" style="font-size:12px;color:var(--err);min-height:16px;margin:4px 0 10px"></p>
+      <button onclick="confirmPayEmail()" style="display:block;width:100%;background:linear-gradient(135deg,#C8982E,#B8862B);color:#fff;border:none;padding:14px;border-radius:10px;font-family:inherit;font-size:16px;font-weight:900;cursor:pointer;box-shadow:0 4px 12px rgba(200,152,46,.3)">生成支付二维码 →</button>
+      <button onclick="backToPayStep()" style="display:block;width:100%;margin-top:10px;background:none;color:var(--muted);border:none;padding:8px;font-family:inherit;font-size:13px;cursor:pointer">← 返回</button>
+    </div>
+
+    <!-- QR_CODE_MODAL (桌面端扫码) -->
+    <div id="qr-step" style="display:none">
+      <h2 class="modal-title" style="font-size:20px">支付宝扫码付款</h2>
+      <p style="font-size:13px;color:var(--muted);margin-bottom:14px">请用支付宝扫描下方二维码 · 付款成功自动跳转</p>
+      <div style="display:flex;justify-content:center;padding:16px;background:#FFFBF0;border:1px solid #E4D6A6;border-radius:12px">
+        <canvas id="qr-canvas" style="max-width:240px"></canvas>
+      </div>
+      <p id="qr-timer" style="font-size:13px;color:var(--muted);margin-top:12px">等待付款中...</p>
+      <p id="qr-orderid" style="font-size:12px;color:var(--muted);margin-top:4px"></p>
+      <button onclick="cancelQrFlow()" style="display:block;width:100%;margin-top:14px;background:none;color:var(--muted);border:1px solid var(--border);padding:10px;border-radius:8px;font-family:inherit;font-size:13px;cursor:pointer">取消</button>
     </div>
 
     <div class="unlock-section">
       <button onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block'" style="font-size:13px;color:var(--muted);cursor:pointer;border:none;background:none;font-family:inherit;margin-bottom:8px">已有解锁码？点击输入</button>
       <div style="display:none">
-        <div class="unlock-row"><input class="unlock-input" type="text" id="unlock-code" placeholder="输入解锁码"><button class="unlock-btn" onclick="tryUnlock()">解锁</button></div>
+        <div class="unlock-row"><input class="unlock-input" type="text" id="unlock-code" placeholder="输入解锁码（如 GD-A7X9KM）"><button class="unlock-btn" onclick="tryUnlock()">解锁</button></div>
         <div class="unlock-msg" id="unlock-msg"></div>
+      </div>
+      <div style="text-align:center;margin-top:12px">
+        <a href="/lookup.html" style="font-size:12px;color:var(--muted);text-decoration:none">换设备找回解锁码 →</a>
       </div>
     </div>
   </div>
@@ -628,8 +659,138 @@ var MIANBAODUO_URL='https://mbd.pub/o/bread/YZWclJZpag==';
 function _h(s){var h=0;for(var i=0;i<s.length;i++){h=((h<<5)-h)+s.charCodeAt(i);h=h&h}return h}
 function showPaywall(t){if(localStorage.getItem('gd_unlocked')==='true'||document.cookie.indexOf('gd_unlocked=true')!==-1){if(document.cookie.indexOf('gd_unlocked=true')!==-1)localStorage.setItem('gd_unlocked','true');showToast('已解锁全站内容！');return}currentPaywallTarget=t;document.getElementById('modal-desc').textContent='「'+t+'」属于完整版内容。解锁后永久查看全站所有指南。';document.getElementById('pay-step1').style.display='block';document.getElementById('paywall-modal').classList.add('active');document.body.style.overflow='hidden';if(typeof gtag==='function')gtag('event','paywall_view',{content:t})}
 function goMianbaoduo(){if(typeof gtag==='function')gtag('event','payment_redirect_mianbaoduo',{content:currentPaywallTarget});window.open(MIANBAODUO_URL,'_blank')}
-function closePaywall(){document.getElementById('paywall-modal').classList.remove('active');document.body.style.overflow=''}
-function tryUnlock(){var code=document.getElementById('unlock-code').value.trim(),msg=document.getElementById('unlock-msg');if(!code){msg.className='unlock-msg error';msg.textContent='请输入解锁码';if(typeof gtag==='function')gtag('event','unlock_attempt',{success:false});return}if(_h(code.toUpperCase())===602092493){localStorage.setItem('gd_unlocked','true');var _d=new Date();_d.setTime(_d.getTime()+365*24*60*60*1000);document.cookie='gd_unlocked=true;expires='+_d.toUTCString()+';path=/;SameSite=Lax';msg.className='unlock-msg success';msg.textContent='✓ 解锁成功！刷新页面后所有内容可用';showToast('🎉 全站内容已解锁！');if(typeof gtag==='function'){gtag('event','unlock_attempt',{success:true});gtag('event','unlock_success')}setTimeout(function(){closePaywall();location.reload()},1500)}else{msg.className='unlock-msg error';msg.textContent='解锁码无效，请检查后重试';if(typeof gtag==='function')gtag('event','unlock_attempt',{success:false})}}
+function closePaywall(){document.getElementById('paywall-modal').classList.remove('active');document.body.style.overflow='';var ec=document.getElementById('email-collect-step');if(ec)ec.style.display='none';var qr=document.getElementById('qr-step');if(qr)qr.style.display='none';var p1=document.getElementById('pay-step1');if(p1)p1.style.display='block';cancelQrFlow(true)}
+var WORKER_URL='https://gaaudim-unlock.fxystar1994.workers.dev';
+function getDeviceFp(){try{var s=navigator.userAgent+screen.width+'x'+screen.height+Intl.DateTimeFormat().resolvedOptions().timeZone;return btoa(unescape(encodeURIComponent(s))).replace(/=/g,'').slice(0,24);}catch(e){return 'nofp';}}
+function _saveUnlock(){localStorage.setItem('gd_unlocked','true');var _d=new Date();_d.setTime(_d.getTime()+365*24*60*60*1000);document.cookie='gd_unlocked=true;expires='+_d.toUTCString()+';path=/;SameSite=Lax';}
+function tryUnlock(){
+  var input=document.getElementById('unlock-code').value.trim().toUpperCase(),msg=document.getElementById('unlock-msg');
+  if(!input){msg.className='unlock-msg error';msg.textContent='请输入解锁码';if(typeof gtag==='function')gtag('event','unlock_attempt',{success:false});return}
+  msg.className='unlock-msg';msg.textContent='验证中...';
+  // 新码(带横杠) 走 Worker, 老码走本地 hash fallback
+  var isNewCode=/^GD-/.test(input);
+  var tryWorker=function(){
+    return fetch(WORKER_URL+'/api/validate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({code:input,fp:getDeviceFp()})})
+      .then(function(r){return r.json();});
+  };
+  var tryLegacyHash=function(){
+    if(_h(input)===602092493){return {valid:true,legacy:true};}
+    return {valid:false,error:'not_found'};
+  };
+  var onSuccess=function(info){
+    _saveUnlock();
+    msg.className='unlock-msg success';
+    msg.textContent='✓ 解锁成功！刷新页面后所有内容可用';
+    showToast('🎉 全站内容已解锁！');
+    if(typeof gtag==='function'){gtag('event','unlock_attempt',{success:true});gtag('event','unlock_success',{method:info&&info.legacy?'legacy':'worker'})}
+    setTimeout(function(){closePaywall();location.reload()},1200);
+  };
+  var onFail=function(err){
+    msg.className='unlock-msg error';
+    if(err==='code_bound_other_device')msg.innerHTML='此码已绑定其他设备 · <a href="/lookup.html" style="color:#E85D3A">到找回页处理 →</a>';
+    else if(err==='rate_limit')msg.textContent='验证次数过多,请稍后重试';
+    else msg.textContent='解锁码无效，请检查后重试';
+    if(typeof gtag==='function')gtag('event','unlock_attempt',{success:false,reason:err||'unknown'});
+  };
+  tryWorker().then(function(j){
+    if(j&&j.valid){onSuccess(j);}
+    else if(!isNewCode){
+      // 非 GD- 开头的码, Worker 返回 not_found, 再走一次老 hash
+      var r=tryLegacyHash();if(r.valid){onSuccess(r);}else{onFail(j&&j.error);}
+    } else {onFail(j&&j.error);}
+  }).catch(function(){
+    // 网络错误: 老 hash 降级兜底
+    var r=tryLegacyHash();if(r.valid){onSuccess(r);}else{msg.className='unlock-msg error';msg.textContent='网络错误,请稍后重试';}
+  });
+}
+
+// ===== XorPay 支付宝付款流程 =====
+function startAlipayPay(){
+  document.getElementById('pay-step1').style.display='none';
+  document.getElementById('email-collect-step').style.display='block';
+  setTimeout(function(){var e=document.getElementById('pay-email');if(e)e.focus();},100);
+  if(typeof gtag==='function')gtag('event','alipay_click',{content:currentPaywallTarget||'index'});
+}
+function backToPayStep(){
+  document.getElementById('email-collect-step').style.display='none';
+  document.getElementById('qr-step').style.display='none';
+  document.getElementById('pay-step1').style.display='block';
+  cancelQrFlow(true);
+}
+var _payPollTimer=null,_payOrderId=null,_payExpiresAt=0,_qrCanvasReady=false;
+function loadQrLib(cb){
+  if(window.QRCode){cb();return;}
+  var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js';
+  s.onload=cb;s.onerror=function(){alert('二维码库加载失败,请刷新重试');};document.head.appendChild(s);
+}
+function confirmPayEmail(){
+  var email=(document.getElementById('pay-email').value||'').trim().toLowerCase();
+  var phone=(document.getElementById('pay-phone').value||'').trim();
+  var msg=document.getElementById('pay-email-msg');
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){msg.textContent='请输入有效邮箱';return;}
+  msg.textContent='正在生成支付二维码...';msg.style.color='#777';
+  fetch(WORKER_URL+'/api/create-order',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,phone:phone,channel:'alipay'})})
+    .then(function(r){return r.json().then(function(j){return {s:r.status,j:j};});})
+    .then(function(res){
+      if(!res.j.ok){
+        msg.style.color='#C0392B';msg.textContent=res.j.msg||('创建订单失败:'+(res.j.error||'unknown'));return;
+      }
+      _payOrderId=res.j.order_id;_payExpiresAt=Date.now()+(res.j.expires_in||7200)*1000;
+      if(typeof gtag==='function')gtag('event','alipay_order_created',{order_id:_payOrderId});
+      // 移动端直接跳转支付宝 App
+      var isMobile=/iPhone|iPad|Android/i.test(navigator.userAgent);
+      if(isMobile){location.href=res.j.qr;pollPayment();return;}
+      // 桌面端渲染二维码
+      document.getElementById('email-collect-step').style.display='none';
+      document.getElementById('qr-step').style.display='block';
+      document.getElementById('qr-orderid').textContent='订单号:'+_payOrderId;
+      loadQrLib(function(){
+        var canvas=document.getElementById('qr-canvas');
+        window.QRCode.toCanvas(canvas,res.j.qr,{width:240,margin:1,color:{dark:'#111',light:'#fff'}},function(err){if(err)console.error(err);_qrCanvasReady=true;});
+        pollPayment();
+        startQrTimer();
+      });
+    })
+    .catch(function(e){msg.style.color='#C0392B';msg.textContent='网络错误:'+e.message;});
+}
+function startQrTimer(){
+  var el=document.getElementById('qr-timer');
+  var tick=function(){
+    var sec=Math.floor((_payExpiresAt-Date.now())/1000);
+    if(sec<=0){el.textContent='二维码已过期,请重新生成';cancelQrFlow(true);return;}
+    var m=Math.floor(sec/60),s=sec%60;
+    el.textContent='等待付款 · '+m+'分'+(s<10?'0':'')+s+'秒 后过期';
+  };
+  tick();clearInterval(window._qrTickTimer);window._qrTickTimer=setInterval(tick,1000);
+}
+function pollPayment(){
+  if(!_payOrderId)return;
+  clearTimeout(_payPollTimer);
+  var attempts=0,maxAttempts=40; // 40 × 3s = 120s
+  var tick=function(){
+    if(!_payOrderId||attempts>maxAttempts)return;
+    attempts++;
+    fetch(WORKER_URL+'/api/check-payment/'+encodeURIComponent(_payOrderId))
+      .then(function(r){return r.json();})
+      .then(function(j){
+        if(j.status==='paid'){location.href='/success.html?order_id='+encodeURIComponent(_payOrderId);return;}
+        if(j.status==='pending'){_payPollTimer=setTimeout(tick,3000);return;}
+        _payPollTimer=setTimeout(tick,3000);
+      })
+      .catch(function(){_payPollTimer=setTimeout(tick,3000);});
+  };
+  tick();
+}
+function cancelQrFlow(silent){
+  clearTimeout(_payPollTimer);_payPollTimer=null;
+  clearInterval(window._qrTickTimer);window._qrTickTimer=null;
+  _payOrderId=null;_payExpiresAt=0;
+  if(!silent){
+    document.getElementById('qr-step').style.display='none';
+    document.getElementById('email-collect-step').style.display='none';
+    document.getElementById('pay-step1').style.display='block';
+  }
+}
 function checkUnlockStatus(){if(localStorage.getItem('gd_unlocked')==='true'){var m={'EP06':'MayJie_EP06_DimSum.html','EP07':'MayJie_EP07_Bank.html','EP08':'MayJie_EP08_Barber.html','EP09':'MayJie_EP09_Renting.html','EP10-30':'MayJie_EP10_Interview.html','JP03':'MayJie_JP03.html','JP04':'MayJie_JP04.html','JP05':'MayJie_JP05.html','JP-X':'MayJie_JP_Extra_LazyTones__1_.html','VW04':'MayJie_VW04.html','VW05':'MayJie_VW05.html','VW06-20':'MayJie_VW06.html','SZ04':'MayJie_SZ04.html','SZ05':'MayJie_SZ05.html','SZ06':'MayJie_SZ06.html','SZ07-10':'MayJie_SZ07.html','SZ-X':'MayJie_SZ_Extra_TaoCi.html','HK03':'MayJie_HKSongs_EP03_V3.html','HK04':'MayJie_HKSongs_EP04_V2.html','HK05':'MayJie_HKSongs_EP05_V2.html','HK-X':'MayJie_HKSongs_Extra_V2.html','词典':'translate.html','英粤':'translate.html','俚语':'translate.html'};document.querySelectorAll('.course-link.locked').forEach(function(el){el.classList.remove('locked');var ep=el.querySelector('.ep'),code=ep?ep.textContent.trim():'',lock=el.querySelector('.lock-icon');if(lock){lock.textContent='✓';lock.style.color='var(--accent)';lock.style.opacity='1'}if(m[code]){el.href=m[code];el.removeAttribute('onclick')}})}}
 document.getElementById('paywall-modal').addEventListener('click',function(e){if(e.target===this)closePaywall()});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closePaywall()});

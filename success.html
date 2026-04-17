@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>付款成功 · 搞掂 GaauDim</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Noto+Serif+SC:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#FAF6EE;--paper:#fff;--ink:#111;--muted:#777;--line:#E8E4DE;--gold:#C8982E;--gold-dark:#B8862B;--accent:#1A7A5C;--err:#C0392B}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Noto Sans SC",-apple-system,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px 16px}
+  .wrap{max-width:480px;width:100%}
+  .card{background:var(--paper);border-radius:20px;padding:32px 24px;box-shadow:0 20px 60px rgba(0,0,0,.08)}
+  h1{font-family:"Noto Serif SC",serif;font-size:26px;font-weight:900;margin:0 0 6px;text-align:center}
+  .subtitle{text-align:center;color:var(--muted);font-size:14px;margin-bottom:22px}
+  .loading{text-align:center;padding:40px 0;color:var(--muted)}
+  .spinner{width:38px;height:38px;border:3px solid var(--line);border-top-color:var(--gold);border-radius:50%;animation:spin .9s linear infinite;margin:0 auto 14px}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .code-box{background:linear-gradient(135deg,#FFF8E8,#FFEFC2);border:1px solid #E4D6A6;border-radius:14px;padding:20px;text-align:center;margin:16px 0}
+  .code-label{font-size:13px;color:var(--muted);margin-bottom:8px}
+  .code-val{font-family:"Noto Serif SC",serif;font-size:36px;font-weight:900;color:var(--gold);letter-spacing:4px;word-break:break-all}
+  .copy-btn{margin-top:10px;background:var(--ink);color:#fff;border:none;padding:8px 18px;border-radius:8px;font-family:inherit;font-size:13px;font-weight:700;cursor:pointer}
+  .copy-btn.ok{background:var(--accent)}
+  .info{font-size:14px;line-height:2;color:#333;background:#FAF6EE;border-radius:10px;padding:14px 16px;margin:16px 0}
+  .info-row{display:flex;justify-content:space-between;gap:8px}
+  .info-row .k{color:var(--muted);flex:0 0 80px}
+  .info-row .v{text-align:right;word-break:break-all}
+  .btn{display:block;width:100%;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:#fff;border:none;padding:16px;border-radius:12px;font-family:inherit;font-size:16px;font-weight:900;cursor:pointer;margin-top:12px;text-decoration:none;text-align:center;box-shadow:0 4px 12px rgba(200,152,46,.3)}
+  .btn.sec{background:none;color:#333;border:1px solid var(--line);box-shadow:none;font-weight:700}
+  .btn:active{transform:translateY(1px)}
+  .tip{font-size:12px;color:var(--muted);line-height:1.8;background:#FFFBF0;border:1px dashed #E4D6A6;padding:12px;border-radius:10px;margin-top:16px}
+  .err{color:var(--err);text-align:center;padding:16px}
+  .footer{text-align:center;font-size:12px;color:var(--muted);margin-top:18px}
+  .footer a{color:var(--gold);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card" id="card">
+    <div class="loading" id="state-loading">
+      <div class="spinner"></div>
+      <div>正在确认付款...</div>
+      <div style="font-size:12px;margin-top:6px">通常 30 秒内完成</div>
+    </div>
+  </div>
+  <div class="footer">
+    © 搞掂 GaauDim · 有问题联系 <a href="mailto:gaaudim2026@gmail.com">gaaudim2026@gmail.com</a>
+  </div>
+</div>
+
+<script>
+var WORKER_URL = 'https://gaaudim-unlock.fxystar1994.workers.dev';
+var qs = new URLSearchParams(location.search);
+var orderId = (qs.get('order_id') || '').trim();
+var card = document.getElementById('card');
+
+function esc(s){return String(s||'').replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+
+function showError(msg, retry){
+  card.innerHTML = '<h1>确认失败</h1><div class="err">'+esc(msg)+'</div>'
+    + (retry ? '<button class="btn" onclick="location.reload()">重试</button>' : '')
+    + '<a class="btn sec" href="/">返回首页</a>'
+    + '<div class="tip">如已付款但长时间未到账,请联系 <a href="mailto:gaaudim2026@gmail.com">gaaudim2026@gmail.com</a>,附上订单号 <b>'+esc(orderId)+'</b> 和付款截图。</div>';
+}
+
+function getDeviceFp(){
+  try{
+    var s = navigator.userAgent + screen.width + 'x' + screen.height + Intl.DateTimeFormat().resolvedOptions().timeZone;
+    return btoa(unescape(encodeURIComponent(s))).replace(/=/g,'').slice(0,24);
+  } catch(e){ return 'nofp'; }
+}
+
+function saveUnlockState(){
+  try{
+    localStorage.setItem('gd_unlocked', 'true');
+    var d = new Date(); d.setTime(d.getTime() + 365*24*60*60*1000);
+    document.cookie = 'gd_unlocked=true;expires=' + d.toUTCString() + ';path=/;SameSite=Lax';
+  } catch(e){}
+}
+
+function renderPaid(data){
+  card.innerHTML =
+    '<h1>🎉 付款成功</h1>'
+    + '<div class="subtitle">感谢支持,凭证已生成</div>'
+    + '<div class="code-box">'
+      + '<div class="code-label">你的解锁码</div>'
+      + '<div class="code-val" id="code-val">' + esc(data.code) + '</div>'
+      + '<button class="copy-btn" id="copy-btn" onclick="copyCode()">复制</button>'
+    + '</div>'
+    + '<div class="info">'
+      + '<div class="info-row"><span class="k">订单号</span><span class="v">' + esc(data.order_id) + '</span></div>'
+      + '<div class="info-row"><span class="k">邮箱</span><span class="v">' + esc(data.email) + '</span></div>'
+      + '<div class="info-row"><span class="k">付款时间</span><span class="v">' + esc(data.pay_time || '') + '</span></div>'
+      + '<div class="info-row"><span class="k">金额</span><span class="v">¥' + esc(data.pay_price || '99.00') + '</span></div>'
+      + '<div class="info-row"><span class="k">流水号</span><span class="v">' + esc(data.aoid) + '</span></div>'
+    + '</div>'
+    + '<button class="btn" onclick="oneClickUnlock()">一键解锁全站 · 跳转首页</button>'
+    + '<button class="btn sec" onclick="downloadCert()">下载凭证 (txt)</button>'
+    + '<div class="tip">⚠ 建议截图保存此页面。<br>换设备时可凭 <b>' + esc(data.email) + '</b> 到 <a href="/lookup.html">/lookup.html</a> 凭邮箱找回解锁码。</div>';
+
+  window.__CERT = data;
+}
+
+function copyCode(){
+  var code = window.__CERT && window.__CERT.code;
+  if (!code) return;
+  var btn = document.getElementById('copy-btn');
+  var done = function(){ btn.textContent='✓ 已复制'; btn.classList.add('ok'); setTimeout(function(){btn.textContent='复制';btn.classList.remove('ok')},1800); };
+  if (navigator.clipboard){
+    navigator.clipboard.writeText(code).then(done, function(){ fallback(); });
+  } else { fallback(); }
+  function fallback(){
+    var ta = document.createElement('textarea'); ta.value = code; document.body.appendChild(ta);
+    ta.select(); try{ document.execCommand('copy'); done(); } catch(e){}
+    document.body.removeChild(ta);
+  }
+}
+
+function downloadCert(){
+  var d = window.__CERT; if (!d) return;
+  var txt = '搞掂 GaauDim · 付款凭证\n'
+    + '============================\n'
+    + '解锁码:  ' + d.code + '\n'
+    + '订单号:  ' + d.order_id + '\n'
+    + '邮箱:    ' + d.email + '\n'
+    + '付款时间:' + (d.pay_time || '') + '\n'
+    + '金额:    ¥' + (d.pay_price || '99.00') + '\n'
+    + 'XorPay流水:' + d.aoid + '\n'
+    + '============================\n'
+    + '• 此码可在 https://gaaudim.com 输入解锁全站\n'
+    + '• 换设备时可凭邮箱到 https://gaaudim.com/lookup.html 找回\n'
+    + '• 问题请联系 gaaudim2026@gmail.com\n';
+  var blob = new Blob([txt], {type:'text/plain;charset=utf-8'});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url; a.download = 'gaaudim_cert_' + d.order_id + '.txt';
+  document.body.appendChild(a); a.click();
+  setTimeout(function(){ document.body.removeChild(a); URL.revokeObjectURL(url); }, 500);
+}
+
+function oneClickUnlock(){
+  var d = window.__CERT; if (!d) return;
+  saveUnlockState();
+  // 后台验证一次 (绑定设备),忽略错误
+  fetch(WORKER_URL + '/api/validate', {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({ code: d.code, fp: getDeviceFp() })
+  }).catch(function(){}).finally(function(){
+    location.href = '/?unlocked=1';
+  });
+}
+
+function poll(attempt){
+  if (attempt > 30){ // 30 × 3s ≈ 90s
+    return showError('付款确认超时。如已付款请稍后刷新本页,或联系客服。', true);
+  }
+  fetch(WORKER_URL + '/api/check-payment/' + encodeURIComponent(orderId), { method:'GET' })
+    .then(function(r){ return r.json().then(function(j){ return { s:r.status, j:j }; }); })
+    .then(function(res){
+      if (res.s === 404) return showError('找不到订单 ' + orderId);
+      if (res.j.status === 'paid') return renderPaid(res.j);
+      if (res.j.status === 'pending') return setTimeout(function(){ poll(attempt+1); }, 3000);
+      showError(res.j.error || '状态异常', true);
+    })
+    .catch(function(e){
+      console.warn(e);
+      setTimeout(function(){ poll(attempt+1); }, 3000);
+    });
+}
+
+if (!orderId || !orderId.indexOf('GDORD-') === 0){
+  showError('缺少订单号参数');
+} else {
+  poll(0);
+}
+</script>
+</body>
+</html>

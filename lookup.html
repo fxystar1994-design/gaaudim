@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>换设备找回解锁码 · 搞掂 GaauDim</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Noto+Serif+SC:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#FAF6EE;--paper:#fff;--ink:#111;--muted:#777;--line:#E8E4DE;--gold:#C8982E;--gold-dark:#B8862B;--accent:#1A7A5C;--err:#C0392B}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Noto Sans SC",-apple-system,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;padding:40px 16px 60px}
+  .wrap{max-width:520px;margin:0 auto}
+  h1{font-family:"Noto Serif SC",serif;font-size:26px;font-weight:900;text-align:center;margin:0 0 6px}
+  .subtitle{text-align:center;color:var(--muted);font-size:14px;margin-bottom:24px;line-height:1.7}
+  .card{background:var(--paper);border-radius:16px;padding:26px 22px;box-shadow:0 10px 40px rgba(0,0,0,.06)}
+  label{display:block;font-size:13px;color:#444;font-weight:700;margin:14px 0 6px}
+  label .opt{color:var(--muted);font-weight:400;font-size:12px;margin-left:4px}
+  input{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font-family:inherit;font-size:15px;outline:none;transition:border-color .2s}
+  input:focus{border-color:var(--gold)}
+  .hint{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.6}
+  .btn{display:block;width:100%;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:#fff;border:none;padding:14px;border-radius:10px;font-family:inherit;font-size:16px;font-weight:900;cursor:pointer;margin-top:22px;box-shadow:0 4px 12px rgba(200,152,46,.3)}
+  .btn:disabled{opacity:.5;cursor:not-allowed}
+  .msg{font-size:13px;margin-top:14px;padding:10px 12px;border-radius:8px;line-height:1.7;display:none}
+  .msg.err{background:#FDECEA;color:var(--err);display:block}
+  .msg.info{background:#FFF8E8;color:#8A6914;display:block}
+  .results{margin-top:22px}
+  .order-item{background:#FFFBF0;border:1px solid #E4D6A6;border-radius:12px;padding:16px;margin-bottom:12px}
+  .order-code{font-family:"Noto Serif SC",serif;font-size:24px;font-weight:900;color:var(--gold);letter-spacing:2px;margin:6px 0}
+  .order-meta{font-size:12px;color:var(--muted);line-height:1.7}
+  .order-btn{margin-top:10px;background:var(--ink);color:#fff;border:none;padding:9px 18px;border-radius:8px;font-family:inherit;font-size:13px;font-weight:700;cursor:pointer}
+  .order-btn.ok{background:var(--accent)}
+  .footer{text-align:center;font-size:12px;color:var(--muted);margin-top:28px;line-height:1.9}
+  .footer a{color:var(--gold);text-decoration:none}
+  .back{display:inline-block;margin-top:10px;color:var(--muted);text-decoration:none;font-size:13px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>换设备找回解锁码</h1>
+  <p class="subtitle">凭付款时填写的邮箱 + 订单号 / 金额,找回所有已购解锁码</p>
+
+  <div class="card">
+    <form id="lookup-form" onsubmit="return false">
+      <label>邮箱 <span class="opt">(付款时填写的)</span></label>
+      <input type="email" id="email" autocomplete="email" placeholder="user@example.com" required>
+
+      <label>订单号 <span class="opt">(GDORD-开头)</span></label>
+      <input type="text" id="order_id" placeholder="GDORD-XXXXXXXXXX (可选)">
+
+      <label>付款金额 <span class="opt">(和订单号任填其一即可)</span></label>
+      <input type="text" id="last4" placeholder="99.00">
+      <div class="hint">防撞库校验,必须和付款时的金额完全一致(如 99.00)。</div>
+
+      <button class="btn" id="submit-btn" onclick="doLookup()">查询我的解锁码</button>
+    </form>
+    <div class="msg" id="msg"></div>
+    <div class="results" id="results"></div>
+  </div>
+
+  <div class="footer">
+    找不到?请邮件 <a href="mailto:gaaudim2026@gmail.com">gaaudim2026@gmail.com</a>,注明付款时间和金额。<br>
+    <a class="back" href="/">← 返回首页</a>
+  </div>
+</div>
+
+<script>
+var WORKER_URL = 'https://gaaudim-unlock.fxystar1994.workers.dev';
+var msgEl = document.getElementById('msg');
+var resultsEl = document.getElementById('results');
+var btn = document.getElementById('submit-btn');
+
+function esc(s){return String(s||'').replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+
+function setMsg(txt, type){
+  msgEl.className = 'msg ' + (type || 'info');
+  msgEl.textContent = txt;
+}
+
+function getDeviceFp(){
+  try{
+    var s = navigator.userAgent + screen.width + 'x' + screen.height + Intl.DateTimeFormat().resolvedOptions().timeZone;
+    return btoa(unescape(encodeURIComponent(s))).replace(/=/g,'').slice(0,24);
+  } catch(e){ return 'nofp'; }
+}
+
+function saveUnlockState(){
+  localStorage.setItem('gd_unlocked', 'true');
+  var d = new Date(); d.setTime(d.getTime() + 365*24*60*60*1000);
+  document.cookie = 'gd_unlocked=true;expires=' + d.toUTCString() + ';path=/;SameSite=Lax';
+}
+
+function doLookup(){
+  var email = document.getElementById('email').value.trim().toLowerCase();
+  var order_id = document.getElementById('order_id').value.trim().toUpperCase();
+  var last4 = document.getElementById('last4').value.trim();
+
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return setMsg('请输入有效的邮箱地址', 'err');
+  if (!order_id && !last4) return setMsg('请至少填写订单号或付款金额其中一项', 'err');
+
+  btn.disabled = true; btn.textContent = '查询中...';
+  msgEl.style.display='none'; resultsEl.innerHTML='';
+
+  fetch(WORKER_URL + '/api/lookup', {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({ email: email, order_id: order_id, last4: last4 })
+  })
+  .then(function(r){ return r.json().then(function(j){ return { s:r.status, j:j }; }); })
+  .then(function(res){
+    btn.disabled=false; btn.textContent='查询我的解锁码';
+    if (res.s === 429){
+      return setMsg(res.j.msg || '查询次数超限,请稍后再试', 'err');
+    }
+    if (!res.j.ok){
+      return setMsg(res.j.msg || res.j.error || '查询失败', 'err');
+    }
+    if (!res.j.orders || !res.j.orders.length){
+      return setMsg(res.j.msg || '未找到订单。请核对邮箱、订单号或金额。', 'err');
+    }
+    renderOrders(res.j.orders);
+  })
+  .catch(function(e){
+    btn.disabled=false; btn.textContent='查询我的解锁码';
+    setMsg('网络错误,请重试。' + (e.message||''), 'err');
+  });
+}
+
+function renderOrders(orders){
+  var html = '<div style="margin-bottom:10px;font-size:14px;color:#444"><b>共找到 ' + orders.length + ' 条订单:</b></div>';
+  orders.forEach(function(o, i){
+    html += '<div class="order-item">'
+      + '<div class="order-meta">订单号 ' + esc(o.order_id) + ' · ¥' + esc(o.pay_price || '99.00') + (o.pay_time ? ' · ' + esc(o.pay_time) : '') + '</div>'
+      + '<div class="order-code">' + esc(o.code) + '</div>'
+      + '<button class="order-btn" data-code="' + esc(o.code) + '" onclick="copyOne(this)">复制</button> '
+      + '<button class="order-btn" style="background:' + (i===0 ? 'var(--gold)' : 'var(--ink)') + '" onclick="unlockWith(\'' + esc(o.code) + '\')">用此码解锁全站</button>'
+    + '</div>';
+  });
+  resultsEl.innerHTML = html;
+}
+
+function copyOne(btn){
+  var code = btn.getAttribute('data-code');
+  var done = function(){ btn.textContent='✓ 已复制'; btn.classList.add('ok'); setTimeout(function(){btn.textContent='复制';btn.classList.remove('ok')},1800); };
+  if (navigator.clipboard){
+    navigator.clipboard.writeText(code).then(done, function(){ fb(); });
+  } else { fb(); }
+  function fb(){ var ta=document.createElement('textarea'); ta.value=code; document.body.appendChild(ta); ta.select(); try{document.execCommand('copy');done();}catch(e){} document.body.removeChild(ta); }
+}
+
+function unlockWith(code){
+  setMsg('正在验证 ' + code + ' ...', 'info');
+  fetch(WORKER_URL + '/api/validate', {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({ code: code, fp: getDeviceFp() })
+  })
+  .then(function(r){ return r.json(); })
+  .then(function(j){
+    if (j.valid){
+      saveUnlockState();
+      setMsg('✓ 解锁成功!即将跳转首页...', 'info');
+      setTimeout(function(){ location.href = '/?unlocked=1'; }, 900);
+    } else if (j.error === 'code_bound_other_device'){
+      setMsg('此码已绑定其他设备。请联系客服解绑,或用另一条订单的码。', 'err');
+    } else {
+      setMsg('解锁失败:' + (j.error || '未知错误'), 'err');
+    }
+  })
+  .catch(function(e){ setMsg('网络错误:' + (e.message||''), 'err'); });
+}
+
+// 允许回车提交
+document.addEventListener('keydown', function(e){ if (e.key === 'Enter') { e.preventDefault(); doLookup(); } });
+
+// 如果 URL 带 email 参数,预填
+var qs = new URLSearchParams(location.search);
+if (qs.get('email')) document.getElementById('email').value = qs.get('email');
+if (qs.get('order_id')) document.getElementById('order_id').value = qs.get('order_id');
+</script>
+</body>
+</html>

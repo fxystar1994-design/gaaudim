@@ -1,0 +1,18 @@
+name = "gaaudim-unlock"
+main = "src/index.js"
+compatibility_date = "2026-04-01"
+account_id = "0143defacbe1fa10bdcc3285c043f18b"
+
+[vars]
+SITE_ORIGIN = "https://gaaudim.com"
+LEGACY_CODE = "GD2026HKX9M7"
+XORPAY_AID = "703606"
+
+[[kv_namespaces]]
+binding = "UNLOCK_KV"
+id = "eee330177893479288dddcddcbf713b9"
+
+# Secrets 通过 wrangler secret put 设置,不在这里明文写:
+#   wrangler secret put XORPAY_SECRET
+#   wrangler secret put ADMIN_KEY
+#   wrangler secret put RESEND_API_KEY   (可选)
