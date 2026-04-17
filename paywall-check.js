@@ -234,8 +234,16 @@ function pwCancelQrInternal(){
 }
 function pwLoadQrLib(cb){
   if (window.QRCode) { cb(); return; }
-  var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js';
-  s.onload=cb;s.onerror=function(){alert('二维码库加载失败,请刷新重试');};document.head.appendChild(s);
+  // 先走本地 vendor (避 CORB/CDN 不稳), 失败再降级到 jsdelivr CDN
+  var s=document.createElement('script');s.src='/vendor/qrcode.min.js?v=1';
+  s.onload=cb;
+  s.onerror=function(){
+    console.warn('[pw-qr] local vendor 加载失败, 降级到 CDN');
+    var s2=document.createElement('script');s2.src='https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js';
+    s2.onload=cb;s2.onerror=function(){alert('二维码库加载失败,请刷新重试或切换网络');};
+    document.head.appendChild(s2);
+  };
+  document.head.appendChild(s);
 }
 window.pwConfirmEmail = function(){
   var email=(document.getElementById('pw-email').value||'').trim().toLowerCase();
