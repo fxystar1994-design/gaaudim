@@ -36,8 +36,9 @@ npx wrangler secret put ADMIN_KEY
 # npx wrangler secret put RESEND_API_KEY
 
 # 4) 预置老解锁码 (老用户 3 位仍用它)
-npx wrangler kv:key put --binding=UNLOCK_KV \
-  "legacy:GD2026HKX9M7" '{"valid":true,"old":true}' --remote
+# wrangler 4.x 默认就是远程,不要加 --remote 否则报 Unknown argument
+npx wrangler kv key put --binding=UNLOCK_KV \
+  "legacy:GD2026HKX9M7" '{"valid":true,"old":true}'
 
 # 5) 部署
 npx wrangler deploy
@@ -101,12 +102,12 @@ curl -H "X-Admin-Key: <ADMIN_KEY>" \
 
 ```bash
 # 订单总数
-npx wrangler kv:key list --binding=UNLOCK_KV --prefix="order:" --remote | jq length
+npx wrangler kv key list --binding=UNLOCK_KV --prefix="order:" | jq length
 
 # 细看(所有订单 JSON)
-npx wrangler kv:key list --binding=UNLOCK_KV --prefix="order:" --remote | \
+npx wrangler kv key list --binding=UNLOCK_KV --prefix="order:" | \
   jq -r '.[].name' | while read k; do
-    npx wrangler kv:key get --binding=UNLOCK_KV --remote "$k"; echo
+    npx wrangler kv key get --binding=UNLOCK_KV "$k"; echo
   done
 ```
 
@@ -116,10 +117,10 @@ npx wrangler kv:key list --binding=UNLOCK_KV --prefix="order:" --remote | \
 
 ```bash
 # 先查
-npx wrangler kv:key get --binding=UNLOCK_KV --remote "code:GD-XXXXXX"
+npx wrangler kv key get --binding=UNLOCK_KV "code:GD-XXXXXX"
 # 手动编辑后回写 (把 used 改回 false, device_fp 改 null)
 echo '{"email":"xx@qq.com","order_id":"GDORD-xxx","aoid":"xxx","created":1718000000000,"pay_time":"2026-04-17 12:00:00","pay_price":"99.00","used":false,"device_fp":null}' | \
-  npx wrangler kv:key put --binding=UNLOCK_KV --remote "code:GD-XXXXXX"
+  npx wrangler kv key put --binding=UNLOCK_KV "code:GD-XXXXXX"
 ```
 
 ---
@@ -183,7 +184,7 @@ echo '{"email":"xx@qq.com","order_id":"GDORD-xxx","aoid":"xxx","created":1718000
 完整测试过一遍(¥0.01 测试单):
 
 - [ ] XorPay 后台"发送测试回调",看 `wrangler tail` 有 `[webhook] paid`
-- [ ] `wrangler kv:key get --binding=UNLOCK_KV --remote "code:GD-XXXXXX"` 看码已写入
+- [ ] `wrangler kv key get --binding=UNLOCK_KV "code:GD-XXXXXX"` 看码已写入
 - [ ] 手工拼 `/success.html?order_id=GDORD-xxx` 打开,显示凭证卡
 - [ ] 首页付费弹窗输入新码 → 解锁成功
 - [ ] 某课程页(如 MayJie_EP06)输入新码 → 解锁成功
