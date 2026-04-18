@@ -1,7 +1,7 @@
 // paywall-check.js v4.0 — 2026-04-17
 // v4.0: 接入 XorPay 支付宝即时付款(与面包多并存),支持换设备凭邮箱找回
 (function(){
-var WORKER_URL='https://gaaudim-unlock.fxystar1994.workers.dev';
+var WORKER_URL='https://api.gaaudim.com';
 function pwGetDeviceFp(){try{var s=navigator.userAgent+screen.width+'x'+screen.height+Intl.DateTimeFormat().resolvedOptions().timeZone;return btoa(unescape(encodeURIComponent(s))).replace(/=/g,'').slice(0,24);}catch(e){return 'nofp';}}
 
 // ===== 付费页面关键词（大写，用于匹配）=====
