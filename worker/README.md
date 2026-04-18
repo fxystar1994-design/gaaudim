@@ -7,7 +7,7 @@
 
 ## 1. 线上地址
 
-- Worker URL: `https://gaaudim-unlock.fxystar1994.workers.dev`
+- Worker URL: `https://api.gaaudim.com`
 - 前端入口: `https://gaaudim.com/` (付费弹窗)、`https://gaaudim.com/success.html` (凭证)、`https://gaaudim.com/lookup.html` (找回)
 - XorPay 后台: https://xorpay.com (AID: `703606`)
 - Cloudflare 后台: https://dash.cloudflare.com/0143defacbe1fa10bdcc3285c043f18b
@@ -47,7 +47,7 @@ npx wrangler deploy
 部署成功后会看到形如:
 ```
 Published gaaudim-unlock
-  https://gaaudim-unlock.fxystar1994.workers.dev
+  https://api.gaaudim.com
 ```
 
 ---
@@ -56,7 +56,7 @@ Published gaaudim-unlock
 
 登 https://xorpay.com,商户后台 → 应用 703606:
 
-1. **notify_url 白名单**(如有):填 `https://gaaudim-unlock.fxystar1994.workers.dev/api/xorpay-webhook`
+1. **notify_url 白名单**(如有):填 `https://api.gaaudim.com/api/xorpay-webhook`
 2. **回调 IP 白名单**:一般不用配,XorPay 直接 POST 即可
 3. **测试**:后台有"发送测试回调"功能,建议先用 `¥0.01` 创建一单,过流程,确认回调签名校验通过
 
@@ -77,14 +77,14 @@ npx wrangler tail
 
 ```bash
 curl -H "X-Admin-Key: a7f3e9d4c6b2185f0e7d3a9c4b6e8f1d2c5a8b7e9f0d3a6c" \
-  "https://gaaudim-unlock.fxystar1994.workers.dev/api/admin/list?limit=50" | jq
+  "https://api.gaaudim.com/api/admin/list?limit=50" | jq
 ```
 
 ### 4.3 按邮箱查订单(用户申诉时)
 
 ```bash
 curl -H "X-Admin-Key: <ADMIN_KEY>" \
-  "https://gaaudim-unlock.fxystar1994.workers.dev/api/admin/lookup?email=user@example.com" | jq
+  "https://api.gaaudim.com/api/admin/lookup?email=user@example.com" | jq
 ```
 
 返回该邮箱所有 paid 订单 + 对应的解锁码 + device_fp 绑定状态。
@@ -93,7 +93,7 @@ curl -H "X-Admin-Key: <ADMIN_KEY>" \
 
 ```bash
 curl -H "X-Admin-Key: <ADMIN_KEY>" \
-  "https://gaaudim-unlock.fxystar1994.workers.dev/api/admin/create-code?email=xxx@qq.com&note=wechat_transfer_240417"
+  "https://api.gaaudim.com/api/admin/create-code?email=xxx@qq.com&note=wechat_transfer_240417"
 ```
 
 返回 `{ok:true, code:"GD-XXXXXX", order_id:"GDORD-..."}`,把 code 发给客户。
@@ -129,7 +129,7 @@ echo '{"email":"xx@qq.com","order_id":"GDORD-xxx","aoid":"xxx","created":1718000
 
 | 前端文件 | 耦合点 |
 |---|---|
-| `index.html` | `var WORKER_URL='https://gaaudim-unlock.fxystar1994.workers.dev'` |
+| `index.html` | `var WORKER_URL='https://api.gaaudim.com'` |
 | `paywall-check.js` | 同上 (IIFE 顶部) |
 | `success.html` | 同上 |
 | `lookup.html` | 同上 |

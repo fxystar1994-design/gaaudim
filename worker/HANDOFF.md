@@ -1,7 +1,7 @@
 # GaauDim XorPay 接入 · 最终交付报告
 
 > **上线日期:** 2026-04-17
-> **Worker 生产 URL:** https://gaaudim-unlock.fxystar1994.workers.dev
+> **Worker 生产 URL:** https://api.gaaudim.com
 > **状态:** 核心链路 12/13 项实测通过,仅"真实付款回调"延后
 > **维护人:** Nick (交付后)
 
@@ -50,7 +50,7 @@ Worker 后端(全新):
 
 ## 2. API 端点速查表
 
-生产 URL: `https://gaaudim-unlock.fxystar1994.workers.dev`
+生产 URL: `https://api.gaaudim.com`
 
 | Method | Path | 鉴权 | 用途 | 限流 |
 |---|---|---|---|---|
@@ -90,11 +90,11 @@ npx wrangler tail
 ```bash
 # 列最近 50 单(JSON)
 curl -H "X-Admin-Key: a7f3e9d4c6b2185f0e7d3a9c4b6e8f1d2c5a8b7e9f0d3a6c" \
-  "https://gaaudim-unlock.fxystar1994.workers.dev/api/admin/list?limit=50" | jq
+  "https://api.gaaudim.com/api/admin/list?limit=50" | jq
 
 # 按邮箱查
 curl -H "X-Admin-Key: a7f3e9d4c6b2185f0e7d3a9c4b6e8f1d2c5a8b7e9f0d3a6c" \
-  "https://gaaudim-unlock.fxystar1994.workers.dev/api/admin/lookup?email=user@qq.com" | jq
+  "https://api.gaaudim.com/api/admin/lookup?email=user@qq.com" | jq
 
 # 订单总数
 npx wrangler kv key list --binding=UNLOCK_KV --prefix="order:" | jq length
@@ -104,7 +104,7 @@ npx wrangler kv key list --binding=UNLOCK_KV --prefix="order:" | jq length
 
 ```bash
 curl -H "X-Admin-Key: a7f3e9d4c6b2185f0e7d3a9c4b6e8f1d2c5a8b7e9f0d3a6c" \
-  "https://gaaudim-unlock.fxystar1994.workers.dev/api/admin/create-code?email=xxx@qq.com&note=wechat_transfer_240417"
+  "https://api.gaaudim.com/api/admin/create-code?email=xxx@qq.com&note=wechat_transfer_240417"
 # 返回 {ok:true, code:"GD-XXXXXX", order_id:"GDORD-...", email:"xxx@qq.com"}
 ```
 
@@ -198,22 +198,28 @@ npx wrangler deploy  # 重新部署让代码读到新 secret
 3. `wrangler secret put RESEND_API_KEY`
 4. `wrangler deploy`
 
-### 🟢 [低] Worker 自定义域名 `api.gaaudim.com`
+### ✅ 已完成 2026-04-18 · Worker 自定义域名 `api.gaaudim.com`
 
-**当前:** `gaaudim-unlock.fxystar1994.workers.dev`(workers.dev 子域,功能上无差别)
+**理由备注:** 中国大陆访问 workers.dev 被墙,提前执行(原排期为"低优"延后项)。
 
-**目的:** 品牌一致 · 可选 GFW 层面健壮性
+**当前生产 URL:** `https://api.gaaudim.com`(Cloudflare 自定义域,gaaudim.com 已托管在 Cloudflare)
 
-**改动范围:**
-1. Cloudflare Dashboard → Workers & Pages → `gaaudim-unlock` → Custom Domains → Add `api.gaaudim.com`
-2. 自动配 DNS(gaaudim.com 已托管在 Cloudflare)
-3. 前端 4 个 `WORKER_URL` 常量同步替换:
+**健康检查:** 2026-04-18 中国 iPhone 5G 实测 `GET https://api.gaaudim.com/health` → `{"ok":true,"t":1776517282977}`,SSL/DNS 均生效。
+
+**已完成改动:**
+1. ✅ Cloudflare Dashboard → Workers & Pages → `gaaudim-unlock` → Custom Domains → 绑定 `api.gaaudim.com`
+2. ✅ 自动 DNS(CF 托管 gaaudim.com)
+3. ✅ 前端 4 个 `WORKER_URL` 常量同步替换为 `https://api.gaaudim.com`:
    - `index.html`
    - `paywall-check.js`
    - `success.html`
    - `lookup.html`
-4. Worker CORS 白名单追加 `https://api.gaaudim.com`(自己调自己通常不需要,保险)
-5. git push 到 Netlify,验证
+4. ✅ `worker/README.md` / `worker/HANDOFF.md` 内文档示例 URL 同步替换
+5. ✅ commit `fix(cn): migrate Worker URL to api.gaaudim.com for mainland China accessibility` 推送,Netlify 自动部署
+
+**未改动(保持原状):**
+- Worker 代码、KV 数据、XorPay notify_url 无需调整(workers.dev 原地址仍可用作备用入口,自定义域是并存映射)
+- Worker CORS 白名单:仍只允许 `https://gaaudim.com`,因为前端只从 gaaudim.com 调 api.gaaudim.com,Origin 是 gaaudim.com,无需额外加项
 
 ### 🟢 [低] wrangler 升级 3.114.17 → 4.83.0
 
@@ -239,7 +245,7 @@ npx wrangler deploy  # 验证
 
 | 症状 | 可能原因 | 排查步骤 |
 |---|---|---|
-| 用户扫码付了款,success.html 一直 loading | XorPay webhook 没到 | `wrangler tail` 看有无 `[webhook]` · 去 XorPay 后台查回调记录 · 若 XorPay 端显示"发送成功"但 Worker 无日志,检查 XorPay notify_url 是否填 `https://gaaudim-unlock.fxystar1994.workers.dev/api/xorpay-webhook`(非 gaaudim.com) |
+| 用户扫码付了款,success.html 一直 loading | XorPay webhook 没到 | `wrangler tail` 看有无 `[webhook]` · 去 XorPay 后台查回调记录 · 若 XorPay 端显示"发送成功"但 Worker 无日志,检查 XorPay notify_url 是否填 `https://api.gaaudim.com/api/xorpay-webhook`(非 gaaudim.com) |
 | webhook 到了但返 403 | 签名不对 | `wrangler secret list` 确认 `XORPAY_SECRET` 存在 · 到 XorPay 后台核对 app_secret 是否修改过 · Worker 日志搜 `[webhook] sign_invalid` |
 | webhook 到了但返 success 却没发码 | 金额不是 99.00 | 日志 `[webhook] price_mismatch` · 检查是否有人在 XorPay 改过订单金额 · KV `error:price_mismatch:*` 记录 30 天 |
 | 用户报"解锁码用不了" | 码已绑定其他设备 | `wrangler kv key get --binding=UNLOCK_KV "code:GD-XXXXXX"` 看 `device_fp` 是否和当前不一致 · 必要时用 §3.4 手动解绑 |
@@ -272,10 +278,15 @@ npx wrangler deploy  # 验证
 ```
 
 **前端 Worker URL 耦合点(4 处同步改):**
+
+当前值:`https://api.gaaudim.com`(2026-04-18 起,原 `gaaudim-unlock.fxystar1994.workers.dev` 因中国大陆被墙已下线引用)
+
 1. `index.html` 搜 `var WORKER_URL=`
 2. `paywall-check.js` 搜 `var WORKER_URL=`
 3. `success.html` 搜 `var WORKER_URL =`
 4. `lookup.html` 搜 `var WORKER_URL =`
+
+> 若未来再切域名(例如换账号或启用多域名),4 处必须同步,否则 CORS/fetch 会静默失败。
 
 ---
 
