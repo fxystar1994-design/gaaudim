@@ -1,4 +1,5 @@
-// paywall-check.js v4.0 — 2026-04-17
+// paywall-check.js v4.1 — 2026-04-18 · URL迁移缓存刷新
+// v4.1: 仅版本号断版刷缓存(文件内容 v4.0 起未变逻辑,WORKER_URL 已切 api.gaaudim.com)
 // v4.0: 接入 XorPay 支付宝即时付款(与面包多并存),支持换设备凭邮箱找回
 (function(){
 var WORKER_URL='https://api.gaaudim.com';
