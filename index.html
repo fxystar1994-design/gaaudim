@@ -745,6 +745,8 @@ function confirmPayEmail(){
       }
       _payOrderId=res.j.order_id;_payExpiresAt=Date.now()+(res.j.expires_in||7200)*1000;
       if(typeof gtag==='function')gtag('event','alipay_order_created',{order_id:_payOrderId});
+      // 跳支付宝前持久化订单:移动端跳 App 或任何刷新/关标签后,任意页面加载时都能接力轮询
+      try{localStorage.setItem('gd_pending_order',JSON.stringify({order_id:_payOrderId,expires_at:_payExpiresAt}));}catch(e){}
       // 移动端直接跳转支付宝 App
       var isMobile=/iPhone|iPad|Android/i.test(navigator.userAgent);
       if(isMobile){location.href=res.j.qr;pollPayment();return;}
@@ -774,14 +776,14 @@ function startQrTimer(){
 function pollPayment(){
   if(!_payOrderId)return;
   clearTimeout(_payPollTimer);
-  var attempts=0,maxAttempts=40; // 40 × 3s = 120s
+  var attempts=0,maxAttempts=200; // 200 × 3s = 600s (10 分钟,修 Bug B · webhook 延迟兜底)
   var tick=function(){
     if(!_payOrderId||attempts>maxAttempts)return;
     attempts++;
     fetch(WORKER_URL+'/api/check-payment/'+encodeURIComponent(_payOrderId))
       .then(function(r){return r.json();})
       .then(function(j){
-        if(j.status==='paid'){location.href='/success.html?order_id='+encodeURIComponent(_payOrderId);return;}
+        if(j.status==='paid'){try{localStorage.removeItem('gd_pending_order');}catch(e){}location.href='/success.html?order_id='+encodeURIComponent(_payOrderId);return;}
         if(j.status==='pending'){_payPollTimer=setTimeout(tick,3000);return;}
         _payPollTimer=setTimeout(tick,3000);
       })
@@ -792,6 +794,8 @@ function pollPayment(){
 function cancelQrFlow(silent){
   clearTimeout(_payPollTimer);_payPollTimer=null;
   clearInterval(window._qrTickTimer);window._qrTickTimer=null;
+  // 用户显式点「取消」/「返回」才清持久化订单;「silent」来自 closePaywall/过期,保留以便跨页恢复
+  if(!silent){try{localStorage.removeItem('gd_pending_order');}catch(e){}}
   _payOrderId=null;_payExpiresAt=0;
   if(!silent){
     document.getElementById('qr-step').style.display='none';
@@ -804,6 +808,30 @@ document.getElementById('paywall-modal').addEventListener('click',function(e){if
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closePaywall()});
 function showToast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2500)}
 renderSeeds();checkUnlockStatus();initTwikoo();
+// ===== 支付恢复 · 跨页面/跨刷新兜底轮询(修 Bug A · 移动端跳支付宝后 JS 上下文死亡)=====
+(function gdResumePendingPoll(){
+  try{
+    var raw=localStorage.getItem('gd_pending_order');
+    if(!raw)return;
+    var p=JSON.parse(raw);
+    if(!p||typeof p.order_id!=='string'||p.order_id.indexOf('GDORD-')!==0){localStorage.removeItem('gd_pending_order');return;}
+    if(!p.expires_at||p.expires_at<Date.now()){localStorage.removeItem('gd_pending_order');return;}
+    if(location.pathname.indexOf('/success.html')===0)return; // success.html 自己处理
+    var oid=p.order_id,attempts=0,max=200; // 200 × 3s = 600s
+    var tick=function(){
+      if(attempts>max)return; // 本次页面生命周期内超时放弃;下次加载再试,直到 expires_at 自动清理
+      attempts++;
+      fetch(WORKER_URL+'/api/check-payment/'+encodeURIComponent(oid))
+        .then(function(r){return r.json();})
+        .then(function(j){
+          if(j&&j.status==='paid'){try{localStorage.removeItem('gd_pending_order');}catch(e){}location.href='/success.html?order_id='+encodeURIComponent(oid);return;}
+          setTimeout(tick,3000);
+        })
+        .catch(function(){setTimeout(tick,3000);});
+    };
+    tick();
+  }catch(e){}
+})();
 // 留言奖励
 function claimReward(){localStorage.setItem('gd_reward_sz05','1');document.getElementById('reward-area').style.display='none';document.getElementById('reward-result').style.display='block';showToast('🎁 已解锁「文书面试必杀技」！')}
 if(localStorage.getItem('gd_reward_sz05')){document.getElementById('reward-area').style.display='none';document.getElementById('reward-result').style.display='block'}

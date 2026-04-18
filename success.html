@@ -55,6 +55,15 @@
 var WORKER_URL = 'https://api.gaaudim.com';
 var qs = new URLSearchParams(location.search);
 var orderId = (qs.get('order_id') || '').trim();
+// 兜底:URL 没带 order_id(例如支付宝跳回丢参)时,从 localStorage.gd_pending_order 恢复
+if (!orderId){
+  try{
+    var _p = JSON.parse(localStorage.getItem('gd_pending_order') || 'null');
+    if (_p && typeof _p.order_id === 'string' && _p.order_id.indexOf('GDORD-') === 0){
+      orderId = _p.order_id;
+    }
+  } catch(e){}
+}
 var card = document.getElementById('card');
 
 function esc(s){return String(s||'').replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
@@ -154,14 +163,17 @@ function oneClickUnlock(){
 }
 
 function poll(attempt){
-  if (attempt > 30){ // 30 × 3s ≈ 90s
+  if (attempt > 200){ // 200 × 3s = 600s (10 分钟,兼容 webhook 延迟)
     return showError('付款确认超时。如已付款请稍后刷新本页,或联系客服。', true);
   }
   fetch(WORKER_URL + '/api/check-payment/' + encodeURIComponent(orderId), { method:'GET' })
     .then(function(r){ return r.json().then(function(j){ return { s:r.status, j:j }; }); })
     .then(function(res){
       if (res.s === 404) return showError('找不到订单 ' + orderId);
-      if (res.j.status === 'paid') return renderPaid(res.j);
+      if (res.j.status === 'paid'){
+        try{ localStorage.removeItem('gd_pending_order'); }catch(e){}
+        return renderPaid(res.j);
+      }
       if (res.j.status === 'pending') return setTimeout(function(){ poll(attempt+1); }, 3000);
       showError(res.j.error || '状态异常', true);
     })

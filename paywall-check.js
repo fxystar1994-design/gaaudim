@@ -1,9 +1,37 @@
-// paywall-check.js v4.1 — 2026-04-18 · URL迁移缓存刷新
+// paywall-check.js v4.2 — 2026-04-18 · 支付跳回恢复 · 跨页面轮询
+// v4.2: 新增 gd_pending_order localStorage 持久化 + 任意页面加载自动接力轮询,
+//       修复移动端跳支付宝 App 后 JS 死亡导致付款成功却无法跳 success.html(Bug A + C)
 // v4.1: 仅版本号断版刷缓存(文件内容 v4.0 起未变逻辑,WORKER_URL 已切 api.gaaudim.com)
 // v4.0: 接入 XorPay 支付宝即时付款(与面包多并存),支持换设备凭邮箱找回
 (function(){
 var WORKER_URL='https://api.gaaudim.com';
 function pwGetDeviceFp(){try{var s=navigator.userAgent+screen.width+'x'+screen.height+Intl.DateTimeFormat().resolvedOptions().timeZone;return btoa(unescape(encodeURIComponent(s))).replace(/=/g,'').slice(0,24);}catch(e){return 'nofp';}}
+
+// ===== 支付恢复 · 跨页面/跨刷新兜底轮询(修 Bug A · 移动端跳支付宝后 JS 上下文死亡)=====
+// 必须在下面早期 return 之前执行,否则免费页(EP01-05 等)触发 return 就不会接力
+(function gdResumePendingPoll(){
+  try{
+    var raw=localStorage.getItem('gd_pending_order');
+    if(!raw)return;
+    var p=JSON.parse(raw);
+    if(!p||typeof p.order_id!=='string'||p.order_id.indexOf('GDORD-')!==0){localStorage.removeItem('gd_pending_order');return;}
+    if(!p.expires_at||p.expires_at<Date.now()){localStorage.removeItem('gd_pending_order');return;}
+    if(location.pathname.indexOf('/success.html')===0)return; // success.html 自己处理
+    var oid=p.order_id,attempts=0,max=200; // 200 × 3s = 600s
+    var tick=function(){
+      if(attempts>max)return;
+      attempts++;
+      fetch(WORKER_URL+'/api/check-payment/'+encodeURIComponent(oid))
+        .then(function(r){return r.json();})
+        .then(function(j){
+          if(j&&j.status==='paid'){try{localStorage.removeItem('gd_pending_order');}catch(e){}location.href='/success.html?order_id='+encodeURIComponent(oid);return;}
+          setTimeout(tick,3000);
+        })
+        .catch(function(){setTimeout(tick,3000);});
+    };
+    tick();
+  }catch(e){}
+})();
 
 // ===== 付费页面关键词（大写，用于匹配）=====
 var PAID = [
@@ -231,6 +259,8 @@ var _pwOrderId=null,_pwExpiresAt=0,_pwPollTimer=null,_pwTickTimer=null;
 function pwCancelQrInternal(){
   clearTimeout(_pwPollTimer);_pwPollTimer=null;
   clearInterval(_pwTickTimer);_pwTickTimer=null;
+  // 用户显式「取消」/「返回」算放弃本单,清持久化订单;expires_at 到期由 gdResumePendingPoll 自清
+  try{localStorage.removeItem('gd_pending_order');}catch(e){}
   _pwOrderId=null;_pwExpiresAt=0;
 }
 function pwLoadQrLib(cb){
@@ -258,6 +288,8 @@ window.pwConfirmEmail = function(){
       if(!res.j.ok){msg.style.color='#C0392B';msg.textContent=res.j.msg||('创建订单失败:'+(res.j.error||'unknown'));return;}
       _pwOrderId=res.j.order_id;_pwExpiresAt=Date.now()+(res.j.expires_in||7200)*1000;
       if(typeof gtag==='function')gtag('event','alipay_order_created',{order_id:_pwOrderId});
+      // 跳支付宝前持久化订单:跨页面/跨刷新回到站内任意页都能自动恢复轮询
+      try{localStorage.setItem('gd_pending_order',JSON.stringify({order_id:_pwOrderId,expires_at:_pwExpiresAt}));}catch(e){}
       var isMobile=/iPhone|iPad|Android/i.test(navigator.userAgent);
       if(isMobile){location.href=res.j.qr;pwPollPayment();return;}
       pwSwitchStep('pw-step-qr');
@@ -283,14 +315,14 @@ function pwStartQrTimer(){
 function pwPollPayment(){
   if(!_pwOrderId)return;
   clearTimeout(_pwPollTimer);
-  var attempts=0,maxAttempts=40;
+  var attempts=0,maxAttempts=200; // 200 × 3s = 600s (10 分钟,webhook 延迟兜底)
   var tick=function(){
     if(!_pwOrderId||attempts>maxAttempts)return;
     attempts++;
     fetch(WORKER_URL+'/api/check-payment/'+encodeURIComponent(_pwOrderId))
       .then(function(r){return r.json();})
       .then(function(j){
-        if(j.status==='paid'){location.href='/success.html?order_id='+encodeURIComponent(_pwOrderId);return;}
+        if(j.status==='paid'){try{localStorage.removeItem('gd_pending_order');}catch(e){}location.href='/success.html?order_id='+encodeURIComponent(_pwOrderId);return;}
         _pwPollTimer=setTimeout(tick,3000);
       })
       .catch(function(){_pwPollTimer=setTimeout(tick,3000);});
