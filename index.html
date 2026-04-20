@@ -663,7 +663,15 @@ var MIANBAODUO_URL='https://mbd.pub/o/bread/YZWclJZpag==';
 function _h(s){var h=0;for(var i=0;i<s.length;i++){h=((h<<5)-h)+s.charCodeAt(i);h=h&h}return h}
 function showPaywall(t){if(localStorage.getItem('gd_unlocked')==='true'||document.cookie.indexOf('gd_unlocked=true')!==-1){if(document.cookie.indexOf('gd_unlocked=true')!==-1)localStorage.setItem('gd_unlocked','true');showToast('已解锁全站内容！');return}currentPaywallTarget=t;document.getElementById('modal-desc').textContent='「'+t+'」属于完整版内容。解锁后永久查看全站所有指南。';document.getElementById('pay-step1').style.display='block';document.getElementById('paywall-modal').classList.add('active');document.body.style.overflow='hidden';if(typeof gtag==='function')gtag('event','paywall_view',{content:t})}
 function goMianbaoduo(){if(typeof gtag==='function')gtag('event','payment_redirect_mianbaoduo',{content:currentPaywallTarget});window.open(MIANBAODUO_URL,'_blank')}
-function closePaywall(){document.getElementById('paywall-modal').classList.remove('active');document.body.style.overflow='';var ec=document.getElementById('email-collect-step');if(ec)ec.style.display='none';var qr=document.getElementById('qr-step');if(qr)qr.style.display='none';var p1=document.getElementById('pay-step1');if(p1)p1.style.display='block';cancelQrFlow(true)}
+// PR #5 · 中央重置函数 · 把"生成支付二维码"按钮退回初始态 + 释放防抖锁
+function _resetPayConfirmBtn(){
+  window.__gd_creating_order=false;
+  var btn=document.getElementById('pay-confirm-btn');
+  if(btn){btn.disabled=false;btn.textContent='生成支付二维码 →';btn.style.opacity='';btn.style.cursor='';}
+  // pay-email-msg 顺手清,避免旧错误文案残留
+  var m=document.getElementById('pay-email-msg');if(m){m.textContent='';m.style.color='';}
+}
+function closePaywall(){document.getElementById('paywall-modal').classList.remove('active');document.body.style.overflow='';var ec=document.getElementById('email-collect-step');if(ec)ec.style.display='none';var qr=document.getElementById('qr-step');if(qr)qr.style.display='none';var p1=document.getElementById('pay-step1');if(p1)p1.style.display='block';cancelQrFlow(true);_resetPayConfirmBtn();}
 var WORKER_URL='https://api.gaaudim.com';
 function getDeviceFp(){try{var s=navigator.userAgent+screen.width+'x'+screen.height+Intl.DateTimeFormat().resolvedOptions().timeZone;return btoa(unescape(encodeURIComponent(s))).replace(/=/g,'').slice(0,24);}catch(e){return 'nofp';}}
 function _saveUnlock(){localStorage.setItem('gd_unlocked','true');var _d=new Date();_d.setTime(_d.getTime()+365*24*60*60*1000);document.cookie='gd_unlocked=true;expires='+_d.toUTCString()+';path=/;SameSite=Lax';}
@@ -710,6 +718,8 @@ function tryUnlock(){
 
 // ===== XorPay 支付宝付款流程 =====
 function startAlipayPay(){
+  // PR #5 · 进入 email-collect-step 前确保按钮是初始态(上一次 order 成功后按钮已永久禁用)
+  _resetPayConfirmBtn();
   document.getElementById('pay-step1').style.display='none';
   document.getElementById('email-collect-step').style.display='block';
   setTimeout(function(){var e=document.getElementById('pay-email');if(e)e.focus();},100);
@@ -720,6 +730,7 @@ function backToPayStep(){
   document.getElementById('qr-step').style.display='none';
   document.getElementById('pay-step1').style.display='block';
   cancelQrFlow(true);
+  _resetPayConfirmBtn(); // PR #5 · 回退时重置按钮,下次进入 email step 干净可点
 }
 var _payPollTimer=null,_payOrderId=null,_payExpiresAt=0,_qrCanvasReady=false;
 function loadQrLib(cb){
@@ -773,8 +784,12 @@ function confirmPayEmail(){
         }));
         console.log('[订单] 已保存 pending 订单:',_payOrderId);
       }catch(e){}
-      // 订单已建立,本次提交流程结束,释放锁(用户后续不会再点 "生成支付二维码" 按钮,因为它被 hidden)
-      releaseLock();
+      // ===== 修复 A.2 (PR #5) · 订单创建成功 = 按钮永久禁用 =====
+      // 关键:不再 releaseLock。原因:release 后到 QR 渲染之间有中间态(尤其移动端 location.href
+      // 跳转前、或桌面端 loadQrLib 异步加载期),用户可能误以为"按钮可点"又点了一次 → 二次 create-order。
+      // 改为终态 "✓ 订单已生成",直到 closePaywall/backToPayStep/startAlipayPay 显式重置。
+      // window.__gd_creating_order 保持 true —— 任何重复点击 confirmPayEmail 的入口仍被锁拦截。
+      if(btn){btn.disabled=true;btn.textContent='✓ 订单已生成 · 请扫码支付';btn.style.opacity='0.5';btn.style.cursor='not-allowed';}
       // 移动端直接跳转支付宝 App
       var isMobile=/iPhone|iPad|Android/i.test(navigator.userAgent);
       if(isMobile){location.href=res.j.qr;pollPayment();return;}
