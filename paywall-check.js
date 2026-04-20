@@ -1,4 +1,6 @@
-// paywall-check.js v4.2 — 2026-04-18 · 支付跳回恢复 · 跨页面轮询
+// paywall-check.js v4.3 — 2026-04-20 · 付款防抖 + 按钮三态 + 弹窗内凭证卡
+// v4.3: 把 index.html 的 PR #4 + #5 付款防御(4 层 + 三态按钮锁)原样复刻到课程页,
+//       用户从课程页直接付款不再踩双订单漏洞;锁名 __gd_creating_order_pw 与首页隔离
 // v4.2: 新增 gd_pending_order localStorage 持久化 + 任意页面加载自动接力轮询,
 //       修复移动端跳支付宝 App 后 JS 死亡导致付款成功却无法跳 success.html(Bug A + C)
 // v4.1: 仅版本号断版刷缓存(文件内容 v4.0 起未变逻辑,WORKER_URL 已切 api.gaaudim.com)
@@ -186,7 +188,7 @@ overlay.innerHTML = '<div class="pw-box">'
   + '<input class="pw-input" type="email" id="pw-email" placeholder="邮箱(必填)" autocomplete="email">'
   + '<input class="pw-input" type="tel" id="pw-phone" placeholder="手机号(可选)" autocomplete="tel">'
   + '<p id="pw-email-msg" style="font-size:12px;color:#C0392B;min-height:16px;margin:2px 0 8px"></p>'
-  + '<button class="pw-alipay" onclick="pwConfirmEmail()">生成支付二维码 →</button>'
+  + '<button id="pw-confirm-btn" class="pw-alipay" onclick="pwConfirmEmail()">生成支付二维码 →</button>'
   + '<button class="pw-backlink" onclick="pwBackMain()">← 返回</button>'
   + '</div>'
   // QR 码子步骤
@@ -196,6 +198,7 @@ overlay.innerHTML = '<div class="pw-box">'
   + '<div class="pw-qr-wrap"><canvas id="pw-qr-canvas" style="max-width:220px"></canvas></div>'
   + '<p id="pw-qr-timer" style="font-size:13px;color:#777;margin-top:10px;text-align:center">等待付款中...</p>'
   + '<p id="pw-qr-orderid" style="font-size:12px;color:#999;text-align:center;margin-top:2px"></p>'
+  + '<div style="margin-top:18px;padding-top:14px;border-top:1px solid #eee;text-align:center;font-size:13px;color:#888">付款后 2 分钟内未自动显示解锁码?<a href="/lookup.html" target="_blank" style="color:#C8982E;font-weight:600;text-decoration:underline">凭邮箱找回 →</a></div>'
   + '<button class="pw-backlink" onclick="pwCancelQr()">取消</button>'
   + '</div>'
   + '<a href="javascript:history.back()" class="pw-back">← 返回上一页</a>'
@@ -248,12 +251,14 @@ function pwSwitchStep(id){
   });
 }
 window.pwStartAlipay = function(){
+  // PR #6 · 进入 email 子步骤前确保按钮是初始态(可能来自上一轮成功订单的永久禁用态)
+  _pwResetPayConfirmBtn();
   pwSwitchStep('pw-step-email');
   setTimeout(function(){ var e=document.getElementById('pw-email'); if(e)e.focus(); }, 80);
   if(typeof gtag==='function')gtag('event','alipay_click',{page:filename});
 };
-window.pwBackMain = function(){ pwCancelQrInternal(); pwSwitchStep('pw-step-main'); };
-window.pwCancelQr = function(){ pwCancelQrInternal(); pwSwitchStep('pw-step-main'); };
+window.pwBackMain = function(){ pwCancelQrInternal(); _pwResetPayConfirmBtn(); pwSwitchStep('pw-step-main'); };
+window.pwCancelQr = function(){ pwCancelQrInternal(); _pwResetPayConfirmBtn(); pwSwitchStep('pw-step-main'); };
 
 var _pwOrderId=null,_pwExpiresAt=0,_pwPollTimer=null,_pwTickTimer=null;
 function pwCancelQrInternal(){
@@ -277,19 +282,48 @@ function pwLoadQrLib(cb){
   document.head.appendChild(s);
 }
 window.pwConfirmEmail = function(){
+  // ===== PR #6 · 防抖(与首页 __gd_creating_order 隔离用 _pw 后缀)=====
+  if(window.__gd_creating_order_pw){console.log('[paywall防抖] 订单创建中,忽略重复点击');return;}
   var email=(document.getElementById('pw-email').value||'').trim().toLowerCase();
   var phone=(document.getElementById('pw-phone').value||'').trim();
   var msg=document.getElementById('pw-email-msg');
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){msg.style.color='#C0392B';msg.textContent='请输入有效邮箱';return;}
+  // 校验通过后才上锁 + 按钮切处理中态
+  window.__gd_creating_order_pw=true;
+  var btn=document.getElementById('pw-confirm-btn');
+  var origText=btn?btn.textContent:'';
+  if(btn){btn.disabled=true;btn.textContent='生成订单中...';btn.style.opacity='0.6';btn.style.cursor='not-allowed';}
+  var releaseLock=function(){
+    window.__gd_creating_order_pw=false;
+    if(btn){btn.disabled=false;btn.textContent=origText;btn.style.opacity='';btn.style.cursor='';}
+  };
   msg.style.color='#777';msg.textContent='正在创建订单...';
   fetch(WORKER_URL+'/api/create-order',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,phone:phone,channel:'alipay'})})
     .then(function(r){return r.json().then(function(j){return {s:r.status,j:j};});})
     .then(function(res){
-      if(!res.j.ok){msg.style.color='#C0392B';msg.textContent=res.j.msg||('创建订单失败:'+(res.j.error||'unknown'));return;}
+      if(!res.j.ok){
+        msg.style.color='#C0392B';msg.textContent=res.j.msg||('创建订单失败:'+(res.j.error||'unknown'));
+        releaseLock();return;
+      }
       _pwOrderId=res.j.order_id;_pwExpiresAt=Date.now()+(res.j.expires_in||7200)*1000;
       if(typeof gtag==='function')gtag('event','alipay_order_created',{order_id:_pwOrderId});
-      // 跳支付宝前持久化订单:跨页面/跨刷新回到站内任意页都能自动恢复轮询
-      try{localStorage.setItem('gd_pending_order',JSON.stringify({order_id:_pwOrderId,expires_at:_pwExpiresAt}));}catch(e){}
+      // ===== PR #6 · 先清旧值再写新值(防并发响应残留)· 字段与首页一致 =====
+      try{
+        localStorage.removeItem('gd_pending_order');
+        localStorage.setItem('gd_pending_order',JSON.stringify({
+          order_id:_pwOrderId,
+          expires_at:_pwExpiresAt,
+          email:email,
+          created_at:Date.now(),
+          price:'99.00'
+        }));
+        console.log('[paywall订单] 已保存 pending 订单:',_pwOrderId);
+      }catch(e){}
+      // ===== PR #6 (PR #5 同款)· 订单创建成功 = 按钮永久禁用,不再 releaseLock =====
+      // 防中间态:release 后到 QR 渲染前有窗口期,移动端 location.href 跳转前、桌面端 loadQrLib 异步期,
+      // 用户可能误以为"按钮可点"再点一次 → 二次 create-order。按钮锁死直到 pwBackMain/pwCancelQr/pwStartAlipay 重置。
+      // window.__gd_creating_order_pw 保持 true,任何重复触发 pwConfirmEmail 被入口锁拦截。
+      if(btn){btn.disabled=true;btn.textContent='✓ 订单已生成 · 请扫码支付';btn.style.opacity='0.5';btn.style.cursor='not-allowed';}
       var isMobile=/iPhone|iPad|Android/i.test(navigator.userAgent);
       if(isMobile){location.href=res.j.qr;pwPollPayment();return;}
       pwSwitchStep('pw-step-qr');
@@ -300,7 +334,10 @@ window.pwConfirmEmail = function(){
         pwPollPayment();pwStartQrTimer();
       });
     })
-    .catch(function(e){msg.style.color='#C0392B';msg.textContent='网络错误:'+e.message;});
+    .catch(function(e){
+      msg.style.color='#C0392B';msg.textContent='网络错误:'+e.message;
+      releaseLock();
+    });
 };
 function pwStartQrTimer(){
   var el=document.getElementById('pw-qr-timer');
@@ -315,19 +352,111 @@ function pwStartQrTimer(){
 function pwPollPayment(){
   if(!_pwOrderId)return;
   clearTimeout(_pwPollTimer);
-  var attempts=0,maxAttempts=200; // 200 × 3s = 600s (10 分钟,webhook 延迟兜底)
+  var attempts=0,maxAttempts=300; // 300 × 3s = 900s (15 分钟,与首页对齐)
   var tick=function(){
-    if(!_pwOrderId||attempts>maxAttempts)return;
+    if(!_pwOrderId)return;
+    if(attempts>maxAttempts){pwShowPayTimeoutHint();return;}
     attempts++;
     fetch(WORKER_URL+'/api/check-payment/'+encodeURIComponent(_pwOrderId))
       .then(function(r){return r.json();})
       .then(function(j){
-        if(j.status==='paid'){try{localStorage.removeItem('gd_pending_order');}catch(e){}location.href='/success.html?order_id='+encodeURIComponent(_pwOrderId);return;}
+        // ===== PR #6 · paid 不再硬跳 success.html,直接在弹窗内渲染凭证卡 =====
+        if(j&&j.status==='paid'&&j.code){
+          try{localStorage.removeItem('gd_pending_order');}catch(e){}
+          try{localStorage.setItem('gd_unlock_code',j.code);}catch(e){}
+          pwShowUnlockCertificate({
+            code:j.code,
+            order_id:j.order_id||_pwOrderId,
+            email:j.email,
+            pay_time:j.pay_time,
+            pay_price:j.pay_price,
+            aoid:j.aoid
+          });
+          return;
+        }
         _pwPollTimer=setTimeout(tick,3000);
       })
-      .catch(function(){_pwPollTimer=setTimeout(tick,3000);});
+      .catch(function(err){console.warn('[paywall轮询] check-payment 失败,继续重试',err);_pwPollTimer=setTimeout(tick,3000);});
   };
   tick();
+}
+
+// ===== PR #6 · 弹窗内凭证卡(替换 pw-step-qr 内容)=====
+function _pwCertEsc(s){return String(s||'').replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]});}
+window.pwShowUnlockCertificate = function(d){
+  var qs=document.getElementById('pw-step-qr');if(!qs)return;
+  clearInterval(_pwTickTimer);_pwTickTimer=null;
+  qs.innerHTML=
+    '<h3 style="font-size:20px;color:#1A7A5C;text-align:center;margin:0 0 6px">🎉 付款成功</h3>'
+    +'<p style="font-size:13px;color:#777;margin-bottom:14px;text-align:center">凭证已生成,建议截图保存</p>'
+    +'<div style="background:linear-gradient(135deg,#FFF8E8,#FFEFC2);border:1px solid #E4D6A6;border-radius:14px;padding:18px;text-align:center;margin:12px 0">'
+      +'<div style="font-size:13px;color:#777;margin-bottom:8px">你的解锁码</div>'
+      +'<div style="font-family:\'Noto Serif SC\',serif;font-size:28px;font-weight:900;color:#C8982E;letter-spacing:3px;word-break:break-all" id="pw-cert-code-val">'+_pwCertEsc(d.code)+'</div>'
+      +'<button id="pw-cert-copy-btn" onclick="pwCopyCertCode()" style="margin-top:10px;background:#111;color:#fff;border:none;padding:8px 18px;border-radius:8px;font-family:inherit;font-size:13px;font-weight:700;cursor:pointer">复制</button>'
+    +'</div>'
+    +'<div style="font-size:13px;line-height:2;color:#333;background:#FAF6EE;border-radius:10px;padding:12px 14px;margin:12px 0;text-align:left">'
+      +'<div style="display:flex;justify-content:space-between;gap:8px"><span style="color:#777;flex:0 0 70px">订单号</span><span style="text-align:right;word-break:break-all">'+_pwCertEsc(d.order_id)+'</span></div>'
+      +'<div style="display:flex;justify-content:space-between;gap:8px"><span style="color:#777;flex:0 0 70px">邮箱</span><span style="text-align:right;word-break:break-all">'+_pwCertEsc(d.email)+'</span></div>'
+      +'<div style="display:flex;justify-content:space-between;gap:8px"><span style="color:#777;flex:0 0 70px">付款时间</span><span style="text-align:right">'+_pwCertEsc(d.pay_time)+'</span></div>'
+      +'<div style="display:flex;justify-content:space-between;gap:8px"><span style="color:#777;flex:0 0 70px">金额</span><span style="text-align:right">¥'+_pwCertEsc(d.pay_price||'99.00')+'</span></div>'
+      +'<div style="display:flex;justify-content:space-between;gap:8px"><span style="color:#777;flex:0 0 70px">流水号</span><span style="text-align:right;word-break:break-all">'+_pwCertEsc(d.aoid)+'</span></div>'
+    +'</div>'
+    +'<button onclick="pwOneClickUnlockFromCert()" style="display:block;width:100%;background:linear-gradient(135deg,#C8982E,#B8862B);color:#fff;border:none;padding:14px;border-radius:10px;font-family:inherit;font-size:16px;font-weight:900;cursor:pointer;margin-top:8px;box-shadow:0 4px 12px rgba(200,152,46,.3)">一键解锁全站</button>'
+    +'<button onclick="pwDownloadCertFromModal()" style="display:block;width:100%;background:none;color:#333;border:1px solid #E8E4DE;padding:12px;border-radius:10px;font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;margin-top:8px">下载凭证 (txt)</button>'
+    +'<p style="font-size:12px;color:#777;text-align:center;margin-top:12px">换设备时可凭 <b>'+_pwCertEsc(d.email)+'</b> 到 <a href="/lookup.html" style="color:#C8982E">/lookup.html</a> 找回</p>';
+  window.__gd_pw_cert_data=d;
+  if(typeof gtag==='function')gtag('event','payment_paid_in_paywall_modal',{order_id:d.order_id,page:filename});
+};
+window.pwCopyCertCode = function(){
+  var d=window.__gd_pw_cert_data;if(!d||!d.code)return;
+  var btn=document.getElementById('pw-cert-copy-btn');
+  var done=function(){if(btn){btn.textContent='✓ 已复制';btn.style.background='#1A7A5C';setTimeout(function(){btn.textContent='复制';btn.style.background='#111';},1800);}};
+  if(navigator.clipboard){navigator.clipboard.writeText(d.code).then(done).catch(fb);}else{fb();}
+  function fb(){var ta=document.createElement('textarea');ta.value=d.code;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');done();}catch(e){}document.body.removeChild(ta);}
+};
+window.pwOneClickUnlockFromCert = function(){
+  var d=window.__gd_pw_cert_data;if(!d||!d.code)return;
+  saveUnlockState();
+  fetch(WORKER_URL+'/api/validate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({code:d.code,fp:pwGetDeviceFp()})})
+    .catch(function(){}).finally(function(){location.href='/?unlocked=1';});
+};
+window.pwDownloadCertFromModal = function(){
+  var d=window.__gd_pw_cert_data;if(!d)return;
+  var txt='搞掂 GaauDim · 付款凭证\n========================\n'
+    +'解锁码:  '+d.code+'\n'
+    +'订单号:  '+d.order_id+'\n'
+    +'邮箱:    '+(d.email||'')+'\n'
+    +'付款时间:'+(d.pay_time||'')+'\n'
+    +'金额:    ¥'+(d.pay_price||'99.00')+'\n'
+    +'XorPay流水:'+(d.aoid||'')+'\n'
+    +'========================\n'
+    +'· 输入解锁码到 https://gaaudim.com 即可解锁全站\n'
+    +'· 换设备凭邮箱到 https://gaaudim.com/lookup.html 找回\n'
+    +'· 问题联系 gaaudim2026@gmail.com\n';
+  var blob=new Blob([txt],{type:'text/plain;charset=utf-8'});
+  var url=URL.createObjectURL(blob);
+  var a=document.createElement('a');a.href=url;a.download='gaaudim_cert_'+d.order_id+'.txt';
+  document.body.appendChild(a);a.click();
+  setTimeout(function(){document.body.removeChild(a);URL.revokeObjectURL(url);},500);
+};
+function pwShowPayTimeoutHint(){
+  var qs=document.getElementById('pw-step-qr');if(!qs)return;
+  if(!document.getElementById('pw-qr-canvas'))return; // 已被 cert 替换则跳过
+  var oid=_pwOrderId||'';
+  qs.innerHTML=
+    '<h3 style="font-size:18px;text-align:center;margin:0 0 10px">付款确认超时</h3>'
+    +'<p style="font-size:13px;color:#777;text-align:center;line-height:1.8;margin:12px 0">15 分钟内未收到付款回调。<br>如你已付款,请凭付款邮箱到找回页查询解锁码。</p>'
+    +'<a href="/lookup.html" style="display:block;width:100%;background:linear-gradient(135deg,#C8982E,#B8862B);color:#fff;border:none;padding:14px;border-radius:10px;font-family:inherit;font-size:16px;font-weight:900;text-decoration:none;text-align:center;box-shadow:0 4px 12px rgba(200,152,46,.3)">凭邮箱找回解锁码 →</a>'
+    +'<p style="font-size:12px;color:#777;text-align:center;margin-top:12px">订单号:'+_pwCertEsc(oid)+'</p>'
+    +'<p style="font-size:12px;color:#777;text-align:center;margin-top:6px">仍有问题?联系 <a href="mailto:gaaudim2026@gmail.com" style="color:#C8982E">gaaudim2026@gmail.com</a></p>';
+}
+
+// ===== PR #6 (PR #5 同款) · 中央重置 · 按钮退回初始态 + 释放防抖锁 =====
+function _pwResetPayConfirmBtn(){
+  window.__gd_creating_order_pw=false;
+  var btn=document.getElementById('pw-confirm-btn');
+  if(btn){btn.disabled=false;btn.textContent='生成支付二维码 →';btn.style.opacity='';btn.style.cursor='';}
+  var m=document.getElementById('pw-email-msg');if(m){m.textContent='';m.style.color='';}
 }
 
 document.addEventListener('keydown', function(e) {
