@@ -727,63 +727,6 @@ body {
   .tone-row { flex-wrap:wrap; gap:8px; }
   .compare-drill { grid-template-columns:1fr; }
   .compare-vs { display:none; }
-
-  /* === 表格手机端卡片化:彻底解决🔊按钮对不齐 === */
-  .jp-table,
-  .jp-table thead,
-  .jp-table tbody,
-  .jp-table tr,
-  .jp-table td,
-  .jp-table th { display:block; }
-  .jp-table thead { display:none; }              /* 表头隐藏,让每行独立成卡片 */
-  .jp-table {
-    border:1px solid rgba(0,180,216,0.15);
-    border-radius:10px;
-    overflow:hidden;
-    margin:14px 0;
-  }
-  .jp-table tr {
-    position:relative;                            /* 关键:为🔊按钮提供绝对定位锚点 */
-    padding:14px 60px 14px 14px;                  /* 右侧预留 60px 给按钮 */
-    border-bottom:1px solid rgba(255,255,255,0.07);
-    min-height:56px;
-    display:flex;
-    flex-wrap:wrap;
-    align-items:center;
-    gap:6px 10px;
-  }
-  .jp-table tr:last-child { border-bottom:none; }
-  .jp-table td {
-    padding:0 !important;
-    border:none !important;
-    background:transparent !important;
-    line-height:1.5;
-  }
-  /* 例字加大,作为视觉锚点 */
-  .jp-table td.char { font-size:20px; }
-  /* 粤拼用 chip 样式凸显 */
-  .jp-table td.jyut {
-    background:rgba(0,180,216,0.12);
-    padding:2px 8px !important;
-    border-radius:6px;
-    font-size:13px;
-  }
-  /* 拼音、音标、说明 用次要色 */
-  .jp-table td.pth,
-  .jp-table td.note { color:#999; font-size:12px; }
-  /* 关键:🔊按钮绝对定位,垂直居中钉死右侧 */
-  .jp-table tr td:last-child {
-    position:absolute;
-    right:12px;
-    top:50%;
-    transform:translateY(-50%);
-    margin:0;
-  }
-  .jp-table tr td:last-child button {
-    width:38px !important;
-    height:38px !important;
-    font-size:16px !important;
-  }
 }
 
 </style>
@@ -1439,37 +1382,85 @@ input,textarea{-webkit-user-select:text;-moz-user-select:text;-ms-user-select:te
 </div>
 
 <script>
-// ===== TTS =====
+// ===== TTS v4 (mobile-stable) =====
+// 修复:cancel异步问题、队列上限、按钮重复点击错乱、错位发音
 (function() {
   let ttsVoice = null, ttsReady = false;
+  let speaking = false;          // 全局发声锁,防止队列叠加
+  let lastClickTs = 0;           // 防抖时间戳
+
   function loadVoice() {
     const voices = speechSynthesis.getVoices();
-    ttsVoice = voices.find(v => v.lang === 'zh-HK') || voices.find(v => v.lang === 'zh-TW') || voices.find(v => v.lang.startsWith('zh'));
+    // 优先级:zh-HK > yue-* > zh-TW > 任意中文
+    ttsVoice = voices.find(v => v.lang === 'zh-HK')
+            || voices.find(v => v.lang && v.lang.toLowerCase().startsWith('yue'))
+            || voices.find(v => v.lang === 'zh-TW')
+            || voices.find(v => v.lang && v.lang.startsWith('zh'));
     ttsReady = true;
     const b = document.getElementById('tts-badge');
     if(b) {
-      if(ttsVoice) { b.textContent='🎧 高清粤语发音已就绪'; b.style.background='#2DC653'; }
-      else { b.textContent='⚠️ 未检测到粤语语音包'; b.style.background='#E84545'; }
+      if(ttsVoice && (ttsVoice.lang === 'zh-HK' || ttsVoice.lang.toLowerCase().startsWith('yue'))) {
+        b.textContent = '🎧 粤语发音已就绪'; b.style.background = '#2DC653';
+      } else if(ttsVoice) {
+        b.textContent = '⚠️ 当前用'+ttsVoice.lang+'发音,非粤语'; b.style.background = '#F5A623';
+      } else {
+        b.textContent = '⚠️ 未检测到粤语语音包,请用桌面 Chrome 体验'; b.style.background = '#E84545';
+      }
     }
   }
-  window.speak = function(text, btn) {
-    if(!ttsReady) loadVoice();
-    speechSynthesis.cancel();
+
+  function doSpeak(text, btn) {
     const u = new SpeechSynthesisUtterance(text);
     u.lang = ttsVoice ? ttsVoice.lang : 'zh-HK';
     if(ttsVoice) u.voice = ttsVoice;
     u.rate = 0.82; u.pitch = 1.05;
+
+    const orig = btn ? (btn.dataset.orig || btn.innerHTML) : null;
     if(btn) {
-      const orig = btn.innerHTML;
+      btn.dataset.orig = orig;
       btn.innerHTML = '⏸';
-      u.onend = () => { btn.innerHTML = orig; };
-      u.onerror = () => { btn.innerHTML = orig; };
+      btn.dataset.busy = '1';
     }
+    const restore = () => {
+      speaking = false;
+      if(btn) { btn.innerHTML = orig; btn.dataset.busy = '0'; }
+    };
+    u.onend   = restore;
+    u.onerror = restore;
+    speaking = true;
     speechSynthesis.speak(u);
+  }
+
+  window.speak = function(text, btn) {
+    // 防抖:200ms 内重复点击直接忽略
+    const now = Date.now();
+    if(now - lastClickTs < 200) return;
+    lastClickTs = now;
+
+    if(!ttsReady) loadVoice();
+
+    // 如果正在播,先停掉(并取消按钮 busy 态)
+    if(speaking || speechSynthesis.speaking || speechSynthesis.pending) {
+      speechSynthesis.cancel();
+      speaking = false;
+      // 重置所有 busy 按钮
+      document.querySelectorAll('[data-busy="1"]').forEach(b => {
+        b.innerHTML = b.dataset.orig || '🔊';
+        b.dataset.busy = '0';
+      });
+    }
+    // 关键修复:cancel 是异步的,延迟一帧再 speak,确保队列清空
+    setTimeout(() => doSpeak(text, btn), 60);
   };
+
   if(speechSynthesis.getVoices().length > 0) loadVoice();
   speechSynthesis.onvoiceschanged = loadVoice;
   window.addEventListener('load', loadVoice);
+
+  // iOS Safari 修复:页面切后台再回来时,队列会卡死,需要 resume
+  document.addEventListener('visibilitychange', () => {
+    if(!document.hidden && speechSynthesis.paused) speechSynthesis.resume();
+  });
 })();
 
 // ===== QUIZ =====
@@ -1524,7 +1515,7 @@ function toggleFloatTip() { document.getElementById('float-msg').classList.toggl
 <script>document.addEventListener("DOMContentLoaded",function(){var c=document.querySelector(".gd-bot-ep.on");if(c)c.scrollIntoView({inline:"center",block:"nearest"});})</script>
 <script>document.addEventListener("contextmenu",function(e){e.preventDefault()});document.addEventListener("copy",function(e){if(e.target.tagName!=="INPUT"&&e.target.tagName!=="TEXTAREA")e.preventDefault()});document.addEventListener("selectstart",function(e){if(e.target.tagName!=="INPUT"&&e.target.tagName!=="TEXTAREA")e.preventDefault()});</script>
 <script src="gaaudim-tts.js?v=3.5" defer></script>
-<script>(function(){var os=window.speak;if(os){window.speak=function(t,b){if(speechSynthesis.speaking){speechSynthesis.cancel();if(b)b.innerHTML=b.dataset.o||'🔊';return;}os(t,b);};}else{var v=null;function lv(){var vs=speechSynthesis.getVoices();v=vs.find(function(x){return x.lang==='zh-HK'})||vs.find(function(x){return x.lang==='zh-TW'})||vs.find(function(x){return x.lang.startsWith('zh')});}if(speechSynthesis.getVoices().length>0)lv();speechSynthesis.onvoiceschanged=lv;window.speak=function(t,b){if(speechSynthesis.speaking){speechSynthesis.cancel();if(b)b.innerHTML=b.dataset.o||'🔊';return;}if(!v)lv();var u=new SpeechSynthesisUtterance(t);u.lang=v?v.lang:'zh-HK';if(v)u.voice=v;u.rate=0.85;u.pitch=1.05;if(b){b.dataset.o=b.dataset.o||b.innerHTML;var oi=b.innerHTML;b.innerHTML='⏸';u.onend=function(){b.innerHTML=oi};u.onerror=function(){b.innerHTML=oi};}speechSynthesis.speak(u);};}})();</script>
+<!-- 已移除冲突的 speak() 二次包装,统一由页面内 v4 TTS 处理 -->
 <script src="paywall-check.js?v=4.0" defer></script>
 </body>
 </html>
