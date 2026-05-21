@@ -727,6 +727,63 @@ body {
   .tone-row { flex-wrap:wrap; gap:8px; }
   .compare-drill { grid-template-columns:1fr; }
   .compare-vs { display:none; }
+
+  /* === 表格手机端卡片化:彻底解决🔊按钮对不齐 === */
+  .jp-table,
+  .jp-table thead,
+  .jp-table tbody,
+  .jp-table tr,
+  .jp-table td,
+  .jp-table th { display:block; }
+  .jp-table thead { display:none; }              /* 表头隐藏,让每行独立成卡片 */
+  .jp-table {
+    border:1px solid rgba(0,180,216,0.15);
+    border-radius:10px;
+    overflow:hidden;
+    margin:14px 0;
+  }
+  .jp-table tr {
+    position:relative;                            /* 关键:为🔊按钮提供绝对定位锚点 */
+    padding:14px 60px 14px 14px;                  /* 右侧预留 60px 给按钮 */
+    border-bottom:1px solid rgba(255,255,255,0.07);
+    min-height:56px;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:6px 10px;
+  }
+  .jp-table tr:last-child { border-bottom:none; }
+  .jp-table td {
+    padding:0 !important;
+    border:none !important;
+    background:transparent !important;
+    line-height:1.5;
+  }
+  /* 例字加大,作为视觉锚点 */
+  .jp-table td.char { font-size:20px; }
+  /* 粤拼用 chip 样式凸显 */
+  .jp-table td.jyut {
+    background:rgba(0,180,216,0.12);
+    padding:2px 8px !important;
+    border-radius:6px;
+    font-size:13px;
+  }
+  /* 拼音、音标、说明 用次要色 */
+  .jp-table td.pth,
+  .jp-table td.note { color:#999; font-size:12px; }
+  /* 关键:🔊按钮绝对定位,垂直居中钉死右侧 */
+  .jp-table tr td:last-child {
+    position:absolute;
+    right:12px;
+    top:50%;
+    transform:translateY(-50%);
+    margin:0;
+  }
+  .jp-table tr td:last-child button {
+    width:38px !important;
+    height:38px !important;
+    font-size:16px !important;
+  }
 }
 
 </style>
@@ -1468,6 +1525,6 @@ function toggleFloatTip() { document.getElementById('float-msg').classList.toggl
 <script>document.addEventListener("contextmenu",function(e){e.preventDefault()});document.addEventListener("copy",function(e){if(e.target.tagName!=="INPUT"&&e.target.tagName!=="TEXTAREA")e.preventDefault()});document.addEventListener("selectstart",function(e){if(e.target.tagName!=="INPUT"&&e.target.tagName!=="TEXTAREA")e.preventDefault()});</script>
 <script src="gaaudim-tts.js?v=3.5" defer></script>
 <script>(function(){var os=window.speak;if(os){window.speak=function(t,b){if(speechSynthesis.speaking){speechSynthesis.cancel();if(b)b.innerHTML=b.dataset.o||'🔊';return;}os(t,b);};}else{var v=null;function lv(){var vs=speechSynthesis.getVoices();v=vs.find(function(x){return x.lang==='zh-HK'})||vs.find(function(x){return x.lang==='zh-TW'})||vs.find(function(x){return x.lang.startsWith('zh')});}if(speechSynthesis.getVoices().length>0)lv();speechSynthesis.onvoiceschanged=lv;window.speak=function(t,b){if(speechSynthesis.speaking){speechSynthesis.cancel();if(b)b.innerHTML=b.dataset.o||'🔊';return;}if(!v)lv();var u=new SpeechSynthesisUtterance(t);u.lang=v?v.lang:'zh-HK';if(v)u.voice=v;u.rate=0.85;u.pitch=1.05;if(b){b.dataset.o=b.dataset.o||b.innerHTML;var oi=b.innerHTML;b.innerHTML='⏸';u.onend=function(){b.innerHTML=oi};u.onerror=function(){b.innerHTML=oi};}speechSynthesis.speak(u);};}})();</script>
-<script src="paywall-check.js?v=4.3" defer></script>
+<script src="paywall-check.js?v=4.0" defer></script>
 </body>
 </html>
